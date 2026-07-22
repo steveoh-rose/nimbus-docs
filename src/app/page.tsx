@@ -3,7 +3,6 @@ import {
   ArrowRightIcon,
   BlocksIcon,
   BookOpenIcon,
-  LayersIcon,
   PaletteIcon,
 } from "lucide-react"
 
@@ -29,16 +28,9 @@ const sections = [
     icon: BlocksIcon,
   },
   {
-    title: "Compound Components",
-    description:
-      "Organisms and templates composed from primitives — data tables, command menus, auth cards.",
-    href: "/docs/compound/data-table",
-    icon: LayersIcon,
-  },
-  {
     title: "Patterns",
     description:
-      "Recipes for combining components to solve real UX problems — empty states, validation, confirmation flows.",
+      "Composed examples and recipes built from primitives — data tables, command menus, auth cards, empty states, validation, confirmation flows.",
     href: "/docs/patterns/empty-states",
     icon: BookOpenIcon,
   },
@@ -62,8 +54,8 @@ export default function Home() {
           <br className="hidden sm:block" /> fully documented.
         </h1>
         <p className="max-w-xl text-lg text-muted-foreground">
-          Tokens, components, compound components, and patterns for building
-          consistent ConsoleConnect products — beyond what Storybook shows.
+          Tokens, components, and patterns for building consistent
+          ConsoleConnect products — beyond what Storybook shows.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Button size="lg" asChild>
@@ -99,7 +91,7 @@ export default function Home() {
       </section>
 
       <section className="mx-auto w-full max-w-[1400px] px-4 pb-24 lg:px-8">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-3">
           {sections.map((section) => (
             <Link key={section.title} href={section.href} className="group">
               <Card className="h-full transition-colors group-hover:border-foreground/30">

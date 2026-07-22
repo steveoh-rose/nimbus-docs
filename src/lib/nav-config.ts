@@ -13,7 +13,7 @@ export interface NavGroup {
 export const siteConfig = {
   name: "Nimbus UI",
   description:
-    "The Nimbus design system — tokens, components, compound components, and patterns for building ConsoleConnect products.",
+    "The Nimbus design system — tokens, components, and patterns for building ConsoleConnect products.",
   githubUrl: "https://github.com/ConsoleConnect/nimbus-ui",
   storybookUrl: "https://consoleconnect.github.io/nimbus-ui/",
 }
@@ -22,7 +22,6 @@ export const mainNav: NavItem[] = [
   { title: "Docs", href: "/docs/introduction" },
   { title: "Tokens", href: "/docs/tokens/color" },
   { title: "Components", href: "/docs/components/button" },
-  { title: "Compound Components", href: "/docs/compound/data-table" },
   { title: "Patterns", href: "/docs/patterns/empty-states" },
 ]
 
@@ -96,16 +95,11 @@ export const sidebarNav: NavGroup[] = [
     ],
   },
   {
-    title: "Compound Components",
-    items: [
-      { title: "Data Table", href: "/docs/compound/data-table" },
-      { title: "Command Menu", href: "/docs/compound/command-menu" },
-      { title: "Auth Card", href: "/docs/compound/auth-card" },
-    ],
-  },
-  {
     title: "Patterns",
     items: [
+      { title: "Data Table", href: "/docs/patterns/data-table" },
+      { title: "Command Menu", href: "/docs/patterns/command-menu" },
+      { title: "Auth Card", href: "/docs/patterns/auth-card" },
       { title: "Empty States", href: "/docs/patterns/empty-states" },
       { title: "Form Validation", href: "/docs/patterns/form-validation" },
       { title: "Confirmation Flow", href: "/docs/patterns/confirmation-flow" },
