@@ -1,0 +1,27 @@
+---
+title: Popover
+description: A non-modal surface anchored to a trigger, for supplementary content.
+---
+
+Full preview and API reference coming soon. The underlying primitive
+(`src/components/ui/popover.tsx`) is already installed in this scaffold — a
+demo just hasn't been written yet.
+
+```tsx
+import { Popover, PopoverContent, PopoverTrigger } from "@nimbus/ui"
+
+export function Example() {
+  return (
+    <Popover>
+      <PopoverTrigger>Open</PopoverTrigger>
+      <PopoverContent>Place content for the popover here.</PopoverContent>
+    </Popover>
+  )
+}
+```
+
+## Popover vs. Tooltip vs. Dialog
+
+**Tooltip** is hover-only and non-interactive. **Popover** is click-triggered
+and can contain interactive content, but isn't modal. **Dialog** is modal and
+blocks the rest of the page.

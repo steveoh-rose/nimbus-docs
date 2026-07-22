@@ -1,0 +1,50 @@
+---
+title: Introduction
+description: What Nimbus UI is, how this site is organized, and where to go next.
+---
+
+Nimbus UI is ConsoleConnect's design system — a set of design tokens, accessible
+React components, and higher-level patterns used to build consistent products
+across the company.
+
+This site is the design-system documentation layer on top of the
+[`nimbus-ui`](https://github.com/ConsoleConnect/nimbus-ui) component library.
+It's organized into four layers, from smallest building block to largest:
+
+## Tokens
+
+The raw design decisions — color, typography, spacing, radius, shadows, and
+motion — that every component is built from. See [Tokens](/docs/tokens/color).
+
+## Components
+
+Accessible, themeable primitives: buttons, inputs, overlays, navigation, data
+display, and feedback. See [Components](/docs/components/button).
+
+## Compound Components
+
+Organisms and templates composed from primitives — things like data tables,
+command menus, and auth cards — ready to drop into a page. See
+[Compound Components](/docs/compound/data-table).
+
+## Patterns
+
+Recipes for combining components to solve a recurring UX problem — empty
+states, form validation, confirmation flows. Patterns are guidance and code,
+not a single importable component. See [Patterns](/docs/patterns/empty-states).
+
+## Relationship to Storybook
+
+`nimbus-ui`'s Storybook instance (still available at
+[consoleconnect.github.io/nimbus-ui](https://consoleconnect.github.io/nimbus-ui/))
+remains the source of truth for exhaustive per-prop API exploration and visual
+regression testing. This site is the narrative layer on top — how to think
+about the system, when to reach for which piece, and how pieces combine.
+
+## Placeholder content notice
+
+This scaffold currently renders the **shadcn/ui primitives** as stand-ins for
+real `nimbus-ui` components so the whole site, navigation, and preview
+pipeline can be reviewed end-to-end before wiring up real package access.
+Swapping in real components is a matter of changing the imports inside
+`src/registry/demos/*.tsx` — nothing else in the docs pipeline needs to change.

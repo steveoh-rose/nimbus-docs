@@ -1,0 +1,25 @@
+---
+title: Button
+description: Triggers an action or event, in six visual styles and four sizes.
+---
+
+<ComponentPreview name="button" />
+
+## Usage
+
+```tsx
+import { Button } from "@nimbus/ui"
+
+export function Example() {
+  return <Button variant="secondary">Get started</Button>
+}
+```
+
+## API reference
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `default \| secondary \| outline \| ghost \| destructive \| link` | `default` | Visual style |
+| `size` | `sm \| default \| lg \| icon` | `default` | Height and padding |
+| `disabled` | `boolean` | `false` | Disables interaction and dims the button |
+| `asChild` | `boolean` | `false` | Renders the styles onto a child element instead of a `<button>` |

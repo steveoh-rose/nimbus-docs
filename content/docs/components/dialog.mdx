@@ -1,0 +1,46 @@
+---
+title: Dialog
+description: A modal overlay that interrupts the current flow for a focused task.
+---
+
+<ComponentPreview name="dialog" />
+
+## Usage
+
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@nimbus/ui"
+
+export function Example() {
+  return (
+    <Dialog>
+      <DialogTrigger>Edit profile</DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>Make changes and save.</DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  )
+}
+```
+
+## When to use vs. Sheet
+
+Use **Dialog** for focused, blocking tasks (confirmations, short forms). Use
+[Sheet](/docs/components/sheet) for supplementary panels that slide in from
+an edge without fully blocking the page's context, like filters or details.
+
+## API reference
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `open` / `onOpenChange` | `boolean`, `(open: boolean) => void` | — | Controlled open state |
+| `modal` | `boolean` | `true` | Whether interaction outside is blocked |

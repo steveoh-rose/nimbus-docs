@@ -1,0 +1,35 @@
+---
+title: Breadcrumb
+description: Shows the current page's location within a hierarchy.
+---
+
+Full preview and API reference coming soon. The underlying primitive
+(`src/components/ui/breadcrumb.tsx`) is already installed in this scaffold —
+a demo just hasn't been written yet.
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@nimbus/ui"
+
+export function Example() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
+}
+```

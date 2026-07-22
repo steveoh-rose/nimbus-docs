@@ -1,0 +1,27 @@
+---
+title: Color
+description: Semantic color roles used across every Nimbus UI component.
+---
+
+Colors are defined as semantic roles, not raw hex values, so components stay
+consistent when a theme changes. This site is currently styled with the
+default shadcn/ui neutral palette as a placeholder — swap the values in
+`src/app/globals.css` for real Nimbus token values once they're available.
+
+<ComponentPreview name="color-swatches" />
+
+## Roles
+
+| Token | Used for |
+| --- | --- |
+| `background` / `foreground` | Page background and default text |
+| `card` / `card-foreground` | Surfaces raised above the background |
+| `primary` / `primary-foreground` | Primary actions, active states |
+| `secondary` / `secondary-foreground` | Secondary actions |
+| `muted` / `muted-foreground` | De-emphasized text and backgrounds |
+| `accent` / `accent-foreground` | Hover/active highlight states |
+| `destructive` | Errors, destructive actions |
+| `border` / `input` / `ring` | Borders, form field outlines, focus rings |
+
+Each pair is a background/foreground combination guaranteed to meet contrast
+requirements in both light and dark mode.

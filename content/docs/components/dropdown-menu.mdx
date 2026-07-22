@@ -1,0 +1,30 @@
+---
+title: Dropdown Menu
+description: A menu of actions or options, triggered by a button.
+---
+
+Full preview and API reference coming soon. The underlying primitive
+(`src/components/ui/dropdown-menu.tsx`) is already installed in this
+scaffold — a demo just hasn't been written yet.
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@nimbus/ui"
+
+export function Example() {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger>Open menu</DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem>Settings</DropdownMenuItem>
+        <DropdownMenuItem>Log out</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
+```

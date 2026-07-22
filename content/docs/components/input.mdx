@@ -1,0 +1,29 @@
+---
+title: Input
+description: A single-line text field, paired with a Label for accessibility.
+---
+
+<ComponentPreview name="input" />
+
+## Usage
+
+```tsx
+import { Input, Label } from "@nimbus/ui"
+
+export function Example() {
+  return (
+    <div className="grid gap-2">
+      <Label htmlFor="email">Email</Label>
+      <Input id="email" type="email" placeholder="you@consoleconnect.com" />
+    </div>
+  )
+}
+```
+
+## API reference
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `type` | `HTMLInputElement["type"]` | `"text"` | Native input type |
+| `disabled` | `boolean` | `false` | Disables the field |
+| `aria-invalid` | `boolean` | — | Applies the destructive/error style |

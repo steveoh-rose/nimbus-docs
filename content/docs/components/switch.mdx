@@ -1,0 +1,27 @@
+---
+title: Switch
+description: A toggle for an on/off setting, applied immediately.
+---
+
+Full preview and API reference coming soon. The underlying primitive
+(`src/components/ui/switch.tsx`) is already installed in this scaffold — a
+demo just hasn't been written yet.
+
+```tsx
+import { Label, Switch } from "@nimbus/ui"
+
+export function Example() {
+  return (
+    <div className="flex items-center gap-2">
+      <Switch id="notifications" />
+      <Label htmlFor="notifications">Enable notifications</Label>
+    </div>
+  )
+}
+```
+
+## Switch vs. Checkbox
+
+Use **Switch** for settings that take effect immediately (no form submission
+needed). Use [Checkbox](/docs/components/checkbox) inside forms where a
+value is collected and submitted.

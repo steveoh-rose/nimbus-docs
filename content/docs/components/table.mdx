@@ -1,0 +1,32 @@
+---
+title: Table
+description: Displays tabular data with headers and rows.
+---
+
+Full preview and API reference coming soon. The underlying primitive
+(`src/components/ui/table.tsx`) is already installed in this scaffold, and is
+used live on the [Data Table](/docs/compound/data-table) compound component —
+this page covers the raw primitive on its own, without sorting/pagination.
+
+```tsx
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@nimbus/ui"
+
+export function Example() {
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Name</TableHead>
+          <TableHead>Status</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>acme-prod-east</TableCell>
+          <TableCell>Active</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  )
+}
+```

@@ -1,0 +1,27 @@
+---
+title: Radio Group
+description: A set of mutually exclusive options.
+---
+
+Full preview and API reference coming soon. The underlying primitive
+(`src/components/ui/radio-group.tsx`) is already installed in this scaffold —
+a demo just hasn't been written yet.
+
+```tsx
+import { Label, RadioGroup, RadioGroupItem } from "@nimbus/ui"
+
+export function Example() {
+  return (
+    <RadioGroup defaultValue="monthly">
+      <div className="flex items-center gap-2">
+        <RadioGroupItem value="monthly" id="monthly" />
+        <Label htmlFor="monthly">Monthly</Label>
+      </div>
+      <div className="flex items-center gap-2">
+        <RadioGroupItem value="annual" id="annual" />
+        <Label htmlFor="annual">Annual</Label>
+      </div>
+    </RadioGroup>
+  )
+}
+```

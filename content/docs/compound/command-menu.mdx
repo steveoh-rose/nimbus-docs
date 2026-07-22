@@ -1,0 +1,44 @@
+---
+title: Command Menu
+description: A searchable, keyboard-driven command palette.
+---
+
+Composed from the [Command](/docs/components/dropdown-menu) primitive family,
+grouped into sections with keyboard shortcuts — this exact pattern powers the
+⌘K search on this site (see `src/components/command-menu.tsx`).
+
+<ComponentPreview name="command-menu" />
+
+## Usage
+
+```tsx
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@nimbus/ui"
+
+export function Example() {
+  return (
+    <Command>
+      <CommandInput placeholder="Type a command or search..." />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Suggestions">
+          <CommandItem>Calendar</CommandItem>
+          <CommandItem>Calculator</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  )
+}
+```
+
+## As a global palette
+
+Wrap `Command` in a `CommandDialog` and bind `⌘K` / `Ctrl+K` to open it, so
+users can jump anywhere in a product without leaving the keyboard — exactly
+how the search in this site's header works.

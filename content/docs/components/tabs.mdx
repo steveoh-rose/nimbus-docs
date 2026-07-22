@@ -1,0 +1,33 @@
+---
+title: Tabs
+description: Switches between related views within the same context.
+---
+
+<ComponentPreview name="tabs" />
+
+## Usage
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@nimbus/ui"
+
+export function Example() {
+  return (
+    <Tabs defaultValue="account">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="team">Team</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Account settings.</TabsContent>
+      <TabsContent value="team">Team settings.</TabsContent>
+    </Tabs>
+  )
+}
+```
+
+## API reference
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` / `defaultValue` | `string` | — | Controlled/uncontrolled active tab |
+| `onValueChange` | `(value: string) => void` | — | Fires on tab change |
+| `orientation` | `horizontal \| vertical` | `horizontal` | Layout direction |

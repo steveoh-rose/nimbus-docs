@@ -1,0 +1,34 @@
+---
+title: Theming
+description: Override Nimbus UI's design tokens to match a product's brand.
+---
+
+Every color, radius, and shadow in Nimbus UI is a CSS custom property. To
+theme the library, override the variables on `:root` (or any scoped
+container) after importing the base stylesheet.
+
+```css
+:root {
+  --nimbus-color-primary: oklch(0.55 0.18 250);
+  --nimbus-color-primary-foreground: oklch(0.98 0 0);
+  --nimbus-radius: 0.5rem;
+}
+```
+
+## Scoping a theme
+
+Because overrides are just CSS custom properties, a theme can be scoped to
+any subtree — useful for embedding a Nimbus UI powered widget inside a
+differently-branded host page.
+
+```css
+.acme-embed {
+  --nimbus-color-primary: oklch(0.62 0.2 25);
+}
+```
+
+## Where token names come from
+
+See [Tokens → Color](/docs/tokens/color) for the full list of variables and
+their default values, and how they map to semantic roles (`primary`,
+`destructive`, `muted`, etc.) used throughout the component set.

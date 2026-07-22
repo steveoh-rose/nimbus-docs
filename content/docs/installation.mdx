@@ -1,0 +1,43 @@
+---
+title: Installation
+description: Add Nimbus UI to a Next.js, Vite, or CRA project.
+---
+
+## Install the package
+
+```bash
+npm install @nimbus/ui
+```
+
+## Add the stylesheet
+
+Nimbus UI ships its tokens as CSS custom properties. Import the stylesheet
+once, near the root of your app:
+
+```tsx
+// app/layout.tsx
+import "@nimbus/ui/styles.css"
+```
+
+## Use a component
+
+```tsx
+import { Button } from "@nimbus/ui"
+
+export function Example() {
+  return <Button variant="secondary">Get started</Button>
+}
+```
+
+## Requirements
+
+- React 18 or later
+- Node 18 or later for the build tooling
+- Tailwind CSS is **not** required — Nimbus UI ships its own compiled styles,
+  so it works in any React setup
+
+## Next steps
+
+- [Theming](/docs/theming) — override tokens to match a product's brand
+- [Dark Mode](/docs/dark-mode) — enable the built-in dark theme
+- [Components](/docs/components/button) — browse everything available

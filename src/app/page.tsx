@@ -1,65 +1,146 @@
-import Image from "next/image";
+import Link from "next/link"
+import {
+  ArrowRightIcon,
+  BlocksIcon,
+  BookOpenIcon,
+  LayersIcon,
+  PaletteIcon,
+} from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { CodeBlock } from "@/components/code-block"
+import { siteConfig } from "@/lib/nav-config"
+
+const sections = [
+  {
+    title: "Tokens",
+    description:
+      "Color, typography, spacing, radius, shadows, and motion — the raw design decisions everything else is built from.",
+    href: "/docs/tokens/color",
+    icon: PaletteIcon,
+  },
+  {
+    title: "Components",
+    description:
+      "Accessible, themeable primitives — buttons, inputs, overlays, navigation, data display, and feedback.",
+    href: "/docs/components/button",
+    icon: BlocksIcon,
+  },
+  {
+    title: "Compound Components",
+    description:
+      "Organisms and templates composed from primitives — data tables, command menus, auth cards.",
+    href: "/docs/compound/data-table",
+    icon: LayersIcon,
+  },
+  {
+    title: "Patterns",
+    description:
+      "Recipes for combining components to solve real UX problems — empty states, validation, confirmation flows.",
+    href: "/docs/patterns/empty-states",
+    icon: BookOpenIcon,
+  },
+]
+
+const installSnippet = `import { Button } from "@nimbus/ui"
+
+export function Example() {
+  return <Button variant="secondary">Get started</Button>
+}`
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex flex-1 flex-col">
+      <section className="mx-auto flex w-full max-w-[1400px] flex-col items-center gap-6 px-4 py-24 text-center lg:px-8">
+        <Badge variant="secondary" className="rounded-full px-3 py-1">
+          Now documenting Nimbus UI in one place
+        </Badge>
+        <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
+          The Nimbus design system,
+          <br className="hidden sm:block" /> fully documented.
+        </h1>
+        <p className="max-w-xl text-lg text-muted-foreground">
+          Tokens, components, compound components, and patterns for building
+          consistent ConsoleConnect products — beyond what Storybook shows.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Button size="lg" asChild>
+            <Link href="/docs/introduction">
+              Get Started
+              <ArrowRightIcon />
+            </Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <Link href="/docs/components/button">Browse Components</Link>
+          </Button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+        <p className="text-sm text-muted-foreground">
+          Component library lives in{" "}
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href={siteConfig.githubUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
+            className="font-medium underline underline-offset-4"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
+            ConsoleConnect/nimbus-ui
+          </a>{" "}
+          · full API reference still on{" "}
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href={siteConfig.storybookUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
+            className="font-medium underline underline-offset-4"
           >
-            Documentation
+            Storybook
           </a>
+        </p>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1400px] px-4 pb-24 lg:px-8">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {sections.map((section) => (
+            <Link key={section.title} href={section.href} className="group">
+              <Card className="h-full transition-colors group-hover:border-foreground/30">
+                <CardHeader>
+                  <section.icon className="size-5 text-muted-foreground" />
+                </CardHeader>
+                <CardContent className="flex h-full flex-col gap-2">
+                  <h3 className="font-semibold">{section.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {section.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
         </div>
-      </main>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1400px] px-4 pb-24 lg:px-8">
+        <div className="grid gap-8 rounded-xl border p-8 lg:grid-cols-2 lg:p-12">
+          <div className="flex flex-col justify-center gap-4">
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Drop-in components, real code you own.
+            </h2>
+            <p className="text-muted-foreground">
+              Every page on this site shows a live preview next to the exact
+              source that renders it, so you can copy it straight into your
+              app — the same way you&apos;d browse shadcn/ui or Intent UI.
+            </p>
+            <div>
+              <Button variant="outline" asChild>
+                <Link href="/docs/installation">
+                  Installation guide
+                  <ArrowRightIcon />
+                </Link>
+              </Button>
+            </div>
+          </div>
+          <CodeBlock code={installSnippet} lang="tsx" className="my-0" />
+        </div>
+      </section>
     </div>
-  );
+  )
 }

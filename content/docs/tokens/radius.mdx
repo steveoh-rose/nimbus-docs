@@ -1,0 +1,16 @@
+---
+title: Radius
+description: Corner-rounding scale, derived from a single base --radius token.
+---
+
+<ComponentPreview name="radius-scale" />
+
+Every radius step is computed from one base `--radius` custom property, so
+changing a product's corner style (sharper or rounder) is a single-variable
+override rather than a find-and-replace across components.
+
+```css
+:root {
+  --radius: 0.625rem; /* default */
+}
+```
