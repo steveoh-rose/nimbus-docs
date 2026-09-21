@@ -1,0 +1,33 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as DisclosureStories from '../Disclosure.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/Disclosure/Docs" of={DisclosureStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Disclosure.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Disclosure"
+  figmaLink="https://www.figma.com/design/MNRqI0Z44axNX936POT2yk/feat--Disclosure?node-id=24111-198&t=whJeXRlqDULPMFgV-4"
+/>
+
+A disclosure is a collapsible section of content. It is composed of a a header with a heading and trigger button, and a panel that contains the content.
+
+<Canvas withToolbar sourceState="none" />
+<Source transform={(code) => code.replaceAll('PolymorphicButton', 'Button')} />
+<Controls />
+
+## Usage
+
+```
+import { Disclosure } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} of={DisclosureStories} />

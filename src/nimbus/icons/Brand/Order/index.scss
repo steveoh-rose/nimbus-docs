@@ -1,0 +1,45 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-order {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--order-front {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--order-text,
+    &.nb-brand-icon--order-page-fold {
+      fill: $color-primary-500;
+    }
+    &.nb-brand-icon--order-shadow {
+      fill: $color-accent-dark;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--order-front {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--order-text,
+    &.nb-brand-icon--order-page-fold {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--order-shadow {
+      fill: $icon-mono-3;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--order-front {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--order-text,
+    &.nb-brand-icon--order-page-fold {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--order-shadow {
+      fill: $icon-mono-4;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@use 'tokens' as tokens;
+@use 'mixins' as mixins;
+
+/* ************************************************* *
+ * Badge Root                                        *
+ * ************************************************* */
+.Badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: tokens.$badge-spacing-gap;
+  padding: tokens.$badge-spacing-padding-y tokens.$badge-spacing-padding-x;
+  border-radius: tokens.$badge-size-border-radius;
+  font: tokens.$badge-typography-font;
+  white-space: nowrap;
+
+  &:has(.BadgeIcon) {
+    padding-left: tokens.$badge-icon-spacing-padding-left;
+  }
+
+  &[data-variant='plain'] {
+    padding: 0;
+  }
+
+  /* ************************************************* *
+   * Sub-components                                    *
+   * ************************************************* */
+  .BadgeIcon {
+    flex: 0 0 tokens.$badge-icon-size-width;
+    width: tokens.$badge-icon-size-width;
+    height: tokens.$badge-icon-size-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > * {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
+    svg path {
+      fill: currentColor;
+    }
+  }
+
+  /* ************************************************* *
+   * Intent Map Rendering                              *
+   * ************************************************* */
+  @each $intent, $colors in mixins.$badge-intents {
+    &[data-intent='#{$intent}'] {
+      @include mixins.badge-intent-theme(
+        map-get($colors, strong),
+        map-get($colors, subtle),
+        map-get($colors, plain)
+      );
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@layer nb.components {
+  .flex {
+    display: flex;
+    gap: var(--nb-flex-gap);
+    flex-direction: var(--nb-flex-direction);
+    justify-content: var(--nb-flex-justify);
+    align-items: var(--nb-flex-align);
+    flex-wrap: var(--nb-flex-wrap);
+  }
+}

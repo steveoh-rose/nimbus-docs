@@ -1,0 +1,75 @@
+@use './global.tokens' as tokens;
+
+/* ****************************************************************** * 
+ * Colors                                                             * 
+ * ****************************************************************** */
+
+/** bg **/
+$color-bg-default: tokens.$color-bg-default;
+
+/** border **/
+$color-border-container: tokens.$color-system-100;
+$color-border-arrow: tokens.$color-system-100;
+$color-border-focus: transparent;
+$color-border-focus-active: tokens.$color-primary-300;
+
+/** text **/
+$color-text-default: tokens.$color-text-400;
+
+/** icon **/
+$color-icon-default: tokens.$color-text-400;
+
+/** shadow **/
+$color-shadow-top: rgba(204, 210, 220, 0.6);
+$color-shadow-bottom: rgba(0, 0, 0, 0.1);
+
+/* ****************************************************************** * 
+ * Typography                                                         * 
+ * ****************************************************************** */
+$typography-body: tokens.$font-body-md;
+
+/* ****************************************************************** *
+ * Size                                                               *
+ * ****************************************************************** */
+$size-min-width: var(--trigger-width);
+$size-max-width: 30rem;
+
+/* ****************************************************************** *
+ * Spacing                                                            *
+ * ****************************************************************** */
+$spacing-body: tokens.$size-spacer-lg;
+
+/* ****************************************************************** *
+ * Borders                                                            *
+ * ****************************************************************** */
+/** Radius **/
+$border-radius: tokens.$size-spacer-sm;
+
+/** Style **/
+$border-style-container: solid;
+$border-style-focus: solid;
+$border-style-outline: none;
+
+/** Offset **/
+$border-offset-focus: 2px;
+
+/** Width **/
+$border-width-container: 1px;
+$border-width-arrow: 1px;
+$border-width-focus: 0;
+$border-width-focus-active: 2px;
+
+/* ****************************************************************** *
+ * Shadow                                                             *
+ * ****************************************************************** */
+$shadow-container:
+  0 4px 12px -2px $color-shadow-top,
+  0 4px 6px -4px $color-shadow-bottom;
+
+/* ****************************************************************** *
+ * Transition                                                         *
+ * ****************************************************************** */
+$transition-duration-in: 160ms;
+$transition-duration-out: 120ms;
+$transition-ease-in: cubic-bezier(0.4, 0, 1, 1);
+$transition-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);

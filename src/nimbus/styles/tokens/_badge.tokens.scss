@@ -1,0 +1,106 @@
+@use './global.tokens' as tokens;
+
+/* ****************************************************************** *
+ * Colors                                                             *
+ * ****************************************************************** */
+
+// Neutral
+$color-bg-neutral-strong: tokens.$color-palette-slate-800;
+$color-text-neutral-strong: tokens.$color-palette-white;
+$color-icon-neutral-strong: tokens.$color-palette-white;
+
+$color-bg-neutral-subtle: tokens.$color-palette-slate-100;
+$color-text-neutral-subtle: tokens.$color-palette-slate-800;
+$color-icon-neutral-subtle: tokens.$color-palette-slate-800;
+
+$color-bg-neutral-plain: transparent;
+$color-text-neutral-plain: tokens.$color-palette-slate-800;
+$color-icon-neutral-plain: tokens.$color-palette-slate-800;
+
+// Info
+$color-bg-info-strong: tokens.$color-palette-ocean-500;
+$color-text-info-strong: tokens.$color-palette-white;
+$color-icon-info-strong: tokens.$color-palette-white;
+
+$color-bg-info-subtle: tokens.$color-palette-ocean-100;
+$color-text-info-subtle: tokens.$color-palette-ocean-600;
+$color-icon-info-subtle: tokens.$color-palette-ocean-600;
+
+$color-bg-info-plain: transparent;
+$color-text-info-plain: tokens.$color-palette-ocean-600;
+$color-icon-info-plain: tokens.$color-palette-ocean-600;
+
+// Success
+$color-bg-success-strong: tokens.$color-palette-emerald-500;
+$color-text-success-strong: tokens.$color-palette-white;
+$color-icon-success-strong: tokens.$color-palette-white;
+
+$color-bg-success-subtle: tokens.$color-palette-emerald-100;
+$color-text-success-subtle: tokens.$color-palette-emerald-600;
+$color-icon-success-subtle: tokens.$color-palette-emerald-600;
+
+$color-bg-success-plain: transparent;
+$color-text-success-plain: tokens.$color-palette-emerald-600;
+$color-icon-success-plain: tokens.$color-palette-emerald-600;
+
+// Warning
+$color-bg-warning-strong: tokens.$color-palette-amber-500;
+$color-text-warning-strong: tokens.$color-palette-white;
+$color-icon-warning-strong: tokens.$color-palette-white;
+
+$color-bg-warning-subtle: tokens.$color-palette-gold-100;
+$color-text-warning-subtle: tokens.$color-palette-amber-600;
+$color-icon-warning-subtle: tokens.$color-palette-amber-600;
+
+$color-bg-warning-plain: transparent;
+$color-text-warning-plain: tokens.$color-palette-amber-600;
+$color-icon-warning-plain: tokens.$color-palette-amber-600;
+
+// Danger
+$color-bg-danger-strong: tokens.$color-palette-ruby-500;
+$color-text-danger-strong: tokens.$color-palette-white;
+$color-icon-danger-strong: tokens.$color-palette-white;
+
+$color-bg-danger-subtle: tokens.$color-palette-ruby-100;
+$color-text-danger-subtle: tokens.$color-palette-ruby-600;
+$color-icon-danger-subtle: tokens.$color-palette-ruby-600;
+
+$color-bg-danger-plain: transparent;
+$color-text-danger-plain: tokens.$color-palette-ruby-600;
+$color-icon-danger-plain: tokens.$color-palette-ruby-600;
+
+// Special
+$color-bg-special-strong: tokens.$color-palette-lavender-500;
+$color-text-special-strong: tokens.$color-palette-white;
+$color-icon-special-strong: tokens.$color-palette-white;
+
+$color-bg-special-subtle: tokens.$color-palette-lavender-100;
+$color-text-special-subtle: tokens.$color-palette-lavender-600;
+$color-icon-special-subtle: tokens.$color-palette-lavender-600;
+
+$color-bg-special-plain: transparent;
+$color-text-special-plain: tokens.$color-palette-lavender-600;
+$color-icon-special-plain: tokens.$color-palette-lavender-600;
+
+/* ****************************************************************** *
+ * Badge (Root)                                                       *
+ * ****************************************************************** */
+
+$size-border-radius: 5px;
+$spacing-gap: tokens.$size-spacer-xs;
+$spacing-padding-y: tokens.$size-spacer-xxs;
+$spacing-padding-x: tokens.$size-spacer-sm;
+
+/* ****************************************************************** *
+ * Text                                                               *
+ * ****************************************************************** */
+
+$typography-font: tokens.$font-body-bold-sm;
+
+/* ****************************************************************** *
+ * Icon                                                               *
+ * ****************************************************************** */
+
+$icon-size-width: 16px;
+$icon-size-height: 16px;
+$icon-spacing-padding-left: calc(#{tokens.$size-spacer-xs} + 1px);

@@ -1,0 +1,68 @@
+import { Canvas, Meta, Source, Stories, Title, ArgsTable, PRIMARY_STORY } from '@storybook/blocks';
+import Pagination from '../index';
+import * as PaginationStories from './Pagination.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta
+  title="nimbus-core/Pagination/Docs"
+  of={PaginationStories}
+  subcomponents={{
+    [Pagination.Controls]: Pagination.Controls,
+    [Pagination.Records]: Pagination.Records,
+    [Pagination.PageSize]: Pagination.PageSize,
+  }}
+/>
+
+<Title />
+
+<ShareButtons
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Pagination"
+  figmaLink="https://www.figma.com/design/MWeGMLI4Iiti9f3IanCsf8/%F0%9F%93%A6-NDS-Core?node-id=6900-14462"
+/>
+
+Help users view and navigate long lists of data by breaking them into "pages".
+
+To implement a `Pagination` component, leverage the `Pagination` object which comprises three subcomponents: `Pagination.Records`, `Pagination.Controls` and `Pagination.PageSize`. 
+
+- `Pagination.Records` displays the `pageSize` and the `totalItems` count. 
+- `Pagination.Controls` encompasses buttons for actions like navigating to specific pages, moving forward/backward, and going to the first or last page.
+- `Pagination.PageSize` enables the `pageSize` to be changed via the menu.
+
+Use these subcomponents in combination or independently, tailoring their placement based on your needs. You can configure their placement in different areas of the page or render them multiple times; for instance, you might choose to position the controls both above and below a table or list of data.
+
+<Canvas withToolbar sourceState="none" />
+<Source
+  of={PaginationStories.Primary}
+  transform={(code) =>
+    code.replace('Records', 'Pagination.Records').replace('Controls', 'Pagination.Controls')
+  }
+/>
+
+## Usage
+
+```
+import { Pagination } from '@console/nimbus-ui/core';
+
+
+...
+<>
+  <Pagination.Records totalItems={200} ...others />
+   <Pagination.PageSize>
+    <Pagination.PageSize.Button>Items: {pageSize}</Pagination.PageSize.Button>
+      <Pagination.PageSize.Menu
+        onChange={setPageSize}
+      />
+  </Pagination.PageSize>
+  <Pagination.Controls onPageChange={onPageChange} ...others />
+</>
+
+...
+```
+
+# API
+
+<ArgsTable story={PRIMARY_STORY} />
+
+## Examples
+
+<Stories />

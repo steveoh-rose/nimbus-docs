@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { MenuIcon } from "lucide-react"
+import { Menu as MenuIcon } from "@nimbus/assets/icons/app"
 
 import { Button } from "@/components/ui/button"
 import {

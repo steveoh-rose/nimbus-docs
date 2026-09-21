@@ -1,0 +1,8 @@
+import * as React from 'react';
+
+const SvgConnections = (props) => (React.createElement("svg", Object.assign({ width: "1em", height: "1em", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", "data-testid": "SvgConnections", "data-slot": "icon" }, props),
+    React.createElement("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M17.1707 11C17.5825 9.83481 18.6938 9 20 9C21.6569 9 23 10.3431 23 12C23 13.6569 21.6569 15 20 15C18.6938 15 17.5825 14.1652 17.1707 13L15 13L15 11L17.1707 11ZM19 12C19 11.4477 19.4477 11 20 11C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13C19.4477 13 19 12.5523 19 12Z", fill: "currentColor" }),
+    React.createElement("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M11 13L6.82929 13C6.41746 14.1652 5.30622 15 4 15C2.34315 15 1 13.6569 1 12C0.999999 10.3431 2.34314 9 4 9C5.30622 9 6.41746 9.83481 6.82929 11L11 11L11 13ZM4 11C3.44771 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12C5 11.4477 4.55228 11 4 11Z", fill: "currentColor" }),
+    React.createElement("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M13 17.1707C14.1652 17.5825 15 18.6938 15 20C15 21.6569 13.6569 23 12 23C10.3431 23 9 21.6569 9 20C9 18.6938 9.83481 17.5825 11 17.1707L11 6.82929C9.83481 6.41746 9 5.30622 9 4C9 2.34315 10.3431 1 12 1C13.6569 0.999999 15 2.34314 15 4C15 5.30622 14.1652 6.41746 13 6.82929L13 17.1707ZM12 19C12.5523 19 13 19.4477 13 20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20C11 19.4477 11.4477 19 12 19ZM13 4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4C11 4.55228 11.4477 5 12 5C12.5523 5 13 4.55228 13 4Z", fill: "currentColor" })));
+
+export { SvgConnections as default };

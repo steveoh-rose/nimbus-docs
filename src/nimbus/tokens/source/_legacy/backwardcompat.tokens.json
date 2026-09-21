@@ -1,0 +1,46 @@
+{
+    "color":{
+        "neutral":{
+            "one":{
+                "darkest":{
+                    "value": "{color.system.500.value}",
+                    "deprecated": true,
+                    "comment": "Replace with `color-system-500`"
+                },
+                "lightest":{
+                    "value": "{color.system.100.value}",
+                    "deprecated": true,
+                    "comment": "Replace with `color-system-100`"
+                }
+            }
+        },
+        "success":{
+            "dark":{
+                "value":"{color.success.400.value}",
+                "deprecated": true,
+                "comment": "Replace with `color-success-400`"
+            }
+        },
+        "primary":{
+            "dark":{
+                "value":"{color.primary.400.value}",
+                "deprecated": true,
+                "comment": "Replace with `color-primary-400`"
+            },
+            "light":{
+                "value":"{color.primary.300.value}",
+                "deprecated": true,
+                "comment": "Replace with `color-primary-300`"
+            }
+        },
+        "accent": {
+            "bright": {
+                "1": {
+                    "value": "{color.accent.bright-1.300.value}",
+                    "deprecated": true,
+                    "comment": "Replace with `color-accent-bright-1-300`"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-performance {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--performance-dial-left {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--performance-dial-right,
+    &.nb-brand-icon--performance-pointer-left,
+    &.nb-brand-icon--performance-dot-light {
+      fill: $color-primary-500;
+    }
+    &.nb-brand-icon--performance-dot-dark,
+    &.nb-brand-icon--performance-pointer-right {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--performance-pointer-outline {
+      fill: $icon-mono-4;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--performance-dial-left {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--performance-dial-right,
+    &.nb-brand-icon--performance-pointer-left,
+    &.nb-brand-icon--performance-dot-light {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--performance-dot-dark,
+    &.nb-brand-icon--performance-pointer-right {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--performance-pointer-outline {
+      fill: $icon-mono-4;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--performance-dial-left {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--performance-dial-right,
+    &.nb-brand-icon--performance-pointer-left,
+    &.nb-brand-icon--performance-dot-light {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--performance-dot-dark,
+    &.nb-brand-icon--performance-pointer-right {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--performance-pointer-outline {
+      fill: $icon-mono-4;
+    }
+  }
+}

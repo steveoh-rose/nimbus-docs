@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { CheckIcon, CopyIcon } from "lucide-react"
+import { Check as CheckIcon, Copy as CopyIcon } from "@nimbus/assets/icons/app"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"

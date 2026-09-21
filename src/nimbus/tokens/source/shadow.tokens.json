@@ -1,0 +1,44 @@
+{
+  "shadow": {
+    "navbar": {
+      "value": "",
+      "x": "0",
+      "y": "8",
+      "blur": "8",
+      "color": "rgba(94, 97, 102, {shadow.navbar.alpha})",
+      "alpha": "0.2"
+    },
+    "sidebar": {
+      "value": "",
+      "x": "-5",
+      "y": "0",
+      "blur": "5",
+      "color": "rgba(94, 97, 102, {shadow.sidebar.alpha})",
+      "alpha": "0.2"
+    },
+    "container": {
+      "value": "",
+      "x": "0",
+      "y": "2",
+      "blur": "3",
+      "color": "rgba(94, 97, 102, {shadow.container.alpha})",
+      "alpha": "0.2"
+    },
+    "modal": {
+      "value": "",
+      "x": "0",
+      "y": "5",
+      "blur": "16",
+      "color": "rgba(94, 97, 102, {shadow.modal.alpha})",
+      "alpha": "0.3"
+    },
+    "hover": {
+      "value": "",
+      "x": "0",
+      "y": "3",
+      "blur": "8",
+      "color": "rgba(94, 97, 102, {shadow.modal.alpha})",
+      "alpha": "0.1"
+    }
+  }
+}

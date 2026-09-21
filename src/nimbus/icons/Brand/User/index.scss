@@ -1,0 +1,49 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-user {
+  width: 70px;
+  height: 70px;
+
+  path,
+  circle,
+  &.nb-brand-icon--dark path,
+  &.nb-brand-icon--dark circle {
+    &.nb-brand-icon--user-background {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--user-silhouette {
+      fill: $color-bg-default;
+      stroke: $color-primary-300;
+    }
+    &.nb-brand-icon--user-shadow {
+      fill: $color-accent-dark;
+    }
+  }
+  &.nb-brand-icon--light path,
+  &.nb-brand-icon--light circle {
+    &.nb-brand-icon--user-background {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--user-silhouette {
+      fill: $icon-mono-3;
+      stroke: $icon-mono-1;
+    }
+    &.nb-brand-icon--user-shadow {
+      fill: $icon-mono-2;
+    }
+  }
+  &.nb-brand-icon--light-on-white path,
+  &.nb-brand-icon--light-on-white circle {
+    &.nb-brand-icon--user-background {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--user-silhouette {
+      fill: $icon-mono-4;
+      stroke: $icon-mono-2;
+    }
+    &.nb-brand-icon--user-shadow {
+      fill: $icon-mono-4;
+    }
+  }
+}

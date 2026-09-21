@@ -1,0 +1,64 @@
+@use './global.tokens' as tokens;
+
+/* ****************************************************************** * 
+ * Colors                                                             * 
+ * ****************************************************************** */
+
+/* bg */
+$color-bg-item-default: tokens.$color-bg-default;
+$color-bg-item-hover: tokens.$color-bg-200;
+$color-bg-item-danger: tokens.$color-error-100;
+$opacity-item-disabled: 0.5;
+
+/* border */
+
+/* text */
+$color-text-item-default: tokens.$color-text-400;
+$color-text-item-danger: tokens.$color-error-400;
+
+/* icon */
+$color-icon-item-default: tokens.$color-text-400;
+$color-icon-item-danger: tokens.$color-error-400;
+
+/* ****************************************************************** * 
+ * Typography                                                         * 
+ * ****************************************************************** */
+$typography-label: tokens.$font-body-md;
+
+/* ****************************************************************** *
+ * Size                                                               *
+ * ****************************************************************** */
+$size-icon-width: 16px;
+$size-icon-height: 16px;
+
+/* ****************************************************************** *
+ * Spacing                                                            *
+ * ****************************************************************** */
+$spacing-item-container: 7.5px;
+$spacing-item-gap: tokens.$size-spacer-xs;
+
+/* ****************************************************************** *
+ * Borders                                                            *
+ * ****************************************************************** */
+$border-radius: 5px;
+$border-focus-offset: 2px;
+$border-focus-width: 0;
+$border-focus-style: solid;
+$border-focus-color: transparent;
+$border-focus-width-active: 2px;
+$border-focus-color-active: tokens.$color-primary-300;
+
+/* ****************************************************************** *
+ * Shadow                                                             *
+ * ****************************************************************** */
+$shadow-container:
+  0 4px 12px -2px rgba(204, 210, 220, 0.6),
+  0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+/* ****************************************************************** *
+ * Transition                                                         *
+ * ****************************************************************** */
+$transition-in-duration: 160ms;
+$transition-out-duration: 120ms;
+$transition-ease-in: cubic-bezier(0.4, 0, 1, 1);
+$transition-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);

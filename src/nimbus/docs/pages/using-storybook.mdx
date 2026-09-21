@@ -1,0 +1,79 @@
+import { Meta, Markdown } from '@storybook/blocks';
+
+<Meta title="Getting Started/Using Storybook" />
+
+# Using storybook
+
+We use Storybook as our development playground for new and existing component changes.
+
+To run nimbus-ui in storybook locally run:
+
+```bash
+npm run storybook
+```
+
+## Developing components
+
+### Component Status
+
+Status tags are a tools used in nimbus to represent the current status of a component.
+These tags provide important information to developers and designers about the usability, stability,
+or availability of a particular component. This document aims to inform individuals about the various
+status tags and how to implement them effectively.
+
+#### Status Tags Overview
+
+<Markdown>
+  {`
+| **Status**         | **Meaning**                                                                                                                                                                                                                                                                                                                             |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Stable**         | The "Stable" status tag indicates that a component is well-tested, reliable, and suitable for production use. Developers can confidently incorporate stable components into their projects without expecting significant changes or issues.                                                                                             |
+| **Beta**           | The "Beta" status tag is used to mark components that are still being tested or are in the early stages of development. These components may have limited functionality, incomplete documentation, or potential bugs. Developers can use experimental components but should be aware of potential risks or changes in future updates.   |
+| **Deprecated**     | The "Deprecated" status tag is assigned to components that are no longer recommended for use. It signifies that the component will be removed or replaced in future versions of the component library. Developers are encouraged to migrate away from deprecated components to avoid compatibility issues and ensure long-term support. |
+| **Development**    | The "In Development flag is used to mark components that are still being developed but appear in Storybook for testing or other purposes.                                                                                                                                                                                                                                         |
+`}
+</Markdown>
+
+#### Implementing Status Tags
+
+##### Story Usage
+
+Then write your stories like this:
+
+###### .tsx
+
+```jsx
+import React from 'react';
+
+export default {
+  title: 'BetterSoftwareLink',
+  parameters: {
+    status: {
+      type: 'beta', // 'beta' | 'stable' | 'deprecated' | 'in development' | 'out of date'
+      url: 'http://www.url.com/status', // will make the tag a link
+      statuses: {...} // add custom statuses for this story here
+    }
+  },
+};
+```
+
+For multiple statuses type also accepts array values. If not specifically set every status uses status.url as the linked Url.
+
+```
+status: {
+  type: ['beta', 'released', 'myCustomStatus', { name: 'stable', url: 'http://www.example.com' }],
+  // url, statuses ...
+}
+```
+
+NOTE: The status dot in the sidebar only shows the color of the first status.
+
+###### .mdx (using addon-docs)
+
+```jsx
+import { Meta } from "@storybook/addon-docs/blocks";
+<Meta title="BetterSoftwareLink" parameters={{ status: { type: 'beta' } }}  /> // 'beta' | 'stable' | 'deprecated' | 'in development' | 'out of date'
+...
+```
+
+You'll get an awesome label injected in the top toolbar and the sidebar.

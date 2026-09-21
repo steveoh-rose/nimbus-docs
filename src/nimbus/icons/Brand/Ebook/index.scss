@@ -1,0 +1,51 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-ebook {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--ebook-shadow {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--ebook-background {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--ebook-pages {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--ebook-line {
+      fill: $color-primary-300;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--ebook-shadow {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--ebook-background {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--ebook-pages {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--ebook-line {
+      fill: $icon-mono-2;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--ebook-shadow {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--ebook-background {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--ebook-pages {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--ebook-line {
+      fill: $icon-mono-3;
+    }
+  }
+}

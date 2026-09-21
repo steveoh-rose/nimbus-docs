@@ -1,0 +1,69 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-connection {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--connection-right-horiz {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--connection-vert {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--connection-left-horiz {
+      fill: $color-primary-500;
+    }
+    &.nb-brand-icon--connection-dot {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--connection-dot-left {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--connection-dot-right {
+      fill: $color-primary-500;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--connection-right-horiz {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--connection-vert {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--connection-left-horiz {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--connection-dot {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--connection-dot-left {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--connection-dot-right {
+      fill: $icon-mono-2;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--connection-right-horiz {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--connection-vert {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--connection-left-horiz {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--connection-dot {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--connection-dot-left {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--connection-dot-right {
+      fill: $icon-mono-3;
+    }
+  }
+}

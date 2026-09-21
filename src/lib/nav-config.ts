@@ -1,8 +1,8 @@
+import { componentGroups, componentSlug } from "@/lib/nimbus-nav"
+
 export interface NavItem {
   title: string
   href: string
-  description?: string
-  badge?: "New" | "Soon"
 }
 
 export interface NavGroup {
@@ -11,18 +11,17 @@ export interface NavGroup {
 }
 
 export const siteConfig = {
-  name: "Nimbus UI",
+  name: "Nimbus",
   description:
-    "The Nimbus design system — tokens, components, and patterns for building ConsoleConnect products.",
+    "The Nimbus design system: design tokens, core React components and icons for Console Connect products.",
   githubUrl: "https://github.com/ConsoleConnect/nimbus-ui",
-  storybookUrl: "https://consoleconnect.github.io/nimbus-ui/",
 }
 
 export const mainNav: NavItem[] = [
   { title: "Docs", href: "/docs/introduction" },
-  { title: "Tokens", href: "/docs/tokens/color" },
+  { title: "Tokens", href: "/docs/tokens/colors" },
   { title: "Components", href: "/docs/components/button" },
-  { title: "Patterns", href: "/docs/patterns/empty-states" },
+  { title: "Icons", href: "/docs/icons/app" },
 ]
 
 export const sidebarNav: NavGroup[] = [
@@ -30,85 +29,28 @@ export const sidebarNav: NavGroup[] = [
     title: "Getting Started",
     items: [
       { title: "Introduction", href: "/docs/introduction" },
-      { title: "Installation", href: "/docs/installation" },
-      { title: "Theming", href: "/docs/theming" },
-      { title: "Dark Mode", href: "/docs/dark-mode" },
+      { title: "Contributing", href: "/docs/contributing" },
+      { title: "Testing Guide", href: "/docs/testing-guide" },
     ],
   },
   {
     title: "Tokens",
     items: [
-      { title: "Color", href: "/docs/tokens/color" },
+      { title: "Colors", href: "/docs/tokens/colors" },
       { title: "Typography", href: "/docs/tokens/typography" },
       { title: "Spacing", href: "/docs/tokens/spacing" },
-      { title: "Radius", href: "/docs/tokens/radius" },
       { title: "Shadows", href: "/docs/tokens/shadows" },
-      { title: "Motion", href: "/docs/tokens/motion" },
     ],
   },
+  ...componentGroups().map((g) => ({
+    title: g.title,
+    items: g.names.map((name) => ({ title: name, href: `/docs/components/${componentSlug(name)}` })),
+  })),
   {
-    title: "Inputs",
+    title: "Assets",
     items: [
-      { title: "Button", href: "/docs/components/button" },
-      { title: "Input", href: "/docs/components/input" },
-      { title: "Textarea", href: "/docs/components/textarea" },
-      { title: "Select", href: "/docs/components/select" },
-      { title: "Checkbox", href: "/docs/components/checkbox" },
-      { title: "Radio Group", href: "/docs/components/radio-group" },
-      { title: "Switch", href: "/docs/components/switch" },
-      { title: "Slider", href: "/docs/components/slider" },
-    ],
-  },
-  {
-    title: "Overlays",
-    items: [
-      { title: "Dialog", href: "/docs/components/dialog" },
-      { title: "Popover", href: "/docs/components/popover" },
-      { title: "Tooltip", href: "/docs/components/tooltip" },
-      { title: "Dropdown Menu", href: "/docs/components/dropdown-menu" },
-      { title: "Sheet", href: "/docs/components/sheet" },
-    ],
-  },
-  {
-    title: "Navigation",
-    items: [
-      { title: "Tabs", href: "/docs/components/tabs" },
-      { title: "Breadcrumb", href: "/docs/components/breadcrumb" },
-    ],
-  },
-  {
-    title: "Data Display",
-    items: [
-      { title: "Avatar", href: "/docs/components/avatar" },
-      { title: "Badge", href: "/docs/components/badge" },
-      { title: "Card", href: "/docs/components/card" },
-      { title: "Table", href: "/docs/components/table" },
-      { title: "Separator", href: "/docs/components/separator" },
-    ],
-  },
-  {
-    title: "Feedback",
-    items: [
-      { title: "Alert", href: "/docs/components/alert" },
-      { title: "Progress", href: "/docs/components/progress" },
-      { title: "Skeleton", href: "/docs/components/skeleton" },
-    ],
-  },
-  {
-    title: "Patterns",
-    items: [
-      { title: "Data Table", href: "/docs/patterns/data-table" },
-      { title: "Command Menu", href: "/docs/patterns/command-menu" },
-      { title: "Auth Card", href: "/docs/patterns/auth-card" },
-      { title: "Empty States", href: "/docs/patterns/empty-states" },
-      { title: "Form Validation", href: "/docs/patterns/form-validation" },
-      { title: "Confirmation Flow", href: "/docs/patterns/confirmation-flow" },
+      { title: "App icons", href: "/docs/icons/app" },
+      { title: "Brand icons", href: "/docs/icons/brand" },
     ],
   },
 ]
-
-export function flattenNav(): NavItem[] {
-  return sidebarNav.flatMap((group) =>
-    group.items.map((item) => ({ ...item, title: `${group.title}: ${item.title}` }))
-  )
-}

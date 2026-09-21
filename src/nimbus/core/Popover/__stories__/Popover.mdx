@@ -1,0 +1,34 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as PopoverStories from './Popover.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/Popover/Docs" of={PopoverStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Popover.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Popover"
+/>
+
+Popover is a an overlay element that floats around its disclosure.
+It's commonly used for displaying additional rich content on top of something.
+Or is used to construct menus, comboboxes, selectcs and other floating UI.
+
+<Canvas withToolbar sourceState="none" />
+<Source transform={(code) => code.replaceAll('PolymorphicButton', 'Button')} />
+<Controls />
+
+## Usage
+
+```
+import { Popover } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} of={PopoverStories} />

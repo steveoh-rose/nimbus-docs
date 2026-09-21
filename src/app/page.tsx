@@ -1,108 +1,91 @@
+import fs from "node:fs"
+import path from "node:path"
 import Link from "next/link"
-import {
-  ArrowRightIcon,
-  BlocksIcon,
-  BookOpenIcon,
-  PaletteIcon,
-} from "lucide-react"
+import * as appIcons from "@nimbus/assets/icons/app"
+import { ArrowRight, Grid, Sparkles, Cloud } from "@nimbus/assets/icons/app"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CodeBlock } from "@/components/code-block"
+import { HeroDemo } from "@/components/nimbus/hero-demo"
+import { documentedComponents } from "@/lib/nimbus-nav"
 import { siteConfig } from "@/lib/nav-config"
 
-const sections = [
-  {
-    title: "Tokens",
-    description:
-      "Color, typography, spacing, radius, shadows, and motion — the raw design decisions everything else is built from.",
-    href: "/docs/tokens/color",
-    icon: PaletteIcon,
-  },
-  {
-    title: "Components",
-    description:
-      "Accessible, themeable primitives — buttons, inputs, overlays, navigation, data display, and feedback.",
-    href: "/docs/components/button",
-    icon: BlocksIcon,
-  },
-  {
-    title: "Patterns",
-    description:
-      "Composed examples and recipes built from primitives — data tables, command menus, auth cards, empty states, validation, confirmation flows.",
-    href: "/docs/patterns/empty-states",
-    icon: BookOpenIcon,
-  },
-]
-
-const installSnippet = `import { Button } from "@nimbus/ui"
-
-export function Example() {
-  return <Button variant="secondary">Get started</Button>
-}`
+function syncInfo() {
+  try {
+    const meta = JSON.parse(fs.readFileSync(path.join(process.cwd(), "src", "nimbus", "SOURCE.json"), "utf8"))
+    return meta.sources as Record<string, { version: string }>
+  } catch {
+    return null
+  }
+}
 
 export default function Home() {
+  const componentCount = documentedComponents().length
+  const iconCount = Object.keys(appIcons).length
+  const sources = syncInfo()
+
+  const sections = [
+    {
+      title: "Tokens",
+      description: "Colors, typography, spacing and shadows from cc-design-tokens, as CSS variables and Sass variables.",
+      href: "/docs/tokens/colors",
+      icon: Sparkles,
+    },
+    {
+      title: "Components",
+      description: `${componentCount} core React components with live previews, source and prop tables from Storybook.`,
+      href: "/docs/components/button",
+      icon: Grid,
+    },
+    {
+      title: "Icons",
+      description: `${iconCount} app icons plus brand illustrations from nimbus-assets. Search and copy imports.`,
+      href: "/docs/icons/app",
+      icon: Cloud,
+    },
+  ]
+
   return (
     <div className="flex flex-1 flex-col">
-      <section className="mx-auto flex w-full max-w-[1400px] flex-col items-center gap-6 px-4 py-24 text-center lg:px-8">
+      <section className="mx-auto flex w-full max-w-[1400px] flex-col items-center gap-6 px-4 py-20 text-center lg:px-8">
         <Badge variant="secondary" className="rounded-full px-3 py-1">
-          Now documenting Nimbus UI in one place
+          {sources ? `nimbus-ui v${sources["nimbus-ui"].version}` : "Nimbus"}
         </Badge>
         <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
-          The Nimbus design system,
-          <br className="hidden sm:block" /> fully documented.
+          The Nimbus design system
         </h1>
         <p className="max-w-xl text-lg text-muted-foreground">
-          Tokens, components, and patterns for building consistent
-          ConsoleConnect products — beyond what Storybook shows.
+          Tokens, core components and icons for building consistent Console Connect products.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Button size="lg" asChild>
             <Link href="/docs/introduction">
               Get Started
-              <ArrowRightIcon />
+              <ArrowRight />
             </Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
             <Link href="/docs/components/button">Browse Components</Link>
           </Button>
         </div>
-        <p className="text-sm text-muted-foreground">
-          Component library lives in{" "}
-          <a
-            href={siteConfig.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
-            ConsoleConnect/nimbus-ui
-          </a>{" "}
-          · full API reference still on{" "}
-          <a
-            href={siteConfig.storybookUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
-            Storybook
-          </a>
-        </p>
       </section>
 
-      <section className="mx-auto w-full max-w-[1400px] px-4 pb-24 lg:px-8">
+      <section className="mx-auto w-full max-w-[1400px] px-4 pb-16 lg:px-8">
+        <HeroDemo />
+      </section>
+
+      <section className="mx-auto w-full max-w-[1400px] px-4 pb-20 lg:px-8">
         <div className="grid gap-4 sm:grid-cols-3">
           {sections.map((section) => (
             <Link key={section.title} href={section.href} className="group">
-              <Card className="h-full transition-colors group-hover:border-foreground/30">
+              <Card className="h-full transition-colors group-hover:border-primary">
                 <CardHeader>
-                  <section.icon className="size-5 text-muted-foreground" />
+                  <section.icon className="size-6 text-primary" />
                 </CardHeader>
                 <CardContent className="flex h-full flex-col gap-2">
                   <h3 className="font-semibold">{section.title}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {section.description}
-                  </p>
+                  <p className="text-sm text-muted-foreground">{section.description}</p>
                 </CardContent>
               </Card>
             </Link>
@@ -110,29 +93,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1400px] px-4 pb-24 lg:px-8">
-        <div className="grid gap-8 rounded-xl border p-8 lg:grid-cols-2 lg:p-12">
-          <div className="flex flex-col justify-center gap-4">
-            <h2 className="text-2xl font-semibold tracking-tight">
-              Drop-in components, real code you own.
-            </h2>
-            <p className="text-muted-foreground">
-              Every page on this site shows a live preview next to the exact
-              source that renders it, so you can copy it straight into your
-              app — the same way you&apos;d browse shadcn/ui or Intent UI.
-            </p>
-            <div>
-              <Button variant="outline" asChild>
-                <Link href="/docs/installation">
-                  Installation guide
-                  <ArrowRightIcon />
-                </Link>
-              </Button>
-            </div>
-          </div>
-          <CodeBlock code={installSnippet} lang="tsx" className="my-0" />
-        </div>
-      </section>
+      <footer className="mx-auto w-full max-w-[1400px] border-t px-4 py-6 text-xs text-muted-foreground lg:px-8">
+        {sources ? (
+          <p>
+            Generated from{" "}
+            <a className="underline underline-offset-4" href={siteConfig.githubUrl} target="_blank" rel="noreferrer">
+              nimbus-ui
+            </a>{" "}
+            v{sources["nimbus-ui"].version}, cc-design-tokens v{sources["cc-design-tokens"].version} and
+            nimbus-assets v{sources["nimbus-assets"].version}.
+          </p>
+        ) : null}
+      </footer>
     </div>
   )
 }

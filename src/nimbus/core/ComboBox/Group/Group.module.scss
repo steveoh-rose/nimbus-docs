@@ -1,0 +1,19 @@
+@import '../../../tokens/build/scss/_variables.scss';
+
+.separator {
+  border-top: 1px solid $color-system-200;
+  margin-bottom: $size-spacer-sm;
+  margin-top: $size-spacer-sm;
+}
+
+.heading {
+  color: $color-text-300;
+  display: block;
+  font: $font-body-bold-sm-compact;
+  padding: 5px 25px;
+}
+
+.ul {
+  list-style: none;
+  padding: 0;
+}

@@ -1,0 +1,13 @@
+@import '../../tokens/build/scss/_variables.scss';
+
+.label {
+  font: $font-body-bold-md;
+  display: flex;
+  gap: $size-spacer-xs;
+  width: fit-content;
+  color: $color-text-400;
+}
+
+.required {
+  color: $color-error-400;
+}

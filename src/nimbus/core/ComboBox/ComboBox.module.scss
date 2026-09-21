@@ -1,0 +1,36 @@
+@use '../../variables';
+@import '../../tokens/build/scss/_variables.scss';
+
+.root {
+  max-width: variables.$input-width-default;
+  position: relative;
+
+  &[data-full-width='true'] {
+    max-width: unset;
+    width: 100%;
+  }
+
+  /** Button Overrides for the padding and negative states **/
+  .toggle {
+    &[data-size='sm'] {
+      padding-inline: 3px;
+    }
+
+    &[data-variant='negative'] {
+      border-color: transparent;
+
+      &[data-hover='true'] {
+        color: $color-error-400;
+        background-color: #fee0eb;
+      }
+
+      &[data-pressed='true'] {
+        background-color: $color-error-200;
+      }
+
+      svg:hover > path {
+        fill: $color-error-500;
+      }
+    }
+  }
+}

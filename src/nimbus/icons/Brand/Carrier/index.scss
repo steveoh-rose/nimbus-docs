@@ -1,0 +1,51 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-carrier {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--carrier-sheath-light {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--carrier-sheath-dark {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--carrier-sheath-outer {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--carrier-wire {
+      fill: $color-primary-500;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--carrier-sheath-light {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--carrier-sheath-dark {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--carrier-sheath-outer {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--carrier-wire {
+      fill: $icon-mono-3;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--carrier-sheath-light {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--carrier-sheath-dark {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--carrier-sheath-outer {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--carrier-wire {
+      fill: $icon-mono-4;
+    }
+  }
+}

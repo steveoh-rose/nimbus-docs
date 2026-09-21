@@ -1,0 +1,81 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as ToastStories from './Toast.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/Toast/Docs" of={ToastStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Toast.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Toast"
+  figmaLink="/"
+/>
+
+Toasts are brief, temporary notifications that provide feedback about an operation without interrupting the user's workflow.
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Usage
+
+```tsx
+import { Toaster, queue } from '@console/nimbus-ui/core';
+```
+
+## Architecture
+
+Nimbus uses an imperative, globally accessible toast system. This ensures you can trigger notifications from absolutely anywhere in your application—including outside of the React component tree (like inside Redux thunks, Axios interceptors, or standard utility functions).
+
+#### 1. The `<Toaster />` Mount
+
+You must mount the `<Toaster />` component exactly **once** at the very root of your application (e.g., in `App.tsx` or `layout.tsx`). This acts as the global visual portal where all toasts render.
+
+```tsx
+import { Toaster } from '@/core/Toast';
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <Toaster placement="bottom-right" />
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+#### 2. The `queue` API
+
+To trigger a toast, simply import the `queue` object and call `queue.add()`. You do not need to wrap your app in complex context providers or use custom hooks. The queue manager handles layout batching, View Transitions, and automatic cleanup behind the scenes.
+
+```tsx
+import { queue } from '@/core/Toast';
+
+// You can call this inside a component, or in a TS file
+const handleSave = async () => {
+  try {
+    await api.saveData();
+    queue.add({
+      title: 'Data saved successfully',
+      variant: 'success',
+    });
+  } catch (error) {
+    queue.add({
+      title: 'Failed to save',
+      description: 'Please try again later.',
+      variant: 'error',
+    });
+  }
+};
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} of={ToastStories} />

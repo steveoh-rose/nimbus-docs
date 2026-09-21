@@ -1,0 +1,33 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as MenuStories from './Menu.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/Menu/Docs" of={MenuStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Menu.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Menu"
+  figmaLink="https://www.figma.com/design/uEM93MJvigEszfZSDog4FB/feat--fileTrigger?node-id=23095-743"
+/>
+
+A floating element that displays a list of actions or options that a user can choose.
+
+<Canvas withToolbar sourceState="none" />
+<Source transform={(code) => code.replaceAll('PolymorphicButton', 'Button')} />
+<Controls />
+
+## Usage
+
+```
+import { Menu } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} of={MenuStories} />

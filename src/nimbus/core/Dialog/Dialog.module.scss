@@ -1,0 +1,90 @@
+@use 'tokens' as tokens;
+
+/* ****************************************************************** *
+ * Root                                                               *
+ * ****************************************************************** */
+.dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+}
+
+/* ****************************************************************** *
+ * Header                                                             *
+ * ****************************************************************** */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  gap: tokens.$global-size-spacer-xs;
+  padding-inline: tokens.$global-size-spacer-lg;
+  padding-block-start: tokens.$global-size-spacer-md;
+  padding-block-end: tokens.$global-size-spacer-md;
+  border-bottom: 1px solid tokens.$global-color-system-100;
+}
+
+/* ****************************************************************** *
+ * Text                                                               *
+ * ****************************************************************** */
+.title {
+  font: tokens.$global-font-heading-h5;
+  color: tokens.$global-color-text-500;
+  margin: 0;
+  padding: 0;
+}
+
+.description {
+  font: tokens.$global-font-body-sm;
+  color: tokens.$global-color-text-300;
+}
+
+/* ****************************************************************** *
+ * Body                                                               *
+ * ****************************************************************** */
+
+.body {
+  font: tokens.$global-font-body-md;
+  color: tokens.$global-color-text-400;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: tokens.$global-size-spacer-lg tokens.$global-size-spacer-lg;
+  gap: tokens.$global-size-spacer-md;
+}
+
+.close {
+  &[data-size='sm'] {
+    padding-inline: tokens.$global-size-spacer-xxs !important;
+    position: absolute;
+    top: 0.725rem;
+    right: 0.725rem;
+  }
+  svg {
+    fill: currentColor;
+    height: 20px !important;
+    width: 20px !important;
+  }
+}
+
+/* ****************************************************************** *
+ * Footer                                                             *
+ * ****************************************************************** */
+.footer {
+  font: tokens.$global-font-body-md;
+  color: tokens.$global-color-text-400;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  max-height: 5rem;
+  width: auto;
+  padding-inline: tokens.$global-size-spacer-lg;
+  padding-block-start: tokens.$global-size-spacer-md;
+  padding-block-end: tokens.$global-size-spacer-md;
+  gap: tokens.$global-size-spacer-xs;
+  border-top: 1px solid tokens.$global-color-system-100;
+}

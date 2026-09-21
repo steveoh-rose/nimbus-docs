@@ -1,0 +1,9 @@
+<svg viewBox="0 0 26 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="ribbon-left" d="M8 18H18V31.9449C18 32.3667 17.5098 32.599 17.1834 32.3319L13 28.9091L8.81662 32.3319C8.49015 32.599 8 32.3667 8 31.9449V18Z" fill="#0098FF"/>
+<path class="ribbon-right" fill-rule="evenodd" clip-rule="evenodd" d="M13 28.9091V18H18V31.9449C18 32.3667 17.5098 32.599 17.1834 32.3319L13 28.9091Z" fill="#007DD2"/>
+<circle class="medallion-outer-left" cx="13" cy="13" r="12" fill="#DC8051"/>
+<path class="medallion-outer-right" fill-rule="evenodd" clip-rule="evenodd" d="M13 25V1C19.6274 1 25 6.37258 25 13C25 19.6274 19.6274 25 13 25Z" fill="#D76530"/>
+<circle class="medallion-inner-left" cx="13" cy="13" r="10" fill="#E09253"/>
+<path class="medallion-inner-right" fill-rule="evenodd" clip-rule="evenodd" d="M13 23V3C18.5228 3 23 7.47715 23 13C23 18.5228 18.5228 23 13 23Z" fill="#DC8051"/>
+<circle class="medallion-outline" cx="13" cy="13" r="9.5" stroke="white" stroke-opacity="0.3"/>
+</svg>

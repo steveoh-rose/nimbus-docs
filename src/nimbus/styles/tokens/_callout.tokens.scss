@@ -1,0 +1,97 @@
+@use './global.tokens' as tokens;
+
+/* ****************************************************************** * 
+ * Colors                                                             * 
+ * ****************************************************************** */
+
+/* bg */
+$color-bg-neutral: tokens.$color-palette-white;
+$color-bg-neutral-subtle: tokens.$color-palette-stone-100;
+$color-bg-info: tokens.$color-palette-ocean-100;
+$color-bg-success: tokens.$color-palette-emerald-100;
+$color-bg-danger: tokens.$color-palette-ruby-100;
+$color-bg-warning: tokens.$color-palette-gold-100;
+$color-bg-special: tokens.$color-palette-lavender-100;
+
+$button-color-bg-neutral-hovered: tokens.$color-palette-slate-800;
+$button-color-bg-info-hovered: tokens.$color-palette-ocean-600;
+$button-color-bg-success-hovered: tokens.$color-palette-emerald-600;
+$button-color-bg-danger-hovered: tokens.$color-palette-ruby-600;
+$button-color-bg-warning-hovered: tokens.$color-palette-amber-600;
+$button-color-bg-special-hovered: tokens.$color-palette-lavender-600;
+
+$button-color-bg-neutral-pressed: tokens.$color-palette-slate-700;
+$button-color-bg-info-pressed: tokens.$color-palette-ocean-700;
+$button-color-bg-success-pressed: tokens.$color-palette-emerald-700;
+$button-color-bg-danger-pressed: tokens.$color-palette-ruby-700;
+$button-color-bg-warning-pressed: tokens.$color-palette-gold-700;
+$button-color-bg-special-pressed: tokens.$color-palette-lavender-700;
+
+/* border */
+$color-border-neutral: tokens.$color-palette-stone-200;
+$color-border-info: tokens.$color-palette-ocean-200;
+$color-border-success: tokens.$color-palette-emerald-200;
+$color-border-danger: tokens.$color-palette-ruby-200;
+$color-border-warning: tokens.$color-palette-amber-200;
+$color-border-special: tokens.$color-palette-lavender-200;
+
+$color-border-neutral-strong: tokens.$color-palette-slate-900;
+$color-border-info-strong: tokens.$color-palette-ocean-500;
+$color-border-success-strong: tokens.$color-palette-emerald-500;
+$color-border-danger-strong: tokens.$color-palette-ruby-500;
+$color-border-warning-strong: tokens.$color-palette-amber-500;
+$color-border-special-strong: tokens.$color-palette-lavender-500;
+
+/* text */
+$color-text-neutral: tokens.$color-palette-stone-800;
+$color-text-info: tokens.$color-palette-ocean-800;
+$color-text-success: tokens.$color-palette-emerald-800;
+$color-text-danger: tokens.$color-palette-ruby-800;
+$color-text-warning: tokens.$color-palette-amber-800;
+$color-text-special: tokens.$color-palette-lavender-800;
+
+$button-color-text-neutral: tokens.$color-palette-slate-700;
+$button-color-text-info: tokens.$color-palette-ocean-600;
+$button-color-text-success: tokens.$color-palette-emerald-600;
+$button-color-text-danger: tokens.$color-palette-ruby-600;
+$button-color-text-warning: tokens.$color-palette-amber-600;
+$button-color-text-special: tokens.$color-palette-lavender-600;
+
+/* icon -*/
+$color-icon-neutral: tokens.$color-palette-stone-800;
+$color-icon-info: tokens.$color-palette-ocean-600;
+$color-icon-success: tokens.$color-palette-emerald-600;
+$color-icon-danger: tokens.$color-palette-ruby-600;
+$color-icon-warning: tokens.$color-palette-amber-600;
+$color-icon-special: tokens.$color-palette-lavender-600;
+
+/* ****************************************************************** * 
+ * Spacing                                                            * 
+ * ****************************************************************** */
+$spacing-padding: tokens.$size-spacer-md;
+$spacing-gap: tokens.$size-spacer-sm;
+$spacing-content-gap: tokens.$size-spacer-xs;
+
+/* ****************************************************************** * 
+ * Borders                                                            * 
+ * ****************************************************************** */
+/* radii */
+$border-radius: 5px;
+$border-left-radius-enclosed: 0;
+$border-left-radius-subtle: 0;
+
+/* style */
+$border-style-left-enclosed: none;
+$border-style-subtle: none;
+
+/* ***************************************************************** * 
+ * Size                                                               * 
+ * ****************************************************************** */
+$size-icon-default: 20px;
+
+/* ****************************************************************** * 
+ * Typography                                                          * 
+ * ******************************************************************* */
+
+$typography-body-md: tokens.$font-body-md;
+$typography-body-bold-md: tokens.$font-body-bold-md;

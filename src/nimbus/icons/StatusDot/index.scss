@@ -1,0 +1,13 @@
+@import '../../utils/mixins';
+
+.cc-icon.cc-icon-status-dot {
+  // status dot does not use <path>, it uses <circle> so the default icon styles don't quite fit
+  @include withDesignTokenColors() using ($colorName, $color) {
+    &.cc-icon--#{$colorName} circle {
+      fill: $color;
+    }
+    &.cc-icon--hover-#{$colorName}:hover circle {
+      fill: $color;
+    }
+  }
+}

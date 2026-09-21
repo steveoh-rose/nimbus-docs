@@ -1,0 +1,59 @@
+@use './global.tokens' as tokens;
+
+/* ****************************************************************** * 
+ * Colors                                                             * 
+ * ****************************************************************** */
+$color-bg-unselected: tokens.$color-bg-default;
+$color-bg-unselected-disabled: tokens.$color-bg-300;
+$color-bg-selected: tokens.$color-primary-300;
+$color-bg-selected-hover: tokens.$color-primary-400;
+$color-bg-selected-pressed: tokens.$color-primary-500;
+$color-bg-error: tokens.$color-error-100;
+$color-bg-error-hover: tokens.$color-error-200;
+$color-bg-error-pressed: tokens.$color-error-300;
+
+$color-border-unselected: tokens.$color-system-200;
+$color-border-unselected-hover: tokens.$color-system-400;
+$color-border-unselected-pressed: tokens.$color-system-500;
+$color-border-error: tokens.$color-error-400;
+$color-border-error-pressed: tokens.$color-error-500;
+$color-border-focus: tokens.$color-primary-300;
+
+$color-text-label: tokens.$color-text-500;
+$color-text-description: tokens.$color-text-300;
+$color-text-description-error: tokens.$color-error-400;
+
+$color-icon-fill: tokens.$color-bg-default;
+
+/* ****************************************************************** *
+ * Typography                                                         *
+ * ****************************************************************** */
+$typography-label: tokens.$font-body-sm;
+$typography-description: tokens.$font-body-sm-compact;
+
+/* ****************************************************************** *
+ * Size                                                               *
+ * ****************************************************************** */
+$size-width-container: 1.25rem;
+$size-height-container: 1.25rem;
+$size-width-icon: 1rem;
+$size-height-icon: 1rem;
+
+/* ****************************************************************** *
+ * Spacing                                                            *
+ * ****************************************************************** */
+$spacing-container-gap-x: tokens.$size-spacer-sm;
+$spacing-label-gap-y: tokens.$size-spacer-xxs;
+
+/* ****************************************************************** *
+ * Borders                                                            *
+ * ****************************************************************** */
+$border-width: 1px;
+$border-style: solid;
+$border-radius: tokens.$size-spacer-xs;
+$border-focus-offset: 2px;
+$border-focus-width: 0;
+$border-focus-style: solid;
+$border-focus-color: transparent;
+$border-focus-width-active: 2px;
+$border-focus-color-active: $color-border-focus;

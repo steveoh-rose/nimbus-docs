@@ -1,0 +1,133 @@
+@use 'tokens' as tokens;
+
+/* ****************************************************************** *
+ * Toaster Region                                                     *
+ * ****************************************************************** */
+@mixin toast-region-spacing {
+  gap: tokens.$toast-spacing-region-gap;
+}
+
+@mixin toast-region-elevation {
+  z-index: tokens.$toast-z-index-region;
+}
+
+/* ****************************************************************** *
+ * Toast                                                              *
+ * ****************************************************************** */
+@mixin toast-sizes {
+  width: tokens.$toast-size-toast-width;
+}
+
+@mixin toast-spacing {
+  padding: tokens.$toast-spacing-toast-padding;
+  gap: tokens.$toast-spacing-toast-gap;
+}
+
+@mixin toast-typography {
+  font: tokens.$toast-typography-toast-body;
+}
+
+@mixin toast-colors {
+  background-color: tokens.$toast-color-bg-toast;
+  color: tokens.$toast-color-text-toast;
+}
+
+@mixin toast-borders {
+  border: tokens.$toast-border-width-default tokens.$toast-border-style-default;
+  border-radius: tokens.$toast-border-radius-default;
+  border-left: none;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+
+  &[data-focus-visible] {
+    outline: tokens.$toast-border-focus-width tokens.$toast-border-style-default
+      tokens.$toast-color-border-focus;
+    outline-offset: tokens.$toast-border-focus-offset;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -#{tokens.$toast-border-width-default};
+    bottom: -#{tokens.$toast-border-width-default};
+    left: 0;
+    width: tokens.$toast-size-indicator-width;
+  }
+}
+
+@mixin toast-shadows {
+  box-shadow: tokens.$toast-shadow-toast;
+}
+
+@mixin toast-variants {
+  @each $intent, $colors in tokens.$toast-toast-intents {
+    &[data-variant='#{$intent}'] {
+      border-color: map-get($colors, border);
+      &::before {
+        background-color: map-get($colors, primary);
+      }
+      .IconSlot {
+        color: map-get($colors, primary);
+      }
+    }
+  }
+
+  &[data-variant='neutral'] {
+    border-color: tokens.$toast-color-border-neutral;
+    border-radius: tokens.$toast-border-radius-neutral;
+    border-width: tokens.$toast-border-width-default;
+    border-style: tokens.$toast-border-style-default;
+    &::before {
+      display: none;
+    }
+  }
+}
+
+/* ****************************************************************** *
+ * View Transitions & Animations                                      *
+ * ****************************************************************** */
+@mixin toast-apply-view-transitions {
+  :global(::view-transition-new(.toast-top):only-child) {
+    animation: toast-slide-in-top tokens.$toast-transition-duration-in
+      tokens.$toast-transition-ease-in;
+  }
+  :global(::view-transition-old(.toast-top):only-child) {
+    animation: toast-slide-out-top tokens.$toast-transition-duration-out
+      tokens.$toast-transition-ease-out forwards;
+  }
+  :global(::view-transition-new(.toast-bottom):only-child) {
+    animation: toast-slide-in-bottom tokens.$toast-transition-duration-in
+      tokens.$toast-transition-ease-in;
+  }
+  :global(::view-transition-old(.toast-bottom):only-child) {
+    animation: toast-slide-out-bottom tokens.$toast-transition-duration-out
+      tokens.$toast-transition-ease-out forwards;
+  }
+
+  @keyframes toast-slide-in-top {
+    from {
+      transform: translateY(-100%);
+      opacity: tokens.$toast-opacity-hidden;
+    }
+  }
+  @keyframes toast-slide-out-top {
+    to {
+      transform: translateY(-150%);
+      opacity: tokens.$toast-opacity-hidden;
+      visibility: hidden;
+    }
+  }
+  @keyframes toast-slide-in-bottom {
+    from {
+      transform: translateY(100%);
+      opacity: tokens.$toast-opacity-hidden;
+    }
+  }
+  @keyframes toast-slide-out-bottom {
+    to {
+      transform: translateY(150%);
+      opacity: tokens.$toast-opacity-hidden;
+      visibility: hidden;
+    }
+  }
+}

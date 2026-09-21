@@ -1,0 +1,45 @@
+@use './global.tokens' as tokens;
+
+/* ****************************************************************** * 
+ * Colors                                                             * 
+ * ****************************************************************** */
+$color-bg-default: tokens.$color-bg-default;
+$color-header-bg-default: tokens.$color-bg-100;
+$color-header-bg-hover: tokens.$color-bg-300;
+$color-row-bg-default: tokens.$color-bg-default;
+$color-row-bg-hover: tokens.$color-bg-100;
+$color-text-default: tokens.$color-text-400;
+$color-border-default: tokens.$color-system-100;
+$color-cell-border: $color-border-default;
+
+/* ****************************************************************** *
+ * Typography                                                         *
+ * ****************************************************************** */
+$typography-cell: tokens.$font-body-sm;
+$typography-header: tokens.$font-body-bold-sm-compact;
+
+/* ****************************************************************** *
+ * Size                                                               *
+ * ****************************************************************** */
+$size-icon-width: 16px;
+$size-icon-height: 16px;
+
+/* ****************************************************************** *
+ * Spacing                                                            *
+ * ****************************************************************** */
+$spacing-cell-padding-x: tokens.$size-spacer-sm;
+$spacing-cell-padding-y: tokens.$size-spacer-md;
+$spacing-cell-padding-x-compact: tokens.$size-spacer-sm;
+$spacing-cell-padding-y-compact: tokens.$size-spacer-xs;
+$spacing-header-gap-allow-sorting: tokens.$size-spacer-xxs;
+
+/* ****************************************************************** *
+ * Borders                                                            *
+ * ****************************************************************** */
+$border-radius: tokens.$size-spacer-xs;
+$border-focus-offset: 2px;
+$border-focus-width: 0;
+$border-focus-style: solid;
+$border-focus-color: transparent;
+$border-focus-width-active: 2px;
+$border-focus-color-active: tokens.$color-primary-300;

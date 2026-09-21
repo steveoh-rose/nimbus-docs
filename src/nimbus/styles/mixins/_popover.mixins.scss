@@ -1,0 +1,36 @@
+@use 'tokens' as tokens;
+
+/******************************************************************** 
+ * Root                                                             * 
+ ********************************************************************/
+
+@mixin popover-typography {
+  font: tokens.$popover-typography-body;
+}
+
+@mixin popover-colors {
+  color: tokens.$popover-color-text-default;
+  background-color: tokens.$popover-color-bg-default;
+}
+
+@mixin popover-border-radius {
+  border-radius: tokens.$popover-border-radius;
+}
+
+@mixin popover-borders {
+  border-width: tokens.$popover-border-width-container;
+  border-style: tokens.$popover-border-style-container;
+  border-color: tokens.$popover-color-border-container;
+  outline: tokens.$popover-border-style-outline;
+}
+
+@mixin popover-sizes {
+  height: fit-content;
+  max-height: 100vh;
+  min-width: tokens.$popover-size-min-width;
+  max-width: tokens.$popover-size-max-width;
+}
+
+@mixin popover-shadows {
+  box-shadow: tokens.$popover-shadow-container;
+}

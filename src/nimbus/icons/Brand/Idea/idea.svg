@@ -1,0 +1,10 @@
+<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="idea-base-bottom" d="M34.5 63.6333C36.7734 63.6333 38.6334 61.7733 38.6334 59.5H30.3667C30.3667 61.7733 32.2267 63.6333 34.5 63.6333Z" fill="#16263F"/>
+<path class="idea-bulb" d="M34.5 18.5C25.944 18.5 19 25.46 19 34.0357C19 41.9486 24.4973 46.1743 26.7913 47.5H42.2087C44.5027 46.1743 50 41.9486 50 34.0357C50 25.46 43.056 18.5 34.5 18.5Z" fill="#0098FF"/>
+<path class="idea-base" d="M28.5 59.5L27 47.5H42L40.5 59.5H28.5Z" fill="#00498F"/>
+<path class="idea-base-shadow" d="M27.5 51.5L42 47.5L41.6 50.5L27.5 51.5Z" fill="#16263F"/>
+<path class="idea-base-shadow" d="M28.5 57.5L41.25 53.5L40.9 56.5L28.5 57.5Z" fill="#16263F"/>
+<path class="idea-light" d="M39.5 6H30.5L35 14.5L39.5 6Z" fill="#0098FF"/>
+<path class="idea-light" d="M59.3743 16.864L53.0104 10.5L50.1819 19.6924L59.3743 16.864Z" fill="#0098FF"/>
+<path class="idea-light" d="M10.0001 16.864L16.364 10.5L19.1924 19.6924L10.0001 16.864Z" fill="#0098FF"/>
+</svg>

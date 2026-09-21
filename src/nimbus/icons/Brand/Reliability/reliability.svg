@@ -1,0 +1,9 @@
+<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="reliability-shield-right" d="M35 10.5L55.93 17.64L52.68 46.07L35 59.5L17.29 46.05L14.07 17.64" fill="#0098FF"/>
+<path class="reliability-shield-left" d="M35 59.5L17.29 46.05L14.07 17.64L35 10.5V59.5Z" fill="#00498F"/>
+<path class="reliability-shadow" d="M16.68 40.81L35 54.67L53.24 40.87L52.68 46.07L35 59.5L17.29 46.05L16.68 40.81Z" fill="#16263F"/>
+<path class="reliability-crest-left" d="M44.908 32.399L35.0014 22.4924L25.0948 32.399L35.0014 42.3056L44.908 32.399Z" fill="#16263F"/>
+<path class="reliability-crest-right" d="M35 22.5V42.32L44.91 32.41L35 22.5Z" fill="#00498F"/>
+<path class="reliability-tick-left" d="M34.94 38.04L30.59 33.69L32.33 31.95L34.94 34.56L39.68 29.82L41.42 31.57L34.94 38.04Z" fill="#00498F"/>
+<path class="reliability-tick-right" d="M35 38.04V34.56L39.73 29.82L41.48 31.57L35 38.04Z" fill="#0098FF"/>
+</svg>

@@ -1,0 +1,47 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import { ShareButtons } from '@/docs/ui';
+import * as SwitchStories from './Switch.stories';
+
+<Meta title="nimbus-core/Switch/Docs" of={SwitchStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Switch.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Switch"
+  figmaLink="https://www.figma.com/design/MWeGMLI4Iiti9f3IanCsf8/%F0%9F%93%A6-NDS-Core?node-id=6900-14473"
+/>
+
+<div style={{ maxWidth: 830 }}>
+  The Switch component is used as an alternative for the Checkbox component. You can switch between
+  enabled or disabled states. Switch must always be accompanied by a label, and follows the same
+  keyboard workflow as a Checkbox.
+</div>
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Features
+
+There is no native HTML element with switch styling. `<input type="checkbox">` is the closest semantically, but isn't styled or exposed to assistive technology as a switch.
+
+- Built with a native HTML `<input>` element, which is visually hidden to allow custom styling
+- Full support for browser features like form autofill
+- Keyboard focus management and cross browser normalization
+- Labeling support for screen readers
+- Exposed as a switch to assistive technology via ARIA
+
+## Usage
+
+```
+import { Switch } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} />

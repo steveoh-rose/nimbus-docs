@@ -1,0 +1,120 @@
+@use '../../variables';
+@import '../../tokens/build/scss/_variables.scss';
+
+/** Radio Group */
+.root {
+  font: $font-body-bold-md;
+  display: flex;
+  flex-direction: column;
+  gap: $size-spacer-sm;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: $size-spacer-lg;
+
+  &[aria-orientation='horizontal'] {
+    flex-direction: row;
+  }
+
+  &[aria-orientation='vertical'] {
+    flex-direction: column;
+  }
+}
+
+.groupLabel {
+  font: $font-body-bold-md;
+  display: flex;
+  gap: $size-spacer-xs;
+  width: fit-content;
+  color: $color-text-400;
+}
+
+.required {
+  color: $color-error-400;
+}
+
+/** Individual Radios */
+.radio {
+  font: $font-body-md;
+  color: $color-text-500;
+  width: fit-content;
+  display: flex;
+  align-items: flex-start;
+  gap: $size-spacer-sm;
+  cursor: pointer;
+
+  &[data-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.indicator {
+  box-sizing: border-box;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  background-color: $color-bg-default;
+  border-radius: 50%;
+  border: solid 1px $color-system-200;
+  outline: transparent solid 1px;
+  transition-property: background-color, outline-width, border-color;
+  transition-duration: 150ms;
+
+  [data-hovered='true'] & {
+    border-color: $color-system-400;
+  }
+
+  [data-focused='true'] & {
+    outline-color: $color-primary-300;
+    border-color: $color-primary-300;
+  }
+
+  [data-invalid='true'] & {
+    outline-color: $color-error-400;
+    border-color: $color-error-400;
+  }
+
+  g {
+    scale: 0;
+    opacity: 0;
+    transition-property: scale, opacity;
+    transform-origin: 50% 50%;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+  }
+
+  [data-selected='true'] & {
+    g {
+      scale: 1;
+      opacity: 1;
+    }
+
+    circle {
+      r: 0.375rem;
+      fill: $color-primary-300;
+    }
+  }
+}
+
+.label {
+  line-height: 1.25;
+}
+
+.hint {
+  font: $font-body-sm-compact;
+  color: $color-text-300;
+}
+
+.error {
+  color: $color-error-500;
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $size-spacer-xxs;
+}

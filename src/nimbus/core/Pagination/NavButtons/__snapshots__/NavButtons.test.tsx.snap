@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`page nav buttons <FirstPageButton/> should render as expected 1`] = `
+<body>
+  <div>
+    <button
+      aria-label="first page"
+      class="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-rounded="false"
+      data-size="sm"
+      data-testid="page-numbers-control-first"
+      data-text-node="false"
+      data-variant="subtle"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        class="cc-icon cc-icon-first-page"
+      />
+    </button>
+  </div>
+</body>
+`;
+
+exports[`page nav buttons <LastPageButton/> should render as expected 1`] = `
+<body>
+  <div>
+    <button
+      aria-label="last page"
+      class="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-rounded="false"
+      data-size="sm"
+      data-testid="page-numbers-control-last"
+      data-text-node="false"
+      data-variant="subtle"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        class="cc-icon cc-icon-last-page"
+      />
+    </button>
+  </div>
+</body>
+`;
+
+exports[`page nav buttons <NextPageButton/> should render as expected 1`] = `
+<body>
+  <div>
+    <button
+      aria-label="next page"
+      class="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-rounded="false"
+      data-size="sm"
+      data-testid="page-numbers-control-next"
+      data-text-node="false"
+      data-variant="subtle"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        class="cc-icon cc-icon-chevron-right"
+      />
+    </button>
+  </div>
+</body>
+`;
+
+exports[`page nav buttons <PageNumberButton/> should render as expected 1`] = `
+<body>
+  <div>
+    <button
+      aria-label="5"
+      class="button number"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-rounded="false"
+      data-size="sm"
+      data-testid="page-numbers-control-number-3"
+      data-text-node="false"
+      data-variant="subtle"
+      tabindex="0"
+      type="button"
+    />
+  </div>
+</body>
+`;
+
+exports[`page nav buttons <PrevPageButton/> should render as expected 1`] = `
+<body>
+  <div>
+    <button
+      aria-label="previous page"
+      class="button"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-rounded="false"
+      data-size="sm"
+      data-testid="page-numbers-control-prev"
+      data-text-node="false"
+      data-variant="subtle"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        class="cc-icon cc-icon-chevron-left"
+      />
+    </button>
+  </div>
+</body>
+`;

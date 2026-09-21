@@ -1,0 +1,47 @@
+@use 'tokens' as tokens;
+
+@mixin checkbox-colors {
+  background-color: tokens.$checkbox-color-bg-unselected;
+  border-color: tokens.$checkbox-color-border-unselected;
+  color: tokens.$checkbox-color-text-label;
+}
+
+@mixin checkbox-typography {
+  font: tokens.$checkbox-typography-label;
+}
+
+@mixin checkbox-size {
+  width: tokens.$checkbox-size-width-container;
+  height: tokens.$checkbox-size-height-container;
+}
+
+@mixin checkbox-borders {
+  border-width: tokens.$checkbox-border-width;
+  border-style: tokens.$checkbox-border-style;
+  border-color: tokens.$checkbox-color-border-unselected;
+  border-radius: tokens.$checkbox-border-radius;
+}
+
+@mixin checkbox-focus-ring {
+  outline-offset: tokens.$checkbox-border-focus-offset;
+  outline-width: tokens.$checkbox-border-focus-width;
+  outline-style: tokens.$checkbox-border-focus-style;
+  outline-color: tokens.$checkbox-border-focus-color;
+}
+
+@mixin checkbox-focus-ring-active {
+  outline-width: tokens.$checkbox-border-focus-width-active;
+  outline-color: tokens.$checkbox-border-focus-color-active;
+}
+
+@mixin checkbox-transitions {
+  transition:
+    background-color 150ms,
+    outline-width 150ms,
+    border-color 150ms;
+}
+
+@mixin checkbox-icon-size {
+  width: tokens.$checkbox-size-width-icon;
+  height: tokens.$checkbox-size-height-icon;
+}

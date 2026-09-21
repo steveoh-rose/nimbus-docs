@@ -1,0 +1,140 @@
+@use 'tokens' as tokens;
+@use 'mixins' as mixins;
+
+/* ************************************************ *
+ * Toaster Region
+ * ************************************************ */
+.Region {
+  position: fixed;
+  display: flex;
+  outline: none;
+  pointer-events: none;
+
+  @include mixins.toast-region-spacing;
+  @include mixins.toast-region-elevation;
+
+  &[data-placement^='top'] {
+    top: tokens.$toast-spacing-region-edge;
+    flex-direction: column;
+
+    .Toast {
+      view-transition-class: toast-top;
+    }
+  }
+
+  &[data-placement^='bottom'] {
+    bottom: tokens.$toast-spacing-region-edge;
+    flex-direction: column-reverse;
+
+    .Toast {
+      view-transition-class: toast-bottom;
+    }
+  }
+
+  &[data-placement$='right'] {
+    right: tokens.$toast-spacing-region-edge;
+  }
+
+  &[data-placement$='middle'] {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @media (max-width: #{tokens.$toast-breakpoint-mobile}) {
+    top: auto;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: tokens.$toast-spacing-region-edge;
+    padding-left: tokens.$toast-spacing-region-edge;
+    transform: none;
+
+    &[data-placement^='top'] {
+      top: tokens.$toast-spacing-region-edge;
+    }
+    &[data-placement^='bottom'] {
+      bottom: tokens.$toast-spacing-region-edge;
+    }
+  }
+}
+
+/* ************************************************ *
+ * Toast
+ * ************************************************ */
+.Toast {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  outline: none;
+  pointer-events: auto;
+
+  @include mixins.toast-sizes;
+  @include mixins.toast-spacing;
+  @include mixins.toast-typography;
+  @include mixins.toast-colors;
+  @include mixins.toast-borders;
+  @include mixins.toast-shadows;
+  @include mixins.toast-variants;
+
+  @media (max-width: #{tokens.$toast-breakpoint-mobile}) {
+    width: stretch;
+    width: -webkit-fill-available; /* For Safari */
+    width: -moz-available; /* For Mozilla */
+  }
+}
+
+/* ************************************************ *
+ * Toast Elements
+ * ************************************************ */
+.IconSlot {
+  display: flex;
+  flex: 0 0 tokens.$toast-size-icon;
+  align-items: center;
+  justify-content: center;
+  width: tokens.$toast-size-icon;
+  height: tokens.$toast-size-icon;
+
+  svg path {
+    fill: currentColor;
+  }
+}
+
+.ToastContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: tokens.$toast-spacing-content-gap;
+  min-width: 0;
+
+  [slot='title'] {
+    margin: 0;
+    font: tokens.$toast-typography-toast-title;
+    color: tokens.$toast-color-text-toast;
+  }
+
+  [slot='description'] {
+    margin: 0;
+    font: tokens.$toast-typography-toast-body;
+    color: tokens.$toast-color-text-description;
+  }
+}
+
+.action {
+  align-self: flex-start;
+  margin-top: tokens.$toast-spacing-content-gap;
+}
+
+// Increase specificity to override portal-client.
+button.close[data-slot='close'] {
+  position: absolute;
+  inset-block-start: tokens.$toast-spacing-close-inset;
+  inset-inline-end: tokens.$toast-spacing-close-inset;
+}
+
+/* ************************************************ *
+ * View Transitions & Animations                    *
+ * ************************************************ */
+@include mixins.toast-apply-view-transitions;

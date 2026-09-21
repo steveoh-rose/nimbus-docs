@@ -1,0 +1,104 @@
+@import '../tokens/build/scss/_variables.scss';
+
+@mixin bs-border($color, $width: 1px) {
+  box-shadow: 0 0 0 $width $color;
+}
+
+$network-2-box-shadow: 0 2px 10px rgba($color-system-base, 0.1);
+
+$colors: (
+  'success-100': $color-success-100,
+  'success-200': $color-success-200,
+  'success-300': $color-success-300,
+  'success-400': $color-success-400,
+  'success-500': $color-success-500,
+  'primary-100': $color-primary-100,
+  'primary-200': $color-primary-200,
+  'primary-300': $color-primary-300,
+  'primary-400': $color-primary-400,
+  'primary-500': $color-primary-500,
+  'accent-bright-1-100': $color-accent-bright-1-100,
+  'accent-bright-1-200': $color-accent-bright-1-200,
+  'accent-bright-1-300': $color-accent-bright-1-300,
+  'accent-bright-1-400': $color-accent-bright-1-400,
+  'accent-bright-1-500': $color-accent-bright-1-500,
+  'accent-bright-2': $color-accent-bright-2,
+  'accent-highlight-1': $color-accent-highlight-1,
+  'accent-highlight-2': $color-accent-highlight-2,
+  'system-100': $color-system-100,
+  'system-200': $color-system-200,
+  'system-400': $color-system-400,
+  'system-500': $color-system-500,
+  'text-100': $color-text-100,
+  'text-200': $color-text-200,
+  'text-300': $color-text-300,
+  'text-400': $color-text-400,
+  'text-500': $color-text-500,
+  'error-100': $color-error-100,
+  'error-200': $color-error-200,
+  'error-300': $color-error-300,
+  'error-400': $color-error-400,
+  'error-500': $color-error-500,
+  'metro-100': $color-metro-100,
+  'metro-200': $color-metro-200,
+  'metro-300': $color-metro-300,
+  'metro-400': $color-metro-400,
+  'metro-500': $color-metro-500,
+  'regional-100': $color-regional-100,
+  'regional-200': $color-regional-200,
+  'regional-300': $color-regional-300,
+  'regional-400': $color-regional-400,
+  'regional-500': $color-regional-500,
+  'global-100': $color-global-100,
+  'global-200': $color-global-200,
+  'global-300': $color-global-300,
+  'global-400': $color-global-400,
+  'global-500': $color-global-500,
+  'pricing-zone-middle-east': $color-pricing-zone-middle-east,
+  'status-active': $color-status-active,
+  'status-pending': $color-status-pending,
+  'status-error': $color-status-error,
+  'status-disabled': $color-status-disabled,
+);
+
+@mixin withDesignTokenColors {
+  @each $colorName, $color in $colors {
+    @content ($colorName, $color);
+  }
+}
+
+@mixin withColumnNumbers {
+  @for $column from 1 through 12 {
+    @content ($column);
+  }
+}
+
+@mixin forLargeDesktop {
+  @media screen and (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin forSmallDesktop {
+  @media screen and (max-width: 1439px) and (min-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin forLargeDevice {
+  @media screen and (max-width: 999px) and (min-width: 450px) {
+    @content;
+  }
+}
+
+@mixin forSmallDevice {
+  @media screen and (max-width: 449px) {
+    @content;
+  }
+}
+
+// Icon colours - yet to be added to design tokens
+$icon-mono-1: #fcfcfd;
+$icon-mono-2: #e7e7f0;
+$icon-mono-3: #d4d4dd;
+$icon-mono-4: #c1c2cd;

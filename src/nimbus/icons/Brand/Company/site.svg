@@ -1,0 +1,7 @@
+<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="company-front" d="M27.9 10.68H11.4V59.32H27.9V10.68Z" fill="#0098FF"/>
+<path class="company-side" d="M37.12 59.32H27.9V10.68L37.12 18.93V59.32Z" fill="#00498F"/>
+<path class="company-front" d="M49.38 31.29H33.14V59.32H49.38V31.29Z" fill="#0098FF"/>
+<path class="company-side" d="M58.6 59.32H49.38V31.29L58.6 23.05V59.32Z" fill="#00498F"/>
+<path class="company-top" d="M58.6 23.05H42.36L33.14 31.29H49.38L58.6 23.05Z" fill="#16263F"/>
+</svg>

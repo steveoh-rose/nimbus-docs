@@ -1,0 +1,51 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-efficiency {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--efficiency-inner {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--efficiency-outer {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--efficiency-arrow-inner {
+      fill: $color-primary-500;
+    }
+    &.nb-brand-icon--efficiency-arrow-outer {
+      fill: $color-accent-dark;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--efficiency-inner {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--efficiency-outer {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--efficiency-arrow-inner {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--efficiency-arrow-outer {
+      fill: $icon-mono-3;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--efficiency-inner {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--efficiency-outer {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--efficiency-arrow-inner {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--efficiency-arrow-outer {
+      fill: $icon-mono-4;
+    }
+  }
+}

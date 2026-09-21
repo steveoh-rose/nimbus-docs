@@ -1,0 +1,159 @@
+@import '../../tokens/build/scss/_variables.scss';
+
+// Unselected state
+$checkbox-unselected-border-color: $color-system-200;
+$checkbox-unselected-disabled-background-color: $color-bg-300;
+
+// selected state
+$checkbox-selected-background-color: $color-primary-300;
+
+// focus outline
+$checkbox-focus-outline-color: $color-primary-300;
+
+// Hovered colors
+$checkbox-unselected-hover-color: $color-system-400;
+$checkbox-selected-hover-color: $color-primary-400;
+
+// Pressed colors
+$checkbox-unselected-pressed-color: $color-system-500;
+$checkbox-selected-pressed-color: $color-primary-500;
+
+// Error colors
+$checkbox-error-background-color: $color-error-100;
+$checkbox-error-border-color: $color-error-400;
+
+// Text colors
+$checkbox-hint-text-color: $color-text-300;
+$checkbox-label-text-color: $color-text-500;
+
+$checkbox-width: 1.25rem;
+$checkbox-height: 1.25rem;
+
+.root {
+  display: flex;
+  width: fit-content;
+  gap: $size-spacer-sm;
+  cursor: pointer;
+
+  &[data-disabled='true'] {
+    cursor: not-allowed;
+    opacity: 50%;
+  }
+
+  &[data-readonly='true'] {
+    cursor: text;
+  }
+}
+
+.indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: $checkbox-height;
+  min-width: $checkbox-width;
+  height: $checkbox-height;
+  width: $checkbox-width;
+  border: 1px solid $checkbox-unselected-border-color;
+  border-radius: $size-spacer-xs;
+  outline-color: transparent;
+  outline-style: solid;
+  outline-width: 0;
+  outline-offset: 2px;
+  transition-property: background-color, outline-width, border-color;
+  transition-duration: 150ms;
+
+  svg {
+    height: 1rem;
+    width: 1rem;
+    user-select: none;
+    pointer-events: none;
+
+    path {
+      scale: 0;
+      transform-origin: 50% 50%;
+      animation: spring 250ms cubic-bezier(0.45, 1.61, 0.64, 0.95) forwards;
+    }
+
+    @keyframes spring {
+      0% {
+        scale: 0.25;
+        fill-opacity: 0;
+      }
+      50% {
+        fill-opacity: 1;
+      }
+      100% {
+        scale: 1;
+      }
+    }
+  }
+
+  [data-focused='true'] & {
+    outline-width: 2px;
+    outline-color: $checkbox-focus-outline-color;
+  }
+
+  [data-hovered='true'] & {
+    border-color: $checkbox-unselected-hover-color;
+  }
+
+  [data-pressed='true'] & {
+    border-color: $checkbox-unselected-pressed-color;
+  }
+
+  [data-disabled='true'] & {
+    background-color: $checkbox-unselected-disabled-background-color;
+    cursor: not-allowed;
+    pointer-events: unset;
+  }
+
+  [data-selected='true'] & {
+    border-color: $checkbox-selected-background-color;
+    background-color: $checkbox-selected-background-color;
+  }
+
+  [data-selected='true'][data-hovered='true'] & {
+    border-color: $checkbox-selected-hover-color;
+    background-color: $checkbox-selected-hover-color;
+  }
+
+  [data-selected='true'][data-pressed='true'] & {
+    border-color: $checkbox-selected-pressed-color;
+    background-color: $checkbox-selected-pressed-color;
+  }
+
+  [data-invalid='true'] & {
+    border-color: $checkbox-error-border-color;
+    background-color: $checkbox-error-background-color;
+  }
+
+  [data-invalid='true'][data-hovered='true'] & {
+    border-color: $color-error-500;
+    background-color: $checkbox-error-background-color;
+  }
+
+  [data-invalid='true'][data-pressed='true'] & {
+    border-color: $color-error-500;
+    background-color: $color-error-200;
+  }
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $size-spacer-xxs;
+}
+
+.label {
+  font: $font-body-md;
+  color: $checkbox-label-text-color;
+}
+
+.hint {
+  font: $font-body-sm-compact;
+  color: $checkbox-hint-text-color;
+
+  [data-invalid='true'] & {
+    color: $checkbox-error-border-color;
+  }
+}

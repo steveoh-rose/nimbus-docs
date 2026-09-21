@@ -1,0 +1,184 @@
+{
+  "color": {
+    "metro": {
+      "500": {
+        "rgb": "15,136,141",
+        "alpha": "1",
+        "value": "rgba({color.metro.500.rgb},{color.metro.500.alpha})",
+        "deprecated": true,
+        "docs": {
+          "displayName": "500",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "400": {
+        "rgb": "23,197,203",
+        "alpha": "1",
+        "value": "rgba({color.metro.400.rgb},{color.metro.400.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "400",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "300": {
+        "rgb": "139,226,229",
+        "alpha": "1",
+        "value": "rgba({color.metro.300.rgb},{color.metro.300.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "300",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "200": {
+        "rgb": "{color.metro.500.rgb}",
+        "alpha": "0.2",
+        "value": "rgba({color.metro.200.rgb},{color.metro.200.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "200",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "100": {
+        "rgb": "{color.metro.300.rgb}",
+        "alpha": "0.2",
+        "deprecated": true,
+        "value": "rgba({color.metro.100.rgb},{color.metro.100.alpha})",
+        "docs": {
+          "alias": "",
+          "displayName": "100",
+          "comment": "deprecated legacy colour"
+        }
+      }
+    },
+    "regional": {
+      "500": {
+        "rgb": "43,111,156",
+        "alpha": "1",
+        "deprecated": true,
+        "value": "rgba({color.regional.500.rgb},{color.regional.500.alpha})",
+        "docs": {
+          "alias": "",
+          "displayName": "500",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "400": {
+        "rgb": "62,157,221",
+        "alpha": "1",
+        "value": "rgba({color.regional.400.rgb},{color.regional.400.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "400",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "300": {
+        "rgb": "158,206,238",
+        "alpha": "1",
+        "value": "rgba({color.regional.300.rgb},{color.regional.300.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "300",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "200": {
+        "rgb": "{color.regional.500.rgb}",
+        "alpha": "0.2",
+        "value": "rgba({color.regional.200.rgb},{color.regional.200.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "200",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "100": {
+        "rgb": "{color.regional.300.rgb}",
+        "alpha": "0.2",
+        "value": "rgba({color.regional.100.rgb},{color.regional.100.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "100",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      }
+    },
+    "global": {
+      "500": {
+        "rgb": "82,82,139",
+        "alpha": "1",
+        "value": "rgba({color.global.500.rgb},{color.global.500.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "500",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "400": {
+        "rgb": "120,119,201",
+        "alpha": "1",
+        "value": "rgba({color.global.400.rgb},{color.global.400.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "400",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "300": {
+        "rgb": "187,187,228",
+        "alpha": "1",
+        "value": "rgba({color.global.300.rgb},{color.global.300.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "300",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "200": {
+        "rgb": "{color.global.500.rgb}",
+        "alpha": "0.2",
+        "value": "rgba({color.global.200.rgb},{color.global.200.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "200",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+      "100": {
+        "rgb": "{color.global.300.rgb}",
+        "alpha": "0.2",
+        "value": "rgba({color.global.100.rgb},{color.global.100.alpha})",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "100",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      }
+    }
+  }
+}

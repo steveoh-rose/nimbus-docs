@@ -1,0 +1,88 @@
+@use 'tokens' as tokens;
+@use 'mixins' as mixins;
+
+/* ************************************************* *
+ * Callout Root                                      *
+ * ************************************************* */
+.Callout {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: tokens.$callout-spacing-padding;
+  border-radius: tokens.$callout-border-radius;
+  gap: tokens.$callout-spacing-gap;
+  font: tokens.$callout-typography-body-md;
+
+  &[data-variant='enclosed'] {
+    border: 1px solid;
+    border-left: tokens.$callout-border-style-left-enclosed;
+    border-start-start-radius: tokens.$callout-border-left-radius-enclosed;
+    border-end-start-radius: tokens.$callout-border-left-radius-enclosed;
+  }
+
+  &[data-variant='subtle'] {
+    border: tokens.$callout-border-style-subtle;
+  }
+
+  /* ************************************************* *
+   * Callout Sub-components                            *
+   * ************************************************* */
+  .CalloutIcon {
+    flex: 0 0 tokens.$callout-size-icon-default;
+    width: tokens.$callout-size-icon-default;
+    height: tokens.$callout-size-icon-default;
+    min-width: tokens.$callout-size-icon-default;
+    min-height: tokens.$callout-size-icon-default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > * {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+  }
+
+  .CalloutContent {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$callout-spacing-content-gap;
+  }
+
+  .CalloutTitle {
+    font: tokens.$callout-typography-body-bold-md;
+    margin: 0;
+  }
+
+  .CalloutDescription {
+    font: tokens.$callout-typography-body-md;
+    margin: 0;
+  }
+
+  /* ************************************************* *
+   * Intent Loop Generation                            *
+   * ************************************************* */
+  @each $intent, $colors in mixins.$callout-intents {
+    &[data-intent='#{$intent}'] {
+      @include mixins.callout-intent-theme(
+        map-get($colors, bg),
+        map-get($colors, border),
+        map-get($colors, text),
+        map-get($colors, primary),
+        map-get($colors, button-text),
+        map-get($colors, hover),
+        map-get($colors, pressed)
+      );
+
+      /* Special override for neutral subtle variant */
+      @if $intent == 'neutral' {
+        &[data-variant='subtle'] {
+          background-color: tokens.$callout-color-bg-neutral-subtle;
+        }
+      }
+    }
+  }
+}

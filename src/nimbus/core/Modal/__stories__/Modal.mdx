@@ -1,0 +1,61 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Stories, Title } from '@storybook/blocks';
+import * as ModalStories from './Modal.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/Modal/Docs" of={ModalStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Modal.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Modal"
+/>
+
+A modal is an overlay element which blocks interaction with elements outside it.
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Usage
+
+```
+import { Modal } from '@console/nimbus-ui/core';
+```
+
+## Features
+
+A modal consists of an overlay container element, and an underlay.
+The overlay contains a Dialog and the underlay is a transparent element
+that covers the rest of the screen behind the overlay, and prevents the
+user from interacting with the elements behind it.
+
+- **Styleable** – Customizable animations and styles for overlay, modal, header, content, footer, and close button.
+- **Accessible** – Hides content outside, closes on outside click or Escape key.
+- **Focus** – Focused inside the modal on mount, returned to trigger on unmount.
+- **Scrolling** – Disables page scrolling while modal is open.
+- **Header** – Customizable and styleable header section.
+- **Footer** – Customizable and styleable footer section for actions.
+- **Close Button** – Built-in, styleable close button for dismissing the modal.
+- **Dismissable** – Optionally dismissable by close button or outside click.
+
+## Examples
+
+<Stories />
+
+# API
+
+## Modal
+
+Root component that takes a `Modal.Header`, `Modal.Close`, `Modal.Content` and `Modal.Footer` as children.
+
+```jsx
+<Modal>
+  <Modal.Close>...</Modal.Close>
+  <Modal.Header>...</Modal.Header>
+  <Modal.Content>...</Modal.Content>
+  <Modal.Footer>...</Modal.Footer>
+<Modal>
+```
+
+<ArgTypes sort={'alpha'} />

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
-import { SearchIcon } from "lucide-react"
+import { Search as SearchIcon } from "@nimbus/assets/icons/app"
 
 import {
   CommandDialog,

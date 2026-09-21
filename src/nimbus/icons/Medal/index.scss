@@ -1,0 +1,59 @@
+@import '../../tokens/build/scss/_variables.scss';
+
+.nb-icon-medal {
+  width: 26px;
+  height: 35px;
+
+  .medal_svg__ribbon-left {
+    fill: $color-primary-300;
+  }
+  .medal_svg__ribbon-right {
+    fill: $color-primary-400;
+  }
+  .medal_svg__medallion-outline {
+    stroke: $color-bg-default;
+    stroke-opacity: 0.3;
+  }
+  &.nb-icon-medal-bronze {
+    .medal_svg__medallion-outer-left {
+      fill: #dc8051;
+    }
+    .medal_svg__medallion-outer-right {
+      fill: #d76530;
+    }
+    .medal_svg__medallion-inner-left {
+      fill: #e09253;
+    }
+    .medal_svg__medallion-inner-right {
+      fill: #dc8051;
+    }
+  }
+  &.nb-icon-medal-silver {
+    .medal_svg__medallion-outer-left {
+      fill: #d4d4d4;
+    }
+    .medal_svg__medallion-outer-right {
+      fill: #c2c2c2;
+    }
+    .medal_svg__medallion-inner-left {
+      fill: #e2e2e2;
+    }
+    .medal_svg__medallion-inner-right {
+      fill: #d4d4d4;
+    }
+  }
+  &.nb-icon-medal-gold {
+    .medal_svg__medallion-outer-left {
+      fill: #f6c143;
+    }
+    .medal_svg__medallion-outer-right {
+      fill: #e3a93a;
+    }
+    .medal_svg__medallion-inner-left {
+      fill: #fadc4a;
+    }
+    .medal_svg__medallion-inner-right {
+      fill: #f6c143;
+    }
+  }
+}

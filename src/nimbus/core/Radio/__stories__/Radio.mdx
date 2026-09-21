@@ -1,0 +1,72 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Stories, Title } from '@storybook/blocks';
+import * as RadioStories from './Radio.stories';
+
+import InlineMessage from '@/components/InlineMessage';
+import { ShareButtons } from '@/docs/ui';
+import List from '@/icons/List';
+import styles from './Radio.stories.module.scss';
+
+<Meta title="nimbus-core/Radio/Docs" of={RadioStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/RadioGroup.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Radio"
+  figmaLink="https://www.figma.com/file/3cUbsi30fNAYofOmwB0fcZ/feat%3A-SK-1090-Radio-Component-Updates?type=design&node-id=13920-3919&mode=design&t=Pr4bDBEccCl6TXBP-4"
+/>
+
+<div style={{ maxWidth: 830 }}>
+  Radio allows the user to choose one option from a list of exclusive choices, guaranteeing a single
+  selection for related options. Radio component must be wrapped by either `Radio.Group` or
+  `Radio.GroupProvider`. `Radio.Group` provides styles such as hint text and layout, while
+  `Radio.GrouProvider` offers greater flexibility without any styling.
+</div>
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Usage
+
+```
+import { Radio } from '@console/nimbus-ui/core';
+```
+
+## Features
+
+This radio group component simplifies HTML radio group creation with the useRadioGroup and useRadio hooks,
+eliminating the complexity of styling issues associated with the `<fieldset>` and `<input>` elements.
+The radio and radio group have the following features:
+
+- Radios use native HTML for seamless assistive tech integration with ARIA attributes.
+- Compatible with form autofill, validation, and consistent behavior across browsers.
+- Easily customize appearance by hiding the HTML `<input>` for full styling control.
+- Supports keyboard navigation, horizontal/vertical orientation, and controlled/uncontrolled usage.
+- Adheres to WAI-ARIA, maintaining focus management with roving tabindex for compliance.
+
+## Examples
+
+<Stories />
+
+# API
+
+## Radio.Group
+
+Root component that takes Radio and any valid JSX as children, controls the group state and provides styles.
+
+```jsx
+<Radio.Group>{/* Any valid JSX can go here*/}</Radio.Group>
+```
+
+<ArgTypes sort={'alpha'} of={RadioStories.Primary} />
+
+## Radio.GroupProvider
+
+Root component to Provide state to Radio components without any styling.
+
+```jsx
+<Radio.GroupProvider>{/* Any valid JSX can go here*/}</Radio.GroupProvider>
+```
+
+<ArgTypes sort={'alpha'} of={RadioStories.GroupProvider} />

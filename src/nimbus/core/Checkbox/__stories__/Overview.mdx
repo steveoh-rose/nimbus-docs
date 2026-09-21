@@ -1,0 +1,43 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as CheckboxStories from './Checkbox.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/Checkbox/Docs" of={CheckboxStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Checkbox.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Checkbox"
+  figmaLink="https://www.figma.com/design/MWeGMLI4Iiti9f3IanCsf8/%F0%9F%93%A6-NDS-Core?node-id=6900-14447"
+/>
+
+A single checkbox empowers users to select multiple items from a list of individual options or mark one individual item as selected, offering the flexibility to choose one or more items from a range of choices.
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Features
+
+Checkbox is automatically connected to handle Accessibility features. Checkbox has some features baked in to make it easier to use and more consistent.
+
+- Built with a native `<input>` element
+- Visual and ARIA labeling support
+- Required and invalid states exposed to assistive technology via ARIA
+- Support for description and error message help text linked to the input via ARIA
+- Easily customize appearance by hiding the HTML `<input>` for full styling control.
+
+## Usage
+
+```
+import { Checkbox } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} />

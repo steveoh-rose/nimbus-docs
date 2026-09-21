@@ -1,0 +1,32 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as BadgeStories from './Badge.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/Badge/Docs" of={BadgeStories} />
+
+<Title />
+
+<ShareButtons
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Badge"
+  figmaLink="https://www.figma.com/design/zddrspn29GBxR6yjvHKBbr/feat--Badge?node-id=24431-372&t=Kt0EJFZJCqmBuz4X-4"
+/>
+
+Badges are used to highlight important information, alerts, or system statuses.
+
+<Canvas withToolbar sourceState="none" />
+<Source transform={(code) => code.replaceAll('PolymorphicButton', 'Button')} />
+<Controls />
+
+## Usage
+
+```
+import { Badge } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} of={BadgeStories} />

@@ -1,0 +1,53 @@
+@import '../../utils/mixins';
+
+@keyframes infinite-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.cc-icon.cc-icon-spinner-circle {
+  width: 20px;
+  height: 20px;
+  animation: infinite-rotate 0.5s linear infinite;
+
+  .spinner_svg__cc-spinner-ring {
+    fill: unset;
+  }
+
+  circle {
+    stroke-opacity: 1;
+    stroke: $color-system-100;
+  }
+
+  .spinner_svg__cc-spinner-mask {
+    stroke-opacity: 1;
+    stroke: $color-bg-default;
+  }
+
+  @include withDesignTokenColors() using ($colorName, $color) {
+    &.cc-icon--#{$colorName} {
+      .spinner_svg__cc-spinner-mask,
+      &:hover .spinner_svg__cc-spinner-mask {
+        // If only a color was provided, assume we don't want to change color on hover
+        // If a hoverColor was provided, the rule below will take precedence
+        stroke: $color;
+      }
+    }
+    &.cc-icon--hover-#{$colorName}:hover .spinner_svg__cc-spinner-mask {
+      stroke: $color;
+    }
+    &.cc-icon--circle-#{$colorName} {
+      circle,
+      &:hover circle {
+        stroke: $color;
+      }
+    }
+    &.cc-icon--hover-circle-#{$colorName}:hover circle {
+      stroke: $color;
+    }
+  }
+}

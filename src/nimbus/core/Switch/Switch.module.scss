@@ -1,0 +1,142 @@
+@import '../../tokens/build/scss/_variables.scss';
+
+/* --- Component Tokens --- */
+$token-switch-color-bg-track-on-default: $color-success-400;
+$token-switch-color-bg-track-on-hover: $color-success-500;
+$token-switch-color-bg-track-on-disabled: $color-success-200;
+$token-switch-color-bg-track-off-default: $color-system-200;
+$token-switch-color-bg-track-off-hover: $color-system-400;
+$token-switch-color-bg-track-off-disabled: $color-system-100;
+$token-switch-color-bg-thumb: $color-bg-default;
+$token-switch-color-text-default: $color-text-500;
+$token-switch-color-text-disabled: $color-text-300;
+$token-switch-color-border: transparent;
+$token-switch-color-border-focus: $color-primary-300;
+$token-switch-spacer-gap: $size-spacer-xs;
+$token-switch-spacer-track-padding: 2px;
+$token-switch-borderRadius-track: 12px;
+$token-switch-border-offset: 2px;
+$token-switch-easing-ease: cubic-bezier(0.4, 0, 0.2, 1);
+$token-switch-duration: 100ms;
+
+.switch {
+  display: flex;
+  align-items: center;
+  gap: $token-switch-spacer-gap;
+  width: fit-content;
+  cursor: pointer;
+  font: $font-body-sm;
+
+  &[data-size='lg'] {
+    font: $font-body-md;
+  }
+
+  &[data-disabled='true'][data-readonly='true'],
+  &[data-readonly='true'] {
+    cursor: not-allowed;
+    pointer-events: unset;
+  }
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  padding: $token-switch-spacer-track-padding;
+  background-color: $token-switch-color-bg-track-off-default;
+  border-radius: $token-switch-borderRadius-track;
+  box-sizing: content-box;
+  outline: $token-switch-color-border-focus solid 0;
+  outline-offset: $token-switch-border-offset;
+  transition-property: background-color, outline-width;
+  transition-duration: $token-switch-duration;
+  transition-timing-function: $token-switch-easing-ease;
+
+  [data-size='sm'] & {
+    width: 2rem;
+  }
+
+  [data-size='lg'] & {
+    width: 2.5rem;
+  }
+
+  [data-hovered='true'] & {
+    background-color: $token-switch-color-bg-track-off-hover;
+  }
+
+  [data-selected='true'] & {
+    background-color: $token-switch-color-bg-track-on-default;
+  }
+
+  [data-selected='true'][data-hovered='true'] & {
+    background-color: $token-switch-color-bg-track-on-hover;
+  }
+
+  [data-disabled='true'] & {
+    background-color: $token-switch-color-bg-track-off-disabled;
+  }
+
+  [data-disabled='true'][data-hovered='true'] & {
+    background-color: $token-switch-color-bg-track-off-disabled;
+  }
+
+  [data-disabled='true'][data-selected='true'] & {
+    background-color: $token-switch-color-bg-track-on-disabled;
+  }
+
+  [data-disabled='true'][data-selected='true'][data-hovered='true'] & {
+    background-color: $token-switch-color-bg-track-on-disabled;
+  }
+
+  [data-readonly='true'][data-selected='false'][data-hovered='true'] & {
+    background-color: $token-switch-color-bg-track-off-default;
+  }
+
+  [data-readonly='true'][data-selected='true'][data-hovered='true'] & {
+    background-color: $token-switch-color-bg-track-on-default;
+  }
+
+  [data-focused='true'] & {
+    outline-color: $token-switch-color-border-focus;
+    outline-width: 2px;
+  }
+}
+
+.thumb {
+  circle {
+    fill: $token-switch-color-bg-thumb;
+    cx: 25%;
+    transition-property: cx;
+    transition-duration: 100ms;
+    transition-timing-function: ease;
+  }
+
+  [data-size='sm'] & {
+    height: 1rem;
+
+    circle {
+      r: 0.5rem;
+    }
+  }
+
+  [data-size='lg'] & {
+    height: 1.25rem;
+
+    circle {
+      r: 0.625rem;
+    }
+  }
+
+  [data-selected='true'] & {
+    circle {
+      cx: 75%;
+    }
+  }
+}
+
+.label {
+  color: $token-switch-color-text-default;
+
+  [data-disabled='true'] & {
+    color: $token-switch-color-text-disabled;
+  }
+}

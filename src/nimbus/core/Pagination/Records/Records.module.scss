@@ -1,0 +1,31 @@
+@import '../../../tokens/build/scss/_variables.scss';
+
+.current {
+  flex: 1 0;
+  font: $font-body-bold-md;
+  color: $color-text-400;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  /* 
+    Removes the flex grow on this element when it is followed by the PageSize control.
+    That means we can position the element correctly, without any breaking style changes that 
+    could occur if we removed the flex grow outright.
+    Really these subcomponents shouldn't have a flex property at all because they're designed to be used 
+    in a variety of different contexts, but removing it now is bound to cause issues.
+  */
+  &:has(+ [data-pagesize]) {
+    flex: none;
+  }
+}
+
+.last {
+  font: $font-body-md;
+  color: $color-text-300;
+}
+
+.last,
+.separator {
+  margin: 0 $size-spacer-xs;
+}

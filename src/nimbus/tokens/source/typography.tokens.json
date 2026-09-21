@@ -1,0 +1,271 @@
+{
+  "font": {
+    "family": {
+      "regular": {
+        "value": "'Open Sans', sans-serif"
+      },
+      "accent": {
+        "value": "'Montserrat', sans-serif"
+      }
+    },
+    "weight": {
+      "base": {
+        "regular": "400",
+        "bold": "600"
+      },
+      "heading": {
+        "value": "{font.weight.base.bold}"
+      },
+      "body": {
+        "value": "{font.weight.base.regular}"
+      },
+      "body-bold": {
+        "value": "{font.weight.base.bold}"
+      }
+    },
+    "heading": {
+      "h1": {
+        "shorthand": {
+          "value": "{font.weight.heading.value} {font.heading.h1.size.value}/{font.heading.h1.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "35px"
+        },
+        "line-height": {
+          "value": "45px"
+        }
+      },
+      "h2": {
+        "shorthand": {
+          "value": "{font.weight.heading.value} {font.heading.h2.size.value}/{font.heading.h2.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "26px"
+        },
+        "line-height": {
+          "value": "36px"
+        }
+      },
+      "h3": {
+        "shorthand": {
+          "value": "{font.weight.heading.value} {font.heading.h3.size.value}/{font.heading.h3.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "22px"
+        },
+        "line-height": {
+          "value": "31px"
+        }
+      },
+      "h4": {
+        "shorthand": {
+          "value": "{font.weight.heading.value} {font.heading.h4.size.value}/{font.heading.h4.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "18px"
+        },
+        "line-height": {
+          "value": "25px"
+        }
+      },
+      "h5": {
+        "shorthand": {
+          "value": "{font.weight.heading.value} {font.heading.h5.size.value}/{font.heading.h5.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "16px"
+        },
+        "line-height": {
+          "value": "23px"
+        }
+      }
+    },
+    "body": {
+      "xl": {
+        "shorthand": {
+          "value": "{font.weight.body.value} {font.body.xl.size.value}/{font.body.xl.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "16px"
+        },
+        "line-height": {
+          "value": "23px"
+        }
+      },
+      "lg": {
+        "shorthand": {
+          "value": "{font.weight.body.value} {font.body.lg.size.value}/{font.body.lg.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "15px"
+        },
+        "line-height": {
+          "value": "21px"
+        }
+      },
+      "md": {
+        "shorthand": {
+          "value": "{font.weight.body.value} {font.body.md.size.value}/{font.body.md.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "14px"
+        },
+        "line-height": {
+          "value": "20px"
+        }
+      },
+      "sm": {
+        "shorthand": {
+          "value": "{font.weight.body.value} {font.body.sm.size.value}/{font.body.sm.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "13px"
+        },
+        "line-height": {
+          "value": "18px"
+        }
+      },
+      "sm-compact": {
+        "shorthand": {
+          "value": "{font.weight.body.value} {font.body.sm-compact.size.value}/{font.body.sm-compact.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "13px"
+        },
+        "line-height": {
+          "value": "16px"
+        }
+      },
+      "xs": {
+        "shorthand": {
+          "value": "{font.weight.body.value} {font.body.xs.size.value}/{font.body.xs.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "10px"
+        },
+        "line-height": {
+          "value": "14px"
+        }
+      }
+    },
+    "body-bold": {
+      "xl": {
+        "shorthand": {
+          "value": "{font.weight.body-bold.value} {font.body.xl.size.value}/{font.body.xl.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "16px"
+        },
+        "line-height": {
+          "value": "23px"
+        }
+      },
+      "lg": {
+        "shorthand": {
+          "value": "{font.weight.body-bold.value} {font.body.lg.size.value}/{font.body.lg.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "15px"
+        },
+        "line-height": {
+          "value": "21px"
+        }
+      },
+      "md": {
+        "shorthand": {
+          "value": "{font.weight.body-bold.value} {font.body.md.size.value}/{font.body.md.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "14px"
+        },
+        "line-height": {
+          "value": "20px"
+        }
+      },
+      "sm": {
+        "shorthand": {
+          "value": "{font.weight.body-bold.value} {font.body.sm.size.value}/{font.body.sm.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "13px"
+        },
+        "line-height": {
+          "value": "18px"
+        }
+      },
+      "sm-compact": {
+        "shorthand": {
+          "value": "{font.weight.body-bold.value} {font.body.sm-compact.size.value}/{font.body.sm-compact.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "13px"
+        },
+        "line-height": {
+          "value": "16px"
+        }
+      },
+      "xs": {
+        "shorthand": {
+          "value": "{font.weight.body-bold.value} {font.body.xs.size.value}/{font.body.xs.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "description": "Use with the CSS `font` shorthand property"
+          }
+        },
+        "size": {
+          "value": "10px"
+        },
+        "line-height": {
+          "value": "14px"
+        }
+      }
+    }
+  }
+}

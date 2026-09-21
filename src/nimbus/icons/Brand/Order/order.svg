@@ -1,0 +1,9 @@
+<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="order-shadow" d="M16 11.0767H41L56 26.6536V58.3267L51 62.9997L46 58.3267L41 62.9997L36 58.3267L31 62.9997L26 58.3267L21 62.9997L16 58.3267V11.0767Z" fill="#16263F"/>
+<path class="order-front" d="M14 9H39L54 24.5769V56.25L49 60.9231L44 56.25L39 60.9231L34 56.25L29 60.9231L24 56.25L19 60.9231L14 56.25V9Z" fill="#0098FF"/>
+<path class="order-page-fold" d="M39 24.5769V9L54 24.5769H39Z" fill="#00498F"/>
+<rect class="order-text" x="21" y="47.4233" width="27" height="5.19231" fill="#00498F"/>
+<rect class="order-text" x="21" y="30.8081" width="27" height="5.19231" fill="#00498F"/>
+<rect class="order-text" x="21" y="39.1152" width="27" height="5.19231" fill="#00498F"/>
+</svg>
+

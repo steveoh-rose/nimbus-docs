@@ -1,0 +1,354 @@
+@import '../../tokens/build/scss/_variables.scss';
+
+/* Component Tokens */
+
+// Calendar
+$calendar-border-radius-date: 4px;
+$calendar-color-background-date-hover: $color-bg-200;
+$calendar-color-background-date-invalid: $color-error-100;
+$calendar-color-background-date-selected: $color-primary-100;
+$calendar-color-background-date: $color-bg-default;
+$calendar-color-border-date-invalid: $color-error-300;
+$calendar-color-text-date-default: $color-text-400;
+$calendar-color-text-date-invalid: $color-error-500;
+$calendar-color-text-date-selected: $color-text-400;
+$calendar-color-text-date-unavailable-opacity: 0.5;
+$calendar-color-text-day: $color-text-300;
+$calendar-color-text-header: $color-text-400;
+$calendar-size-date-width: 2.143rem; // 30px @ 14px base font-size
+$calendar-spacing-gap-calendar: $size-spacer-sm;
+$calendar-spacing-padding: $size-spacer-lg;
+
+// Date Picker
+$date-picker-border-radius-date-input-group: 5px;
+$date-picker-spacing-gap-datesegments: $size-spacer-xxs;
+
+// Popver
+$popover-border-radius: 5px;
+$popover-color-background: $color-bg-default;
+$popover-size-border-width: 1px;
+$popover-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+
+/* Animations  */
+
+@keyframes popover-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    scale: 0.95;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    scale: 1;
+  }
+}
+@keyframes popover-exit {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0.95;
+  }
+}
+
+/* Form Control */
+
+.root {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.label {
+  color: $color-text-400;
+  font: $font-body-bold-md;
+  margin-bottom: $size-spacer-xs;
+}
+
+.requiredAsterisk {
+  color: $color-accent-bright-2;
+}
+
+.hintText {
+  font: $font-body-sm-compact;
+  padding-top: $size-spacer-xxs;
+}
+
+.description {
+  @extend .hintText;
+  color: $color-text-300;
+}
+
+.errorMessage {
+  @extend .hintText;
+  color: $color-error-400;
+}
+
+/* Input */
+
+.inputGroup {
+  border-radius: $date-picker-border-radius-date-input-group;
+  border: 1px solid $color-system-200;
+  box-sizing: border-box;
+  display: flex;
+  font: $font-body-md;
+  gap: $date-picker-spacing-gap-datesegments;
+  justify-content: flex-start;
+  min-width: 12rem;
+  outline-offset: -1px;
+  outline: transparent solid 2px;
+  padding: $size-spacer-xs $size-spacer-sm;
+  position: relative; // Necessary to contain input pseudo-element
+  transition-duration: 100ms;
+  transition-property: border-color, background-color, border-width, outline-color, outline-width;
+
+  &:not([data-disabled='true']):hover {
+    border-color: $color-system-400;
+  }
+
+  &[data-focus-within][data-trigger-focused='false'] {
+    outline-color: $color-primary-300;
+    outline-width: 2px;
+  }
+
+  &:not([data-disabled='true'])[data-invalid] {
+    background-color: $color-error-100;
+    border-color: $color-error-400;
+
+    &[data-focus-within]:not([data-trigger-focused='true']) {
+      outline-color: $color-error-400;
+    }
+  }
+
+  &[data-disabled='true'] {
+    background-color: $color-bg-300;
+
+    * {
+      cursor: not-allowed;
+    }
+  }
+
+  &:has([data-type='hour']) {
+    min-width: 14rem;
+  }
+
+  &:has([data-type='minute']) {
+    min-width: 15.5rem;
+  }
+
+  &:has([data-type='second']) {
+    min-width: 17rem;
+  }
+
+  &:has([data-type='timeZoneName']) {
+    min-width: 21rem;
+  }
+
+  &[data-invalid='true']:not([data-disabled='true']) {
+    .popoverTrigger {
+      $icon-color-default: $color-error-400;
+      $icon-color-hover: $color-error-500;
+
+      border-color: transparent;
+      color: $icon-color-default;
+      outline-color: $color-error-400;
+
+      &[data-hover='true'] {
+        background-color: #fee0eb;
+        color: $icon-color-hover;
+      }
+
+      &[data-pressed='true'] {
+        background-color: $color-error-200;
+      }
+
+      :hover path {
+        fill: $icon-color-hover;
+      }
+    }
+  }
+
+  // Deliberately nested to increase specificity
+  .popoverTrigger {
+    outline-offset: 0;
+    padding: 3px;
+
+    svg {
+      $icon-size: 1.143rem; // 16px @ 14px font size. Relative to ensure button scales with changes in font size
+      flex-shrink: 0;
+      height: $icon-size;
+      width: $icon-size;
+    }
+  }
+}
+
+.dateSegment {
+  background-color: transparent;
+  border-radius: 3px;
+  color: $color-text-400;
+  outline: none;
+  transition: inherit;
+  z-index: 2; // Ensures segment is placed on top of pseudo-element hit area
+
+  &:focus {
+    background: $color-primary-100;
+  }
+
+  &[data-placeholder='true'] {
+    color: $color-system-200;
+  }
+}
+
+.dateInputContainer {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  transition: inherit;
+}
+
+.dateInput {
+  // Added to support floating calendar button. Extends the hit area, so there are no dead spots that can't be clicked to focus the input.
+  &:before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  align-items: center;
+  caret-color: transparent;
+  color: $color-text-400;
+  cursor: text;
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 1;
+  gap: $size-spacer-xxs;
+  transition: inherit;
+}
+
+/* Popover */
+
+.dialog {
+  background-color: $popover-color-background;
+  border-radius: $popover-border-radius;
+  border: $popover-size-border-width solid $color-system-200;
+  box-shadow: $popover-box-shadow;
+  padding: $calendar-spacing-padding;
+}
+
+.popover {
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.5, 0.49, 0.51, 1.22);
+  transform-origin: 50% 0;
+
+  &[data-entering] {
+    animation-name: popover-enter;
+  }
+
+  &[data-exiting] {
+    animation-name: popover-exit;
+  }
+}
+
+.header {
+  align-items: center;
+  color: $calendar-color-text-header;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: $calendar-spacing-gap-calendar;
+  justify-content: center;
+}
+
+.heading {
+  flex: 1;
+  font: $font-body-bold-lg;
+  margin: 0;
+  text-align: center;
+}
+
+.chevronButton {
+  svg {
+    $icon-size: 1.429rem; // 20px @ 14px base font-size
+    cursor: inherit;
+    flex-shrink: 0;
+    height: $icon-size;
+    width: $icon-size;
+  }
+}
+
+/* Calendar */
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: $calendar-spacing-gap-calendar;
+  width: fit-content;
+}
+
+.calendarGrid {
+  border-spacing: 2px;
+}
+
+.calendarGridHeaderCell {
+  color: $calendar-color-text-day;
+  font: $font-body-md;
+  font-weight: 400;
+}
+
+.calendarCell {
+  align-items: center;
+  background-color: $calendar-color-background-date;
+  border-radius: $calendar-border-radius-date;
+  box-sizing: border-box;
+  color: $calendar-color-text-date-default;
+  cursor: default;
+  display: flex;
+  font: $font-body-bold-md;
+  height: $calendar-size-date-width;
+  justify-content: center;
+  outline: 0px solid transparent;
+  transition-duration: 100ms;
+  transition-property: outline-color, outline-width, background-color;
+  width: $calendar-size-date-width;
+
+  &:not([data-outside-month='true']):not([data-selected='true']):not([data-unavailable='true']):not(
+      [data-disabled='true']
+    ):hover {
+    background-color: $calendar-color-background-date-hover;
+  }
+
+  &[data-selected='true'] {
+    background-color: $calendar-color-background-date-selected;
+    color: $calendar-color-text-date-selected;
+  }
+
+  &[data-outside-month='true'],
+  &[data-disabled='true'],
+  &[data-unavailable='true'] {
+    font: $font-body-md;
+    opacity: $calendar-color-text-date-unavailable-opacity;
+  }
+
+  &[data-focus-visible='true'] {
+    outline: 2px solid $color-primary-300;
+  }
+
+  &[data-invalid='true'] {
+    background-color: $calendar-color-background-date-invalid;
+    border: 1px solid $calendar-color-border-date-invalid;
+    color: $calendar-color-text-date-invalid;
+    font: $font-body-bold-md;
+    opacity: 1;
+    outline-offset: -1px;
+
+    &[data-focus-visible='true'] {
+      outline-color: $color-error-400;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as FlexStories from './Flex.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta of={FlexStories} />
+
+<Title />
+
+<ShareButtons
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Flex"
+/>
+
+A low-level layout component for controlling Flexbox layouts. Use it to easily manage direction, alignment, wrapping, and spacing between elements.
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Usage
+
+```tsx
+import { Flex } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} of={FlexStories} />

@@ -1,0 +1,15 @@
+@use 'tokens' as tokens;
+
+.menu {
+  min-width: 15rem;
+}
+
+.title {
+  font: tokens.$global-font-body-bold-md;
+  color: tokens.$global-color-text-500;
+}
+
+.description {
+  font: tokens.$global-font-body-sm;
+  color: tokens.$global-color-text-300;
+}

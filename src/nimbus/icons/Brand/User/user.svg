@@ -1,0 +1,6 @@
+<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="user-shadow" d="M59 36.5476C59 48.9477 49.0086 59 36.6835 59C29.6076 59 22.5316 56.2619 16 48.0476C16 35.6475 27.6243 13 39.9494 13C49.2025 16.2857 59 24.1475 59 36.5476Z" fill="#16263F"/>
+<circle class="user-background" cx="33.5" cy="34.5" r="22.5" fill="#0098FF"/>
+<path class="user-silhouette" d="M34 37C25.8286 37 21.9286 43.7048 21 47.0571C22.5476 48.7333 27.3143 53 34 53C40.6857 53 45.4524 48.7333 47 47.0571C46.0714 43.7048 42.1714 37 34 37Z" fill="#FCFCFD"/>
+<circle class="user-silhouette" cx="34" cy="30" r="9" fill="#FCFCFD" stroke="#0098FF" stroke-width="2"/>
+</svg>

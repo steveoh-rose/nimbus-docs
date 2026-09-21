@@ -1,0 +1,14 @@
+@import '../../../tokens/build/scss/_variables.scss';
+
+/*Component tokens*/
+$pagination-color-bg-number-current: $color-primary-100;
+$pagination-color-text-number-current: $color-text-400;
+
+.number[data-variant='subtle'] {
+  color: $pagination-color-text-number-current;
+  &.current {
+    opacity: 1;
+    background: $pagination-color-bg-number-current;
+    color: $pagination-color-text-number-current;
+  }
+}

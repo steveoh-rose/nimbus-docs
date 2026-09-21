@@ -1,0 +1,152 @@
+@use 'tokens' as tokens;
+
+/* ****************************************************************** *
+ * Configuration Map                                                  *
+ * ****************************************************************** */
+$callout-intents: (
+  neutral: (
+    bg: tokens.$callout-color-bg-neutral,
+    border: tokens.$callout-color-border-neutral,
+    primary: tokens.$callout-color-border-neutral-strong,
+    button-text: tokens.$callout-button-color-text-neutral,
+    hover: tokens.$callout-button-color-bg-neutral-hovered,
+    pressed: tokens.$callout-button-color-bg-neutral-pressed,
+    text: tokens.$callout-color-text-neutral,
+  ),
+  info: (
+    bg: tokens.$callout-color-bg-info,
+    border: tokens.$callout-color-border-info,
+    primary: tokens.$callout-color-border-info-strong,
+    button-text: tokens.$callout-button-color-text-info,
+    hover: tokens.$callout-button-color-bg-info-hovered,
+    pressed: tokens.$callout-button-color-bg-info-pressed,
+    text: tokens.$callout-color-text-info,
+  ),
+  danger: (
+    bg: tokens.$callout-color-bg-danger,
+    border: tokens.$callout-color-border-danger,
+    primary: tokens.$callout-color-border-danger-strong,
+    button-text: tokens.$callout-button-color-text-danger,
+    hover: tokens.$callout-button-color-bg-danger-hovered,
+    pressed: tokens.$callout-button-color-bg-danger-pressed,
+    text: tokens.$callout-color-text-danger,
+  ),
+  success: (
+    bg: tokens.$callout-color-bg-success,
+    border: tokens.$callout-color-border-success,
+    primary: tokens.$callout-color-border-success-strong,
+    button-text: tokens.$callout-button-color-text-success,
+    hover: tokens.$callout-button-color-bg-success-hovered,
+    pressed: tokens.$callout-button-color-bg-success-pressed,
+    text: tokens.$callout-color-text-success,
+  ),
+  warning: (
+    bg: tokens.$callout-color-bg-warning,
+    border: tokens.$callout-color-border-warning,
+    primary: tokens.$callout-color-border-warning-strong,
+    button-text: tokens.$callout-button-color-text-warning,
+    hover: tokens.$callout-button-color-bg-warning-hovered,
+    pressed: tokens.$callout-button-color-bg-warning-pressed,
+    text: tokens.$callout-color-text-warning,
+  ),
+  special: (
+    bg: tokens.$callout-color-bg-special,
+    border: tokens.$callout-color-border-special,
+    primary: tokens.$callout-color-border-special-strong,
+    button-text: tokens.$callout-button-color-text-special,
+    hover: tokens.$callout-button-color-bg-special-hovered,
+    pressed: tokens.$callout-button-color-bg-special-pressed,
+    text: tokens.$callout-color-text-special,
+  ),
+);
+
+/* ****************************************************************** *
+ * Buttons                                                            *
+ * ****************************************************************** */
+@mixin callout-button-intent($primary, $button-text, $hover, $pressed) {
+  .CalloutButton {
+    &[data-variant='primary'] {
+      background-color: $primary;
+      color: #ffffff;
+
+      &[data-hover='true'] {
+        background-color: $hover;
+      }
+      &[data-pressed='true'] {
+        background-color: $pressed;
+      }
+    }
+
+    /* Shared text and icon colors for transparent variants */
+    &[data-variant='outline'],
+    &[data-variant='ghost'] {
+      color: $button-text; /* Uses 700 token */
+
+      svg path {
+        fill: $button-text; /* Uses 700 token */
+      }
+    }
+
+    /* Outline: Colored border + tinted background on hover */
+    &[data-variant='outline'] {
+      border-color: $primary; /* Retains 600 primary */
+      background-color: transparent;
+
+      &[data-hover='true'] {
+        background-color: rgba($primary, 0.1);
+      }
+      &[data-pressed='true'] {
+        background-color: rgba($primary, 0.2);
+      }
+    }
+
+    /* Ghost: No border + tinted background on hover */
+    &[data-variant='ghost'] {
+      border-color: transparent;
+      background-color: transparent;
+
+      &[data-hover='true'] {
+        background-color: rgba($primary, 0.1);
+      }
+      &[data-pressed='true'] {
+        background-color: rgba($primary, 0.2);
+      }
+    }
+  }
+}
+
+/* ****************************************************************** *
+ * Intents (Themes)                                                   *
+ * ****************************************************************** */
+@mixin callout-intent-theme($bg, $border, $text, $primary, $button-text, $hover, $pressed) {
+  background-color: $bg;
+  border-color: $border;
+
+  &[data-variant='enclosed'] {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      left: 0;
+      width: 4px;
+      background-color: $primary;
+    }
+  }
+
+  .CalloutTitle,
+  .CalloutDescription {
+    color: $text;
+  }
+
+  .CalloutIcon {
+    color: $primary;
+    svg path {
+      fill: currentColor;
+    }
+  }
+
+  /* Scoped buttons for this intent */
+  @include callout-button-intent($primary, $button-text, $hover, $pressed);
+}

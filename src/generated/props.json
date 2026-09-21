@@ -1,0 +1,2235 @@
+{
+ "Badge": [
+  {
+   "name": "Badge",
+   "description": "",
+   "props": [
+    {
+     "name": "children",
+     "type": "ReactNode",
+     "required": true,
+     "defaultValue": null,
+     "description": "The content to render inside the Badge.\nTypically composed of `<Badge.Icon>` and `<Badge.Label>`."
+    },
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Optional custom CSS class to apply to the root badge element."
+    },
+    {
+     "name": "data-rac-id",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "A unique identifier for tracking purposes."
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "A unique identifier for automated testing purposes."
+    },
+    {
+     "name": "intent",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "'neutral'",
+     "description": "The semantic intent of the badge, which dictates its colors and default icon.\n- `neutral`\n- `info`\n- `success`\n- `warning`\n- `danger`\n- `special`"
+    },
+    {
+     "name": "variant",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "'subtle'",
+     "description": "The visual appearance style of the badge.\n- `solid`\n- `subtle`\n- `plain`"
+    }
+   ]
+  },
+  {
+   "name": "Badge.Icon",
+   "description": "",
+   "props": [
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Badge.Label",
+   "description": "",
+   "props": [
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  }
+ ],
+ "Button": [],
+ "Callout": [
+  {
+   "name": "Callout",
+   "description": "",
+   "props": [
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "data-rac-id",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "intent",
+     "type": "enum",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "variant",
+     "type": "enum",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Callout.Icon",
+   "description": "",
+   "props": [
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Callout.Content",
+   "description": "",
+   "props": [
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Callout.Title",
+   "description": "",
+   "props": [
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Callout.Description",
+   "description": "",
+   "props": [
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Callout.Button",
+   "description": "",
+   "props": [
+    {
+     "name": "variant",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "primary",
+     "description": "Only allows specific visual variants that are compliant with Callout intents."
+    }
+   ]
+  }
+ ],
+ "Checkbox": [
+  {
+   "name": "Checkbox",
+   "description": "",
+   "props": [
+    {
+     "name": "classes",
+     "type": "{ root?: string; indicator?: string; labelContainer?: string; label?: string; hint?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "id for E2E testing purposes"
+    },
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the checkbox is disabled.\n@selector [data-disabled]"
+    },
+    {
+     "name": "hint",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "indeterminate",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Indeterminism is presentational only.\nThe indeterminate visual representation remains regardless of user interaction.\n@selector [data-indeterminate]"
+    },
+    {
+     "name": "invalid",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the checkbox is in an invalid state\n@selector [data-invalid]"
+    },
+    {
+     "name": "readonly",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the checkbox can be selected but not changed by the user.\n@selector [data-readonly]"
+    }
+   ]
+  }
+ ],
+ "ComboBox": [
+  {
+   "name": "ComboBox",
+   "description": "",
+   "props": [
+    {
+     "name": "allowsEmptyCollection",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "true",
+     "description": "Whether the combo box allows the menu to be open when the collection is empty."
+    },
+    {
+     "name": "classes",
+     "type": "ComboBoxClasses",
+     "required": false,
+     "defaultValue": null,
+     "description": "Custom class names to add to underlying DOM elements for styling."
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "ID data attribute for use in tests."
+    },
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is disabled"
+    },
+    {
+     "name": "emptyStateNode",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": "Optional element to display when there are no options to display."
+    },
+    {
+     "name": "fullWidth",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is full width"
+    },
+    {
+     "name": "hint",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": "A description for the field. Provides a hint such as specific requirements for what to choose."
+    },
+    {
+     "name": "invalid",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is invalid"
+    },
+    {
+     "name": "loading",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is loading\n@deprecated Use `loadingState` instead"
+    },
+    {
+     "name": "loadingState",
+     "type": "enum",
+     "required": false,
+     "defaultValue": null,
+     "description": "The loading state of the ComboBox"
+    },
+    {
+     "name": "onLoadMore",
+     "type": "() => void",
+     "required": false,
+     "defaultValue": null,
+     "description": "Handler that is called when more items should be loaded"
+    },
+    {
+     "name": "readonly",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input can be selected but not changed by the user."
+    },
+    {
+     "name": "required",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is requied"
+    }
+   ]
+  },
+  {
+   "name": "Group",
+   "description": "",
+   "props": [
+    {
+     "name": "classes",
+     "type": "ComboBoxClasses",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "section",
+     "type": "Node<T>",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "state",
+     "type": "ComboBoxState<T, \"single\">",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "ListBox",
+   "description": "",
+   "props": [
+    {
+     "name": "classes",
+     "type": "ComboBoxClasses",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "emptyStateNode",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "isLoading",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "onLoadMore",
+     "type": "() => void",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "state",
+     "type": "ComboBoxState<T, \"single\">",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Option",
+   "description": "",
+   "props": [
+    {
+     "name": "classes",
+     "type": "ComboBoxClasses",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "item",
+     "type": "Node<T>",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "state",
+     "type": "ComboBoxState<T, \"single\">",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Popover",
+   "description": "",
+   "props": [
+    {
+     "name": "classes",
+     "type": "ComboBoxClasses",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "popoverRef",
+     "type": "RefObject<HTMLDivElement>",
+     "required": true,
+     "defaultValue": null,
+     "description": "The ref for the popover element."
+    },
+    {
+     "name": "portalContainer",
+     "type": "Element",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "state",
+     "type": "OverlayTriggerState",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  }
+ ],
+ "DatePicker": [
+  {
+   "name": "DatePicker",
+   "description": "",
+   "props": [
+    {
+     "name": "autoFocus",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "defaultOpen",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "defaultValue",
+     "type": "DateValue",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "description",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "errorMessage",
+     "type": "string | ((validation: ValidationResult) => string)",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "granularity",
+     "type": "enum",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "hideTimeZone",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "id",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "isDateUnavailable",
+     "type": "(date: DateValue) => boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "isDisabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "isInvalid",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "isOpen",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "isReadOnly",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "isRequired",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "label",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "maxValue",
+     "type": "DateValue",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "minValue",
+     "type": "DateValue",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "name",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "onChange",
+     "type": "(value: MappedDateValue<T>) => void",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "onOpenChange",
+     "type": "(isOpen: boolean) => void",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "placeholderValue",
+     "type": "DateValue",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "ref",
+     "type": "ForwardedRef<HTMLDivElement>",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "validate",
+     "type": "(value: MappedDateValue<T>) => true | ValidationError",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "value",
+     "type": "DateValue",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  }
+ ],
+ "Dialog": [
+  {
+   "name": "Dialog.Close",
+   "description": "",
+   "props": [
+    {
+     "name": "as",
+     "type": "\"button\"",
+     "required": false,
+     "defaultValue": "'button'",
+     "description": "The HTML element or React element used to render the button, e.g. 'div', 'a', or `RouterLink`."
+    },
+    {
+     "name": "brandBgColor",
+     "type": "DesignTokenColor",
+     "required": false,
+     "defaultValue": "'accent-bright-2'",
+     "description": "A colour token that is acceptable by the brand.\nThis colour will become the background color for the button."
+    },
+    {
+     "name": "brandTextColor",
+     "type": "DesignTokenColor",
+     "required": false,
+     "defaultValue": "'text-100'",
+     "description": "A colour token that is acceptable by the brand.\nThis colour will become the text color for the button.\nConsole usually provides light colours"
+    },
+    {
+     "name": "classes",
+     "type": "{ root?: string; text?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes."
+    },
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the button is disabled.\n@extends jsdoc from AriaTextFieldProps[value]"
+    },
+    {
+     "name": "fullWidth",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Sets button width to 100% of parent element"
+    },
+    {
+     "name": "loading",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Indicate loading state"
+    },
+    {
+     "name": "loadingText",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Label used to control text of loading button."
+    },
+    {
+     "name": "onPress",
+     "type": "(event: PressEvent) => void",
+     "required": false,
+     "defaultValue": null,
+     "description": "Handler that is called when the press is released over the target."
+    },
+    {
+     "name": "rounded",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Set the radius of the button to a rounded variation."
+    },
+    {
+     "name": "size",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "\"lg\"",
+     "description": "Predefined size value"
+    },
+    {
+     "name": "variant",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "'primary'",
+     "description": "The variant to use."
+    }
+   ]
+  },
+  {
+   "name": "DialogClose",
+   "description": "",
+   "props": [
+    {
+     "name": "as",
+     "type": "\"button\"",
+     "required": false,
+     "defaultValue": "'button'",
+     "description": "The HTML element or React element used to render the button, e.g. 'div', 'a', or `RouterLink`."
+    },
+    {
+     "name": "brandBgColor",
+     "type": "DesignTokenColor",
+     "required": false,
+     "defaultValue": "'accent-bright-2'",
+     "description": "A colour token that is acceptable by the brand.\nThis colour will become the background color for the button."
+    },
+    {
+     "name": "brandTextColor",
+     "type": "DesignTokenColor",
+     "required": false,
+     "defaultValue": "'text-100'",
+     "description": "A colour token that is acceptable by the brand.\nThis colour will become the text color for the button.\nConsole usually provides light colours"
+    },
+    {
+     "name": "classes",
+     "type": "{ root?: string; text?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes."
+    },
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the button is disabled.\n@extends jsdoc from AriaTextFieldProps[value]"
+    },
+    {
+     "name": "fullWidth",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Sets button width to 100% of parent element"
+    },
+    {
+     "name": "loading",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Indicate loading state"
+    },
+    {
+     "name": "loadingText",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Label used to control text of loading button."
+    },
+    {
+     "name": "onPress",
+     "type": "(event: PressEvent) => void",
+     "required": false,
+     "defaultValue": null,
+     "description": "Handler that is called when the press is released over the target."
+    },
+    {
+     "name": "rounded",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Set the radius of the button to a rounded variation."
+    },
+    {
+     "name": "size",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "\"lg\"",
+     "description": "Predefined size value"
+    },
+    {
+     "name": "variant",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "'primary'",
+     "description": "The variant to use."
+    }
+   ]
+  }
+ ],
+ "Disclosure": [
+  {
+   "name": "Disclosure",
+   "description": "",
+   "props": [
+    {
+     "name": "data-rac-id",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "variant",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "outline",
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Disclosure.Header",
+   "description": "",
+   "props": [
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "DisclosureGroup",
+   "description": "",
+   "props": [
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "variant",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "enclosed",
+     "description": ""
+    }
+   ]
+  }
+ ],
+ "FileTrigger": [
+  {
+   "name": "FileTrigger",
+   "description": "",
+   "props": [
+    {
+     "name": "data-rac-id",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for GTM purposes. Pass this property to add a custom id to the root element for GTM tracking."
+    },
+    {
+     "name": "data-test-id",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes"
+    }
+   ]
+  }
+ ],
+ "Flex": [
+  {
+   "name": "Flex",
+   "description": "",
+   "props": [
+    {
+     "name": "align",
+     "type": "AlignItems",
+     "required": false,
+     "defaultValue": "initial",
+     "description": ""
+    },
+    {
+     "name": "as",
+     "type": "ElementType",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "direction",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "initial",
+     "description": ""
+    },
+    {
+     "name": "gap",
+     "type": "Gap<string | number>",
+     "required": false,
+     "defaultValue": "initial",
+     "description": ""
+    },
+    {
+     "name": "justify",
+     "type": "JustifyContent",
+     "required": false,
+     "defaultValue": "initial",
+     "description": ""
+    },
+    {
+     "name": "ref",
+     "type": "ForwardedRef<any>",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "wrap",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "initial",
+     "description": ""
+    }
+   ]
+  }
+ ],
+ "Label": [
+  {
+   "name": "Label",
+   "description": "",
+   "props": [
+    {
+     "name": "required",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  }
+ ],
+ "Menu": [
+  {
+   "name": "Menu",
+   "description": "",
+   "props": [
+    {
+     "name": "data-rac-id",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for GTM purposes. Pass this property to add a custom id to the root element for GTM tracking."
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes"
+    }
+   ]
+  },
+  {
+   "name": "Menu.Item",
+   "description": "",
+   "props": [
+    {
+     "name": "isDanger",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Menu.Section",
+   "description": "",
+   "props": [
+    {
+     "name": "title",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Menu.Header",
+   "description": "",
+   "props": [
+    {
+     "name": "className",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  }
+ ],
+ "Modal": [
+  {
+   "name": "Modal",
+   "description": "",
+   "props": [
+    {
+     "name": "placement",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "center",
+     "description": ""
+    },
+    {
+     "name": "size",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "md",
+     "description": ""
+    }
+   ]
+  }
+ ],
+ "Pagination": [
+  {
+   "name": "Controls",
+   "description": "",
+   "props": [
+    {
+     "name": "currentPage",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": "Current page number"
+    },
+    {
+     "name": "firstText",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Text to show for the first page control. Defaults to show no text."
+    },
+    {
+     "name": "hideFirstLast",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Hides button to skip to first or last page"
+    },
+    {
+     "name": "hideNextPrev",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Hides next and previous page navigation buttons"
+    },
+    {
+     "name": "hideNumbers",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Hide page number buttons"
+    },
+    {
+     "name": "lastText",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Text to show for the last page control. Defaults to show no text."
+    },
+    {
+     "name": "maxNumbersToShow",
+     "type": "number",
+     "required": false,
+     "defaultValue": "5",
+     "description": "Max number of page numbers to show at once."
+    },
+    {
+     "name": "nextText",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Text to show for the next page control, if any. Defaults to show no text."
+    },
+    {
+     "name": "onPageChange",
+     "type": "(newPageNumber: number) => void",
+     "required": true,
+     "defaultValue": null,
+     "description": "Called when changing page both by clicking on page numbers, and nav buttons"
+    },
+    {
+     "name": "pageSize",
+     "type": "number",
+     "required": false,
+     "defaultValue": "20",
+     "description": "Number of items per page. Used to calculate page info range."
+    },
+    {
+     "name": "prevText",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Text to show for the previous page control, if any. Defaults to show no text."
+    },
+    {
+     "name": "totalItems",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": "The total number of items (not pages)."
+    }
+   ]
+  },
+  {
+   "name": "FirstPageButton",
+   "description": "",
+   "props": [
+    {
+     "name": "aria-label",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "currentPage",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "onPageChange",
+     "type": "(newPageNumber: number) => void",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "pages",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "text",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "PrevPageButton",
+   "description": "",
+   "props": [
+    {
+     "name": "aria-label",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "currentPage",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "onPageChange",
+     "type": "(newPageNumber: number) => void",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "pages",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "text",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "PageNumberButton",
+   "description": "",
+   "props": [
+    {
+     "name": "aria-label",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "currentPage",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "onPageChange",
+     "type": "(newPageNumber: number) => void",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "pageNumber",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "pages",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "text",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "NextPageButton",
+   "description": "",
+   "props": [
+    {
+     "name": "aria-label",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "currentPage",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "onPageChange",
+     "type": "(newPageNumber: number) => void",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "pages",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "text",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "LastPageButton",
+   "description": "",
+   "props": [
+    {
+     "name": "aria-label",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "currentPage",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "onPageChange",
+     "type": "(newPageNumber: number) => void",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "pages",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "text",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "PageSize.Button",
+   "description": "",
+   "props": [
+    {
+     "name": "as",
+     "type": "\"button\"",
+     "required": false,
+     "defaultValue": "'button'",
+     "description": "The HTML element or React element used to render the button, e.g. 'div', 'a', or `RouterLink`."
+    },
+    {
+     "name": "classes",
+     "type": "{ root?: string; text?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes."
+    },
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the button is disabled.\n@extends jsdoc from AriaTextFieldProps[value]"
+    },
+    {
+     "name": "fullWidth",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Sets button width to 100% of parent element"
+    },
+    {
+     "name": "loading",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Indicate loading state"
+    },
+    {
+     "name": "loadingText",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Label used to control text of loading button."
+    },
+    {
+     "name": "onPress",
+     "type": "(event: PressEvent) => void",
+     "required": false,
+     "defaultValue": null,
+     "description": "Handler that is called when the press is released over the target."
+    },
+    {
+     "name": "rounded",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Set the radius of the button to a rounded variation."
+    },
+    {
+     "name": "size",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "\"lg\"",
+     "description": "Predefined size value"
+    },
+    {
+     "name": "variant",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "'primary'",
+     "description": "The variant to use."
+    }
+   ]
+  },
+  {
+   "name": "PageSize.Menu",
+   "description": "",
+   "props": [
+    {
+     "name": "header",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "onChange",
+     "type": "(pageSize: number) => void",
+     "required": true,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "options",
+     "type": "number[]",
+     "required": false,
+     "defaultValue": "[10, 25, 50, 100]",
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Records",
+   "description": "",
+   "props": [
+    {
+     "name": "currentPage",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": "Current page number"
+    },
+    {
+     "name": "pageSize",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": "Number of items per page. Used to calculate page info range."
+    },
+    {
+     "name": "totalItems",
+     "type": "number",
+     "required": true,
+     "defaultValue": null,
+     "description": "The total number of items (not pages)."
+    }
+   ]
+  }
+ ],
+ "Popover": [
+  {
+   "name": "Popover",
+   "description": "",
+   "props": [
+    {
+     "name": "data-rac-id",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for GTM purposes. Pass this property to add a custom id to the root element for GTM tracking."
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes."
+    },
+    {
+     "name": "showArrow",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Show the popover arrow."
+    }
+   ]
+  }
+ ],
+ "Radio": [
+  {
+   "name": "RadioGroupProvider",
+   "description": "",
+   "props": [
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is disabled."
+    },
+    {
+     "name": "invalid",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input value is invalid."
+    },
+    {
+     "name": "readonly",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input can be selected but not changed by the user."
+    },
+    {
+     "name": "required",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether user input is required on the input before form submission."
+    }
+   ]
+  },
+  {
+   "name": "Radio",
+   "description": "Radio component representing a single radio button.",
+   "props": [
+    {
+     "name": "classes",
+     "type": "{ radio?: string; indicator?: string; label?: string; hint?: string; labelContainer?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": "Custom class names to add to underlying DOM elements for styling.\n@selector `radio` controls Radio Root element\n@selector `indicator` controls circle indicator element;\n@selector `label` controls label element;\n@selector `hint` controls hint `<span>` element;\n@selector `labelContainer` controls label container `<div>` element;"
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes."
+    },
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is disabled."
+    },
+    {
+     "name": "hint",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Radio.GroupProvider",
+   "description": "",
+   "props": [
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is disabled."
+    },
+    {
+     "name": "invalid",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input value is invalid."
+    },
+    {
+     "name": "readonly",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input can be selected but not changed by the user."
+    },
+    {
+     "name": "required",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether user input is required on the input before form submission."
+    }
+   ]
+  },
+  {
+   "name": "Radio.Group",
+   "description": "",
+   "props": [
+    {
+     "name": "classes",
+     "type": "{ root?: string; group?: string; label?: string; hint?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": "Custom class names to add to underlying DOM elements for styling.\n@selector `root` controls `Radio.Group` root element\n@selector `group` controls `div` surrounding the radios element\n@selector `label` controls label element;\n@selector `hint` controls hint `<span>` element;"
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes."
+    },
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is disabled."
+    },
+    {
+     "name": "hint",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "invalid",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input value is invalid."
+    },
+    {
+     "name": "label",
+     "type": "ReactNode | RenderLabel",
+     "required": false,
+     "defaultValue": null,
+     "description": "The content to display as the label.\n\nOptional prop for customizing labels. Can be a React node or a function\nthat receives `labelProps` and an optional `required` boolean to dynamically generate label content."
+    },
+    {
+     "name": "orientation",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "'vertical'",
+     "description": "The axis the Radio Button(s) should align with."
+    },
+    {
+     "name": "readonly",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input can be selected but not changed by the user."
+    },
+    {
+     "name": "required",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether user input is required on the input before form submission."
+    }
+   ]
+  },
+  {
+   "name": "RadioGroupStateProvider",
+   "description": "Provides state to Radio components.",
+   "props": [
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is disabled."
+    },
+    {
+     "name": "invalid",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input value is invalid."
+    },
+    {
+     "name": "readonly",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input can be selected but not changed by the user."
+    },
+    {
+     "name": "required",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether user input is required on the input before form submission."
+    }
+   ]
+  }
+ ],
+ "Spinner": [
+  {
+   "name": "Spinner",
+   "description": "",
+   "props": [
+    {
+     "name": "classes",
+     "type": "{ circleStroke?: string; circleFill?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "onDark",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": ""
+    },
+    {
+     "name": "size",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "sm",
+     "description": ""
+    }
+   ]
+  }
+ ],
+ "Switch": [
+  {
+   "name": "Switch",
+   "description": "",
+   "props": [
+    {
+     "name": "classes",
+     "type": "{ container?: string; track?: string; label?: string; thumb?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": "Override or extend the styles applied to the component."
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "id for E2E testing purposes"
+    },
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is disabled."
+    },
+    {
+     "name": "readonly",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input can be selected but not changed by the user."
+    },
+    {
+     "name": "selected",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the Switch should be selected (controlled)."
+    },
+    {
+     "name": "size",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "sm",
+     "description": "Predefined size value"
+    }
+   ]
+  }
+ ],
+ "Table": [
+  {
+   "name": "ResizableTableContainer",
+   "description": "",
+   "props": [
+    {
+     "name": "maxWidth",
+     "type": "MaxWidth<string | number>",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "minWidth",
+     "type": "MinWidth<string | number>",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "width",
+     "type": "Width<string | number>",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    }
+   ]
+  },
+  {
+   "name": "Table",
+   "description": "Attach all subcomponents and set types for React DevTools & Storybook.",
+   "props": [
+    {
+     "name": "data-rac-id",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for GTM purposes. Pass this property to add a custom id to the root element for GTM tracking."
+    },
+    {
+     "name": "data-test-id",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes"
+    },
+    {
+     "name": "isCompact",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether the table is compact"
+    },
+    {
+     "name": "maxWidth",
+     "type": "MaxWidth<string | number>",
+     "required": false,
+     "defaultValue": null,
+     "description": "Allows you to set a `maxWidth` on the Table root element component."
+    },
+    {
+     "name": "minWidth",
+     "type": "MinWidth<string | number>",
+     "required": false,
+     "defaultValue": null,
+     "description": "Allows you to set a `minWidth` on the Table root element component."
+    },
+    {
+     "name": "ref",
+     "type": "ForwardedRef<HTMLTableElement>",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "renderEmptyState",
+     "type": "() => ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": "@returns ReactNode to render when the table is empty.\nIf not provided, a default empty state will be rendered."
+    },
+    {
+     "name": "width",
+     "type": "Width<string | number>",
+     "required": false,
+     "defaultValue": null,
+     "description": "Allows you to set a `width` on the Table root element component."
+    }
+   ]
+  }
+ ],
+ "TextArea": [
+  {
+   "name": "TextArea",
+   "description": "",
+   "props": [
+    {
+     "name": "autoFocus",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether the element should receive focus on render.\n@extends jsdoc from AriaTextFieldProps[autoFocus]"
+    },
+    {
+     "name": "classes",
+     "type": "{ root?: string; label?: string; textarea?: string; hint?: string; error?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes"
+    },
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether the input is disabled."
+    },
+    {
+     "name": "fullWidth",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is full width"
+    },
+    {
+     "name": "hint",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": "A description for the field. Provides a hint such as specific requirements for what to choose.\n@extends jsdoc from AriaTextFieldProps[description]"
+    },
+    {
+     "name": "inputProps",
+     "type": "InputHTMLAttributes<HTMLTextAreaElement>",
+     "required": false,
+     "defaultValue": null,
+     "description": "HTML attributes to pass to the underlying input element"
+    },
+    {
+     "name": "invalid",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether the input is invalid"
+    },
+    {
+     "name": "labelProps",
+     "type": "LabelHTMLAttributes<HTMLLabelElement>",
+     "required": false,
+     "defaultValue": null,
+     "description": "HTML attributes to pass to the underlying label element"
+    },
+    {
+     "name": "readonly",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether the input can be selected but not changed by the user."
+    },
+    {
+     "name": "required",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether user input is required on the input before form submission.\nOften paired with the `necessityIndicator` prop to add a visual indicator to the input."
+    },
+    {
+     "name": "resize",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "vertical",
+     "description": "Resize mode for the Text Area"
+    },
+    {
+     "name": "value",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Use React.useState to control this prop. Needs to be used with an event handler such as `onChange`.\nThe current value (controlled).\n@extends jsdoc from AriaTextFieldProps[value]"
+    }
+   ]
+  }
+ ],
+ "TextInput": [
+  {
+   "name": "TextInput",
+   "description": "",
+   "props": [
+    {
+     "name": "autoFocus",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether the element should receive focus on render.\n@extends jsdoc from AriaTextFieldProps[autoFocus]"
+    },
+    {
+     "name": "classes",
+     "type": "{ root?: string; label?: string; input?: string; hint?: string; error?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": ""
+    },
+    {
+     "name": "data-testid",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Data attribute for E2E testing purposes"
+    },
+    {
+     "name": "disabled",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether the input is disabled."
+    },
+    {
+     "name": "endAddon",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": "The component or element to be placed inside the end of the input.\n__Note:__ loading spinner will always appear before this element."
+    },
+    {
+     "name": "fullWidth",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Whether the input is full width"
+    },
+    {
+     "name": "hint",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": "A description for the field. Provides a hint such as specific requirements for what to choose.\n@extends jsdoc from AriaTextFieldProps[description]"
+    },
+    {
+     "name": "inputProps",
+     "type": "InputHTMLAttributes<HTMLInputElement>",
+     "required": false,
+     "defaultValue": null,
+     "description": "HTML attributes to pass to the underlying input element"
+    },
+    {
+     "name": "invalid",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether the input is invalid"
+    },
+    {
+     "name": "labelProps",
+     "type": "LabelHTMLAttributes<HTMLLabelElement>",
+     "required": false,
+     "defaultValue": null,
+     "description": "HTML attributes to pass to the underlying label element"
+    },
+    {
+     "name": "loading",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "Indicate loading state"
+    },
+    {
+     "name": "readonly",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether the input can be selected but not changed by the user."
+    },
+    {
+     "name": "required",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "Whether user input is required on the input before form submission.\nOften paired with the `necessityIndicator` prop to add a visual indicator to the input."
+    },
+    {
+     "name": "startAddon",
+     "type": "ReactNode",
+     "required": false,
+     "defaultValue": null,
+     "description": "The component or element to be placed inside the start of the input."
+    },
+    {
+     "name": "value",
+     "type": "string",
+     "required": false,
+     "defaultValue": null,
+     "description": "Use React.useState to control this prop. Needs to be used with an event handler such as `onChange`.\nThe current value (controlled).\n@extends jsdoc from AriaTextFieldProps[value]"
+    }
+   ]
+  }
+ ],
+ "Toast": [
+  {
+   "name": "Toaster",
+   "description": "",
+   "props": [
+    {
+     "name": "placement",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "bottom-right",
+     "description": ""
+    }
+   ]
+  }
+ ],
+ "Tooltip": [
+  {
+   "name": "Tooltip",
+   "description": "Tooltip container component for displaying additional information on hover or focus.",
+   "props": [
+    {
+     "name": "allowDismiss",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "If true dismisses the tooltip on 'press'.\nThis doesn't work with keyboard press."
+    },
+    {
+     "name": "classes",
+     "type": "{ trigger?: string; tooltip?: string; }",
+     "required": false,
+     "defaultValue": null,
+     "description": "Custom class names to add to underlying DOM elements for styling.\n@selector `trigger` controls Tooltip.Trigger element\n@selector `tooltip` controls Tooltip.Content element;"
+    },
+    {
+     "name": "defaultOpen",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": "false",
+     "description": "The default open state of the Tooltip.\nUse this prop when you want the state to be open in an uncontrolled component.\n@selector [data-state=\"open\"]"
+    },
+    {
+     "name": "delay",
+     "type": "number | Partial<{ open: number; close: number; }>",
+     "required": false,
+     "defaultValue": "750ms",
+     "description": "The delay in milliseconds before the Tooltip opens."
+    },
+    {
+     "name": "offset",
+     "type": "number",
+     "required": false,
+     "defaultValue": "10px",
+     "description": "The offset in pixels for positioning the Tooltip."
+    },
+    {
+     "name": "onOpenChange",
+     "type": "(open: boolean) => void",
+     "required": false,
+     "defaultValue": null,
+     "description": "Callback function invoked when the open state changes.\nMust use this prop to allow escape and blur events.\n@param open\n@returns boolean"
+    },
+    {
+     "name": "open",
+     "type": "boolean",
+     "required": false,
+     "defaultValue": null,
+     "description": "The controlled open state of the Tooltip.\nUse this prop to control whether the tooltip is open or closed using your own state hook."
+    },
+    {
+     "name": "placement",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "top",
+     "description": "Controls the placement of the tooltip in relation to the trigger.\n@selector [data-placement=\"top\"]"
+    },
+    {
+     "name": "variant",
+     "type": "enum",
+     "required": false,
+     "defaultValue": "dark",
+     "description": "The variant of the Tooltip.\n@selector [data-variant]"
+    }
+   ]
+  }
+ ]
+}

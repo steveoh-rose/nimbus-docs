@@ -1,0 +1,50 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as ComboBoxStories from './ComboBox.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/ComboBox/Docs" of={ComboBoxStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/ComboBox.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/ComboBox"
+  figmaLink="https://www.figma.com/design/MWeGMLI4Iiti9f3IanCsf8/%F0%9F%93%A6-NDS-Core?node-id=14159-891"
+/>
+
+ComboBoxes combine a text entry with a picker menu, allowing users to filter longer lists to only the selections matching a query.
+ComboBox also supports an optional hint element, used for description and error messages, which can be used to provide more context about the field.
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Features
+
+ComboBox is automatically connected to handle accessibility features.
+
+- Adheres to the [WCAG ComboBox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
+- Visual and ARIA labeling support
+- Required and invalid states exposed to assistive technology via ARIA
+- Support for description and error message help text linked to the input via ARIA
+- Support for mouse, touch, and keyboard input events
+- Ability to open the combo box list via arrow keys on the keyboard
+- Ability to filter options through text input
+- Ability to choose a singular option
+- Support for disabled options
+- Supports grouping of items into sections
+- Adjusts positioning of popover to fit in viewport
+
+## Usage
+
+```
+import { ComboBox } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} />

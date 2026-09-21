@@ -1,0 +1,98 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-saas {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--saas-shadow {
+      fill: $color-accent-dark;
+    }
+
+    &.nb-brand-icon--saas-background {
+      fill: $color-primary-300;
+    }
+
+    &.nb-brand-icon--saas-bottom-line {
+      fill: $color-primary-300;
+    }
+
+    &.nb-brand-icon--saas-circle-inner {
+      fill: $color-primary-300;
+    }
+
+    &.nb-brand-icon--saas-dot {
+      fill: $color-primary-500;
+    }
+
+    &.nb-brand-icon--saas-top-line {
+      fill: $color-primary-500;
+    }
+
+    &.nb-brand-icon--saas-circle-outer {
+      fill: $color-primary-500;
+    }
+  }
+
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--saas-shadow {
+      fill: $icon-mono-3;
+    }
+
+    &.nb-brand-icon--saas-background {
+      fill: $icon-mono-1;
+    }
+
+    &.nb-brand-icon--saas-bottom-line {
+      fill: $icon-mono-1;
+    }
+
+    &.nb-brand-icon--saas-circle-inner {
+      fill: $icon-mono-1;
+    }
+
+    &.nb-brand-icon--saas-dot {
+      fill: $icon-mono-2;
+    }
+
+    &.nb-brand-icon--saas-top-line {
+      fill: $icon-mono-2;
+    }
+
+    &.nb-brand-icon--saas-circle-outer {
+      fill: $icon-mono-2;
+    }
+  }
+
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--saas-shadow {
+      fill: $icon-mono-4;
+    }
+
+    &.nb-brand-icon--saas-background {
+      fill: $icon-mono-2;
+    }
+
+    &.nb-brand-icon--saas-bottom-line {
+      fill: $icon-mono-2;
+    }
+
+    &.nb-brand-icon--saas-circle-inner {
+      fill: $icon-mono-2;
+    }
+
+    &.nb-brand-icon--saas-dot {
+      fill: $icon-mono-1;
+    }
+
+    &.nb-brand-icon--saas-top-line {
+      fill: $icon-mono-1;
+    }
+
+    &.nb-brand-icon--saas-circle-outer {
+      fill: $icon-mono-1;
+    }
+  }
+}

@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Records /> renders as expected on first page 1`] = `
+<body>
+  <div>
+    <div
+      class="current"
+      data-testid="page-numbers-current-page-info"
+    >
+      <span
+        data-testid="page-numbers-first-on-page"
+      >
+        1
+      </span>
+      <span
+        class="separator"
+      >
+        –
+      </span>
+      <span
+        data-testid="page-numbers-last-on-page"
+      >
+        20
+      </span>
+      <span
+        class="last"
+      >
+        of
+      </span>
+      <span
+        data-testid="page-numbers-total"
+      >
+        40
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Records /> renders as expected on first page when incomplete 1`] = `
+<body>
+  <div>
+    <div
+      class="current"
+      data-testid="page-numbers-current-page-info"
+    >
+      <span
+        data-testid="page-numbers-first-on-page"
+      >
+        1
+      </span>
+      <span
+        class="separator"
+      >
+        –
+      </span>
+      <span
+        data-testid="page-numbers-last-on-page"
+      >
+        13
+      </span>
+      <span
+        class="last"
+      >
+        of
+      </span>
+      <span
+        data-testid="page-numbers-total"
+      >
+        13
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Records /> renders as expected on first page when only one result on page 1`] = `
+<body>
+  <div>
+    <div
+      class="current"
+      data-testid="page-numbers-current-page-info"
+    >
+      <span
+        data-testid="page-numbers-first-on-page"
+      >
+        1
+      </span>
+      <span
+        class="separator"
+      >
+        –
+      </span>
+      <span
+        data-testid="page-numbers-last-on-page"
+      >
+        1
+      </span>
+      <span
+        class="last"
+      >
+        of
+      </span>
+      <span
+        data-testid="page-numbers-total"
+      >
+        1
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Records /> renders as expected on last page 1`] = `
+<body>
+  <div>
+    <div
+      class="current"
+      data-testid="page-numbers-current-page-info"
+    >
+      <span
+        data-testid="page-numbers-first-on-page"
+      >
+        41
+      </span>
+      <span
+        class="separator"
+      >
+        –
+      </span>
+      <span
+        data-testid="page-numbers-last-on-page"
+      >
+        60
+      </span>
+      <span
+        class="last"
+      >
+        of
+      </span>
+      <span
+        data-testid="page-numbers-total"
+      >
+        60
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Records /> renders as expected on last page when only 1 result on page 1`] = `
+<body>
+  <div>
+    <div
+      class="current"
+      data-testid="page-numbers-current-page-info"
+    >
+      <span
+        data-testid="page-numbers-first-on-page"
+      >
+        41
+      </span>
+      <span
+        class="separator"
+      >
+        –
+      </span>
+      <span
+        data-testid="page-numbers-last-on-page"
+      >
+        41
+      </span>
+      <span
+        class="last"
+      >
+        of
+      </span>
+      <span
+        data-testid="page-numbers-total"
+      >
+        41
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Records /> renders as expected on later page 1`] = `
+<body>
+  <div>
+    <div
+      class="current"
+      data-testid="page-numbers-current-page-info"
+    >
+      <span
+        data-testid="page-numbers-first-on-page"
+      >
+        21
+      </span>
+      <span
+        class="separator"
+      >
+        –
+      </span>
+      <span
+        data-testid="page-numbers-last-on-page"
+      >
+        40
+      </span>
+      <span
+        class="last"
+      >
+        of
+      </span>
+      <span
+        data-testid="page-numbers-total"
+      >
+        60
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Records /> renders as expected on later page when incomplete 1`] = `
+<body>
+  <div>
+    <div
+      class="current"
+      data-testid="page-numbers-current-page-info"
+    >
+      <span
+        data-testid="page-numbers-first-on-page"
+      >
+        21
+      </span>
+      <span
+        class="separator"
+      >
+        –
+      </span>
+      <span
+        data-testid="page-numbers-last-on-page"
+      >
+        22
+      </span>
+      <span
+        class="last"
+      >
+        of
+      </span>
+      <span
+        data-testid="page-numbers-total"
+      >
+        22
+      </span>
+    </div>
+  </div>
+</body>
+`;

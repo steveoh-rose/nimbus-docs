@@ -1,0 +1,46 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as DatePickerStories from './DatePicker.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/DatePicker/Docs" of={DatePickerStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/DatePicker.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/DatePicker"
+  figmaLink="https://www.figma.com/design/MWeGMLI4Iiti9f3IanCsf8/%F0%9F%93%A6-NDS-Core?node-id=6900-14449"
+/>
+
+A date picker combines a DateField and a Calendar popover to allow users to enter or select a date and time value.
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Features
+
+The DatePicker is a custom component following the [DatePicker Aria Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/).
+It has the following features:
+
+- Dates & times – Choose dates, times, or both with configurable precision.
+- International – 13+ calendar systems, locale formats, number systems, RTL, and hour cycles.
+- Time zone aware – Handles daylight saving and time zone rules.
+- Accessible – Keyboard navigation, screen reader support, and a calendar popover.
+- Touch friendly – Optimized for mobile keyboards and touch screen readers.
+- Validation – Works with forms, supports required/min/max, disabled dates, and custom rules.
+- Customizable – Full control over DOM and styling.
+
+## Usage
+
+```
+import { DatePicker } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} />

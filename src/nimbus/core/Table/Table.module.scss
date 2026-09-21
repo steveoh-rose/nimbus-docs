@@ -1,0 +1,273 @@
+@use 'tokens' as tokens;
+@use 'mixins' as mixins;
+
+/* ****************************************************************** * 
+ * Root                                                               * 
+ * ****************************************************************** */
+
+.table {
+  @include mixins.table-colors;
+  @include mixins.table-typography;
+  @include mixins.table-borders;
+  width: 100%;
+  overflow: hidden;
+}
+
+.resizableTableContainer {
+  @include mixins.table-colors;
+  @include mixins.table-typography;
+  @include mixins.table-borders;
+  position: relative;
+  overflow: auto;
+
+  > .table {
+    border: none;
+    border-radius: 0;
+
+    .cell {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+/* ****************************************************************** *
+ * Header                                                             *
+ * ****************************************************************** */
+
+.header {
+  @include mixins.table-header-colors;
+  @include mixins.table-header-typography;
+  @include mixins.table-cell-spacing;
+
+  /** parent selector for compact mode */
+  [data-compact='true'] & {
+    @include mixins.table-cell-spacing-compact;
+  }
+
+  &[data-allows-sorting='true'][data-hovered='true'] {
+    cursor: pointer;
+    background-color: tokens.$table-color-header-bg-hover;
+  }
+
+  .group {
+    display: flex;
+    align-items: center;
+    gap: tokens.$table-spacing-header-gap-allow-sorting;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .sortIcon {
+    width: tokens.$table-size-icon-width;
+    height: tokens.$table-size-icon-height;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  [data-hovered='true'],
+  [data-sort-direction] {
+    .sortIcon {
+      opacity: 1;
+    }
+  }
+}
+
+/* ****************************************************************** *
+ * Row                                                                *
+ * ****************************************************************** */
+
+.row {
+  background-color: tokens.$table-color-row-bg-default;
+
+  /** event: isHovered */
+  &[data-hovered='true'] {
+    cursor: pointer;
+    background-color: tokens.$table-color-row-bg-hover;
+  }
+
+  /** prop: isDisabled */
+  &[data-disabled='true'] {
+    cursor: not-allowed;
+    user-select: none;
+    .cell {
+      opacity: 0.5;
+    }
+  }
+
+  /** when selection mode is enabled checkbox cell width shrinks*/
+  &[data-selection-mode] {
+    .cell:has([slot='selection']) {
+      width: 0;
+    }
+  }
+}
+
+/* ****************************************************************** *
+ * Cells                                                              *
+ * ****************************************************************** */
+
+.cell {
+  @include mixins.table-cell-spacing;
+  @include mixins.table-cell-typography;
+  @include mixins.table-cell-border;
+  position: relative;
+
+  /** parent selector for compact mode */
+  [data-compact='true'] & {
+    @include mixins.table-cell-spacing-compact;
+  }
+}
+
+/* ****************************************************************** *
+ * Checkbox                                                           *
+ * ****************************************************************** */
+
+.checkbox {
+  @include mixins.checkbox-colors;
+  @include mixins.checkbox-size;
+  @include mixins.checkbox-borders;
+  @include mixins.checkbox-typography;
+  @include mixins.checkbox-focus-ring;
+  @include mixins.checkbox-transitions;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .checkboxIcon {
+    @include mixins.checkbox-icon-size;
+    user-select: none;
+    pointer-events: none;
+    color: tokens.$checkbox-color-icon-fill;
+    fill: currentColor;
+
+    scale: 0;
+    transform-origin: 50% 50%;
+    animation: spring 250ms cubic-bezier(0.45, 1.61, 0.64, 0.95) forwards;
+
+    @keyframes spring {
+      0% {
+        scale: 0.25;
+        fill-opacity: 0;
+      }
+      50% {
+        fill-opacity: 1;
+      }
+      100% {
+        scale: 1;
+      }
+    }
+  }
+
+  /**  mouseEvent: isHovered  */
+  &[data-hovered='true'] {
+    cursor: pointer;
+    border-color: tokens.$checkbox-color-border-unselected-hover;
+  }
+
+  /** mouseEvent: isPressed  */
+  &[data-pressed='true'] {
+    border-color: tokens.$checkbox-color-border-unselected-pressed;
+  }
+
+  /** keyboardEvent: isFocused  */
+  &[data-focused='true'] {
+    @include mixins.checkbox-focus-ring-active;
+  }
+
+  /** prop: isDisabled  */
+  &[data-disabled='true'] {
+    background-color: tokens.$checkbox-color-bg-unselected-disabled;
+    opacity: 50%;
+    cursor: not-allowed;
+    user-select: none;
+    pointer-events: unset;
+  }
+
+  /** prop: isSelected || isIndeterminate  */
+  &[data-selected='true'],
+  &[data-indeterminate='true'] {
+    background-color: tokens.$checkbox-color-bg-selected;
+    border-color: tokens.$checkbox-color-bg-selected;
+
+    &[data-hovered='true'] {
+      background-color: tokens.$checkbox-color-bg-selected-hover;
+      border-color: tokens.$checkbox-color-bg-selected-hover;
+    }
+
+    &[data-pressed='true'] {
+      background-color: tokens.$checkbox-color-bg-selected-pressed;
+      border-color: tokens.$checkbox-color-bg-selected-pressed;
+    }
+  }
+
+  /** prop: isInvalid  */
+  &[data-invalid='true'] {
+    background-color: tokens.$checkbox-color-bg-error;
+    border-color: tokens.$checkbox-color-border-error;
+
+    &[data-hovered='true'] {
+      background-color: tokens.$checkbox-color-bg-error-hover;
+      border-color: tokens.$checkbox-color-border-error;
+    }
+
+    &[data-pressed='true'] {
+      background-color: tokens.$checkbox-color-bg-error-pressed;
+      border-color: tokens.$checkbox-color-border-error-pressed;
+    }
+  }
+}
+
+/* ****************************************************************** *
+ * Resizer                                                            *
+ * ****************************************************************** */
+
+.resizer {
+  @include mixins.table-focus-ring;
+  height: tokens.$table-size-icon-height;
+  width: 2px;
+  margin-inline-start: auto;
+  border-radius: 3px;
+  background-color: tokens.$table-color-border-default;
+  transition:
+    background-color 100ms ease-in-out,
+    width 100ms ease-in-out;
+  transform-origin: 50% 50%;
+
+  &[data-resizable-direction='both'] {
+    cursor: ew-resize;
+  }
+
+  &[data-resizable-direction='left'] {
+    cursor: e-resize;
+  }
+
+  &[data-resizable-direction='right'] {
+    cursor: w-resize;
+  }
+
+  &[data-resizing] {
+    background-color: tokens.$global-color-system-200;
+    width: 4px;
+  }
+
+  &[data-focus-visible] {
+    @include mixins.table-focus-ring-active;
+  }
+}
+
+/* ****************************************************************** *
+ * Empty                                                              *
+ * ****************************************************************** */
+
+// Sets default styles for empty state container. Can be overriden with `className`.
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: tokens.$global-size-spacer-md;
+  font: tokens.$global-font-body-md;
+  color: tokens.$global-color-system-200;
+}

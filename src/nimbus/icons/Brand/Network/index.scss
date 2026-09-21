@@ -1,0 +1,48 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-network {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--network-line-light,
+    &.nb-brand-icon--network-dot-light {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--network-shadow,
+    &.nb-brand-icon--network-dot-dark {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--network-line-dark {
+      fill: $color-primary-500;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--network-line-light,
+    &.nb-brand-icon--network-dot-light {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--network-shadow,
+    &.nb-brand-icon--network-dot-dark {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--network-line-dark {
+      fill: $icon-mono-2;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--network-line-light,
+    &.nb-brand-icon--network-dot-light {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--network-shadow,
+    &.nb-brand-icon--network-dot-dark {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--network-line-dark {
+      fill: $icon-mono-3;
+    }
+  }
+}

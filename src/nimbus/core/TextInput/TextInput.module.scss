@@ -1,0 +1,125 @@
+@use '../../variables';
+@import '../../tokens/build/scss/_variables.scss';
+
+/* --- Component Tokens --- */
+
+$input-color-bg-default: $color-bg-default;
+$input-color-bg-disabled: $color-bg-300;
+
+$input-color-text-default: $color-text-400;
+$input-color-text-placeholder: $color-system-200;
+$input-color-text-disabled: $color-system-400;
+
+$input-color-border-default: $color-system-200;
+$input-color-border-hovered: $color-system-400;
+$input-color-border-disabled: $color-system-200;
+$input-color-border-focus: $color-primary-300;
+
+$input-spacer-padding-y: $size-spacer-sm;
+$input-spacer-padding-x: $size-spacer-sm;
+
+$input-borderRadius: $size-spacer-xs;
+
+$input-size-y: 38px;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  font: $font-body-md;
+  min-width: 0;
+  max-width: variables.$input-width-default;
+  width: 100%;
+
+  &[data-full-width='true'] {
+    max-width: 100%;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  gap: $size-spacer-sm;
+  padding-inline-start: $input-spacer-padding-y;
+  padding-inline-end: $input-spacer-padding-x;
+  height: $input-size-y;
+  color: $input-color-text-default;
+  background: $input-color-bg-default;
+  border-radius: $input-borderRadius;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $input-color-border-default;
+  border-image: initial;
+  outline: $input-color-border-focus solid 0px;
+  appearance: none;
+  transition-property: border-color, background-color, border-width, outline;
+  transition-duration: 100ms;
+
+  [data-hovered='true'] & {
+    border-color: $input-color-border-hovered;
+  }
+
+  [data-disabled='true'] & {
+    color: $input-color-text-disabled;
+    background-color: $input-color-bg-disabled;
+    border-color: $input-color-border-disabled;
+    cursor: not-allowed;
+  }
+
+  [data-focused='true'] &,
+  &:focus-within {
+    border-color: $color-primary-300;
+    outline: $color-primary-300 solid 1px;
+  }
+
+  [data-invalid='true'] & {
+    border-color: $color-error-400;
+    outline-color: $color-error-400;
+    background-color: $color-error-100;
+  }
+
+  .addon {
+    display: flex;
+    align-items: center;
+    color: $color-text-300;
+  }
+
+  .input {
+    color: inherit;
+    font: inherit;
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: $input-color-text-placeholder;
+    }
+  }
+}
+
+.label {
+  font: $font-body-bold-md;
+  display: flex;
+  gap: $size-spacer-xs;
+  width: fit-content;
+  margin-bottom: $size-spacer-xs;
+  color: $input-color-text-default;
+}
+
+.required {
+  color: $color-error-400;
+}
+
+.hint {
+  font: $font-body-sm-compact;
+  color: $color-text-300;
+  width: fit-content;
+  margin-top: $size-spacer-xs;
+}
+
+.error {
+  font: $font-body-sm-compact;
+  color: $color-error-400;
+  width: fit-content;
+  margin-top: $size-spacer-xs;
+}

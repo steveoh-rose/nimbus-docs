@@ -1,0 +1,10 @@
+<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="compute-wire" d="M59.6 32.98H10.39V37.02H59.6V32.98Z" fill="#16263F"/>
+<path class="compute-wire" d="M59.6 24.27H10.39V28.31H59.6V24.27Z" fill="#16263F"/>
+<path class="compute-wire" d="M59.6 41.69H10.39V45.73H59.6V41.69Z" fill="#16263F"/>
+<path class="compute-wire" d="M37.02 10.39H32.98V59.6H37.02V10.39Z" fill="#16263F"/>
+<path class="compute-wire" d="M45.73 10.39H41.69V59.6H45.73V10.39Z" fill="#16263F"/>
+<path class="compute-wire" d="M28.31 10.39H24.27V59.6H28.31V10.39Z" fill="#16263F"/>
+<path class="compute-chip-outer" d="M47.94 16.36H22.66C19.3463 16.36 16.66 19.0463 16.66 22.36V47.64C16.66 50.9537 19.3463 53.64 22.66 53.64H47.94C51.2537 53.64 53.94 50.9537 53.94 47.64V22.36C53.94 19.0463 51.2537 16.36 47.94 16.36Z" fill="#00498F"/>
+<path class="compute-chip-inner" d="M45.97 22.32H24.62C23.5155 22.32 22.62 23.2154 22.62 24.32V45.67C22.62 46.7746 23.5155 47.67 24.62 47.67H45.97C47.0746 47.67 47.97 46.7746 47.97 45.67V24.32C47.97 23.2154 47.0746 22.32 45.97 22.32Z" fill="#0098FF"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="infrastructure-top" d="M35.02 39.89L10.81 46.58L35.53 56.69L59.19 46.83L35.02 39.89Z" fill="#16263F"/>
+<path class="infrastructure-front" d="M35.02 58.98L10.81 52.29V46.83L35.02 53.51V58.98Z" fill="#0098FF"/>
+<path class="infrastructure-side" d="M34.98 58.98L59.19 52.29V46.83L34.98 53.51V58.98Z" fill="#00498F"/>
+<path class="infrastructure-top" d="M35.02 30.27L10.81 36.95L35.53 47.07L59.19 37.2L35.02 30.27Z" fill="#16263F"/>
+<path class="infrastructure-front" d="M35.02 49.35L10.81 42.67V37.2L35.02 43.89V49.35Z" fill="#0098FF"/>
+<path class="infrastructure-side" d="M34.98 49.35L59.19 42.67V37.2L34.98 43.89V49.35Z" fill="#00498F"/>
+<path class="infrastructure-top" d="M35.02 20.65L10.81 27.33L35.53 37.45L59.19 27.58L35.02 20.65Z" fill="#16263F"/>
+<path class="infrastructure-front" d="M35.02 39.73L10.81 33.05V27.58L35.02 34.26V39.73Z" fill="#0098FF"/>
+<path class="infrastructure-side" d="M34.98 39.73L59.19 33.05V27.58L34.98 34.26V39.73Z" fill="#00498F"/>
+<path class="infrastructure-front" d="M35.02 11.03L10.81 17.71L35.53 27.82L59.19 17.96L35.02 11.03Z" fill="#0098FF"/>
+<path class="infrastructure-front" d="M35.02 30.11L10.81 23.43V17.96L35.02 24.64V30.11Z" fill="#0098FF"/>
+<path class="infrastructure-side" d="M34.98 30.11L59.19 23.43V17.96L34.98 24.64V30.11Z" fill="#00498F"/>
+</svg>

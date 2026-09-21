@@ -1,0 +1,50 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Stories, Title } from '@storybook/blocks';
+import * as DialogStories from './Dialog.stories';
+import { ShareButtons } from '@/docs/ui';
+import styles from './Dialog.stories.module.scss';
+import cx from 'classnames';
+
+<Meta title="nimbus-core/Dialog/Docs" of={DialogStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Dialog.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Dialog"
+/>
+
+<div style={{ maxWidth: 830 }}>
+  Dialog is a utility component for building a variety of floating elements as alerts, modals,
+  popovers etc. Dialog is designed to simplify the creation of modals, popovers, and other overlay
+  elements. Try not to use dialog directly and only resort to using this when you need more control
+  over the presentation and behavior of the overlay.
+</div>
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+<br />
+## Usage
+
+```
+import { Dialog } from '@console/nimbus-ui/core';
+```
+
+## Features
+
+The HTML `<dialog>` element can be used to build dialogs. However, it is not yet widely supported across browsers, and building fully accessible custom dialogs from scratch is very difficult and error prone. Dialog helps achieve accessible dialogs that can be styled as needed.
+
+- Flexible – Dialogs can be used within a Modal or Popover to create many types of overlay elements.
+- Accessible – Exposed to assistive technology as a dialog or alertdialog with ARIA. The dialog is automatically labeled by a nested `<Heading>` element. Content outside the dialog is hidden from assistive technologies while it is open.
+- Focus management – Focus is moved into the dialog on mount, and restored to the trigger element on unmount. While open, focus is contained within the dialog, preventing the user from tabbing outside.
+
+## Examples
+
+<Stories />
+
+# API
+
+## Dialog
+
+<ArgTypes sort={'alpha'} />

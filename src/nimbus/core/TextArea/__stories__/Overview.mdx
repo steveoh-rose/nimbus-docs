@@ -1,0 +1,48 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import { ShareButtons } from '@/docs/ui';
+import * as TextAreaStories from './TextArea.stories';
+
+<Meta title="nimbus-core/text-area/Docs" of={TextAreaStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Switch.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Switch"
+  figmaLink="https://www.figma.com/design/MWeGMLI4Iiti9f3IanCsf8/%F0%9F%93%A6-NDS-Core?node-id=6900-14473"
+/>
+
+<div style={{ maxWidth: 830 }}>
+  The Text Area component is a complete form control including a label, textarea, and help text.
+  Text Area uses similar functionality to Text Input but supports `resize` mode and a few [native
+  props](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attributes) that inputs
+  don't support.
+</div>
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Features
+
+Text Area is automatically connected to handle Accessibility features such as label, description and error message props.
+
+- Built with a native `<textarea>` element
+- Visual and ARIA labeling support
+- Change, clipboard, composition, selection, and input event support
+- Required and invalid states exposed to assistive technology via ARIA
+- Support for description and error message help text linked to the input via ARIA
+
+## Usage
+
+```
+import { TextArea } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} />

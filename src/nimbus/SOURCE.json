@@ -1,0 +1,17 @@
+{
+  "syncedAt": "2026-09-21T00:29:25.133Z",
+  "sources": {
+    "nimbus-ui": {
+      "version": "8.19.2",
+      "commit": "4595c00a121d2e6539361ae10762b619e1434138"
+    },
+    "cc-design-tokens": {
+      "version": "1.18.1",
+      "commit": "d7adf87177a9c5adb943ba5de7ba8900ff485060"
+    },
+    "nimbus-assets": {
+      "version": "1.11.3",
+      "commit": "db1a521a792e96e86191728d7a4caedc348a0f64"
+    }
+  }
+}

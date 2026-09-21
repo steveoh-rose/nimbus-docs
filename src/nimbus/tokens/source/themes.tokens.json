@@ -1,0 +1,342 @@
+{
+  "color": {
+    "bg": {
+      "default": {
+        "value": "{color.palette.white.value}",
+        "docs": {
+          "alias": "$color-palette-white",
+          "displayName": "Default"
+        }
+      },
+      "300": {
+        "value": "{color.palette.stone.300.value}",
+        "docs": {
+          "alias": "$color-palette-stone-300",
+          "displayName": "300"
+        }
+      },
+      "200": {
+        "value": "{color.palette.stone.100.value}",
+        "docs": {
+          "alias": "$color-palette-stone-100",
+          "displayName": "200"
+        }
+      },
+      "100": {
+        "value": "{color.palette.stone.50.value}",
+        "docs": {
+          "alias": "$color-palette-stone-50",
+          "displayName": "100"
+        }
+      },
+      "overlay": {
+        "value": "rgba(255, 255, 255, 0.8)",
+        "docs": {
+          "displayName": "Overlay",
+          "description": "Used for overlays such as modals and sidebars"
+        }
+      }
+    },
+    "system": {
+      "base": {
+        "value": "{color.palette.stone.800.value}",
+        "deprecated": true,
+        "comment": "Replace with `system-500`",
+        "docs": {
+          "alias": "$color-palette-stone-800",
+          "displayName": "Base"
+        }
+      },
+      "500": {
+        "value": "{color.palette.stone.800.value}",
+        "docs": {
+          "alias": "$color-palette-stone-800",
+          "displayName": "500"
+        }
+      },
+      "400": {
+        "value": "{color.palette.stone.600.value}",
+        "docs": {
+          "alias": "$color-palette-stone-600",
+          "displayName": "400"
+        }
+      },
+      "200": {
+        "value": "{color.palette.stone.400.value}",
+        "docs": {
+          "alias": "$color-palette-stone-400",
+          "displayName": "400"
+        }
+      },
+      "100": {
+        "value": "{color.palette.stone.300.value}",
+        "docs": {
+          "alias": "$color-palette-stone-300",
+          "displayName": "100"
+        }
+      }
+    },
+    "text": {
+      "500": {
+        "value": "{color.palette.graphite.900.value}",
+        "docs": {
+          "alias": "$color-palette-graphite-900",
+          "description": "Bold text used for headings and important text",
+
+          "displayName": "500"
+        }
+      },
+      "400": {
+        "value": "{color.palette.graphite.800.value}",
+        "docs": {
+          "alias": "$color-palette-graphite-800",
+          "description": "Primary/default body text, field labels and values",
+          "displayName": "400"
+        }
+      },
+      "300": {
+        "value": "{color.palette.graphite.500.value}",
+        "docs": {
+          "alias": "$color-palette-graphite-500",
+          "description": "Secondary or muted text",
+          "displayName": "300"
+        }
+      },
+      "200": {
+        "value": "{color.palette.graphite.100.value}",
+        "docs": {
+          "alias": "$color-palette-graphite-100",
+          "description": "Secondary or muted text on dark background",
+          "displayName": "200"
+        }
+      },
+      "100": {
+        "value": "{color.palette.white.value}",
+        "docs": {
+          "alias": "$color-palette-palette-white",
+          "description": "Primary/normal text on dark background",
+          "displayName": "100"
+        }
+      }
+    },
+    "primary": {
+      "500": {
+        "value": "{color.palette.sky.800.value}",
+        "docs": {
+          "alias": "$color-palette-sky.800",
+          "displayName": "500"
+        }
+      },
+      "400": {
+        "value": "{color.palette.sky.600.value}",
+        "docs": {
+          "alias": "$color-palette-sky-600",
+          "displayName": "400"
+        }
+      },
+      "300": {
+        "value": "{color.palette.sky.500.value}",
+        "docs": {
+          "alias": "$color-palette-sky-500",
+          "description": "Active icon, button background, gradients, outlines, focus",
+          "displayName": "300"
+        }
+      },
+      "200": {
+        "value": "{color.palette.sky.300.value}",
+        "docs": {
+          "alias": "$color-palette-sky-300",
+          "displayName": "200"
+        }
+      },
+      "100": {
+        "value": "{color.palette.sky.100.value}",
+        "docs": {
+          "alias": "$color-palette-sky-100",
+          "displayName": "100"
+        }
+      }
+    },
+    "accent": {
+      "dark": {
+        "value": "{color.palette.slate.950.value}",
+        "deprecated": true,
+        "docs": {
+          "alias": "$color-palette-slate-950",
+          "displayName": "Dark"
+        }
+      },
+      "bright-1": {
+        "500": {
+          "value": "{color.palette.lavender.800.value}",
+          "docs": {
+            "alias": "$color-palette-lavender-800",
+            "displayName": "500"
+          }
+        },
+        "400": {
+          "value": "{color.palette.lavender.600.value}",
+          "docs": {
+            "alias": "$color-palette-lavender-600",
+            "displayName": "400"
+          }
+        },
+        "300": {
+          "value": "{color.palette.lavender.500.value}",
+          "docs": {
+            "alias": "$color-palette-lavender-500",
+            "displayName": "300"
+          }
+        },
+        "200": {
+          "value": "{color.palette.lavender.300.value}",
+          "docs": {
+            "alias": "$color-palette-lavender-300",
+            "displayName": "200"
+          }
+        },
+        "100": {
+          "value": "{color.palette.lavender.100.value}",
+          "docs": {
+            "alias": "$color-palette-lavender-100",
+            "displayName": "100"
+          }
+        }
+      },
+      "bright-2": {
+        "value": "{color.brand.pink.value}",
+        "docs": {
+          "alias": "$color-brand-pink",
+          "displayName": "Bright-2"
+        }
+      },
+      "highlight-1": {
+        "value": "{color.brand.aqua.value}",
+        "docs": {
+          "alias": "$color-brand-aqua",
+          "displayName": "Highlight-1"
+        }
+      },
+      "highlight-2": {
+        "value": "{color.brand.green.value}",
+        "docs": {
+          "alias": "$color-brand-green",
+          "displayName": "Highlight-2"
+        }
+      }
+    },
+    "success": {
+      "500": {
+        "value": "{color.palette.emerald.600.value}",
+        "docs": {
+          "alias": "$color-palette-emerald-600",
+          "displayName": "500"
+        }
+      },
+      "400": {
+        "value": "{color.palette.emerald.500.value}",
+        "docs": {
+          "alias": "$color-palette-emerald-500",
+          "displayName": "400"
+        }
+      },
+      "300": {
+        "value": "{color.palette.emerald.400.value}",
+        "docs": {
+          "alias": "$color-palette-emerald-400",
+          "displayName": "300"
+        }
+      },
+      "200": {
+        "value": "{color.palette.emerald.300.value}",
+        "docs": {
+          "alias": "$color-palette-emerald-300",
+          "displayName": "200"
+        }
+      },
+      "100": {
+        "value": "{color.palette.emerald.100.value}",
+        "docs": {
+          "alias": "$color-palette-emerald-100",
+          "displayName": "100"
+        }
+      }
+    },
+    "error": {
+      "500": {
+        "value": "{color.palette.ruby.800.value}",
+        "docs": {
+          "alias": "$color-palette-ruby-800",
+          "displayName": "500",
+          "description": "Text on error backgrounds"
+        }
+      },
+      "400": {
+        "value": "{color.palette.ruby.600.value}",
+        "docs": {
+          "alias": "$color-palette-ruby-600",
+          "displayName": "400",
+          "description": "Bold text but has use cases for borders and icons as well"
+        }
+      },
+      "300": {
+        "value": "{color.palette.ruby.500.value}",
+        "docs": {
+          "alias": "$color-palette-ruby-500",
+          "displayName": "300",
+          "description": "Text, borders, status dots"
+        }
+      },
+      "200": {
+        "value": "{color.palette.ruby.300.value}",
+        "docs": {
+          "alias": "$color-palette-ruby-300",
+          "displayName": "200",
+          "description": "Used for backgrounds and pressed states"
+        }
+      },
+      "100": {
+        "value": "{color.palette.ruby.100.value}",
+        "docs": {
+          "alias": "$color-palette-ruby-100",
+          "displayName": "100",
+          "description": "Used for subtle backgrounds, hover states and highlights"
+        }
+      }
+    },
+    "status": {
+      "active": {
+        "value": "{color.success.300.value}",
+        "docs": {
+          "alias": "$color-success-300",
+          "displayName": "active",
+          "description": "active status icon"
+        }
+      },
+      "pending": {
+        "value": "{color.palette.amber.400.value}",
+        "docs": {
+          "alias": "$color-palette-amber-400",
+          "displayName": "pending",
+          "description": "pending status icon"
+        }
+      },
+      "disabled": {
+        "value": "{color.palette.graphite.500.value}",
+        "docs": {
+          "alias": "$color-palette-graphite-500",
+          "displayName": "disabled",
+          "description": "disabled status icon"
+        }
+      },
+      "error": {
+        "value": "{color.error.400.value}",
+        "docs": {
+          "alias": "$color-error-400",
+          "displayName": "error",
+          "description": "error status icon"
+        }
+      }
+    }
+  }
+}

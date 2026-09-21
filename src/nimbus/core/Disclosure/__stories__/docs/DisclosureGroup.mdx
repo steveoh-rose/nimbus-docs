@@ -1,0 +1,33 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as DisclosureGroupStories from '../DisclosureGroup.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/Disclosure/Docs" of={DisclosureGroupStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/DisclosureGroup.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Disclosure"
+  figmaLink="/"
+/>
+
+A DisclosureGroup is a grouping of related disclosures, usually called an accordion. It supports both single and multiple expanded items.
+
+<Canvas withToolbar sourceState="none" />
+<Source transform={(code) => code.replaceAll('PolymorphicButton', 'Button')} />
+<Controls />
+
+## Usage
+
+```
+import { DisclosureGroup, Disclosure } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} of={DisclosureGroupStories} />

@@ -1,0 +1,40 @@
+@import '../tokens/build/scss/_variables.scss';
+@import '../utils/mixins';
+
+.cc-icon {
+  $size: 24px;
+
+  height: $size;
+  width: $size;
+  cursor: pointer;
+
+  :disabled & {
+    cursor: default;
+  }
+
+  path {
+    transition: fill 0.2s;
+    fill: $color-system-400;
+  }
+
+  &:hover {
+    path {
+      fill: $color-system-500;
+    }
+  }
+
+  @include withDesignTokenColors() using ($colorName, $color) {
+    &--#{$colorName} {
+      path,
+      &:hover path {
+        // If only a color was provided, assume we don't want to change color on hover
+        // If a hoverColor was provided, the rule below will take precedence
+        // If neither is provided, the existing default hover color will still take effect
+        fill: $color;
+      }
+    }
+    &--hover-#{$colorName}:hover path {
+      fill: $color;
+    }
+  }
+}

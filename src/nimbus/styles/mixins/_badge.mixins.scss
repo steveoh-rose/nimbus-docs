@@ -1,0 +1,141 @@
+@use 'tokens' as tokens;
+
+/* ****************************************************************** *
+ * Intent Map                                                         *
+ * ****************************************************************** */
+$badge-intents: (
+  neutral: (
+    strong: (
+      bg: tokens.$badge-color-bg-neutral-strong,
+      text: tokens.$badge-color-text-neutral-strong,
+      icon: tokens.$badge-color-icon-neutral-strong,
+    ),
+    subtle: (
+      bg: tokens.$badge-color-bg-neutral-subtle,
+      text: tokens.$badge-color-text-neutral-subtle,
+      icon: tokens.$badge-color-icon-neutral-subtle,
+    ),
+    plain: (
+      bg: tokens.$badge-color-bg-neutral-plain,
+      text: tokens.$badge-color-text-neutral-plain,
+      icon: tokens.$badge-color-icon-neutral-plain,
+    ),
+  ),
+  info: (
+    strong: (
+      bg: tokens.$badge-color-bg-info-strong,
+      text: tokens.$badge-color-text-info-strong,
+      icon: tokens.$badge-color-icon-info-strong,
+    ),
+    subtle: (
+      bg: tokens.$badge-color-bg-info-subtle,
+      text: tokens.$badge-color-text-info-subtle,
+      icon: tokens.$badge-color-icon-info-subtle,
+    ),
+    plain: (
+      bg: tokens.$badge-color-bg-info-plain,
+      text: tokens.$badge-color-text-info-plain,
+      icon: tokens.$badge-color-icon-info-plain,
+    ),
+  ),
+  success: (
+    strong: (
+      bg: tokens.$badge-color-bg-success-strong,
+      text: tokens.$badge-color-text-success-strong,
+      icon: tokens.$badge-color-icon-success-strong,
+    ),
+    subtle: (
+      bg: tokens.$badge-color-bg-success-subtle,
+      text: tokens.$badge-color-text-success-subtle,
+      icon: tokens.$badge-color-icon-success-subtle,
+    ),
+    plain: (
+      bg: tokens.$badge-color-bg-success-plain,
+      text: tokens.$badge-color-text-success-plain,
+      icon: tokens.$badge-color-icon-success-plain,
+    ),
+  ),
+  warning: (
+    strong: (
+      bg: tokens.$badge-color-bg-warning-strong,
+      text: tokens.$badge-color-text-warning-strong,
+      icon: tokens.$badge-color-icon-warning-strong,
+    ),
+    subtle: (
+      bg: tokens.$badge-color-bg-warning-subtle,
+      text: tokens.$badge-color-text-warning-subtle,
+      icon: tokens.$badge-color-icon-warning-subtle,
+    ),
+    plain: (
+      bg: tokens.$badge-color-bg-warning-plain,
+      text: tokens.$badge-color-text-warning-plain,
+      icon: tokens.$badge-color-icon-warning-plain,
+    ),
+  ),
+  danger: (
+    strong: (
+      bg: tokens.$badge-color-bg-danger-strong,
+      text: tokens.$badge-color-text-danger-strong,
+      icon: tokens.$badge-color-icon-danger-strong,
+    ),
+    subtle: (
+      bg: tokens.$badge-color-bg-danger-subtle,
+      text: tokens.$badge-color-text-danger-subtle,
+      icon: tokens.$badge-color-icon-danger-subtle,
+    ),
+    plain: (
+      bg: tokens.$badge-color-bg-danger-plain,
+      text: tokens.$badge-color-text-danger-plain,
+      icon: tokens.$badge-color-icon-danger-plain,
+    ),
+  ),
+  special: (
+    strong: (
+      bg: tokens.$badge-color-bg-special-strong,
+      text: tokens.$badge-color-text-special-strong,
+      icon: tokens.$badge-color-icon-special-strong,
+    ),
+    subtle: (
+      bg: tokens.$badge-color-bg-special-subtle,
+      text: tokens.$badge-color-text-special-subtle,
+      icon: tokens.$badge-color-icon-special-subtle,
+    ),
+    plain: (
+      bg: tokens.$badge-color-bg-special-plain,
+      text: tokens.$badge-color-text-special-plain,
+      icon: tokens.$badge-color-icon-special-plain,
+    ),
+  ),
+);
+
+/* ****************************************************************** *
+ * Intent                                                             *
+ * ****************************************************************** */
+@mixin badge-intent-theme($strong, $subtle, $plain) {
+  &[data-variant='solid'] {
+    background-color: map-get($strong, bg);
+    color: map-get($strong, text);
+
+    .BadgeIcon {
+      color: map-get($strong, icon);
+    }
+  }
+
+  &[data-variant='subtle'] {
+    background-color: map-get($subtle, bg);
+    color: map-get($subtle, text);
+
+    .BadgeIcon {
+      color: map-get($subtle, icon);
+    }
+  }
+
+  &[data-variant='plain'] {
+    background-color: map-get($plain, bg);
+    color: map-get($plain, text);
+
+    .BadgeIcon {
+      color: map-get($plain, icon);
+    }
+  }
+}

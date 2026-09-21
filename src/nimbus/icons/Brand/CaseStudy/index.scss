@@ -1,0 +1,55 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-case-study {
+  width: 70px;
+  height: 70px;
+
+  path,
+  rect,
+  &.nb-brand-icon--dark rect,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--case-study-shadow {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--case-study-magnifier {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--case-study-page {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--case-study-line {
+      fill: $icon-mono-1;
+    }
+  }
+  &.nb-brand-icon--light path,
+  &.nb-brand-icon--light rect {
+    &.nb-brand-icon--case-study-shadow {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--case-study-magnifier {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--case-study-page {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--case-study-line {
+      fill: $icon-mono-4;
+    }
+  }
+  &.nb-brand-icon--light-on-white path,
+  &.nb-brand-icon--light-on-white rect {
+    &.nb-brand-icon--case-study-shadow {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--case-study-magnifier {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--case-study-page {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--case-study-line {
+      fill: $icon-mono-1;
+    }
+  }
+}

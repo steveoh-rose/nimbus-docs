@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# nimbus-docs
 
-## Getting Started
+Documentation site for the Nimbus design system, built with Next.js, Tailwind and shadcn/ui,
+styled with the Nimbus design tokens and using the Nimbus asset icons for its own UI.
 
-First, run the development server:
+It documents:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Tokens** from `cc-design-tokens`: colors, typography, spacing, shadows
+- **Core components** from `nimbus-ui/src/core`: live previews, source and prop tables, generated
+  from the same Storybook stories and MDX pages
+- **Icons** from `nimbus-assets`: searchable app and brand icon sets
+- **Getting started** guides from the nimbus-ui README and Storybook docs
+
+## How it works
+
+The three source repos are private, so their source is **vendored** into this repo and the site builds
+anywhere (Vercel included) without access to them.
+
+```
+nimbus-ui/src/{core,utils,styles,icons,docs}  ->  src/nimbus/
+nimbus-assets/icons                            ->  src/nimbus/assets/icons
+cc-design-tokens/{tokens,build}                ->  src/nimbus/tokens
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`npm run sync` (`scripts/sync-nimbus.mjs`) copies them, rewrites Storybook/webpack-only imports
+(`@/`, `~` Sass imports) so they compile under Next, and generates `src/generated/`
+(story manifest, prop tables). The source repos are only read, never modified.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Pages are generated from that source:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Source |
+| --- | --- |
+| `/docs/components/[name]` | each component's `*.mdx` + `*.stories.tsx` (Storybook doc blocks are mapped onto site components) |
+| `/docs/tokens/[name]` | `cc-design-tokens` built CSS variables + shadow tokens |
+| `/docs/icons/[set]` | `nimbus-assets` icon components |
+| `/docs/introduction` etc. | nimbus-ui README / CONTRIBUTING / docs pages |
 
-## Learn More
+Live previews run the real Nimbus components. Example code is read from the story source, and the
+Controls under a preview map Storybook `argTypes` onto small form controls.
 
-To learn more about Next.js, take a look at the following resources:
+## Develop
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Update from local checkouts of the source repos (expected as siblings of this repo, with tokens and
+icons already built via their `npm run build`):
+
+```bash
+npm run sync
+# or point at other locations
+NIMBUS_UI_PATH=... NIMBUS_TOKENS_PATH=... NIMBUS_ASSETS_PATH=... npm run sync
+```
+
+`src/nimbus/SOURCE.json` records which versions and commits were synced. See
+[docs/keeping-docs-in-sync.md](docs/keeping-docs-in-sync.md) for the automated sync workflow.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Import the repo in Vercel: the Next.js preset works with no configuration (Node 22, `npm run build`).
+Every push to `main`, including the automated sync commits, triggers a deployment.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- Nimbus is light-only, so there is no dark mode; previews always render on a white surface.
+- Nimbus core components are pinned to the same versions as nimbus-ui (`react-aria`, `react-aria-components`,
+  `react-stately`, ...). Keep them in step when nimbus-ui upgrades.
+- Legacy components in `nimbus-ui/src/components` are not documented, only `core`.

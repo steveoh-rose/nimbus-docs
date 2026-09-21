@@ -1,0 +1,46 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-pricing {
+  width: 70px;
+  height: 70px;
+
+  path,
+  circle,
+  &.nb-brand-icon--dark path,
+  &.nb-brand-icon--dark circle {
+    &.nb-brand-icon--pricing-shadow {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--pricing-background {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--pricing-dollar {
+      fill: $color-bg-default;
+    }
+  }
+  &.nb-brand-icon--light path,
+  &.nb-brand-icon--light circle {
+    &.nb-brand-icon--pricing-shadow {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--pricing-background {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--pricing-dollar {
+      fill: $icon-mono-4;
+    }
+  }
+  &.nb-brand-icon--light-on-white path,
+  &.nb-brand-icon--light-on-white circle {
+    &.nb-brand-icon--pricing-shadow {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--pricing-background {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--pricing-dollar {
+      fill: $icon-mono-4;
+    }
+  }
+}

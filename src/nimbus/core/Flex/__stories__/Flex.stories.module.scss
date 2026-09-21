@@ -1,0 +1,29 @@
+@import '../../../tokens/build/scss/_variables.scss';
+
+.story {
+  font-family: $font-family-regular;
+}
+
+.heading {
+  margin: 0 0 $size-spacer-lg;
+}
+
+.dashed {
+  border: 1px dashed $color-system-200;
+  padding: $size-spacer-md;
+}
+
+.nav {
+  border: 1px solid $color-system-400;
+  padding: $size-spacer-md;
+}
+
+.box {
+  padding: $size-spacer-lg;
+  background-color: $color-brand-purple;
+  color: $color-text-100;
+  font: $font-body-bold-md;
+  border-radius: 4px;
+  text-align: center;
+  min-width: 60px;
+}

@@ -1,0 +1,32 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as CalloutStories from './Callout.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/Callout/Docs" of={CalloutStories} />
+
+<Title />
+
+<ShareButtons
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Callout"
+  figmaLink="https://www.figma.com/design/9b7YVOR7IMTX0WxJOSOMO7/feat--Callout?node-id=6900-13294&t=50QkYg8XBPLHxL5x-4"
+/>
+
+Callouts are used to highlight important information, alerts, or system statuses.
+
+<Canvas withToolbar sourceState="none" />
+<Source transform={(code) => code.replaceAll('PolymorphicButton', 'Button')} />
+<Controls />
+
+## Usage
+
+```
+import { Callout } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} of={CalloutStories} />

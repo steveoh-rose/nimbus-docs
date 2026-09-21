@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,8 +23,23 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": [
+        "./src/*"
+      ],
+      "@nimbus/*": [
+        "./src/nimbus/*"
+      ],
+      "@storybook/react": [
+        "./src/shims/storybook-react.ts"
+      ],
+      "@storybook/addon-actions": [
+        "./src/shims/storybook-addon-actions.ts"
+      ],
+      "@storybook/addons": [
+        "./src/shims/storybook-addons.ts"
+      ]
+    },
+    "noImplicitAny": false
   },
   "include": [
     "next-env.d.ts",
@@ -30,5 +49,7 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

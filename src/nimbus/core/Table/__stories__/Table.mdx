@@ -1,0 +1,52 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Stories, Title } from '@storybook/blocks';
+import * as TableStories from './Table.stories';
+import { ShareButtons } from '@/docs/ui';
+import styles from './Table.stories.module.scss';
+import cx from 'classnames';
+
+<Meta title="nimbus-core/Table/Docs" of={TableStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Table.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Table"
+  figmaLink="https://www.figma.com/design/ZqODkpKujt26MwBLmJtMhS/feat--Table-rev3?node-id=6900-14475"
+/>
+
+<div style={{ maxWidth: 830 }}>
+  A table displays data in rows and columns and enables a user to navigate its contents via
+  directional navigation keys, and optionally supports row selection and sorting.
+</div>
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+<br />
+## Usage
+
+```
+import { Table } from '@console/nimbus-ui/core';
+```
+
+## Features
+
+A table consists of a container element, with columns and rows of cells containing data inside.
+The cells within a table may contain focusable elements or plain text content.
+If the table supports row selection, each row can optionally include a selection checkbox.
+Additionally, a "select all" checkbox may be displayed in a column header if the table supports multiple row selection.
+
+- **Row selection** – Single or multiple selection, with optional checkboxes, disabled rows, and both toggle and replace selection behaviors.
+- **Columns** – Support for column sorting and row header columns. Columns may optionally allow user resizing via mouse, touch, and keyboard interactions.
+- **Interactive children** – Table cells may include interactive elements such as buttons, menus, etc.
+
+## Examples
+
+<Stories />
+
+# API
+
+## Table
+
+<ArgTypes sort={'alpha'} />

@@ -1,0 +1,31 @@
+@use 'tokens' as tokens;
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: tokens.$global-size-spacer-md;
+  padding: tokens.$global-size-spacer-xxl;
+
+  .brand {
+    height: 40px;
+    width: 40px;
+  }
+
+  span {
+    text-align: center;
+  }
+
+  h3 {
+    font: tokens.$global-font-body-bold-lg;
+    margin: 0 0 10px 0;
+  }
+
+  p {
+    font: tokens.$global-font-body-sm;
+    color: tokens.$global-color-text-300;
+    margin: 0;
+    width: 300px;
+  }
+}

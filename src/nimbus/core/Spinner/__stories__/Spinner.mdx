@@ -1,0 +1,33 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import { ShareButtons } from '@/docs/ui';
+
+import * as SpinnerStories from './Spinner.stories';
+
+<Meta title="nimbus-core/spinner/Docs" of={SpinnerStories} />
+
+<Title />
+
+<ShareButtons
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Spinner"
+  figmaLink="https://www.figma.com/design/MWeGMLI4Iiti9f3IanCsf8/%F0%9F%93%A6-NDS-Core?node-id=6900-14471"
+/>
+
+The Spinner component is used to visually represent the loading state of a UI component.
+
+<Canvas withToolbar sourceState="none" />
+<Source transform={(code) => code.match(/<Spinner(?:[^>]*>[^<]*<\/Spinner\s*>|[^>]*)>/g)} />
+<Controls />
+
+## Usage
+
+```
+import { Spinner } from '@console/nimbus-ui';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes />

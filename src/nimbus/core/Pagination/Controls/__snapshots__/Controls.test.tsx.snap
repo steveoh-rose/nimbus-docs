@@ -1,0 +1,1019 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Controls /> on the last page of many renders as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="controls"
+      data-testid="page-numbers-controls"
+    >
+      <button
+        aria-label="First page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-first"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-first-page"
+        />
+      </button>
+      <button
+        aria-label="Previous page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-prev"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-left"
+        />
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-6"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        6
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-7"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        7
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-8"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        8
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-9"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        9
+      </button>
+      <button
+        class="button number current"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-10"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        10
+      </button>
+      <button
+        aria-label="Next page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-next"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-right"
+        />
+      </button>
+      <button
+        aria-label="Last page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-last"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-last-page"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Controls /> on the last, incomplete page of many renders as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="controls"
+      data-testid="page-numbers-controls"
+    >
+      <button
+        aria-label="First page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-first"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-first-page"
+        />
+      </button>
+      <button
+        aria-label="Previous page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-prev"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-left"
+        />
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-6"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        6
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-7"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        7
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-8"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        8
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-9"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        9
+      </button>
+      <button
+        class="button number current"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-10"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        10
+      </button>
+      <button
+        aria-label="Next page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-next"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-right"
+        />
+      </button>
+      <button
+        aria-label="Last page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-last"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-last-page"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Controls /> on the middle page of many renders as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="controls"
+      data-testid="page-numbers-controls"
+    >
+      <button
+        aria-label="First page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-first"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-first-page"
+        />
+      </button>
+      <button
+        aria-label="Previous page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-prev"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-left"
+        />
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-3"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        3
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-4"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        4
+      </button>
+      <button
+        class="button number current"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-5"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        5
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-6"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        6
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-7"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        7
+      </button>
+      <button
+        aria-label="Next page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-next"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-right"
+        />
+      </button>
+      <button
+        aria-label="Last page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-last"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-last-page"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Controls /> page number updates adds relevant page number controls 1`] = `
+<body>
+  <div>
+    <div
+      class="controls"
+      data-testid="page-numbers-controls"
+    >
+      <button
+        aria-label="First page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-first"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-first-page"
+        />
+      </button>
+      <button
+        aria-label="Previous page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-prev"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-left"
+        />
+      </button>
+      <button
+        class="button number current"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-1"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        1
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-2"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        2
+      </button>
+      <button
+        aria-label="Next page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-next"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-right"
+        />
+      </button>
+      <button
+        aria-label="Last page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-last"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-last-page"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Controls /> page number updates removes unnecessary page number controls 1`] = `
+<body>
+  <div>
+    <div
+      class="controls"
+      data-testid="page-numbers-controls"
+    >
+      <button
+        aria-label="First page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-first"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-first-page"
+        />
+      </button>
+      <button
+        aria-label="Previous page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-prev"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-left"
+        />
+      </button>
+      <button
+        class="button number current"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-1"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        1
+      </button>
+      <button
+        aria-label="Next page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-next"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-right"
+        />
+      </button>
+      <button
+        aria-label="Last page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-last"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-last-page"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Controls /> with one full page renders as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="controls"
+      data-testid="page-numbers-controls"
+    >
+      <button
+        aria-label="First page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-first"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-first-page"
+        />
+      </button>
+      <button
+        aria-label="Previous page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-prev"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-left"
+        />
+      </button>
+      <button
+        class="button number current"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-1"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        1
+      </button>
+      <button
+        aria-label="Next page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-next"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-right"
+        />
+      </button>
+      <button
+        aria-label="Last page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-last"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-last-page"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Controls /> with one incomplete page renders as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="controls"
+      data-testid="page-numbers-controls"
+    >
+      <button
+        aria-label="First page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-first"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-first-page"
+        />
+      </button>
+      <button
+        aria-label="Previous page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-prev"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-left"
+        />
+      </button>
+      <button
+        class="button number current"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-1"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        1
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-2"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        2
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-3"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        3
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-4"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        4
+      </button>
+      <button
+        class="button number"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-5"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        5
+      </button>
+      <button
+        aria-label="Next page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-next"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-right"
+        />
+      </button>
+      <button
+        aria-label="Last page"
+        class="button"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-last"
+        data-text-node="false"
+        data-variant="subtle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-last-page"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`<Controls /> with one record renders as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="controls"
+      data-testid="page-numbers-controls"
+    >
+      <button
+        aria-label="First page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-first"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-first-page"
+        />
+      </button>
+      <button
+        aria-label="Previous page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-prev"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-left"
+        />
+      </button>
+      <button
+        class="button number current"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-number-1"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        1
+      </button>
+      <button
+        aria-label="Next page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-next"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-chevron-right"
+        />
+      </button>
+      <button
+        aria-label="Last page"
+        class="button"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-rounded="false"
+        data-size="sm"
+        data-testid="page-numbers-control-last"
+        data-text-node="false"
+        data-variant="subtle"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="cc-icon cc-icon-last-page"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;

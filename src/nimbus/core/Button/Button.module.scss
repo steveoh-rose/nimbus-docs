@@ -1,0 +1,257 @@
+@import '../../tokens/build/scss/_variables.scss';
+@import '../../utils/mixins';
+
+/* --- Component Tokens --- */
+
+$button-color-bg-primary: $color-primary-300;
+$button-color-bg-primary-hover: $color-primary-400;
+$button-color-bg-primary-pressed: $color-primary-500;
+
+$button-color-bg-secondary: transparent;
+$button-color-bg-secondary-hover: $color-bg-200;
+$button-color-bg-secondary-pressed: $color-bg-300;
+
+$button-color-bg-subtle: transparent;
+$button-color-bg-subtle-hover: $color-bg-200;
+$button-color-bg-subtle-pressed: $color-bg-300;
+
+$button-color-bg-outline: transparent;
+$button-color-bg-outline-hover: rgba($color-primary-300, 10%);
+$button-color-bg-outline-pressed: rgba($color-primary-300, 20%);
+
+$button-color-bg-ghost: transparent;
+$button-color-bg-ghost-hover: rgba($color-primary-300, 10%);
+$button-color-bg-ghost-pressed: rgba($color-primary-300, 20%);
+
+$button-color-bg-negative: transparent;
+$button-color-bg-negative-hover: $color-error-100;
+$button-color-bg-negative-pressed: $color-error-200;
+
+$button-color-text-primary: $color-text-100;
+$button-color-text-secondary: $color-system-500;
+$button-color-text-subtle: $color-system-500;
+$button-color-text-outline: $color-primary-300;
+$button-color-text-ghost: $color-primary-300;
+$button-color-text-negative: $color-error-300;
+$button-color-text-brand: $color-text-100;
+
+$button-color-border-focus: $color-primary-300;
+$button-color-border-secondary: $color-system-100;
+$button-color-border-outline: $color-primary-300;
+$button-color-border-negative: $color-error-300;
+
+$button-spacer-md-padding-y: $size-spacer-sm;
+$button-spacer-md-padding-x: $size-spacer-md;
+$button-spacer-gap-lg: $size-spacer-xs;
+$button-spacer-gap-sm: $size-spacer-xxs;
+$button-borderRadius-box: 5px;
+$button-borderRadius-rounded: 30px;
+
+$button-font-lg: $font-body-bold-md;
+$button-font-sm: $font-body-bold-sm;
+
+.button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  max-width: fit-content;
+  gap: $button-spacer-gap-lg;
+  padding-block: $button-spacer-md-padding-y;
+  padding-inline: $button-spacer-md-padding-x;
+  color: $button-color-text-secondary;
+  fill: currentColor;
+  border: solid 1px transparent;
+  border-radius: $button-borderRadius-box;
+  outline: transparent solid 0px;
+  outline-offset: 2px;
+  font: $button-font-lg;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  appearance: none;
+  transition-property: border-color, background-color, outline;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in;
+  -webkit-transition-property: background-color 100ms;
+  -o-transition-property: background-color 100ms;
+  -moz-transition-property: background-color 100ms;
+
+  /* Icon style fix */
+  svg {
+    flex-shrink: 0;
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &[data-variant='primary'] {
+    background-color: $button-color-bg-primary;
+    color: $button-color-text-primary;
+  }
+
+  &[data-variant='primary'][data-hover='true'] {
+    background-color: $button-color-bg-primary-hover;
+    color: $button-color-text-primary;
+  }
+
+  &[data-variant='primary'][data-pressed='true'] {
+    background-color: $button-color-bg-primary-pressed;
+    color: $button-color-text-primary;
+  }
+
+  &[data-variant='secondary'] {
+    background-color: $button-color-bg-secondary;
+    color: $button-color-text-secondary;
+    border-color: $button-color-border-secondary;
+  }
+
+  &[data-variant='secondary'][data-hover='true'] {
+    background-color: $button-color-bg-secondary-hover;
+  }
+
+  &[data-variant='secondary'][data-pressed='true'] {
+    background-color: $button-color-bg-secondary-pressed;
+  }
+
+  &[data-variant='subtle'] {
+    background-color: $button-color-bg-subtle;
+    color: $button-color-text-subtle;
+  }
+
+  &[data-variant='subtle'][data-hover='true'] {
+    background-color: $button-color-bg-subtle-hover;
+  }
+
+  &[data-variant='subtle'][data-pressed='true'] {
+    background-color: $button-color-bg-subtle-pressed;
+  }
+
+  &[data-variant='outline'] {
+    background-color: $button-color-bg-outline;
+    color: $button-color-text-outline;
+    border-color: $button-color-border-outline;
+  }
+
+  &[data-variant='outline'][data-hover='true'] {
+    background-color: $button-color-bg-outline-hover;
+  }
+
+  &[data-variant='outline'][data-pressed='true'] {
+    background-color: $button-color-bg-outline-pressed;
+  }
+
+  &[data-variant='ghost'] {
+    background-color: $button-color-bg-ghost;
+    color: $button-color-text-ghost;
+  }
+
+  &[data-variant='ghost'][data-hover='true'] {
+    background-color: $button-color-bg-ghost-hover;
+  }
+
+  &[data-variant='ghost'][data-pressed='true'] {
+    background-color: $button-color-bg-ghost-pressed;
+  }
+
+  &[data-variant='negative'] {
+    background-color: $button-color-bg-negative;
+    color: $button-color-text-negative;
+    border-color: $button-color-border-negative;
+  }
+
+  &[data-variant='negative'][data-hover='true'] {
+    background-color: $button-color-bg-negative-hover;
+  }
+
+  &[data-variant='negative'][data-pressed='true'] {
+    background-color: $button-color-bg-negative-pressed;
+  }
+
+  /**
+  * Not always a hover colour for "brand" colours, we darken the brand
+  * colour added to get the hover affect.
+  */
+  &[data-variant='brand'] {
+    color: $button-color-text-brand;
+    @include withDesignTokenColors() using ($colorName, $color) {
+      &[data-brand-text-color='#{$colorName}'] {
+        color: $color;
+        svg {
+          .button-stroke-color {
+            stroke: $color;
+          }
+        }
+      }
+    }
+
+    @include withDesignTokenColors() using ($colorName, $color) {
+      &[data-brand-color='#{$colorName}'] {
+        background-color: $color;
+      }
+
+      &[data-brand-color='#{$colorName}'][data-hover='true'] {
+        background-color: darken($color, 10%);
+      }
+
+      &[data-brand-color='#{$colorName}'][data-pressed='true'] {
+        background-color: darken($color, 20%);
+      }
+    }
+  }
+
+  &[data-focus-visible='true'] {
+    outline-color: $button-color-border-focus;
+    outline-width: 2px;
+  }
+
+  &[data-disabled='true'],
+  &[data-loading='true'] {
+    opacity: 50%;
+
+    * {
+      cursor: not-allowed;
+    }
+  }
+
+  &[data-rounded='true'] {
+    border-radius: $button-borderRadius-rounded;
+  }
+
+  &[data-size='sm'] {
+    padding-block: $size-spacer-xxs;
+    padding-inline: $size-spacer-sm;
+    gap: $button-spacer-gap-sm;
+    font: $button-font-sm;
+    line-height: 1rem;
+
+    &[data-text-node='false']:has(> [data-slot='icon']:only-child) {
+      padding: $size-spacer-xxs;
+    }
+  }
+
+  &[data-size='lg'] {
+    padding-block: $size-spacer-sm;
+    padding-inline: $size-spacer-md;
+    gap: $button-spacer-gap-lg;
+    font: $button-font-lg;
+    line-height: 1rem;
+
+    &[data-text-node='false']:has(> [data-slot='icon']:only-child) {
+      padding: $size-spacer-sm;
+    }
+  }
+
+  &[data-full-width='true'] {
+    width: 100%;
+    max-width: 100%;
+    max-width: -webkit-fill-available;
+  }
+}

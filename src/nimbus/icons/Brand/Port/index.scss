@@ -1,0 +1,42 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-port {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--port-back {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--port-front {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--port-connector {
+      fill: $color-primary-500;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--port-back {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--port-front {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--port-connector {
+      fill: $icon-mono-4;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--port-back {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--port-front {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--port-connector {
+      fill: $icon-mono-4;
+    }
+  }
+}

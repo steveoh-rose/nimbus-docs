@@ -1,0 +1,45 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-support {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--support-background,
+    &.nb-brand-icon--support-dot {
+      fill: $color-primary-500;
+    }
+    &.nb-brand-icon--support-right {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--support-bubble {
+      fill: $color-primary-300;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--support-background,
+    &.nb-brand-icon--support-dot {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--support-right {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--support-bubble {
+      fill: $icon-mono-1;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--support-background {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--support-right,
+    &.nb-brand-icon--support-dot {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--support-bubble {
+      fill: $icon-mono-2;
+    }
+  }
+}

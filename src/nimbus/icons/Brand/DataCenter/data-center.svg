@@ -1,0 +1,8 @@
+<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="data-center-side" d="M9.34998 53.43H18.72V16.57L9.34998 22.82V53.43Z" fill="#00498F"/>
+<path class="data-center-front" d="M18.72 53.43H60.65V25.78L18.72 16.57V53.43Z" fill="#0098FF"/>
+<path class="data-center-window" d="M59.46 34.02L20.88 27.9V32.51L59.46 37.6V34.02Z" fill="#16263F"/>
+<path class="data-center-window" d="M59.46 39.72L20.88 35.2V39.81L59.46 43.19V39.72Z" fill="#16263F"/>
+<path class="data-center-window" d="M59.46 45.44L20.88 42.69V47.3L59.46 48.78V45.44Z" fill="#16263F"/>
+<path class="data-center-window" d="M59.46 28.39L20.88 20.57V25.18L59.46 31.86V28.39Z" fill="#16263F"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="growth-bar" d="M59.78 26.18H48.47V60.02H59.78V26.18Z" fill="#0098FF"/>
+<path class="growth-shadow" d="M48.47 60.02H45.64V29.93L48.47 26.18V60.02Z" fill="#00498F"/>
+<path class="growth-bar" d="M42.56 49.3H31.25V60.02H42.56V49.3Z" fill="#0098FF"/>
+<path class="growth-shadow" d="M31.25 60.02H28.43V53.04L31.25 49.3V60.02Z" fill="#00498F"/>
+<path class="growth-bar" d="M25.35 53.88H14.04V60.03H25.35V53.88Z" fill="#0098FF"/>
+<path class="growth-shadow" d="M14.04 60.02H11.21V57.62L14.04 53.88V60.02Z" fill="#00498F"/>
+<path class="growth-arrow" d="M39.15 18.06L51.43 10L52.29 24.68C47.87 20.7 39.15 18.06 39.15 18.06Z" fill="#16263F"/>
+<path class="growth-arrow" d="M10.22 46.16C10.22 46.16 34.66 40.09 45 17.23L49.4 19.41C46.6463 25.0025 42.7968 29.9844 38.08 34.06C34.1689 37.4115 29.7894 40.174 25.08 42.26C20.4015 44.4432 15.3676 45.7643 10.22 46.16Z" fill="#16263F"/>
+</svg>

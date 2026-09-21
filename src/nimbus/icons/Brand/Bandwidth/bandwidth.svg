@@ -1,0 +1,7 @@
+<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="bandwidth-arrow-upper" d="M40.45 17.99V23.43H13.2V34.98H40.45H41.36H64.97L40.45 17.99Z" fill="#0098FF"/>
+<path class="bandwidth-arrow-lower" d="M56.96 34.99H25.75V35.02H9.58003H5.03003L29.55 52.01V46.55H56.96V34.99Z" fill="#00498F"/>
+<path class="bandwidth-shadow-upper" d="M64.97 34.98L40.45 17.99H46.64L64.97 34.98Z" fill="#00498F"/>
+<path class="bandwidth-shadow-lower" d="M23.27 52.01H29.55L5.03003 35.02L23.27 52.01Z" fill="#16263F"/>
+<path class="bandwidth-shadow-lower" d="M9.90002 35.02H56.96V37.62L9.90002 35.02Z" fill="#16263F"/>
+</svg>

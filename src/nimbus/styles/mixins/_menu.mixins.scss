@@ -1,0 +1,78 @@
+@use 'tokens' as tokens;
+
+/******************************************************************** 
+ * Menu                                                             * 
+ ********************************************************************/
+
+@mixin menu-typography {
+  font: tokens.$popover-typography-body;
+}
+
+@mixin menu-spacing {
+  padding: tokens.$global-size-spacer-xs;
+}
+
+@mixin menu-colors {
+  color: tokens.$popover-color-text-default;
+  background-color: tokens.$popover-color-bg-default;
+}
+
+@mixin menu-border-radius {
+  border-radius: tokens.$popover-border-radius;
+}
+
+@mixin menu-focus-outline {
+  outline: tokens.$popover-border-style-outline;
+}
+
+@mixin menu-sizes {
+  height: fit-content;
+  max-height: 100vh;
+  min-width: tokens.$popover-size-min-width;
+  max-width: tokens.$popover-size-max-width;
+}
+
+@mixin menu-shadows {
+  box-shadow: tokens.$popover-shadow-container;
+}
+
+/******************************************************************** 
+ * Menu.Item                                                        * 
+ ********************************************************************/
+
+@mixin menu-item-typography {
+  font: tokens.$menu-typography-label;
+}
+
+@mixin menu-item-colors {
+  color: tokens.$global-color-text-400;
+  background-color: tokens.$menu-color-bg-item-default;
+
+  &[data-hovered='true'],
+  &[data-focused='true'] {
+    background-color: tokens.$menu-color-bg-item-hover;
+  }
+
+  &[data-intent='danger'] {
+    color: tokens.$menu-color-text-item-danger;
+    &[data-hovered='true'],
+    &[data-focused='true'] {
+      background-color: tokens.$global-color-error-100;
+    }
+  }
+
+  &[data-disabled='true'] {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: tokens.$menu-opacity-item-disabled;
+  }
+}
+
+@mixin menu-item-spacing {
+  padding: tokens.$menu-spacing-item-container;
+  gap: tokens.$menu-spacing-item-gap;
+}
+
+@mixin menu-item-border-radius {
+  border-radius: tokens.$menu-border-radius;
+}

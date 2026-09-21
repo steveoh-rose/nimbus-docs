@@ -1,0 +1,98 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-security {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--security-left-bar {
+      fill: $color-accent-dark;
+    }
+
+    &.nb-brand-icon--security-right-bar {
+      fill: $color-primary-500;
+    }
+
+    &.nb-brand-icon--security-right-lock {
+      fill: $color-primary-300;
+    }
+
+    &.nb-brand-icon--security-left-lock {
+      fill: $color-primary-500;
+    }
+
+    &.nb-brand-icon--security-bottom-lock {
+      fill: $color-accent-dark;
+    }
+
+    &.nb-brand-icon--security-right-keyhole {
+      fill: $color-primary-500;
+    }
+
+    &.nb-brand-icon--security-left-keyhole {
+      fill: $color-accent-dark;
+    }
+  }
+
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--security-left-bar {
+      fill: $icon-mono-3;
+    }
+
+    &.nb-brand-icon--security-right-bar {
+      fill: $icon-mono-2;
+    }
+
+    &.nb-brand-icon--security-right-lock {
+      fill: $icon-mono-1;
+    }
+
+    &.nb-brand-icon--security-left-lock {
+      fill: $icon-mono-2;
+    }
+
+    &.nb-brand-icon--security-bottom-lock {
+      fill: $icon-mono-3;
+    }
+
+    &.nb-brand-icon--security-right-keyhole {
+      fill: $icon-mono-2;
+    }
+
+    &.nb-brand-icon--security-left-keyhole {
+      fill: $icon-mono-3;
+    }
+  }
+
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--security-left-bar {
+      fill: $icon-mono-4;
+    }
+
+    &.nb-brand-icon--security-right-bar {
+      fill: $icon-mono-3;
+    }
+
+    &.nb-brand-icon--security-right-lock {
+      fill: $icon-mono-2;
+    }
+
+    &.nb-brand-icon--security-left-lock {
+      fill: $icon-mono-3;
+    }
+
+    &.nb-brand-icon--security-bottom-lock {
+      fill: $icon-mono-4;
+    }
+
+    &.nb-brand-icon--security-right-keyhole {
+      fill: $icon-mono-3;
+    }
+
+    &.nb-brand-icon--security-left-keyhole {
+      fill: $icon-mono-4;
+    }
+  }
+}

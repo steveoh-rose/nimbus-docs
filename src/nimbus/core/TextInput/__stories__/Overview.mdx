@@ -1,0 +1,48 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as TextInputStories from './TextInput.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/text-input/Docs" of={TextInputStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Switch.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Switch"
+  figmaLink="https://www.figma.com/design/MWeGMLI4Iiti9f3IanCsf8/%F0%9F%93%A6-NDS-Core?node-id=6900-14473"
+/>
+
+<div style={{ maxWidth: 830 }}>
+  The Text Input component is a complete form control including a label, input, and help text. Text
+  Input also supports optional description and error message elements, which can be used to provide
+  more context about the field, and any validation messages. These are linked with the input via the
+  aria-describedby attribute.
+</div>
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Features
+
+Text Input is automatically connected to handle Accessibility features. Text input has some features baked in to make it easier to use and more consistent.
+
+- Built with a native `<input>` element
+- Visual and ARIA labeling support
+- Change, clipboard, composition, selection, and input event support
+- Required and invalid states exposed to assistive technology via ARIA
+- Support for description and error message help text linked to the input via ARIA
+
+## Usage
+
+```
+import { TextInput } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} />

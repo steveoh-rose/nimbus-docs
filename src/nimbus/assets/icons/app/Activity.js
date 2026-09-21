@@ -1,0 +1,8 @@
+import * as React from 'react';
+
+const SvgActivity = (props) => (React.createElement("svg", Object.assign({ width: "1em", height: "1em", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", "data-testid": "SvgActivity", "data-slot": "icon" }, props),
+    React.createElement("path", { d: "M8 8H6V15C6 16.1 6.9 17 8 17H17V15H8V8Z", fill: "currentColor" }),
+    React.createElement("path", { d: "M20 3H12C10.9 3 10 3.9 10 5V11C10 12.1 10.9 13 12 13H20C21.1 13 22 12.1 22 11V5C22 3.9 21.1 3 20 3ZM20 11H12V7H20V11Z", fill: "currentColor" }),
+    React.createElement("path", { d: "M4 12H2V19C2 20.1 2.9 21 4 21H13V19H4V12Z", fill: "currentColor" })));
+
+export { SvgActivity as default };

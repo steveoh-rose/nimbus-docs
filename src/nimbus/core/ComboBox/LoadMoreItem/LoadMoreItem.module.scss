@@ -1,0 +1,8 @@
+@import '../../../tokens/build/scss/_variables.scss';
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $size-spacer-sm;
+}

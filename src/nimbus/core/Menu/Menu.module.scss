@@ -1,0 +1,105 @@
+@use 'tokens' as tokens;
+@use 'mixins' as mixins;
+
+/* ************************************************** *
+ * Menu                                               *
+ * ************************************************** */
+.menu {
+  @include mixins.menu-colors;
+  @include mixins.menu-typography;
+  @include mixins.menu-spacing;
+  @include mixins.menu-sizes;
+  @include mixins.menu-focus-outline;
+  @include mixins.menu-border-radius;
+  @include mixins.menu-shadows;
+
+  display: grid;
+  grid-template-columns: auto auto 1fr min-content;
+  overflow-y: auto;
+}
+
+/* ************************************************** *
+ * Menu.Item                                          *
+ * ************************************************** */
+
+.item {
+  @include mixins.menu-item-colors;
+  @include mixins.menu-item-typography;
+  @include mixins.menu-item-spacing;
+  @include mixins.menu-item-border-radius;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 150ms;
+  outline: none;
+
+  [data-slot='checked'] {
+    grid-column: 1;
+  }
+
+  [data-slot='icon'] {
+    grid-column: 2;
+  }
+
+  .label {
+    grid-column: 3;
+    display: flex;
+    align-items: center;
+  }
+
+  .description {
+    grid-column: 3;
+    font: tokens.$global-font-body-sm-compact;
+    color: tokens.$global-color-text-300;
+  }
+
+  [data-slot='chevron'] {
+    grid-row: 1;
+    grid-column: 4;
+    justify-self: end;
+  }
+
+  [data-slot='icon'],
+  [data-slot='checked'] {
+    justify-self: center;
+    width: tokens.$menu-size-icon-width;
+    height: tokens.$menu-size-icon-height;
+  }
+}
+
+/* ************************************************** *
+ * Menu.Header                                        *
+ * ************************************************** */
+
+.header {
+  font: tokens.$global-font-body-sm-compact;
+  color: tokens.$global-color-text-300;
+  grid-column: 1 / -1;
+  padding: tokens.$menu-spacing-item-container;
+}
+
+/* ************************************************** *
+ * Menu.Section                                       *
+ * ************************************************** */
+.section {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+
+  &:not(:first-child) {
+    margin-top: tokens.$global-size-spacer-xs;
+  }
+}
+
+/* ************************************************** *
+ * Menu.Separator                                     *
+ * ************************************************** */
+
+.separator {
+  grid-column: 1 / -1;
+  margin: tokens.$global-size-spacer-xs -5px;
+  height: 1px;
+  background-color: tokens.$global-color-system-100;
+}

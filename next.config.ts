@@ -1,20 +1,29 @@
 import type { NextConfig } from "next";
 import path from "path";
 
-// Set NEXT_BASE_PATH to "/<repo-name>" once this site lives at
-// https://<org>.github.io/<repo-name>/ (a GitHub Pages *project* site).
-// Leave unset for a custom domain or a user/org root site.
-const basePath = process.env.NEXT_BASE_PATH ?? "";
+const nimbus = (p: string) => path.join(process.cwd(), "src", "nimbus", p);
 
 const nextConfig: NextConfig = {
-  output: "export",
-  trailingSlash: true,
-  basePath,
-  images: {
-    unoptimized: true,
-  },
+  // Deployed on Vercel: no static export / basePath needed.
   turbopack: {
     root: path.join(process.cwd()),
+    rules: {
+      // Legacy Nimbus icons import `{ ReactComponent }` from .svg files.
+      "*.svg": {
+        loaders: [
+          {
+            loader: "@svgr/webpack",
+            options: { exportType: "named", namedExport: "ReactComponent", icon: false, svgo: false },
+          },
+        ],
+        as: "*.js",
+      },
+    },
+  },
+  sassOptions: {
+    // Nimbus SCSS does `@use 'tokens'` / `@use 'mixins'` (Storybook's includePaths).
+    loadPaths: [nimbus("styles/tokens"), nimbus("styles/mixins")],
+    silenceDeprecations: ["import", "global-builtin", "legacy-js-api", "color-functions"],
   },
 };
 

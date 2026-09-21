@@ -1,0 +1,85 @@
+@import '../../tokens/build/scss/_variables.scss';
+@import '../../utils/mixins';
+
+.tooltip {
+  font: $font-body-sm-compact;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: 300px;
+  padding: $size-spacer-xs $size-spacer-sm;
+  border-radius: $size-spacer-xs;
+  border: solid 1px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  transition-property: opacity, transform;
+  transform: scale(0.95);
+
+  /** Default */
+  color: $color-text-100;
+  border-color: $color-system-500;
+  background-color: $color-accent-dark;
+
+  &[data-variant='dark'] {
+    color: $color-text-100;
+    border-color: $color-system-500;
+    background-color: $color-accent-dark;
+  }
+
+  &[data-variant='light'] {
+    color: $color-text-500;
+    border-color: $color-system-200;
+    background-color: $color-bg-default;
+  }
+
+  &[data-variant='accent'] {
+    color: $color-text-100;
+    border-color: $color-system-100;
+    background-color: $color-accent-bright-1-400;
+  }
+
+  &[data-status='open'] {
+    opacity: 1;
+    transform: scale(1);
+    transition-duration: 150ms;
+  }
+  &[data-status='close'] {
+    transition-duration: 100ms;
+  }
+
+  &[data-status='initial'],
+  &[data-status='close'] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  &[data-status='initial'][data-placement^='top'],
+  &[data-status='close'][data-placement^='top'] {
+    transform: translateY(5px);
+  }
+
+  &[data-status='initial'][data-placement^='bottom'],
+  &[data-status='close'][data-placement^='bottom'] {
+    transform: translateY(-5px);
+  }
+
+  &[data-status='initial'][data-placement^='left'],
+  &[data-status='close'][data-placement^='left'] {
+    transform: translateX(5px);
+  }
+
+  &[data-status='initial'][data-placement^='right'],
+  &[data-status='close'][data-placement^='right'] {
+    transform: translateX(-5px);
+  }
+}
+
+.trigger {
+  font: inherit;
+  display: inline-block;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline-color: $color-primary-300;
+    border-radius: $size-spacer-xs;
+    outline-width: 2px;
+  }
+}

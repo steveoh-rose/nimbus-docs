@@ -1,0 +1,12 @@
+import * as React from 'react';
+
+const SvgCloudRouter = (props) => (React.createElement("svg", Object.assign({ width: "1em", height: "1em", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", "data-testid": "SvgCloudRouter", "data-slot": "icon" }, props),
+    React.createElement("g", { clipPath: "url(#clip0_6194_399)" },
+        React.createElement("path", { d: "M6.60977 6.43C7.11977 3.86 9.39977 2 12.0098 2C14.0698 2 15.9398 3.14 16.8798 4.97L17.3798 5.92L18.4498 6.03C20.4798 6.24 22.0098 7.95 22.0098 10C22.0098 12.21 20.2198 14 18.0098 14H17.83L19.41 12.41L18 11L14 15L18 19L19.41 17.59L17.83 16H19V15.9184C21.84 15.4454 24.0098 12.9728 24.0098 10C24.0098 6.91 21.6698 4.36 18.6698 4.04C17.4198 1.64 14.8998 0 12.0098 0C8.36977 0 5.33977 2.59 4.64977 6.04C2.05977 6.22 0.00976562 8.36 0.00976562 11C0.00976562 13.76 2.24977 16 5.00977 16H6.16988L4.58984 17.59L5.99984 19L9.99985 15L5.99984 11L4.58984 12.41L6.16984 14H5.00977C3.35977 14 2.00977 12.65 2.00977 11C2.00977 9.45 3.22977 8.15 4.78977 8.04L6.30977 7.93L6.60977 6.43Z", fill: "currentColor" }),
+        React.createElement("path", { d: "M11 17V20.17L9.41 18.59L8 20L12 24L16 20L14.59 18.59L13 20.17V17H11Z", fill: "currentColor" }),
+        React.createElement("path", { d: "M13 9.83L13 13H11V9.83L9.41 11.41L8 10L12 6L16 10L14.59 11.41L13 9.83Z", fill: "currentColor" })),
+    React.createElement("defs", null,
+        React.createElement("clipPath", { id: "clip0_6194_399" },
+            React.createElement("rect", { width: 24, height: 24, fill: "white" })))));
+
+export { SvgCloudRouter as default };

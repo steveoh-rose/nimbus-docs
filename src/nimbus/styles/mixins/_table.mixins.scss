@@ -1,0 +1,65 @@
+@use 'tokens' as tokens;
+
+/******************************************************************** 
+ * Root                                                             * 
+ ********************************************************************/
+@mixin table-colors {
+  color: tokens.$table-color-text-default;
+  background-color: tokens.$table-color-bg-default;
+}
+
+@mixin table-typography {
+  font: tokens.$table-typography-cell;
+}
+
+@mixin table-borders {
+  outline: none;
+  border: 1px solid tokens.$table-color-border-default;
+  border-radius: tokens.$table-border-radius;
+  border-spacing: 0; /* removes white space between cells */
+}
+
+/* ****************************************************************** *
+ * Header                                                             *
+ * ****************************************************************** */
+@mixin table-header-colors {
+  background-color: tokens.$table-color-header-bg-default;
+  color: tokens.$table-color-text-default;
+}
+
+@mixin table-header-typography {
+  font: tokens.$table-typography-header;
+  text-align: left;
+}
+
+/* ****************************************************************** *
+ * Cells                                                              *
+ * ****************************************************************** */
+@mixin table-cell-spacing {
+  padding: tokens.$table-spacing-cell-padding-y tokens.$table-spacing-cell-padding-x;
+}
+
+@mixin table-cell-spacing-compact {
+  padding: tokens.$table-spacing-cell-padding-y-compact tokens.$table-spacing-cell-padding-x-compact;
+}
+
+@mixin table-cell-typography {
+  font: tokens.$table-typography-cell;
+  text-align: left;
+}
+
+@mixin table-cell-border {
+  border-top: 1px solid tokens.$table-color-cell-border;
+}
+
+@mixin table-focus-ring {
+  outline-offset: tokens.$table-border-focus-offset;
+  outline-width: tokens.$table-border-focus-width;
+  outline-style: tokens.$table-border-focus-style;
+  outline-color: tokens.$table-border-focus-color;
+}
+
+@mixin table-focus-ring-active {
+  outline-width: tokens.$table-border-focus-width-active;
+  outline-color: tokens.$table-border-focus-color-active;
+}

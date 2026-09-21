@@ -1,0 +1,33 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+import { ShareButtons } from '@/docs/ui';
+
+<Meta title="nimbus-core/Button/Docs" of={ButtonStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://react-spectrum.adobe.com/react-aria/Button.html"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Button"
+  figmaLink="https://www.figma.com/design/MWeGMLI4Iiti9f3IanCsf8/%F0%9F%93%A6-NDS-Core?node-id=6900-14445"
+/>
+
+Buttons consist of a clickable area usually containing a textual label or an icon that users can click to perform an action. In addition, keyboard users may activate buttons using the Space or Enter keys.
+
+<Canvas withToolbar sourceState="none" />
+<Source transform={(code) => code.replaceAll('PolymorphicButton', 'Button')} />
+<Controls />
+
+## Usage
+
+```
+import { Button } from '@console/nimbus-ui/core';
+```
+
+## Examples
+
+<Stories />
+
+## API
+
+<ArgTypes sort={'alpha'} of={ButtonStories} />

@@ -2,10 +2,10 @@ import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { CommandMenu } from "@/components/command-menu"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { MobileNav } from "@/components/mobile-nav"
 import { GitHubMarkIcon } from "@/components/icons"
 import { mainNav, siteConfig } from "@/lib/nav-config"
+import { Cloud } from "@nimbus/assets/icons/app"
 
 export function SiteHeader() {
   return (
@@ -14,8 +14,8 @@ export function SiteHeader() {
         <MobileNav />
 
         <Link href="/" className="flex items-center gap-2 font-semibold">
-          <span className="flex size-6 items-center justify-center rounded-md bg-foreground text-background text-xs font-bold">
-            N
+          <span className="flex size-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
+            <Cloud className="size-4" />
           </span>
           <span className="hidden sm:inline">{siteConfig.name}</span>
         </Link>
@@ -29,16 +29,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <div className="hidden sm:block">
-            <CommandMenu />
-          </div>
+          <CommandMenu />
           <Button variant="ghost" size="icon" className="size-8" asChild>
             <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer">
               <GitHubMarkIcon className="size-4" />
               <span className="sr-only">GitHub</span>
             </a>
           </Button>
-          <ThemeToggle />
         </div>
       </div>
     </header>

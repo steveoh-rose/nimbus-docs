@@ -1,0 +1,748 @@
+{
+  "color": {
+    "brand": {
+      "navy": {
+        "value": "#16263F",
+        "docs": {
+          "displayName": "Navy"
+        }
+      },
+      "pink": {
+        "value": "#FF276F",
+        "docs": {
+          "displayName": "Pink"
+        }
+      },
+      "purple": {
+        "value": "#7648ff",
+        "docs": {
+          "displayName": "Purple"
+        }
+      },
+      "green": {
+        "value": "#22ffbb",
+        "docs": {
+          "displayName": "Green"
+        }
+      },
+      "blue": {
+        "value": "#0098ff",
+        "docs": {
+          "displayName": "Blue"
+        }
+      },
+      "aqua": {
+        "value": "#23e0F9",
+        "docs": {
+          "displayName": "Aqua"
+        }
+      },
+      "dark-blue": {
+        "value": "#00498f",
+        "docs": {
+          "displayName": "Dark Blue"
+        }
+      },
+      "light-grey": {
+        "value": "#e8edef",
+        "docs": {
+          "displayName": "Light Grey"
+        }
+      }
+    },
+    "palette": {
+      "black": {
+        "value": "#000000",
+        "docs": {
+          "displayName": "Black"
+        }
+      },
+      "white": {
+        "value": "#FFFFFF",
+        "docs": {
+          "displayName": "White"
+        }
+      },
+      "graphite": {
+        "50": {
+          "value": "#f9f9f9",
+          "docs": {
+            "displayName": "Graphite 50"
+          }
+        },
+        "100": {
+          "value": "#f3f3f3",
+          "docs": {
+            "displayName": "Graphite 100"
+          }
+        },
+        "200": {
+          "value": "#eaeaea",
+          "docs": {
+            "displayName": "Graphite 200"
+          }
+        },
+        "300": {
+          "value": "#d1d1d1",
+          "docs": {
+            "displayName": "Graphite 300"
+          }
+        },
+        "400": {
+          "value": "#a0a0a0",
+          "docs": {
+            "displayName": "Graphite 400"
+          }
+        },
+        "500": {
+          "value": "#767676",
+          "docs": {
+            "displayName": "Graphite 500"
+          }
+        },
+        "600": {
+          "value": "#616161",
+          "docs": {
+            "displayName": "Graphite 600"
+          }
+        },
+        "700": {
+          "value": "#4b4b4b",
+          "docs": {
+            "displayName": "Graphite 700"
+          }
+        },
+        "800": {
+          "value": "#383838",
+          "docs": {
+            "displayName": "Graphite 800"
+          }
+        },
+        "900": {
+          "value": "#272727",
+          "docs": {
+            "displayName": "Graphite 900"
+          }
+        },
+        "950": {
+          "value": "#191919",
+          "docs": {
+            "displayName": "Graphite 950"
+          }
+        }
+      },
+      "stone": {
+        "50": {
+          "value": "#f8f9fc",
+          "docs": {
+            "displayName": "Stone 50"
+          }
+        },
+        "100": {
+          "value": "#F1F4F9",
+          "docs": {
+            "displayName": "Stone 100"
+          }
+        },
+        "200": {
+          "value": "#E5EAF3",
+          "docs": {
+            "displayName": "Stone 200"
+          }
+        },
+        "300": {
+          "value": "#CCD2DC",
+          "docs": {
+            "displayName": "Stone 300"
+          }
+        },
+        "400": {
+          "value": "#9BA0A8",
+          "docs": {
+            "displayName": "Stone 400"
+          }
+        },
+        "500": {
+          "value": "#72767C",
+          "docs": {
+            "displayName": "Stone 500"
+          }
+        },
+        "600": {
+          "value": "#5E6166",
+          "docs": {
+            "displayName": "Stone 600"
+          }
+        },
+        "700": {
+          "value": "#494B4F",
+          "docs": {
+            "displayName": "Stone 700"
+          }
+        },
+        "800": {
+          "value": "#37383B",
+          "docs": {
+            "displayName": "Stone 800"
+          }
+        },
+        "900": {
+          "value": "#262729",
+          "docs": {
+            "displayName": "Stone 900"
+          }
+        },
+        "950": {
+          "value": "#191A1B",
+          "docs": {
+            "displayName": "Stone 950"
+          }
+        }
+      },
+      "slate": {
+        "50": {
+          "value": "#f9f9fa",
+          "docs": {
+            "displayName": "Slate 50"
+          }
+        },
+        "100": {
+          "value": "#f3f4f5",
+          "docs": {
+            "displayName": "Slate 100"
+          }
+        },
+        "200": {
+          "value": "#e8eaec",
+          "docs": {
+            "displayName": "Slate 200"
+          }
+        },
+        "300": {
+          "value": "#ced2d7",
+          "docs": {
+            "displayName": "Slate 300"
+          }
+        },
+        "400": {
+          "value": "#99a0ab",
+          "docs": {
+            "displayName": "Slate 400"
+          }
+        },
+        "500": {
+          "value": "#6c7686",
+          "docs": {
+            "displayName": "Slate 500"
+          }
+        },
+        "600": {
+          "value": "#566274",
+          "docs": {
+            "displayName": "Slate 600"
+          }
+        },
+        "700": {
+          "value": "#3e4c60",
+          "docs": {
+            "displayName": "Slate 700"
+          }
+        },
+        "800": {
+          "value": "#2a3950",
+          "docs": {
+            "displayName": "Slate 800"
+          }
+        },
+        "900": {
+          "value": "#172740",
+          "docs": {
+            "displayName": "Slate 900"
+          }
+        },
+        "950": {
+          "value": "#0f1a2b",
+          "docs": {
+            "displayName": "Slate 950"
+          }
+        }
+      },
+      "sky": {
+        "50": {
+          "value": "#f6fafe",
+          "docs": {
+            "displayName": "Sky 50"
+          }
+        },
+        "100": {
+          "value": "#ecf5fd",
+          "docs": {
+            "displayName": "Sky 100"
+          }
+        },
+        "200": {
+          "value": "#dcecfb",
+          "docs": {
+            "displayName": "Sky 200"
+          }
+        },
+        "300": {
+          "value": "#b4d5f7",
+          "docs": {
+            "displayName": "Sky 300"
+          }
+        },
+        "400": {
+          "value": "#5ca4ed",
+          "docs": {
+            "displayName": "Sky 400"
+          }
+        },
+        "500": {
+          "value": "#0674e4",
+          "docs": {
+            "displayName": "Sky 500"
+          }
+        },
+        "600": {
+          "value": "#015fbf",
+          "docs": {
+            "displayName": "Sky 600"
+          }
+        },
+        "700": {
+          "value": "#014a94",
+          "docs": {
+            "displayName": "Sky 700"
+          }
+        },
+        "800": {
+          "value": "#003870",
+          "docs": {
+            "displayName": "Sky 800"
+          }
+        },
+        "900": {
+          "value": "#00274e",
+          "docs": {
+            "displayName": "Sky 900"
+          }
+        },
+        "950": {
+          "value": "#001a35",
+          "docs": {
+            "displayName": "Sky 950"
+          }
+        }
+      },
+      "lavender": {
+        "50": {
+          "value": "#FAF8FF",
+          "docs": {
+            "displayName": "Lavender 50"
+          }
+        },
+        "100": {
+          "value": "#F5F2FF",
+          "docs": {
+            "displayName": "Lavender 100"
+          }
+        },
+        "200": {
+          "value": "#ede6ff",
+          "docs": {
+            "displayName": "Lavender 200"
+          }
+        },
+        "300": {
+          "value": "#d7caff",
+          "docs": {
+            "displayName": "Lavender 300"
+          }
+        },
+        "400": {
+          "value": "#aa8eff",
+          "docs": {
+            "displayName": "Lavender 400"
+          }
+        },
+        "500": {
+          "value": "#7648ff",
+          "docs": {
+            "displayName": "Lavender 500"
+          }
+        },
+        "600": {
+          "value": "#6840e1",
+          "docs": {
+            "displayName": "Lavender 600"
+          }
+        },
+        "700": {
+          "value": "#5131ae",
+          "docs": {
+            "displayName": "Lavender 700"
+          }
+        },
+        "800": {
+          "value": "#3d2584",
+          "docs": {
+            "displayName": "Lavender 800"
+          }
+        },
+        "900": {
+          "value": "#2a1a5c",
+          "docs": {
+            "displayName": "Lavender 900"
+          }
+        },
+        "950": {
+          "value": "#1c113d",
+          "docs": {
+            "displayName": "Lavender 950"
+          }
+        }
+      },
+      "ocean": {
+        "50": {
+          "value": "#f7f9ff",
+          "docs": {
+            "displayName": "Ocean 50"
+          }
+        },
+        "100": {
+          "value": "#eff4fe",
+          "docs": {
+            "displayName": "Ocean 100"
+          }
+        },
+        "200": {
+          "value": "#e2eafd",
+          "docs": {
+            "displayName": "Ocean 200"
+          }
+        },
+        "300": {
+          "value": "#c0d2fb",
+          "docs": {
+            "displayName": "Ocean 300"
+          }
+        },
+        "400": {
+          "value": "#779ef7",
+          "docs": {
+            "displayName": "Ocean 400"
+          }
+        },
+        "500": {
+          "value": "#336cf3",
+          "docs": {
+            "displayName": "Ocean 500"
+          }
+        },
+        "600": {
+          "value": "#1f57d8",
+          "docs": {
+            "displayName": "Ocean 600"
+          }
+        },
+        "700": {
+          "value": "#1843a7",
+          "docs": {
+            "displayName": "Ocean 700"
+          }
+        },
+        "800": {
+          "value": "#12337f",
+          "docs": {
+            "displayName": "Ocean 800"
+          }
+        },
+        "900": {
+          "value": "#0d2358",
+          "docs": {
+            "displayName": "Ocean 900"
+          }
+        },
+        "950": {
+          "value": "#08183b",
+          "docs": {
+            "displayName": "Ocean 950"
+          }
+        }
+      },
+      "emerald": {
+        "50": {
+          "value": "#F3FBF7",
+          "docs": {
+            "displayName": "Emerald 50"
+          }
+        },
+        "100": {
+          "value": "#E7F7EF",
+          "docs": {
+            "displayName": "Emerald 100"
+          }
+        },
+        "200": {
+          "value": "#D2F1E2",
+          "docs": {
+            "displayName": "Emerald 200"
+          }
+        },
+        "300": {
+          "value": "#9BE0BF",
+          "docs": {
+            "displayName": "Emerald 300"
+          }
+        },
+        "400": {
+          "value": "#17B76A",
+          "docs": {
+            "displayName": "Emerald 400"
+          }
+        },
+        "500": {
+          "value": "#018847",
+          "docs": {
+            "displayName": "Emerald 500"
+          }
+        },
+        "600": {
+          "value": "#01703B",
+          "docs": {
+            "displayName": "Emerald 600"
+          }
+        },
+        "700": {
+          "value": "#00572D",
+          "docs": {
+            "displayName": "Emerald 700"
+          }
+        },
+        "800": {
+          "value": "#004222",
+          "docs": {
+            "displayName": "Emerald 800"
+          }
+        },
+        "900": {
+          "value": "#002E18",
+          "docs": {
+            "displayName": "Emerald 900"
+          }
+        },
+        "950": {
+          "value": "#001F10",
+          "docs": {
+            "displayName": "Emerald 950"
+          }
+        }
+      },
+      "gold": {
+        "50": {
+          "value": "#fff9e9",
+          "docs": {
+            "displayName": "Gold 50"
+          }
+        },
+        "100": {
+          "value": "#fff3d2",
+          "docs": {
+            "displayName": "Gold 100"
+          }
+        },
+        "200": {
+          "value": "#ffe8aa",
+          "docs": {
+            "displayName": "Gold 200"
+          }
+        },
+        "300": {
+          "value": "#ffca3a",
+          "docs": {
+            "displayName": "Gold 300"
+          }
+        },
+        "400": {
+          "value": "#cd9700",
+          "docs": {
+            "displayName": "Gold 400"
+          }
+        },
+        "500": {
+          "value": "#976f00",
+          "docs": {
+            "displayName": "Gold 500"
+          }
+        },
+        "600": {
+          "value": "#7d5c00",
+          "docs": {
+            "displayName": "Gold 600"
+          }
+        },
+        "700": {
+          "value": "#614700",
+          "docs": {
+            "displayName": "Gold 700"
+          }
+        },
+        "800": {
+          "value": "#493500",
+          "docs": {
+            "displayName": "Gold 800"
+          }
+        },
+        "900": {
+          "value": "#322500",
+          "docs": {
+            "displayName": "Gold 900"
+          }
+        },
+        "950": {
+          "value": "#211800",
+          "docs": {
+            "displayName": "Gold 950"
+          }
+        }
+      },
+      "amber": {
+        "50": {
+          "value": "#FFF8F4",
+          "docs": {
+            "displayName": "Amber 50"
+          }
+        },
+        "100": {
+          "value": "#FFF1E8",
+          "docs": {
+            "displayName": "Amber 100"
+          }
+        },
+        "200": {
+          "value": "#FFE5D3",
+          "docs": {
+            "displayName": "Amber 200"
+          }
+        },
+        "300": {
+          "value": "#FFC69F",
+          "docs": {
+            "displayName": "Amber 300"
+          }
+        },
+        "400": {
+          "value": "#FF791E",
+          "docs": {
+            "displayName": "Amber 400"
+          }
+        },
+        "500": {
+          "value": "#BF5812",
+          "docs": {
+            "displayName": "Amber 500"
+          }
+        },
+        "600": {
+          "value": "#9E480F",
+          "docs": {
+            "displayName": "Amber 600"
+          }
+        },
+        "700": {
+          "value": "#7A380B",
+          "docs": {
+            "displayName": "Amber 700"
+          }
+        },
+        "800": {
+          "value": "#5C2A09",
+          "docs": {
+            "displayName": "Amber 800"
+          }
+        },
+        "900": {
+          "value": "#401D06",
+          "docs": {
+            "displayName": "Amber 900"
+          }
+        },
+        "950": {
+          "value": "#2B1404",
+          "docs": {
+            "displayName": "Amber 950"
+          }
+        }
+      },
+      "ruby": {
+        "50": {
+          "value": "#FEF8F8",
+          "docs": {
+            "displayName": "Ruby 50"
+          }
+        },
+        "100": {
+          "value": "#FDF1F1",
+          "docs": {
+            "displayName": "Ruby 100"
+          }
+        },
+        "200": {
+          "value": "#FAE5E5",
+          "docs": {
+            "displayName": "Ruby 200"
+          }
+        },
+        "300": {
+          "value": "#F5C6C6",
+          "docs": {
+            "displayName": "Ruby 300"
+          }
+        },
+        "400": {
+          "value": "#E98282",
+          "docs": {
+            "displayName": "Ruby 400"
+          }
+        },
+        "500": {
+          "value": "#DB3636",
+          "docs": {
+            "displayName": "Ruby 500"
+          }
+        },
+        "600": {
+          "value": "#C60000",
+          "docs": {
+            "displayName": "Ruby 600"
+          }
+        },
+        "700": {
+          "value": "#9B0000",
+          "docs": {
+            "displayName": "Ruby 700"
+          }
+        },
+        "800": {
+          "value": "#780000",
+          "docs": {
+            "displayName": "Ruby 800"
+          }
+        },
+        "900": {
+          "value": "#560000",
+          "docs": {
+            "displayName": "Ruby 900"
+          }
+        },
+        "950": {
+          "value": "#3D0000",
+          "docs": {
+            "displayName": "Ruby 950"
+          }
+        }
+      }
+    }
+  }
+}

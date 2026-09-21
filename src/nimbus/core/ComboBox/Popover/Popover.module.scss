@@ -1,0 +1,28 @@
+.root {
+  width: 100%;
+  animation: enter 150ms cubic-bezier(1, 0.49, 0.51, 1.22);
+
+  &[data-placement='top'] {
+    --y0: 0.5rem;
+    transform-origin: 50% 100%;
+  }
+
+  &[data-placement='bottom'] {
+    --y0: -0.5rem;
+    transform-origin: 50% 0;
+  }
+
+  @keyframes enter {
+    0% {
+      transform: translateY(var(--y0));
+      opacity: 0;
+      scale: 0.95;
+    }
+
+    100% {
+      transform: translateY(var(0px));
+      opacity: 1;
+      scale: 1;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-bandwidth {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--bandwidth-arrow-upper {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--bandwidth-arrow-lower {
+      fill: $color-primary-500;
+    }
+    &.nb-brand-icon--bandwidth-shadow-upper {
+      fill: $color-primary-500;
+    }
+    &.nb-brand-icon--bandwidth-shadow-lower {
+      fill: $color-accent-dark;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--bandwidth-arrow-upper {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--bandwidth-arrow-lower {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--bandwidth-shadow-upper {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--bandwidth-shadow-lower {
+      fill: $icon-mono-3;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--bandwidth-arrow-upper {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--bandwidth-arrow-lower {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--bandwidth-shadow-upper {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--bandwidth-shadow-lower {
+      fill: $icon-mono-4;
+    }
+  }
+}

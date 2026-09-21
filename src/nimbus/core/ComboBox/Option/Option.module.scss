@@ -1,0 +1,48 @@
+@import '../../../tokens/build/scss/_variables.scss';
+
+.root {
+  border-radius: 5px;
+  color: $color-text-500;
+  cursor: pointer;
+  font: $font-body-md;
+  margin-left: $size-spacer-sm;
+  margin-right: $size-spacer-sm;
+  padding: $size-spacer-sm $size-spacer-md;
+
+  &[data-focused='true'] {
+    background-color: $color-bg-200;
+  }
+
+  &[data-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.indicator {
+  $svg-size: 20px;
+
+  height: $svg-size;
+  margin-left: $size-spacer-sm;
+  max-height: $svg-size;
+  position: relative;
+  width: $svg-size;
+
+  svg {
+    left: 0;
+    top: 0;
+    height: $svg-size;
+    max-height: $svg-size;
+    min-height: $svg-size;
+    width: $svg-size;
+  }
+}
+
+.rendered {
+  width: 100%;
+}

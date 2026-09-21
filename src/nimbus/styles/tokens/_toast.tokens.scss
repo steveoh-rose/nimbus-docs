@@ -1,0 +1,94 @@
+@use './global.tokens' as tokens;
+
+/* ****************************************************************** *
+ * Colors                                                             *
+ * ****************************************************************** */
+$color-bg-toast: tokens.$color-palette-white;
+$color-text-toast: tokens.$color-palette-slate-800;
+$color-text-description: tokens.$color-palette-slate-600;
+$color-border-focus: tokens.$color-palette-ocean-500;
+$color-border-neutral: tokens.$color-palette-stone-200;
+
+$toast-intents: (
+  neutral: (
+    border: tokens.$color-palette-stone-200,
+    primary: tokens.$color-palette-slate-900,
+  ),
+  info: (
+    border: tokens.$color-palette-stone-200,
+    primary: tokens.$color-palette-ocean-500,
+  ),
+  success: (
+    border: tokens.$color-palette-stone-200,
+    primary: tokens.$color-palette-emerald-500,
+  ),
+  warning: (
+    border: tokens.$color-palette-stone-200,
+    primary: tokens.$color-palette-amber-400,
+  ),
+  error: (
+    border: tokens.$color-palette-stone-200,
+    primary: tokens.$color-palette-ruby-500,
+  ),
+  loading: (
+    border: tokens.$color-palette-stone-200,
+    primary: tokens.$color-palette-ocean-500,
+  ),
+);
+
+/* ****************************************************************** *
+ * Typography                                                         *
+ * ****************************************************************** */
+$typography-toast-body: tokens.$font-body-md;
+$typography-toast-title: tokens.$font-body-bold-md;
+
+/* ****************************************************************** *
+ * Breakpoints                                                        *
+ * ****************************************************************** */
+$breakpoint-mobile: 450px;
+
+/* ****************************************************************** *
+ * Size                                                               *
+ * ****************************************************************** */
+$size-toast-width: 360px;
+$size-icon: 20px;
+$size-indicator-width: 4px;
+
+/* ****************************************************************** *
+ * Spacing                                                            *
+ * ****************************************************************** */
+$spacing-region-gap: tokens.$size-spacer-sm;
+$spacing-region-edge: tokens.$size-spacer-md;
+$spacing-toast-padding: tokens.$size-spacer-md;
+$spacing-toast-gap: tokens.$size-spacer-sm;
+$spacing-content-gap: tokens.$size-spacer-xs;
+$spacing-close-inset: 10px;
+
+/* ****************************************************************** *
+ * Borders                                                            *
+ * ****************************************************************** */
+$border-width-default: 1px;
+$border-style-default: solid;
+$border-radius-default: 5px;
+$border-radius-neutral: 8px;
+$border-focus-width: 2px;
+$border-focus-offset: 2px;
+
+/* ****************************************************************** *
+ * Shadow                                                             *
+ * ****************************************************************** */
+$shadow-toast: 0px 4px 12px rgba(0, 0, 0, 0.06);
+
+/* ****************************************************************** *
+ * Transition & Animation                                             *
+ * ****************************************************************** */
+$transition-duration-in: 400ms;
+$transition-duration-out: 300ms;
+$transition-ease-in: cubic-bezier(0.175, 0.885, 0.32, 1);
+$transition-ease-out: ease;
+
+/* ****************************************************************** *
+ * Elevation and opacity                                              *
+ * ****************************************************************** */
+$z-index-region: 9999;
+$opacity-hidden: 0;

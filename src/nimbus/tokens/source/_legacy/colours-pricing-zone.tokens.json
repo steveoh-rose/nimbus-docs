@@ -1,0 +1,161 @@
+{
+  "color": {
+    "pricing-zone": {
+      "africa": {
+        "value": "rgba({color.pricing-zone.africa.rgb},{color.pricing-zone.africa.alpha})",
+        "rgb": "191,0,31",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "Africa ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "asia-1": {
+        "value": "rgba({color.pricing-zone.asia-1.rgb},{color.pricing-zone.asia-1.alpha})",
+        "rgb": "178,0,128",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "Asia 1 ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "asia-2": {
+        "value": "rgba({color.pricing-zone.asia-2.rgb},{color.pricing-zone.asia-2.alpha})",
+        "rgb": "225,36,153",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "Asia 2 ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "asia-3": {
+        "value": "rgba({color.pricing-zone.asia-3.rgb},{color.pricing-zone.asia-3.alpha})",
+        "rgb": "251,98,161",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "Asia 3 ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "australia": {
+        "value": "rgba({color.pricing-zone.australia.rgb},{color.pricing-zone.australia.alpha})",
+        "rgb": "0,152,140",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "Australia ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "europe-1": {
+        "value": "rgba({color.pricing-zone.europe-1.rgb},{color.pricing-zone.europe-1.alpha})",
+        "rgb": "131,0,128",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "Europe 1 ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "europe-2": {
+        "value": "rgba({color.pricing-zone.europe-2.rgb},{color.pricing-zone.europe-2.alpha})",
+        "rgb": "120,117,203",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "Europe 2 ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "middle-east": {
+        "value": "rgba({color.pricing-zone.middle-east.rgb},{color.pricing-zone.middle-east.alpha})",
+        "rgb": "246,109,59",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "Middle East ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "latin-america": {
+        "value": "rgba({color.pricing-zone.latin-america.rgb},{color.pricing-zone.latin-america.alpha})",
+        "rgb": "23,197,203",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "Latin America ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "us-east": {
+        "value": "rgba({color.pricing-zone.us-east.rgb},{color.pricing-zone.us-east.alpha})",
+        "rgb": "66,179,215",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "US-East ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "us-central": {
+        "value": "rgba({color.pricing-zone.us-central.rgb},{color.pricing-zone.us-central.alpha})",
+        "rgb": "58,145,199",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "US Central ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      },
+
+      "us-west": {
+        "value": "rgba({color.pricing-zone.us-west.rgb},{color.pricing-zone.us-west.alpha})",
+        "rgb": "20,98,176",
+        "alpha": "1",
+        "deprecated": true,
+        "docs": {
+          "alias": "",
+          "displayName": "US West ",
+          "description": "",
+          "comment": "deprecated legacy colour"
+        }
+      }
+    }
+  }
+}

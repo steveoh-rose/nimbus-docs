@@ -1,0 +1,167 @@
+@use 'tokens' as tokens;
+@use 'mixins' as mixins;
+
+/* ****************************************************************** *
+ * Disclosure                                                         *
+ * ****************************************************************** */
+.Disclosure {
+  @include mixins.disclosure-typography;
+
+  &[data-disabled='true'],
+  &[data-disabled] {
+    opacity: 0.5;
+  }
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &[data-variant='plain'] {
+    @include mixins.border-plain;
+  }
+  &[data-variant='subtle'] {
+    @include mixins.border-subtle;
+  }
+  &[data-variant='outline'] {
+    @include mixins.border-outline;
+  }
+  &[data-variant='enclosed'] {
+    @include mixins.border-enclosed;
+  }
+}
+
+/* ****************************************************************** *
+ * DisclosureGroup                                                    *
+ * ****************************************************************** */
+.DisclosureGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  &[data-disabled='true'],
+  &[data-disabled] {
+    opacity: 0.5;
+  }
+
+  &[data-variant='outline'],
+  &[data-variant='enclosed'] {
+    @include mixins.disclosure-group-border;
+    overflow: clip;
+  }
+
+  /*  Strips standard border/radius from individual Disclosures when they are nested inside a Group */
+  .Disclosure {
+    &,
+    &:has(.DisclosureHeader),
+    &[data-expanded='true'],
+    &[data-expanded] {
+      border: none;
+      border-radius: 0;
+    }
+
+    /* Hack (double borders): Apply borders between items, but NEVER on the last item */
+    &[data-variant='outline'],
+    &[data-variant='enclosed'],
+    &[data-variant='subtle'] {
+      &:not(:last-child) {
+        border-bottom: solid 1px tokens.$disclosure-color-border;
+      }
+    }
+  }
+  &[data-variant='enclosed'] {
+    .Disclosure[data-expanded='true'] .DisclosureHeader,
+    .Disclosure[data-expanded] .DisclosureHeader {
+      background-color: tokens.$global-color-bg-100;
+      border-bottom: solid 1px tokens.$disclosure-color-border;
+    }
+  }
+}
+
+/* ****************************************************************** *
+ * DisclosureHeader                                                   *
+ * ****************************************************************** */
+.DisclosureHeader {
+  @include mixins.disclosure-header-colors;
+  @include mixins.disclosure-header-spacing;
+  @include mixins.disclosure-header-typography;
+  @include mixins.disclosure-header-size;
+  @include mixins.disclosure-focus-ring;
+
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+
+  transition-property: background-color;
+  transition-duration: tokens.$disclosure-transition-duration;
+  transition-timing-function: tokens.$disclosure-transition-easing;
+
+  [data-slot='icon'],
+  > svg {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  /* States */
+  &[data-hovered='true'] {
+    background-color: tokens.$global-color-bg-100;
+  }
+
+  &[data-focus-visible='true'] {
+    outline-width: tokens.$disclosure-border-focus-width-active;
+    outline-color: tokens.$disclosure-border-focus-color-active;
+  }
+
+  [data-disabled='true'] > & {
+    cursor: not-allowed;
+  }
+
+  /** Variants */
+  [data-variant='plain'] & {
+    background-color: transparent;
+  }
+
+  [data-variant='enclosed'][data-expanded='true'] &,
+  [data-variant='enclosed'][data-expanded] & {
+    background-color: tokens.$global-color-bg-100;
+    border-bottom: 1px solid tokens.$disclosure-color-border;
+
+    &[data-hovered='true'] {
+      background-color: tokens.$global-color-bg-200;
+    }
+  }
+
+  [data-variant='outline'][data-expanded='true'] &,
+  [data-variant='outline'][data-expanded] & {
+    background-color: tokens.$global-color-bg-100;
+  }
+}
+
+/* ****************************************************************** *
+ * DisclosurePanel                                                    *
+ * ****************************************************************** */
+.DisclosurePanel {
+  height: var(--disclosure-panel-height);
+  transition-property: height;
+  transition-duration: tokens.$disclosure-transition-duration;
+  overflow: clip;
+  text-align: left;
+  background-color: tokens.$global-color-palette-white;
+
+  /** Strips margins from all panel children to prevent margin-collapse calculation bugs during the height animation */
+  * {
+    margin: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  .container {
+    @include mixins.disclosure-panel-spacing;
+    display: flex;
+    flex-direction: column;
+    font: tokens.$disclosure-typography-default;
+  }
+}

@@ -1,0 +1,363 @@
+{
+  "font": {
+    "community-heading": {
+      "h1": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.community-heading.h1.size.value}/{font.community-heading.h1.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "alias": " ",
+            "displayName": "Community H1"
+          }
+        },
+        "size": {
+          "deprecated": true,
+          "value": "36px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "46px"
+        }
+      },
+      "h2": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.community-heading.h2.size.value}/{font.community-heading.h2.line-height.value} {font.family.regular.value}",
+          "docs": {
+            "alias": " ",
+            "displayName": "Community H2"
+          }
+        },
+        "size": {
+          "deprecated": true,
+          "value": "26px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "36px"
+        }
+      },
+      "h3": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.community-heading.h3.size.value}/{font.community-heading.h3.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "22px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "32px"
+        }
+      },
+      "h4": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.community-heading.h4.size.value}/{font.community-heading.h4.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "18px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "28px"
+        }
+      },
+      "slab": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.community-heading.slab.size.value}/{font.community-heading.slab.line-height.value} {font.family.accent.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "30px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "40px"
+        }
+      },
+      "slab-mobile": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.community-heading.slab-mobile.size.value}/{font.community-heading.slab-mobile.line-height.value} {font.family.accent.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "28px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "36px"
+        }
+      },
+      "h1-mobile": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.community-heading.h1-mobile.size.value}/{font.community-heading.h1-mobile.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "34px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "40px"
+        }
+      },
+      "h2-mobile": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.community-heading.h2-mobile.size.value}/{font.community-heading.h2-mobile.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "24px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "28px"
+        }
+      },
+      "h3-mobile": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.community-heading.h3-mobile.size.value}/{font.community-heading.h3-mobile.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "20px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "26px"
+        }
+      },
+      "h4-mobile": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.community-heading.h4-mobile.size.value}/{font.community-heading.h4-mobile.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "18px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "24px"
+        }
+      }
+    },
+    "community-body": {
+      "xl": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body.value} {font.community-body.xl.size.value}/{font.community-body.xl.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "22px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "32px"
+        }
+      },
+      "lg": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body.value} {font.community-body.lg.size.value}/{font.community-body.lg.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "18px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "28px"
+        }
+      },
+      "md": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body.value} {font.community-body.md.size.value}/{font.community-body.md.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "16px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "26px"
+        }
+      },
+      "sm": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body.value} {font.community-body.sm.size.value}/{font.community-body.sm.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "15px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "25px"
+        }
+      },
+      "xs": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body.value} {font.community-body.xs.size.value}/{font.community-body.xs.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "13px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "20px"
+        }
+      }
+    },
+    "community-body-bold": {
+      "xl": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body-bold.value} {font.community-body.xl.size.value}/{font.community-body.xl.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "22px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "32px"
+        }
+      },
+      "lg": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body-bold.value} {font.community-body.lg.size.value}/{font.community-body.lg.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "18px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "28px"
+        }
+      },
+      "md": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body-bold.value} {font.community-body.md.size.value}/{font.community-body.md.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "16px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "26px"
+        }
+      },
+      "sm": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body-bold.value} {font.community-body.sm.size.value}/{font.community-body.sm.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "15px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "25px"
+        }
+      },
+      "xs": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body-bold.value} {font.community-body.xs.size.value}/{font.community-body.xs.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "13px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "20px"
+        }
+      }
+    },
+    "article": {
+      "heading": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.heading.value} {font.article.heading.size.value}/{font.article.heading.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "35px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "45px"
+        }
+      },
+      "blockquote": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body.value} {font.article.blockquote.size.value}/{font.article.blockquote.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "24px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "36px"
+        }
+      },
+      "body": {
+        "shorthand": {
+          "deprecated": true,
+          "value": "{font.weight.body.value} {font.article.body.size.value}/{font.article.body.line-height.value} {font.family.regular.value}",
+          "comment": ""
+        },
+        "size": {
+          "deprecated": true,
+          "value": "18px"
+        },
+        "line-height": {
+          "deprecated": true,
+          "value": "29px"
+        }
+      }
+    }
+  }
+}

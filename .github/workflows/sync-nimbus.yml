@@ -1,0 +1,82 @@
+name: Sync Nimbus sources
+
+# Re-vendors nimbus-ui / cc-design-tokens / nimbus-assets into src/nimbus and commits
+# the result to main. Vercel then redeploys from the push, so the docs follow the library.
+on:
+  workflow_dispatch: {}
+  # Sent by nimbus-ui / cc-design-tokens / nimbus-assets CI (see docs/keeping-docs-in-sync.md)
+  repository_dispatch:
+    types: [nimbus-updated]
+  schedule:
+    - cron: "0 6 * * 1-5" # safety net, weekdays 06:00 UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-nimbus
+  cancel-in-progress: true
+
+env:
+  # Fine-grained PAT with read access to the three private repos (Contents: read)
+  NIMBUS_READ_TOKEN: ${{ secrets.NIMBUS_READ_TOKEN }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: nimbus-docs
+
+      - uses: actions/checkout@v4
+        with:
+          repository: ConsoleConnect/nimbus-ui
+          token: ${{ env.NIMBUS_READ_TOKEN }}
+          path: nimbus-ui
+
+      - uses: actions/checkout@v4
+        with:
+          repository: ConsoleConnect/cc-design-tokens
+          token: ${{ env.NIMBUS_READ_TOKEN }}
+          path: cc-design-tokens
+
+      - uses: actions/checkout@v4
+        with:
+          repository: ConsoleConnect/nimbus-assets
+          token: ${{ env.NIMBUS_READ_TOKEN }}
+          path: nimbus-assets
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The sources' build outputs (token CSS/SCSS/JS, icon components) are git-ignored upstream.
+      - name: Build design tokens
+        working-directory: cc-design-tokens
+        run: npm ci --ignore-scripts && npm run build
+
+      - name: Build icons
+        working-directory: nimbus-assets
+        run: npm ci --ignore-scripts && npm run build --ignore-scripts
+
+      - name: Vendor sources into the docs repo
+        working-directory: nimbus-docs
+        run: npm ci && npm run sync
+
+      - name: Verify the site still builds
+        working-directory: nimbus-docs
+        run: npm run build
+
+      - name: Commit changes
+        working-directory: nimbus-docs
+        run: |
+          git config user.name "nimbus-docs-bot"
+          git config user.email "nimbus-docs-bot@users.noreply.github.com"
+          git add -A src/nimbus src/generated
+          if git diff --cached --quiet; then
+            echo "Docs already up to date."
+          else
+            git commit -m "chore: sync Nimbus sources"
+            git push
+          fi

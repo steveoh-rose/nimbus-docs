@@ -1,0 +1,86 @@
+@use 'tokens' as tokens;
+
+@mixin disclosure-group-border {
+  border: solid 1px tokens.$disclosure-group-color-border;
+  border-radius: tokens.$disclosure-group-border-radius;
+}
+
+/* ************************************************** *
+ * Disclosure                                         *
+ * ************************************************** */
+
+/** type */
+@mixin disclosure-typography {
+  font: tokens.$disclosure-typography-default;
+}
+
+/** focus ring */
+@mixin disclosure-focus-ring {
+  outline-offset: tokens.$disclosure-border-focus-offset;
+  outline-width: tokens.$disclosure-border-focus-width;
+  outline-style: tokens.$disclosure-border-focus-style;
+  outline-color: tokens.$disclosure-border-focus-color;
+}
+
+/** borders */
+@mixin border-plain {
+  border-radius: tokens.$disclosure-border-radius-plain;
+  border: tokens.$disclosure-border-width-plain none transparent;
+}
+
+@mixin border-subtle {
+  border-radius: tokens.$disclosure-border-radius-subtle;
+
+  &:has(.DisclosureHeader),
+  &[data-expanded='true'] {
+    border-bottom: tokens.$disclosure-border-width-subtle solid tokens.$disclosure-color-border;
+  }
+}
+
+@mixin border-enclosed {
+  border-radius: tokens.$disclosure-border-radius-enclosed;
+
+  /* SAFEGUARD: Only show the full border if it has a header OR is expanded */
+  &:has(.DisclosureHeader),
+  &[data-expanded='true'] {
+    border: tokens.$disclosure-border-width-enclosed solid tokens.$disclosure-color-border;
+  }
+}
+
+@mixin border-outline {
+  border-radius: tokens.$disclosure-border-radius-outline;
+
+  /* SAFEGUARD: Only show the full border if it has a header OR is expanded */
+  &:has(.DisclosureHeader),
+  &[data-expanded='true'] {
+    border: tokens.$disclosure-border-width-outline solid tokens.$disclosure-color-border;
+  }
+}
+/* ************************************************** *
+ * Header                                             *
+ * ************************************************** */
+@mixin disclosure-header-colors {
+  background-color: tokens.$disclosure-color-bg-header-default;
+  color: tokens.$disclosure-color-text-header;
+}
+
+@mixin disclosure-header-spacing {
+  padding: tokens.$disclosure-spacing-header-padding;
+  gap: tokens.$disclosure-spacing-header-gap;
+}
+
+@mixin disclosure-header-typography {
+  font: tokens.$disclosure-typography-default;
+}
+
+@mixin disclosure-header-size {
+  width: 100%;
+}
+
+/* ************************************************** *
+ * Panel                                              *
+ * ************************************************** */
+
+@mixin disclosure-panel-spacing {
+  padding: tokens.$disclosure-spacing-panel-container-padding;
+}

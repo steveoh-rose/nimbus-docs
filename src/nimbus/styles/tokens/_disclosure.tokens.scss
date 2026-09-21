@@ -1,0 +1,73 @@
+@use './global.tokens' as tokens;
+
+/* ****************************************************************** * 
+ * Colors                                                             * 
+ * ****************************************************************** */
+
+/* bg */
+$color-bg-header-default: tokens.$color-bg-default;
+$color-bg-header-hover: tokens.$color-bg-100;
+$color-bg-header-enclosed-expanded: tokens.$color-bg-100;
+$color-bg-header-enclosed-expanded-hover: tokens.$color-bg-200;
+$color-bg-header-plain: transparent;
+$color-bg-panel-default: tokens.$color-bg-default;
+
+/* border */
+$color-border: tokens.$color-system-100;
+$color-border-none: transparent;
+$group-color-border: $color-border;
+
+/* text */
+$color-text-header: tokens.$color-text-400;
+$color-text-panel: tokens.$color-text-400;
+
+/* icon */
+$color-icon: tokens.$color-text-400;
+
+/* ****************************************************************** *
+ * Typography                                                         *
+ * ****************************************************************** */
+$typography-default: tokens.$font-body-md;
+
+/* ****************************************************************** *
+ * Size                                                               *
+ * ****************************************************************** */
+$size-panel-height: var(--disclosure-panel-height);
+
+/* ****************************************************************** *
+ * Spacing                                                            *
+ * ****************************************************************** */
+$spacing-header-padding: tokens.$size-spacer-sm;
+$spacing-header-gap: tokens.$size-spacer-xs;
+$spacing-panel-container-padding: tokens.$size-spacer-sm;
+
+/* ****************************************************************** *
+ * Borders                                                            *
+ * ****************************************************************** */
+
+/** radius */
+$border-radius-enclosed: 5px;
+$border-radius-outline: 5px;
+$border-radius-subtle: 0;
+$border-radius-plain: 0;
+$group-border-radius: 5px;
+
+/** width */
+$border-width-enclosed: 1px;
+$border-width-outline: 1px;
+$border-width-subtle: 1px;
+$border-width-plain: 0;
+
+/** focus */
+$border-focus-offset: -2px;
+$border-focus-width: 0;
+$border-focus-style: solid;
+$border-focus-color: transparent;
+$border-focus-width-active: 2px;
+$border-focus-color-active: tokens.$color-primary-300;
+
+/* ****************************************************************** *
+ * Transition                                                         *
+ * ****************************************************************** */
+$transition-duration: 160ms;
+$transition-easing: cubic-bezier(0.4, 0, 1, 1);

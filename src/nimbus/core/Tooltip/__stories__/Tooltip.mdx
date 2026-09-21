@@ -1,0 +1,111 @@
+import { ArgTypes, Controls, Canvas, Meta, Source, Title, Stories } from '@storybook/blocks';
+import * as TooltipStories from './Tooltip.stories';
+import { AsChild } from './Tooltip.stories';
+
+import { ShareButtons } from '@/docs/ui';
+import InlineMessage from '@/components/InlineMessage';
+import Tag from '@/components/Tag';
+import List from '@/icons/List';
+import styles from './Tooltip.stories.module.scss';
+
+<Meta title="nimbus-core/Tooltip/Docs" of={TooltipStories} />
+
+<Title />
+
+<ShareButtons
+  adobeLink="https://floating-ui.com/docs/tooltip"
+  githubLink="https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/Tooltip"
+  figmaLink="https://www.figma.com/design/MWeGMLI4Iiti9f3IanCsf8/%F0%9F%93%A6-NDS-Core?node-id=6900-14473"
+/>
+
+<div style={{ maxWidth: 830 }}>
+  A Tooltip is a popover that provides context-specific details to enhance user understanding. This
+  component appears as a react-portal when the user either focuses on the trigger element using the
+  keyboard or on hover.
+</div>
+
+<Canvas withToolbar sourceState="none" />
+<Source />
+<Controls />
+
+## Usage
+
+```
+import { Tooltip } from '@console/nimbus-ui/core';
+```
+
+## Features
+
+The HTML title attribute can be used to create a tooltip, but it cannot be styled. Custom styled tooltips can be hard to build in an accessible way.
+The following Tooltip is built using `floating-ui`, turning tooltips into fully accessible reusable components.
+The tooltip has the following features:
+
+- Dynamic anchor positioning using floating-ui. The tooltip is positioned next to its reference element, and remains anchored to it while avoiding collisions.
+- The elements are given relevant role and ARIA attributes to be accessible to screen readers and follow the [Tooltip Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/).
+- The tooltip will open on focus and hover events and closes using the escape key.
+- Support for custom timings.
+- Allows for composable components, allowing custom props for subcomponents.
+- Supports ref forwardRef through the `asChild` prop.
+
+## Examples
+
+<Stories />
+
+# API
+
+## Tooltip
+
+Root component that takes both the `Trigger` and the `Content` as children.
+
+```jsx
+<Tooltip>
+  <Tooltip.Trigger>...</Tooltip.Trigger>
+  <Tooltip.Content>...</Tooltip.Content>
+<Tooltip>
+```
+
+<ArgTypes sort={'alpha'} of={TooltipStories} />
+
+## Tooltip.Trigger
+
+This is the button that toggles the tooltip. By default, the `Tooltip.Content` will position itself against the trigger.
+You can add any element as the trigger. The element will be default be wrapped by a `<span />` tag.
+
+```jsx
+<Tooltip.Trigger>Add your tooltip trigger element here</Tooltip.Trigger>
+```
+
+<InlineMessage
+  variant="info"
+  description={
+    <div>
+      📌 If the Tooltip is wrapping a functional component, ensure that the functional component
+      accepts a ref using forwardRef.
+    </div>
+  }
+/>
+
+<ArgTypes sort={'alpha'} of={AsChild} />
+
+## Tooltip.Content
+
+The component that pops out when the tooltip is open. Use this to wrap your content.
+
+```jsx
+<Tooltip.Content>Add your tooltip content here</Tooltip.Content>
+```
+
+<InlineMessage
+  variant="info"
+  description={
+    <div>
+      📌 Tooltips should not contain interactive content. Use a Popover instead! (in progress)
+    </div>
+  }
+/>
+
+<div className={styles.argsEmptyState}>
+  <List />
+  <h4>No prop table available</h4>
+  <p>There are no props available for this subcomponent.</p>
+</div>

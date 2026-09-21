@@ -1,0 +1,52 @@
+@import '../../../tokens/build/scss/_variables.scss';
+
+.argsEmptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: $size-spacer-xl 0 !important;
+  padding: $size-spacer-xl 0;
+  border: solid 1px $color-system-100;
+  border-radius: $size-spacer-sm;
+
+  > * {
+    margin: $size-spacer-xs 0;
+    color: $color-system-500;
+  }
+}
+
+.tags {
+  display: flex;
+  gap: 15px;
+}
+
+.placementGrid {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: repeat(5, 50px);
+  grid-template-areas:
+    'g1 g2 g3 g4 g5'
+    'g6 g7 g8 g9 g10'
+    'g11 g12 g13 g14 g15'
+    'g16 g17 g18 g19 g20'
+    'g21 g22 g23 g24 g25';
+}
+
+.customTrigger {
+  font: $font-body-sm;
+  text-decoration: underline dashed;
+  color: $color-system-500;
+  &:hover {
+    color: $color-primary-300;
+  }
+}
+
+.customTooltipContent {
+  &[data-variant='dark'] {
+    background-color: $color-system-100;
+    border: solid 1px $color-system-500;
+    color: $color-system-500;
+  }
+}

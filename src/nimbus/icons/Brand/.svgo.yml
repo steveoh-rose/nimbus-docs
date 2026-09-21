@@ -1,0 +1,4 @@
+plugins:
+  - prefixIds:
+      prefix: nb-brand-icon
+      delim: --

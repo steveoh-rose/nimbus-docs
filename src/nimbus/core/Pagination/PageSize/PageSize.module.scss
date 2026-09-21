@@ -1,0 +1,21 @@
+@import '../../../tokens/build/scss/_variables.scss';
+
+/*Component tokens*/
+$pagination-color-bg-number-current: $color-primary-100;
+$pagination-color-text-number-current: $color-text-400;
+
+.button {
+  opacity: 1;
+
+  &[aria-expanded='true'] {
+    background: $pagination-color-bg-number-current !important;
+  }
+
+  color: $pagination-color-text-number-current !important;
+}
+
+.arrowIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}

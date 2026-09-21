@@ -1,0 +1,126 @@
+@use '../../variables';
+@import '../../tokens/build/scss/_variables.scss';
+
+/* --- Component Tokens --- */
+
+$textarea-color-bg-default: $color-bg-default;
+$textarea-color-bg-disabled: $color-bg-300;
+
+$textarea-color-text-default: $color-text-400;
+$textarea-color-text-placeholder: $color-system-200;
+$textarea-color-text-disabled: $color-system-400;
+
+$textarea-color-border-default: $color-system-200;
+$textarea-color-border-hovered: $color-system-400;
+$textarea-color-border-disabled: $color-system-200;
+$textarea-color-border-focus: $color-primary-300;
+
+$textarea-spacer-padding-y: $size-spacer-sm;
+$textarea-spacer-padding-x: $size-spacer-sm;
+
+$textarea-borderRadius: $size-spacer-xs;
+
+$textarea-size-height: 120px;
+
+.root {
+  font: $font-body-md;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: variables.$input-width-default;
+  width: 100%;
+
+  &[data-full-width='true'] {
+    max-width: 100%;
+  }
+}
+
+.textarea {
+  font: inherit;
+  position: relative;
+  padding-block: $textarea-spacer-padding-y;
+  padding-inline: $textarea-spacer-padding-x;
+  height: $textarea-size-height;
+  color: $textarea-color-text-default;
+  background: $textarea-color-bg-default;
+  border-radius: $textarea-borderRadius;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $textarea-color-border-default;
+  border-image: initial;
+  outline: $textarea-color-border-focus solid 0px;
+  appearance: none;
+  transition-property: border-color, background-color, border-width, outline;
+  transition-duration: 100ms;
+
+  &::placeholder {
+    color: $textarea-color-text-placeholder;
+  }
+
+  [data-hovered='true'] & {
+    border-color: $textarea-color-border-hovered;
+  }
+
+  [data-disabled='true'] & {
+    color: $textarea-color-text-disabled;
+    background-color: $textarea-color-bg-disabled;
+    border-color: $textarea-color-border-disabled;
+    cursor: not-allowed;
+  }
+
+  [data-focused='true'] &,
+  &:focus-visible {
+    border-color: $color-primary-300;
+    outline: $color-primary-300 solid 1px;
+  }
+
+  [data-invalid='true'] & {
+    border-color: $color-error-400;
+    outline-color: $color-error-400;
+    background-color: $color-error-100;
+  }
+
+  [data-resize='vertical'] & {
+    resize: vertical;
+  }
+
+  [data-resize='horizontal'] & {
+    resize: horizontal;
+  }
+
+  [data-resize='both'] & {
+    resize: both;
+  }
+
+  [data-resize='none'] & {
+    resize: none;
+  }
+}
+
+.label {
+  font: $font-body-bold-md;
+  width: fit-content;
+  margin-bottom: $size-spacer-xs;
+  display: flex;
+  gap: $size-spacer-xs;
+  color: $textarea-color-text-default;
+}
+
+.required {
+  font: $font-body-sm-compact;
+  color: $color-error-400;
+}
+
+.hint {
+  font: $font-body-sm-compact;
+  margin-top: $size-spacer-xs;
+  width: fit-content;
+  color: $color-text-300;
+}
+
+.error {
+  font: $font-body-sm-compact;
+  margin-top: $size-spacer-xs;
+  width: fit-content;
+  color: $color-error-400;
+}

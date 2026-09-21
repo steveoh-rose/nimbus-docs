@@ -1,0 +1,42 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-cloudrouter {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--cloudrouter-light {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--cloudrouter-dark {
+      fill: $color-primary-500;
+    }
+    &.nb-brand-icon--cloudrouter-arrows {
+      fill: $color-bg-default;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--cloudrouter-light {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--cloudrouter-dark {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--cloudrouter-arrows {
+      fill: $icon-mono-3;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--cloudrouter-light {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--cloudrouter-dark {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--cloudrouter-arrows {
+      fill: $color-bg-default;
+    }
+  }
+}

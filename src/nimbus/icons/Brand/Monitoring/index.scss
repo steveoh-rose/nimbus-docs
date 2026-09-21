@@ -1,0 +1,78 @@
+@import '../../../tokens/build/scss/_variables.scss';
+@import '../../../utils/mixins';
+
+.nb-brand-icon.nb-brand-icon-monitoring {
+  width: 70px;
+  height: 70px;
+
+  path,
+  &.nb-brand-icon--dark path {
+    &.nb-brand-icon--monitoring-area-1 {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--monitoring-area-2 {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--monitoring-area-3 {
+      fill: $color-primary-500;
+    }
+    &.nb-brand-icon--monitoring-area-4 {
+      fill: $color-accent-dark;
+    }
+    &.nb-brand-icon--monitoring-dot-1 {
+      fill: $color-primary-300;
+    }
+    &.nb-brand-icon--monitoring-dot-2 {
+      fill: $color-primary-500;
+    }
+    &.nb-brand-icon--monitoring-dot-3 {
+      fill: $color-accent-dark;
+    }
+  }
+  &.nb-brand-icon--light path {
+    &.nb-brand-icon--monitoring-area-1 {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--monitoring-area-2 {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--monitoring-area-3 {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--monitoring-area-4 {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--monitoring-dot-1 {
+      fill: $icon-mono-1;
+    }
+    &.nb-brand-icon--monitoring-dot-2 {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--monitoring-dot-3 {
+      fill: $icon-mono-3;
+    }
+  }
+  &.nb-brand-icon--light-on-white path {
+    &.nb-brand-icon--monitoring-area-1 {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--monitoring-area-2 {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--monitoring-area-3 {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--monitoring-area-4 {
+      fill: $icon-mono-4;
+    }
+    &.nb-brand-icon--monitoring-dot-1 {
+      fill: $icon-mono-2;
+    }
+    &.nb-brand-icon--monitoring-dot-2 {
+      fill: $icon-mono-3;
+    }
+    &.nb-brand-icon--monitoring-dot-3 {
+      fill: $icon-mono-4;
+    }
+  }
+}

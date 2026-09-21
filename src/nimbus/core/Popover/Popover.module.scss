@@ -1,0 +1,179 @@
+@use 'tokens' as tokens;
+@use 'mixins' as mixins;
+
+.popover {
+  @include mixins.popover-colors;
+  @include mixins.popover-typography;
+  @include mixins.popover-borders;
+  @include mixins.popover-border-radius;
+  @include mixins.popover-sizes;
+  @include mixins.popover-shadows;
+
+  &[data-entering] {
+    animation-duration: tokens.$popover-transition-duration-in;
+    animation-timing-function: tokens.$popover-transition-ease-in;
+    animation-fill-mode: forwards;
+
+    &[data-placement='bottom'] {
+      animation-name: fade-in, slide-in-bottom;
+    }
+
+    &[data-placement='top'] {
+      animation-name: fade-in, slide-in-top;
+    }
+
+    &[data-placement='right'] {
+      animation-name: fade-in, slide-in-right;
+    }
+
+    &[data-placement='left'] {
+      animation-name: fade-in, slide-in-left;
+    }
+  }
+
+  &[data-exiting] {
+    animation-duration: tokens.$popover-transition-duration-out;
+    animation-timing-function: tokens.$popover-transition-ease-out;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+
+    &[data-placement='bottom'] {
+      animation-name: fade-out, slide-out-bottom;
+    }
+
+    &[data-placement='top'] {
+      animation-name: fade-out, slide-out-top;
+    }
+
+    &[data-placement='right'] {
+      animation-name: fade-out, slide-out-right;
+    }
+
+    &[data-placement='left'] {
+      animation-name: fade-out, slide-out-left;
+    }
+  }
+}
+
+/** Arrow **/
+
+.arrow {
+  display: block;
+  fill: tokens.$popover-color-bg-default;
+  stroke: tokens.$popover-color-border-arrow;
+  stroke-width: tokens.$popover-border-width-arrow;
+  [data-placement='top'] & {
+    transform: rotate(0deg);
+  }
+  [data-placement='bottom'] & {
+    transform: rotate(180deg);
+  }
+  [data-placement='left'] & {
+    transform: rotate(270deg);
+  }
+  [data-placement='right'] & {
+    transform: rotate(90deg);
+  }
+}
+
+/* ****************************************************************** *
+ * Animations                                                         *
+ * ****************************************************************** */
+
+/* If Reduce Motion, the remove animations */
+@media (prefers-reduced-motion: reduce) {
+  .popover {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-bottom {
+  from {
+    transform: translateY(-8px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out-bottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes slide-in-top {
+  from {
+    transform: translateY(8px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out-top {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(-8px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(8px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(8px);
+  }
+}

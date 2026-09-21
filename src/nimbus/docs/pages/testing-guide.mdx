@@ -1,0 +1,70 @@
+import { Meta, Markdown } from '@storybook/blocks';
+
+<Meta title="Getting Started/Testing Guide" />
+
+## Testing a local Nimbus package in `portal-client-desktop`
+
+#### Prerequisites:
+
+1. Local access to the Nimbus package.
+2. portal-client-desktop repository cloned and set up.
+
+#### In the `nimbus-ui` Repository
+
+1. Navigate to the Nimbus package repository in your terminal:
+
+```json
+cd path/to/your/local/nimbus-ui/repo
+```
+
+2. Build the package:
+
+```json
+npm run build
+```
+
+3. Create a package tarball:
+
+```json
+npm pack
+```
+
+4. Copy the full path of the generated tarball file (ending with .tgz).
+
+#### In your local repository
+
+1. Go to your project repository where you want to test the Nimbus package.
+
+```json
+cd path/to/your/local/repo
+```
+
+2. Open the `package.json` file of your project.
+
+3. Locate the entry in the dependencies section referencing the Nimbus package, like this:
+
+```json
+"@console/nimbus-ui": "v4.0.0",
+```
+
+4. Replace `"@console/nimbus-ui": "v4.0.0"` with the file path to the tarball from step 4 (replace `<path-to-tarball>` with the actual path):
+
+```json
+"@console/nimbus-ui": "<path-to-tarball>",
+```
+
+5. Save the package.json file.
+
+6. Install the updated Nimbus package locally:
+
+```json
+npm install
+```
+
+7. Start your local development server:
+
+```json
+npm run start:dev
+```
+
+Now, with your local development server running, you can test the integration of the local Nimbus package within your project and observe the design system changes.
