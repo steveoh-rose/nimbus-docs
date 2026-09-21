@@ -68,3 +68,23 @@ export const sidebarNav: NavGroup[] = [
     ],
   },
 ]
+
+/** Top-level sections (header tabs), in sidebar order, each linking to its first page. */
+export const sectionTabs = Array.from(new Set(sidebarNav.map((g) => g.section))).map((section) => ({
+  title: section,
+  href: sidebarNav.find((g) => g.section === section)!.items[0].href,
+}))
+
+/** Which section a pathname belongs to (for the active tab and the per-section sidebar). */
+export function sectionOf(pathname: string): string | null {
+  const exact = sidebarNav.find((g) => g.items.some((i) => i.href === pathname))
+  if (exact) return exact.section
+  const prefixes: Array<[string, string]> = [
+    ["/docs/components", "Components"],
+    ["/docs/tokens", "Tokens"],
+    ["/docs/patterns", "Patterns"],
+    ["/docs/foundations", "Foundations"],
+    ["/docs", "Getting Started"],
+  ]
+  return prefixes.find(([p]) => pathname.startsWith(p))?.[1] ?? null
+}

@@ -3,8 +3,8 @@ import path from "node:path"
 import Link from "next/link"
 import { ArrowRight } from "@nimbus/assets/icons/app"
 
-import { Button } from "@/components/ui/button"
-import { HeroDemo } from "@/components/nimbus/hero-demo"
+import { Showcase } from "@/components/nimbus/hero-demo"
+import { GitHubMarkIcon } from "@/components/icons"
 import { documentedComponents } from "@/lib/nimbus-nav"
 import { siteConfig } from "@/lib/nav-config"
 
@@ -46,41 +46,62 @@ export default function Home() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <section className="mx-auto grid w-full max-w-[1400px] items-center gap-12 px-4 py-16 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:px-8 lg:py-24">
-        <div>
-          <h1 className="max-w-[16ch] font-heading text-[2.5rem] leading-[1.15] font-semibold tracking-tight sm:text-[3.25rem]">
-            The design system for Console Connect
-          </h1>
-          <p className="mt-5 max-w-[46ch] text-[1.07rem] leading-relaxed text-muted-foreground">
-            Nimbus is the shared language behind our products: the tokens, React components and patterns
-            that keep them consistent, documented from the same source the code is built from.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Button size="lg" asChild>
-              <Link href="/docs/introduction">
-                Read the introduction
-                <ArrowRight />
-              </Link>
-            </Button>
-            <Button size="lg" variant="ghost" asChild>
-              <Link href="/docs/components/button">Browse components</Link>
-            </Button>
-          </div>
+      <section className="mx-auto flex w-full max-w-[1400px] flex-col items-center px-4 pt-14 pb-12 text-center lg:px-8 lg:pt-20">
+        {sources ? (
+          <Link
+            href="/docs/introduction"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-primary-200)] bg-[var(--color-primary-100)] px-3 py-1 text-xs text-[var(--color-primary-500)] transition-colors hover:bg-[var(--color-primary-200)]"
+          >
+            nimbus-ui v{sources["nimbus-ui"].version} · tokens v{sources["cc-design-tokens"].version}
+          </Link>
+        ) : null}
+        <h1 className="font-heading text-[2.5rem] leading-[1.1] font-bold tracking-tight sm:text-[3.5rem]">
+          Consistent by default.
+          <br />
+          <span className="text-[var(--color-system-200)]">Themed by tokens.</span>
+        </h1>
+        <p className="mt-5 max-w-[52ch] text-[1.14rem] leading-relaxed text-muted-foreground">
+          Nimbus is the design system behind Console Connect: the tokens, React components and patterns
+          that keep our products consistent, documented from the same source the code is built from.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Link
+            href="/docs/introduction"
+            className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-[var(--color-primary-400)]"
+          >
+            Get started
+          </Link>
+          <Link
+            href="/docs/components/button"
+            className="inline-flex h-11 items-center gap-2 rounded-full border bg-white px-6 text-sm font-medium transition-colors hover:bg-[var(--color-bg-200)]"
+          >
+            View components
+          </Link>
         </div>
-        <HeroDemo />
+        <a
+          href={siteConfig.githubUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-5 inline-flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <GitHubMarkIcon className="size-3.5" />
+          Source on GitHub
+        </a>
       </section>
 
-      <section className="mx-auto w-full max-w-[1400px] px-4 pb-20 lg:px-8">
-        <ul className="divide-y border-y">
+      <section className="mx-auto w-full max-w-[1100px] px-4 pb-16 lg:px-8">
+        <Showcase />
+      </section>
+
+      <section className="mx-auto w-full max-w-[1100px] px-4 pb-20 lg:px-8">
+        <ul className="divide-y rounded-[10px] border bg-white">
           {index.map((item) => (
             <li key={item.title}>
               <Link
                 href={item.href}
-                className="group grid items-baseline gap-1 py-5 sm:grid-cols-[220px_minmax(0,1fr)_auto] sm:gap-8"
+                className="group grid items-baseline gap-1 px-5 py-4 transition-colors first:rounded-t-[10px] last:rounded-b-[10px] hover:bg-[var(--color-bg-100)] sm:grid-cols-[200px_minmax(0,1fr)_auto] sm:gap-8"
               >
-                <span className="font-heading text-[1.29rem] font-semibold group-hover:text-primary">
-                  {item.title}
-                </span>
+                <span className="font-heading text-[1.15rem] font-semibold">{item.title}</span>
                 <span className="text-muted-foreground">{item.description}</span>
                 <ArrowRight className="hidden size-5 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary sm:block" />
               </Link>
@@ -89,15 +110,11 @@ export default function Home() {
         </ul>
       </section>
 
-      <footer className="mx-auto w-full max-w-[1400px] px-4 pb-10 text-xs text-muted-foreground lg:px-8">
+      <footer className="mx-auto w-full max-w-[1100px] px-4 pb-10 text-center text-xs text-muted-foreground lg:px-8">
         {sources ? (
           <p>
-            Generated from{" "}
-            <a className="underline underline-offset-4" href={siteConfig.githubUrl} target="_blank" rel="noreferrer">
-              nimbus-ui
-            </a>{" "}
-            v{sources["nimbus-ui"].version}, cc-design-tokens v{sources["cc-design-tokens"].version} and
-            nimbus-assets v{sources["nimbus-assets"].version}.
+            Generated from nimbus-ui v{sources["nimbus-ui"].version}, cc-design-tokens v
+            {sources["cc-design-tokens"].version} and nimbus-assets v{sources["nimbus-assets"].version}.
           </p>
         ) : null}
       </footer>

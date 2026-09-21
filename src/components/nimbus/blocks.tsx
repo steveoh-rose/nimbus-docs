@@ -5,8 +5,8 @@ import { storyAnchor } from "@/lib/nimbus-nav"
 import { formatDescription, readStories } from "@/lib/story-source"
 import type { ShareLinks } from "@/lib/nimbus"
 import { OpenInNew } from "@nimbus/assets/icons/app"
+import { GitHubMarkIcon } from "@/components/icons"
 import propsData from "@/generated/props.json"
-import { Button } from "@/components/ui/button"
 
 function Description({ text }: { text: string }) {
   if (!text) return null
@@ -36,14 +36,17 @@ export function StoryBlock({
     return <p className="text-sm text-destructive">Story {name ?? "(primary)"} not found in {storyKey}.</p>
   }
   return (
-    <section id={storyAnchor(info.exportName)} className="not-prose my-6 scroll-mt-24 space-y-3">
+    <section id={storyAnchor(info.exportName)} className="not-prose my-8 scroll-mt-32 space-y-3">
       {heading ? <h3 className="text-lg font-semibold tracking-tight">{info.name}</h3> : null}
       <Description text={info.description} />
       <StoryCanvas
         storyKey={storyKey}
         exportName={info.exportName}
         controls={controls}
-        codeSlot={info.code ? <CodeBlock code={info.code} lang="tsx" className="my-0" /> : undefined}
+        collapsible={info.code.split("\n").length > 8}
+        codeSlot={
+          info.code ? <CodeBlock code={info.code} lang="tsx" className="my-0 rounded-none border-0" /> : undefined
+        }
       />
     </section>
   )
@@ -104,22 +107,26 @@ export function ApiTable({ component, storyKey }: { component: string; storyKey:
 }
 
 export function ShareLinksBar({ links }: { links: ShareLinks }) {
-  const items: Array<[string, string | undefined]> = [
-    ["React Aria docs", links.adobe],
-    ["Source", links.github],
-    ["Figma", links.figma],
+  const items: Array<{ label: string; href: string | undefined; github?: boolean }> = [
+    { label: "React Aria", href: links.adobe },
+    { label: "Source", href: links.github, github: true },
+    { label: "Figma", href: links.figma },
   ]
-  const present = items.filter(([, href]) => href)
+  const present = items.filter((i) => i.href)
   if (!present.length) return null
   return (
-    <div className="not-prose mb-6 flex flex-wrap gap-2">
-      {present.map(([label, href]) => (
-        <Button key={label} variant="outline" size="sm" asChild>
-          <a href={href} target="_blank" rel="noreferrer">
-            {label}
-            <OpenInNew />
-          </a>
-        </Button>
+    <div className="not-prose flex flex-wrap gap-2">
+      {present.map((item) => (
+        <a
+          key={item.label}
+          href={item.href}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex h-8 items-center gap-2 rounded-full border bg-white px-3 text-sm transition-colors hover:bg-[var(--color-bg-200)]"
+        >
+          {item.github ? <GitHubMarkIcon className="size-3.5" /> : <OpenInNew className="size-3.5" />}
+          {item.label}
+        </a>
       ))}
     </div>
   )

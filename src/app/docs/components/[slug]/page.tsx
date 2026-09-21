@@ -26,7 +26,10 @@ export default async function ComponentPage({ params }: PageProps) {
   if (!component) notFound()
 
   const sections = getComponentSections(component.name)
-  const links = sections.find((s) => Object.keys(s.links).length)?.links ?? {}
+  const links = {
+    github: `https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/${component.name}`,
+    ...(sections.find((s) => Object.keys(s.links).length)?.links ?? {}),
+  }
 
   return (
     <DocShell

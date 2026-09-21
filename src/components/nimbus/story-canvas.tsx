@@ -16,7 +16,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const modules = new Map<string, Promise<StoryModule>>()
 export function loadModule(key: string) {
@@ -55,11 +54,40 @@ class StoryErrorBoundary extends React.Component<
 function Canvas({ children }: { children: React.ReactNode }) {
   // Nimbus is a light-only design system: previews always sit on a white surface.
   return (
-    <div
-      data-nimbus-canvas
-      className="min-h-[140px] overflow-x-auto rounded-md border bg-white p-8 text-left"
-    >
+    <div data-nimbus-canvas className="min-h-[180px] overflow-x-auto bg-white p-8 text-left">
       <StoryErrorBoundary>{children}</StoryErrorBoundary>
+    </div>
+  )
+}
+
+/** Code under the preview, collapsed to a few lines with an "Expand code" pill. */
+function CodePanel({ children, collapsible }: { children: React.ReactNode; collapsible: boolean }) {
+  const [expanded, setExpanded] = React.useState(false)
+  const collapsed = collapsible && !expanded
+  return (
+    <div className="relative border-t">
+      <div className={collapsed ? "max-h-40 overflow-hidden" : undefined}>{children}</div>
+      {collapsed ? (
+        <div className="absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-[#011627] via-[#011627]/90 to-transparent pt-12 pb-3">
+          <button
+            type="button"
+            onClick={() => setExpanded(true)}
+            className="rounded-full bg-white px-3.5 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-[var(--color-bg-200)]"
+          >
+            Expand code
+          </button>
+        </div>
+      ) : collapsible ? (
+        <div className="flex justify-center bg-[#011627] pb-3">
+          <button
+            type="button"
+            onClick={() => setExpanded(false)}
+            className="rounded-full bg-white px-3.5 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-[var(--color-bg-200)]"
+          >
+            Collapse code
+          </button>
+        </div>
+      ) : null}
     </div>
   )
 }
@@ -69,11 +97,13 @@ function StoryInner({
   exportName,
   controls,
   codeSlot,
+  collapsible,
 }: {
   storyKey: string
   exportName: string
   controls: boolean
   codeSlot?: React.ReactNode
+  collapsible: boolean
 }) {
   const mod = React.use(loadModule(storyKey))
   const resolved = React.useMemo(() => resolveStory(mod, exportName), [mod, exportName])
@@ -113,7 +143,7 @@ function StoryInner({
   )
 
   const controlsPanel = defs.length ? (
-    <div className="mt-3 grid gap-4 rounded-md border bg-muted/30 p-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-4 border-t bg-[var(--color-bg-100)] p-4 sm:grid-cols-2 lg:grid-cols-3">
       {defs.map((def) => {
         const id = `${storyKey}-${exportName}-${def.name}`
         const value = args[def.name]
@@ -161,20 +191,12 @@ function StoryInner({
     </div>
   ) : null
 
-  if (!codeSlot) return <>{preview}{controlsPanel}</>
-
   return (
-    <Tabs defaultValue="preview" className="gap-3">
-      <TabsList className="w-fit">
-        <TabsTrigger value="preview">Preview</TabsTrigger>
-        <TabsTrigger value="code">Code</TabsTrigger>
-      </TabsList>
-      <TabsContent value="preview">
-        {preview}
-        {controlsPanel}
-      </TabsContent>
-      <TabsContent value="code">{codeSlot}</TabsContent>
-    </Tabs>
+    <div className="overflow-hidden rounded-[10px] border bg-white">
+      {preview}
+      {controlsPanel}
+      {codeSlot ? <CodePanel collapsible={collapsible}>{codeSlot}</CodePanel> : null}
+    </div>
   )
 }
 
@@ -189,12 +211,14 @@ export function StoryCanvas(props: {
   exportName: string
   controls?: boolean
   codeSlot?: React.ReactNode
+  /** Collapse the code panel behind an "Expand code" button. */
+  collapsible?: boolean
 }) {
   const isClient = useIsClient()
-  if (!isClient) return <Skeleton className="h-40 w-full" />
+  if (!isClient) return <Skeleton className="h-40 w-full rounded-[10px]" />
   return (
-    <React.Suspense fallback={<Skeleton className="h-40 w-full" />}>
-      <StoryInner {...props} controls={props.controls ?? false} />
+    <React.Suspense fallback={<Skeleton className="h-40 w-full rounded-[10px]" />}>
+      <StoryInner {...props} controls={props.controls ?? false} collapsible={props.collapsible ?? false} />
     </React.Suspense>
   )
 }

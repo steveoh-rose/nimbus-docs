@@ -36,7 +36,7 @@ export function MobileNav() {
           </SheetTitle>
         </SheetHeader>
         <ScrollArea className="h-[calc(100vh-3.5rem)] px-4 pb-8">
-          <DocsNavList onNavigate={() => setOpen(false)} className="pt-4" />
+          <DocsNavList all onNavigate={() => setOpen(false)} className="pt-4" />
         </ScrollArea>
       </SheetContent>
     </Sheet>

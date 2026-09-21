@@ -12,7 +12,6 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command"
-import { Button } from "@/components/ui/button"
 import { sidebarNav } from "@/lib/nav-config"
 
 const sections = Object.entries(
@@ -44,26 +43,19 @@ export function CommandMenu() {
 
   return (
     <>
-      <Button
-        variant="outline"
-        size="icon"
-        className="size-8 text-muted-foreground sm:hidden"
+      <button
+        type="button"
         onClick={() => setOpen(true)}
+        className="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-full border bg-white px-3.5 text-sm text-muted-foreground transition-colors hover:bg-[var(--color-bg-200)] sm:max-w-[22rem] sm:flex-none sm:basis-[22rem]"
       >
-        <SearchIcon className="size-4" />
-        <span className="sr-only">Search docs</span>
-      </Button>
-      <Button
-        variant="outline"
-        className="hidden h-8 w-56 justify-start gap-2 text-sm text-muted-foreground sm:flex"
-        onClick={() => setOpen(true)}
-      >
-        <SearchIcon className="size-4" />
-        <span className="flex-1 text-left">Search docs...</span>
-        <kbd className="pointer-events-none hidden select-none items-center gap-0.5 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-          <span className="text-xs">⌘</span>K
+        <SearchIcon className="size-4 shrink-0" />
+        <span className="flex-1 truncate text-left">Search</span>
+        <kbd className="pointer-events-none hidden select-none items-center gap-1 font-mono text-[11px] sm:flex">
+          <span className="rounded bg-[var(--color-bg-200)] px-1.5 py-0.5">Ctrl</span>
+          <span className="rounded bg-[var(--color-bg-200)] px-1.5 py-0.5">K</span>
         </kbd>
-      </Button>
+        <span className="sr-only">Search docs</span>
+      </button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Search Tokens, Components, Patterns..." />
         <CommandList>
