@@ -3,40 +3,61 @@
 import * as React from "react"
 import { Check as CheckIcon, Copy as CopyIcon } from "@nimbus/assets/icons/app"
 
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
-export function MdxPre({ className, children, ...props }: React.ComponentProps<"pre">) {
+const LANG_LABEL: Record<string, string> = {
+  tsx: "TSX",
+  ts: "TypeScript",
+  typescript: "TypeScript",
+  jsx: "JSX",
+  js: "JavaScript",
+  javascript: "JavaScript",
+  css: "CSS",
+  scss: "SCSS",
+  bash: "Shell",
+  sh: "Shell",
+  json: "JSON",
+  html: "HTML",
+  md: "Markdown",
+}
+
+export function MdxPre({ children, style, ...props }: React.ComponentProps<"pre">) {
   const preRef = React.useRef<HTMLPreElement>(null)
   const [copied, setCopied] = React.useState(false)
+  const lang = (props as Record<string, unknown>)["data-language"] as string | undefined
 
   return (
-    <div className="group relative my-4">
+    <div
+      className="not-prose relative my-5 overflow-hidden rounded-xl border border-white/10 shadow-sm"
+      style={{ backgroundColor: style?.backgroundColor ?? "#011627" }}
+    >
+      <div className="flex items-center justify-between border-b border-white/10 py-1.5 pr-1.5 pl-4">
+        <span className="font-mono text-[11px] tracking-wider text-white/50 uppercase">
+          {lang ? (LANG_LABEL[lang] ?? lang) : "Code"}
+        </span>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          className="size-7 text-white/60 hover:bg-white/10 hover:text-white"
+          onClick={async () => {
+            await navigator.clipboard.writeText(preRef.current?.textContent ?? "")
+            setCopied(true)
+            setTimeout(() => setCopied(false), 1500)
+          }}
+        >
+          {copied ? <CheckIcon className="size-3.5" /> : <CopyIcon className="size-3.5" />}
+          <span className="sr-only">Copy code</span>
+        </Button>
+      </div>
       <pre
         ref={preRef}
-        className={cn(
-          "overflow-x-auto rounded-lg border bg-muted/40 p-4 text-sm leading-relaxed",
-          className
-        )}
         {...props}
+        style={{ ...style, backgroundColor: "transparent" }}
+        className="m-0 max-h-[720px] overflow-auto p-4 font-mono text-[13px] leading-[1.7]"
       >
         {children}
       </pre>
-      <Button
-        type="button"
-        variant="ghost"
-        size="icon"
-        className="absolute top-2 right-2 size-7 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 hover:text-foreground"
-        onClick={async () => {
-          const text = preRef.current?.textContent ?? ""
-          await navigator.clipboard.writeText(text)
-          setCopied(true)
-          setTimeout(() => setCopied(false), 1500)
-        }}
-      >
-        {copied ? <CheckIcon className="size-3.5" /> : <CopyIcon className="size-3.5" />}
-        <span className="sr-only">Copy code</span>
-      </Button>
     </div>
   )
 }

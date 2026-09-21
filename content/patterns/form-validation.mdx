@@ -1,0 +1,99 @@
+---
+title: Form validation
+description: When and how to validate form input, and how to give users a clear path to completion.
+---
+
+Try it. The name is only validated on blur once you have attempted to submit (revision mode), the VLAN ID is validated as you type because it has a strict boundary, and the submit button is never disabled.
+
+<ValidationDemo />
+
+## Validation
+
+### Submission
+
+The submit button is **always enabled**. This provides the user with a clear path to progress to the next step.
+
+### Form validation
+
+Clicking submit will initiate the validation of all fields, which includes:
+
+- format validation
+- mandatory field validation
+- page-level validation
+- server-side validation
+
+Any invalid or missing entries will be highlighted in an error state.
+
+Form-level errors, where a single field cannot be identified as the cause of the error, use an inline message at the **top and bottom** of the form to describe the error.
+
+### Inline validation
+
+<DoDont>
+  <Do>Validate on blur for most input.</Do>
+  <Do>Validate on keypress if the input has a strict boundary or limit.</Do>
+  <Dont>Prematurely validate inline for simple and obvious input (for example, a name) if it's the user's first attempt to complete the form.</Dont>
+  <Dont>Highlight an empty required field as in error if the user has simply focused in and out of the input field.</Dont>
+</DoDont>
+
+#### When to use
+
+Inline validation can either aid or hinder the user, depending on which "mode" the user is in (see [User mental modes](#user-mental-modes)).
+
+Use inline validation to help users with:
+
+- answers they aren't guaranteed to know, or
+- re-validating an incorrect or missing answer.
+
+### Validation methods
+
+**Validate on blur.** In most cases, inline validation is performed after the user has finished providing an answer, as indicated by the user moving on to the next question.
+
+**Validate on keypress.** Validating while the user is answering (on key press, with some delay) can be considered for the rare exceptions where:
+
+- the accepted value has a strict limit, or
+- there's a high likelihood the user won't get the answer right on the first attempt.
+
+For example:
+
+- choosing a username that must be unique
+- setting a password that must meet criteria
+- selecting a VLAN that's available
+
+Validating on key press provides a shorter feedback loop, saving the user the hassle of needing to submit to check whether their answer is correct. Note that this method of validation can be annoying, so use it sparingly.
+
+If a server request is required to validate a field, it is preferred that this is done asynchronously, without the need for a page submission. While the server-side validation is occurring:
+
+- the field cannot be edited
+- a message and/or spinner is shown
+
+## User mental modes
+
+<Do>Minimise inline validation and allow users to explore and interact with the form when in completion mode.</Do>
+<Do>Use inline validation to aid users when they are in revision mode.</Do>
+<Do>Use inline validation from the get-go for input with strict boundaries or limits.</Do>
+
+The theory of mental modes posits two mental states of users filling out online forms: **completion** and **revision** mode.
+
+### Completion (first attempt)
+
+When first presented with a form, users are in "completion mode". Their goal is to complete and submit the requested information.
+
+In this mode, it's best to minimise interruptions from premature inline validation. An exception would be for inputs with strict boundaries, where inline validation can reduce the feedback loop.
+
+### Revision (subsequent attempts)
+
+When users have completed the form, they enter "revision mode". In this mode, error messages are acknowledged and interpreted, and necessary actions are taken to fix errors.
+
+When in this mode, use inline validation as appropriate to help users address missing and invalid entries.
+
+## Exceptions
+
+These are exceptions where breaking out of the pattern has been discussed and is warranted.
+
+### Price calculation error in order flow
+
+When there's an error and a price cannot be retrieved or calculated during an order flow, the "Next" button will be disabled.
+
+Disabling the button prevents the user from continuing without a valid price, and prevents them from encountering further issues with their order.
+
+Ensure the user is provided with enough information to resolve the error and continue with their order.

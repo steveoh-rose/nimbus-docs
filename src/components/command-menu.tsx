@@ -15,6 +15,13 @@ import {
 import { Button } from "@/components/ui/button"
 import { sidebarNav } from "@/lib/nav-config"
 
+const sections = Object.entries(
+  sidebarNav.reduce<Record<string, { title: string; href: string }[]>>((acc, g) => {
+    ;(acc[g.section] ??= []).push(...g.items)
+    return acc
+  }, {})
+)
+
 export function CommandMenu() {
   const [open, setOpen] = React.useState(false)
   const router = useRouter()
@@ -61,12 +68,12 @@ export function CommandMenu() {
         <CommandInput placeholder="Search Tokens, Components, Patterns..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          {sidebarNav.map((group) => (
-            <CommandGroup key={group.title} heading={group.title}>
-              {group.items.map((item) => (
+          {sections.map(([section, items]) => (
+            <CommandGroup key={section} heading={section}>
+              {items.map((item) => (
                 <CommandItem
                   key={item.href}
-                  value={`${group.title} ${item.title}`}
+                  value={`${section} ${item.title}`}
                   onSelect={() => onSelect(item.href)}
                 >
                   {item.title}

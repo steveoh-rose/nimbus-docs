@@ -3,12 +3,14 @@
 Documentation site for the Nimbus design system, built with Next.js, Tailwind and shadcn/ui,
 styled with the Nimbus design tokens and using the Nimbus asset icons for its own UI.
 
-It documents:
+It follows the Nimbus structure:
 
+- **Foundations**: grid system and tone of voice (hand-written, in `content/foundations`)
 - **Tokens** from `cc-design-tokens`: colors, typography, spacing, shadows
-- **Core components** from `nimbus-ui/src/core`: live previews, source and prop tables, generated
-  from the same Storybook stories and MDX pages
 - **Icons** from `nimbus-assets`: searchable app and brand icon sets
+- **Components** from `nimbus-ui/src/core`: live previews, source and prop tables, generated
+  from the same Storybook stories and MDX pages
+- **Patterns**: form validation, with a live demo (hand-written, in `content/patterns`)
 - **Getting started** guides from the nimbus-ui README and Storybook docs
 
 ## How it works
@@ -34,6 +36,7 @@ Pages are generated from that source:
 | `/docs/tokens/[name]` | `cc-design-tokens` built CSS variables + shadow tokens |
 | `/docs/icons/[set]` | `nimbus-assets` icon components |
 | `/docs/introduction` etc. | nimbus-ui README / CONTRIBUTING / docs pages |
+| `/docs/foundations/[name]`, `/docs/patterns/[name]` | `content/<section>/<name>.mdx` (not synced; edit directly) |
 
 Live previews run the real Nimbus components. Example code is read from the story source, and the
 Controls under a preview map Storybook `argTypes` onto small form controls.
@@ -64,6 +67,7 @@ Every push to `main`, including the automated sync commits, triggers a deploymen
 
 ## Notes
 
+- Code uses Roboto Mono with the Night Owl Shiki theme (`src/components/code-block.tsx`, `mdx-pre.tsx`).
 - Nimbus is light-only, so there is no dark mode; previews always render on a white surface.
 - Nimbus core components are pinned to the same versions as nimbus-ui (`react-aria`, `react-aria-components`,
   `react-stately`, ...). Keep them in step when nimbus-ui upgrades.

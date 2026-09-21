@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/lib/nav-config";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${robotoMono.variable} h-full antialiased`}>
       <head>
         {/* Nimbus typography tokens: Open Sans (body) and Montserrat (accent) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

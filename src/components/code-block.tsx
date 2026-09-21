@@ -3,6 +3,23 @@ import { codeToHtml } from "shiki"
 import { cn } from "@/lib/utils"
 import { CopyButton } from "@/components/copy-button"
 
+export const CODE_THEME = "night-owl"
+
+const LANG_LABEL: Record<string, string> = {
+  tsx: "TSX",
+  ts: "TypeScript",
+  typescript: "TypeScript",
+  jsx: "JSX",
+  js: "JavaScript",
+  javascript: "JavaScript",
+  css: "CSS",
+  scss: "SCSS",
+  bash: "Shell",
+  sh: "Shell",
+  json: "JSON",
+  html: "HTML",
+}
+
 export async function CodeBlock({
   code,
   lang = "tsx",
@@ -13,24 +30,24 @@ export async function CodeBlock({
   className?: string
 }) {
   const trimmed = code.trim()
-  const html = await codeToHtml(trimmed, {
-    lang,
-    themes: {
-      light: "github-light-default",
-      dark: "github-dark-default",
-    },
-    defaultColor: false,
-  })
+  const html = await codeToHtml(trimmed, { lang, theme: CODE_THEME })
 
   return (
-    <div className={cn("group relative my-4", className)}>
+    <div
+      className={cn(
+        "not-prose relative my-5 overflow-hidden rounded-xl border border-white/10 bg-[#011627] shadow-sm",
+        className
+      )}
+    >
+      <div className="flex items-center justify-between border-b border-white/10 py-1.5 pr-1.5 pl-4">
+        <span className="font-mono text-[11px] tracking-wider text-white/50 uppercase">
+          {LANG_LABEL[lang] ?? lang}
+        </span>
+        <CopyButton text={trimmed} className="text-white/60 hover:bg-white/10 hover:text-white" />
+      </div>
       <div
-        className="max-h-[560px] overflow-auto rounded-lg border bg-muted/40 p-4 text-sm leading-relaxed [&_pre]:bg-transparent! [&_pre]:p-0"
+        className="max-h-[720px] overflow-auto [&_pre]:m-0 [&_pre]:bg-transparent! [&_pre]:p-4 [&_pre]:font-mono [&_pre]:text-[13px] [&_pre]:leading-[1.7]"
         dangerouslySetInnerHTML={{ __html: html }}
-      />
-      <CopyButton
-        text={trimmed}
-        className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100"
       />
     </div>
   )
