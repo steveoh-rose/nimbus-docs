@@ -33,8 +33,8 @@ Pages are generated from that source:
 | Route | Source |
 | --- | --- |
 | `/docs/components/[name]` | each component's `*.mdx` + `*.stories.tsx` (Storybook doc blocks are mapped onto site components) |
-| `/docs/tokens/[name]` | `cc-design-tokens` built CSS variables + shadow tokens |
-| `/docs/icons/[set]` | `nimbus-assets` icon components |
+| `/docs/tokens/[name]` | `cc-design-tokens` built CSS variables + shadow tokens; overview, design tokens, radius, breakpoints and layout anatomy are hand-written in `content/tokens` |
+| `/docs/tokens/icons` | `nimbus-assets` icon components |
 | `/docs/introduction` etc. | nimbus-ui README / CONTRIBUTING / docs pages |
 | `/docs/foundations/[name]`, `/docs/patterns/[name]` | `content/<section>/<name>.mdx` (not synced; edit directly) |
 

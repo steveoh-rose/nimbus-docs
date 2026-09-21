@@ -32,7 +32,7 @@ function Col({ span, children, className }: { span: number; children?: React.Rea
 /** The 12-column row, drawn once with column numbers. */
 export function ColumnRuler() {
   return (
-    <div className="not-prose my-4 rounded-lg border bg-white p-4">
+    <div className="not-prose my-4 rounded-md border bg-white p-4">
       <div className="grid grid-cols-12 gap-[10px]">
         {Array.from({ length: 12 }, (_, i) => (
           <Col key={i} span={1}>
@@ -54,7 +54,7 @@ export function ColumnLayouts() {
     { title: "1 x 12 columns", span: 12, count: 1 },
   ]
   return (
-    <div className="not-prose my-4 space-y-4 rounded-lg border bg-white p-4">
+    <div className="not-prose my-4 space-y-4 rounded-md border bg-white p-4">
       {layouts.map((l) => (
         <div key={l.title}>
           <div className="mb-1.5 text-xs font-medium text-muted-foreground">{l.title}</div>
@@ -74,7 +74,7 @@ export function ColumnLayouts() {
 /** Parts of the whole: navigation, container, grid, rows, columns. */
 export function GridAnatomy() {
   return (
-    <div className="not-prose my-4 overflow-hidden rounded-lg border bg-white">
+    <div className="not-prose my-4 overflow-hidden rounded-md border bg-white">
       <div className="flex h-9 items-center bg-[var(--color-accent-dark)] px-3 text-[11px] text-white">
         Main navigation (top)
       </div>
@@ -112,7 +112,7 @@ export function GridAnatomy() {
 
 function Frame({ title, width, children }: { title: string; width: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-lg border bg-white p-4">
+    <div className="rounded-md border bg-white p-4">
       <div className="mb-3 flex items-baseline justify-between gap-2">
         <span className="text-sm font-semibold">{title}</span>
         <span className="font-mono text-xs text-muted-foreground">{width}</span>

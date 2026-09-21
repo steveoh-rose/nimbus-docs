@@ -38,20 +38,17 @@ const TRAITS = [
 
 export function ToneTraits() {
   return (
-    <div className="not-prose my-6 grid gap-4 sm:grid-cols-2">
-      {TRAITS.map((t, i) => (
-        <div key={t.title} className="flex flex-col rounded-lg border bg-card p-5">
-          <div className="mb-2 flex size-7 items-center justify-center rounded-full bg-accent font-mono text-xs font-semibold text-accent-foreground">
-            {i + 1}
-          </div>
-          <h3 className="text-base font-semibold tracking-tight">{t.title}</h3>
+    <div className="not-prose my-8 grid gap-x-12 gap-y-8 sm:grid-cols-2">
+      {TRAITS.map((t) => (
+        <section key={t.title} className="border-t pt-4">
+          <h3 className="font-heading text-[1.15rem] leading-snug font-semibold">{t.title}</h3>
           <p className="mt-1 text-sm text-muted-foreground">{t.lead}</p>
           <ul className="mt-3 list-disc space-y-1.5 pl-4 text-sm marker:text-primary">
             {t.points.map((p) => (
               <li key={p}>{p}</li>
             ))}
           </ul>
-        </div>
+        </section>
       ))}
     </div>
   )

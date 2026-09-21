@@ -28,7 +28,7 @@ export function MdxPre({ children, style, ...props }: React.ComponentProps<"pre"
 
   return (
     <div
-      className="not-prose relative my-5 overflow-hidden rounded-xl border border-white/10 shadow-sm"
+      className="not-prose relative my-5 overflow-hidden rounded-md border border-white/10"
       style={{ backgroundColor: style?.backgroundColor ?? "#011627" }}
     >
       <div className="flex items-center justify-between border-b border-white/10 py-1.5 pr-1.5 pl-4">

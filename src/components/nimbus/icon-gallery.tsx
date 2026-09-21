@@ -52,7 +52,7 @@ export function IconGallery({ set }: { set: "app" | "brand" }) {
               key={name}
               type="button"
               onClick={() => copy(name)}
-              className="group flex flex-col items-center gap-3 rounded-lg border bg-card p-4 text-center transition-colors hover:border-primary hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
+              className="group flex flex-col items-center gap-3 rounded-md border bg-card p-4 text-center transition-colors hover:border-primary hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
             >
               <span className="flex h-11 items-center justify-center" style={{ fontSize: size }}>
                 <Icon width="1em" height="1em" />

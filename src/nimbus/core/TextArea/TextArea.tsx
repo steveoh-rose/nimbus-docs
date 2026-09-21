@@ -91,7 +91,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     }: TextAreaProps,
     forwardedRef
   ) => {
-    const { classes, label, hint, invalid, disabled, readonly, required, fullWidth, resize } =
+    const { classes, label, hint, invalid, disabled, readonly, required, fullWidth, resize = 'vertical' } =
       props;
     const ref = useObjectRef(forwardedRef);
 

@@ -16,16 +16,15 @@ export interface NavGroup {
 export const siteConfig = {
   name: "Nimbus",
   description:
-    "The Nimbus design system: foundations, design tokens, icons, core React components and patterns for Console Connect products.",
+    "The Nimbus design system: foundations, design tokens, core React components and patterns for Console Connect products.",
   githubUrl: "https://github.com/ConsoleConnect/nimbus-ui",
 }
 
 export const mainNav: NavItem[] = [
-  { title: "Foundations", href: "/docs/foundations/grid-system" },
-  { title: "Tokens", href: "/docs/tokens/colors" },
-  { title: "Icons", href: "/docs/icons/app" },
+  { title: "Foundations", href: "/docs/foundations/tone-of-voice" },
+  { title: "Tokens", href: "/docs/tokens/overview" },
   { title: "Components", href: "/docs/components/button" },
-  { title: "Patterns", href: "/docs/patterns/form-validation" },
+  { title: "Patterns", href: "/docs/patterns/overview" },
 ]
 
 export const sidebarNav: NavGroup[] = [
@@ -39,25 +38,21 @@ export const sidebarNav: NavGroup[] = [
   },
   {
     section: "Foundations",
-    items: [
-      { title: "Grid system", href: "/docs/foundations/grid-system" },
-      { title: "Tone of voice", href: "/docs/foundations/tone-of-voice" },
-    ],
+    items: [{ title: "Tone of voice", href: "/docs/foundations/tone-of-voice" }],
   },
   {
     section: "Tokens",
     items: [
-      { title: "Colors", href: "/docs/tokens/colors" },
+      { title: "Overview", href: "/docs/tokens/overview" },
+      { title: "Design tokens", href: "/docs/tokens/design-tokens" },
+      { title: "Color", href: "/docs/tokens/colors" },
       { title: "Typography", href: "/docs/tokens/typography" },
-      { title: "Spacing", href: "/docs/tokens/spacing" },
+      { title: "Icons", href: "/docs/tokens/icons" },
       { title: "Shadows", href: "/docs/tokens/shadows" },
-    ],
-  },
-  {
-    section: "Icons",
-    items: [
-      { title: "App icons", href: "/docs/icons/app" },
-      { title: "Brand icons", href: "/docs/icons/brand" },
+      { title: "Border radius", href: "/docs/tokens/border-radius" },
+      { title: "Spacing", href: "/docs/tokens/spacing" },
+      { title: "Breakpoints and screen sizes", href: "/docs/tokens/breakpoints-and-screen-sizes" },
+      { title: "Layout anatomy", href: "/docs/tokens/layout-anatomy" },
     ],
   },
   ...componentGroups().map((g) => ({
@@ -67,6 +62,9 @@ export const sidebarNav: NavGroup[] = [
   })),
   {
     section: "Patterns",
-    items: [{ title: "Form validation", href: "/docs/patterns/form-validation" }],
+    items: [
+      { title: "Overview", href: "/docs/patterns/overview" },
+      { title: "Form validation", href: "/docs/patterns/form-validation" },
+    ],
   },
 ]

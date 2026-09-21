@@ -8,7 +8,7 @@ export function HeroDemo() {
   return (
     <div
       data-nimbus-canvas
-      className="mx-auto grid w-full max-w-3xl gap-6 rounded-xl border bg-white p-8 text-left shadow-sm sm:grid-cols-2"
+      className="mx-auto grid w-full max-w-3xl gap-6 rounded-md border bg-white p-6 text-left sm:grid-cols-2"
     >
       <div className="flex flex-col gap-4">
         <div className="flex flex-wrap items-center gap-3">

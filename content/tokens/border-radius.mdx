@@ -1,0 +1,15 @@
+---
+title: Border radius
+description: Nimbus rounds corners consistently. 5px for nearly everything, with a few deliberate exceptions.
+---
+
+There is no dedicated radius token set. Components take their radius from the spacer scale or from their own component tokens, and the values converge on **5px**.
+
+<RadiusScale />
+
+## Guidance
+
+- Use 5px for controls, panels and anything that contains content.
+- Use square corners only where a component sits flush against another, such as the subtle Callout variant.
+- Reserve the 30px pill for the Button `rounded` prop. Don't apply it to inputs or containers.
+- Don't invent intermediate radii. If a component needs a different value, add a component token.

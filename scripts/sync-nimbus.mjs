@@ -117,6 +117,24 @@ for (const f of fs.readdirSync(path.join(uiSrc, "docs", "assets"))) {
   fs.copyFileSync(path.join(uiSrc, "docs", "assets", f), path.join(dest, "docs", "assets", f))
 }
 
+// React 19 (required by Next 16) ignores `Component.defaultProps` on function components, which
+// nimbus-ui still relies on. Apply those defaults as destructuring defaults instead. Each patch is
+// checked, so an upstream change fails loudly rather than silently losing a default.
+const defaultPropsPatches = [
+  ["core/Spinner/Spinner.tsx", /\(\{ size, onDark,/, "({ size = 'sm', onDark,"],
+  ["core/Switch/Switch.tsx", /(\s)size,(\r?\n\s+selected,)/, "$1size = 'sm',$2"],
+  ["core/TextArea/TextArea.tsx", /required, fullWidth, resize \}/, "required, fullWidth, resize = 'vertical' }"],
+]
+for (const [rel, from, to] of defaultPropsPatches) {
+  const file = path.join(dest, rel)
+  const text = fs.readFileSync(file, "utf8")
+  if (!from.test(text)) {
+    console.warn(`WARNING: defaultProps patch did not apply to ${rel}. Check whether upstream changed.`)
+    continue
+  }
+  fs.writeFileSync(file, text.replace(from, to))
+}
+
 // icons: built React components (app + brand) and the raw SVGs
 copyTree(path.join(assetsRepo, "icons"), path.join(dest, "assets", "icons"))
 

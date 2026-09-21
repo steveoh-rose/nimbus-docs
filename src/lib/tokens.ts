@@ -78,3 +78,35 @@ export function shadowTokens(): ShadowToken[] {
     css: `${s.x}px ${s.y}px ${s.blur}px ${s.color.replace(/\{[^}]+\}/, s.alpha)}`,
   }))
 }
+
+export type SemanticToken = { name: string; alias: string; value: string; note?: string }
+
+/**
+ * Semantic tokens (themes.tokens.json) resolve to palette tokens. Returns them grouped
+ * (bg, system, text, ...) with the palette alias each one points at.
+ */
+export function semanticTokens(): Array<{ group: string; tokens: SemanticToken[] }> {
+  const raw = JSON.parse(fs.readFileSync(path.join(TOKENS, "source", "themes.tokens.json"), "utf8")).color as Record<
+    string,
+    Record<string, any>
+  >
+  const byName = new Map(allTokens().map((t) => [t.name, t]))
+  const groups: Array<{ group: string; tokens: SemanticToken[] }> = []
+  for (const [group, entries] of Object.entries(raw)) {
+    const tokens: SemanticToken[] = []
+    for (const [key, node] of Object.entries(entries)) {
+      if (!node || typeof node !== "object" || !("value" in node)) continue
+      const name = `--color-${group}-${key}`
+      const resolved = byName.get(name)
+      const ref = /^\{color\.palette\.(.+)\.value\}$/.exec(String(node.value))
+      tokens.push({
+        name,
+        alias: node.docs?.alias ?? (ref ? `$color-palette-${ref[1].replace(/\./g, "-")}` : "(literal)"),
+        value: resolved?.value ?? String(node.value),
+        note: node.deprecated ? "deprecated" : node.docs?.description,
+      })
+    }
+    if (tokens.length) groups.push({ group, tokens })
+  }
+  return groups
+}

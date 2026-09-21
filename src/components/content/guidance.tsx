@@ -16,10 +16,10 @@ function Card({
   return (
     <div
       className={cn(
-        "not-prose my-3 rounded-lg border border-l-4 p-4 text-sm",
-        tone === "do" && "border-l-[var(--color-success-300)] bg-[var(--color-success-100)]",
-        tone === "dont" && "border-l-[var(--color-error-300)] bg-[var(--color-error-100)]",
-        tone === "note" && "border-l-primary bg-accent"
+        "not-prose my-3 rounded-md border p-4 text-sm",
+        tone === "do" && "border-[var(--color-success-200)] bg-[var(--color-success-100)]",
+        tone === "dont" && "border-[var(--color-error-200)] bg-[var(--color-error-100)]",
+        tone === "note" && "border-[var(--color-primary-200)] bg-accent"
       )}
     >
       <div

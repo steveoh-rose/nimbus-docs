@@ -35,7 +35,7 @@ export async function CodeBlock({
   return (
     <div
       className={cn(
-        "not-prose relative my-5 overflow-hidden rounded-xl border border-white/10 bg-[#011627] shadow-sm",
+        "not-prose relative my-5 overflow-hidden rounded-md border border-white/10 bg-[#011627]",
         className
       )}
     >

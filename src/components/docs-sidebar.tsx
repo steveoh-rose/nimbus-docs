@@ -22,7 +22,7 @@ export function DocsNavList({
         return (
           <div key={`${group.section}-${group.title ?? ""}`} className={cn(newSection && i > 0 && "mt-6")}>
             {newSection ? (
-              <h4 className="mb-2 text-sm font-semibold text-foreground">{group.section}</h4>
+              <h4 className="mb-2 font-heading text-sm font-semibold text-foreground">{group.section}</h4>
             ) : null}
             {group.title ? (
               <h5 className={cn("mb-1 text-xs font-medium tracking-wide text-muted-foreground uppercase", !newSection && "mt-4")}>

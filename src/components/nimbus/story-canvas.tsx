@@ -57,7 +57,7 @@ function Canvas({ children }: { children: React.ReactNode }) {
   return (
     <div
       data-nimbus-canvas
-      className="min-h-[140px] overflow-x-auto rounded-lg border bg-white p-8 text-left"
+      className="min-h-[140px] overflow-x-auto rounded-md border bg-white p-8 text-left"
     >
       <StoryErrorBoundary>{children}</StoryErrorBoundary>
     </div>
@@ -113,7 +113,7 @@ function StoryInner({
   )
 
   const controlsPanel = defs.length ? (
-    <div className="mt-3 grid gap-4 rounded-lg border bg-muted/30 p-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-3 grid gap-4 rounded-md border bg-muted/30 p-4 sm:grid-cols-2 lg:grid-cols-3">
       {defs.map((def) => {
         const id = `${storyKey}-${exportName}-${def.name}`
         const value = args[def.name]

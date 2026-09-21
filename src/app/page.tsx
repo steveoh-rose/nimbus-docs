@@ -1,12 +1,9 @@
 import fs from "node:fs"
 import path from "node:path"
 import Link from "next/link"
-import * as appIcons from "@nimbus/assets/icons/app"
-import { ArrowRight, Categories, Grid, Sparkles, Star, Workspaces } from "@nimbus/assets/icons/app"
+import { ArrowRight } from "@nimbus/assets/icons/app"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { HeroDemo } from "@/components/nimbus/hero-demo"
 import { documentedComponents } from "@/lib/nimbus-nav"
 import { siteConfig } from "@/lib/nav-config"
@@ -22,90 +19,77 @@ function syncInfo() {
 
 export default function Home() {
   const componentCount = documentedComponents().length
-  const iconCount = Object.keys(appIcons).length
   const sources = syncInfo()
 
-  const sections = [
+  const index = [
     {
       title: "Foundations",
-      description: "The responsive grid system and the tone of voice for everything we write.",
-      href: "/docs/foundations/grid-system",
-      icon: Categories,
+      description: "How we write: the tone of voice for everything a customer reads.",
+      href: "/docs/foundations/tone-of-voice",
     },
     {
       title: "Tokens",
-      description: "Colors, typography, spacing and shadows as CSS and Sass variables.",
-      href: "/docs/tokens/colors",
-      icon: Sparkles,
-    },
-    {
-      title: "Icons",
-      description: `${iconCount} app icons plus brand illustrations. Search and copy imports.`,
-      href: "/docs/icons/app",
-      icon: Star,
+      description: "Color, typography, icons, shadows, radius, spacing, breakpoints and the layout grid.",
+      href: "/docs/tokens/overview",
     },
     {
       title: "Components",
-      description: `${componentCount} core React components with live previews, source and prop tables.`,
+      description: `${componentCount} core React components, each with live examples, source and props.`,
       href: "/docs/components/button",
-      icon: Grid,
     },
     {
       title: "Patterns",
-      description: "Guidance for solving common problems, starting with form validation.",
-      href: "/docs/patterns/form-validation",
-      icon: Workspaces,
+      description: "How components combine to solve recurring problems, starting with form validation.",
+      href: "/docs/patterns/overview",
     },
   ]
 
   return (
     <div className="flex flex-1 flex-col">
-      <section className="mx-auto flex w-full max-w-[1400px] flex-col items-center gap-6 px-4 py-20 text-center lg:px-8">
-        <Badge variant="secondary" className="rounded-full px-3 py-1">
-          {sources ? `nimbus-ui v${sources["nimbus-ui"].version}` : "Nimbus"}
-        </Badge>
-        <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
-          The Nimbus design system
-        </h1>
-        <p className="max-w-xl text-lg text-muted-foreground">
-          Foundations, tokens, icons, components and patterns for building consistent Console Connect products.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button size="lg" asChild>
-            <Link href="/docs/introduction">
-              Get Started
-              <ArrowRight />
-            </Link>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-            <Link href="/docs/components/button">Browse Components</Link>
-          </Button>
+      <section className="mx-auto grid w-full max-w-[1400px] items-center gap-12 px-4 py-16 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:px-8 lg:py-24">
+        <div>
+          <h1 className="max-w-[16ch] font-heading text-[2.5rem] leading-[1.15] font-semibold tracking-tight sm:text-[3.25rem]">
+            The design system for Console Connect
+          </h1>
+          <p className="mt-5 max-w-[46ch] text-[1.07rem] leading-relaxed text-muted-foreground">
+            Nimbus is the shared language behind our products: the tokens, React components and patterns
+            that keep them consistent, documented from the same source the code is built from.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Button size="lg" asChild>
+              <Link href="/docs/introduction">
+                Read the introduction
+                <ArrowRight />
+              </Link>
+            </Button>
+            <Button size="lg" variant="ghost" asChild>
+              <Link href="/docs/components/button">Browse components</Link>
+            </Button>
+          </div>
         </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-[1400px] px-4 pb-16 lg:px-8">
         <HeroDemo />
       </section>
 
       <section className="mx-auto w-full max-w-[1400px] px-4 pb-20 lg:px-8">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {sections.map((section) => (
-            <Link key={section.title} href={section.href} className="group">
-              <Card className="h-full transition-colors group-hover:border-primary">
-                <CardHeader>
-                  <section.icon className="size-6 text-primary" />
-                </CardHeader>
-                <CardContent className="flex h-full flex-col gap-2">
-                  <h3 className="font-semibold">{section.title}</h3>
-                  <p className="text-sm text-muted-foreground">{section.description}</p>
-                </CardContent>
-              </Card>
-            </Link>
+        <ul className="divide-y border-y">
+          {index.map((item) => (
+            <li key={item.title}>
+              <Link
+                href={item.href}
+                className="group grid items-baseline gap-1 py-5 sm:grid-cols-[220px_minmax(0,1fr)_auto] sm:gap-8"
+              >
+                <span className="font-heading text-[1.29rem] font-semibold group-hover:text-primary">
+                  {item.title}
+                </span>
+                <span className="text-muted-foreground">{item.description}</span>
+                <ArrowRight className="hidden size-5 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary sm:block" />
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
-      <footer className="mx-auto w-full max-w-[1400px] border-t px-4 py-6 text-xs text-muted-foreground lg:px-8">
+      <footer className="mx-auto w-full max-w-[1400px] px-4 pb-10 text-xs text-muted-foreground lg:px-8">
         {sources ? (
           <p>
             Generated from{" "}

@@ -18,8 +18,8 @@ export function DocShell({
     <div className="flex items-start gap-8">
       <article className="min-w-0 flex-1 py-8">
         <div className="mb-6 space-y-2">
-          <h1 className="scroll-mt-24 text-3xl font-bold tracking-tight">{title}</h1>
-          {description ? <p className="text-lg text-muted-foreground">{description}</p> : null}
+          <h1 className="scroll-mt-24 font-heading text-[2.5rem] leading-[1.2] font-semibold tracking-tight">{title}</h1>
+          {description ? <p className="max-w-[60ch] text-[1.07rem] leading-relaxed text-muted-foreground">{description}</p> : null}
         </div>
         {actions}
         {children}

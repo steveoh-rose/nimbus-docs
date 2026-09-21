@@ -48,7 +48,7 @@ export const Switch = (props: SwitchProps) => {
   const {
     id,
     classes,
-    size,
+    size = 'sm',
     selected,
     disabled,
     readonly,

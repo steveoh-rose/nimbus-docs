@@ -11,6 +11,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Do, DoDont, Dont, Note } from "@/components/content/guidance"
 import { ColumnLayouts, ColumnRuler, GridAnatomy, GridExample } from "@/components/content/grid-visuals"
 import { ToneTraits } from "@/components/content/tone-traits"
+import { RadiusScale, SemanticTokens, TokenCategories } from "@/components/content/token-tables"
+import { PatternIndex } from "@/components/content/pattern-index"
 import { ValidationDemo } from "@/components/content/validation-demo"
 import { List, Info } from "@nimbus/assets/icons/app"
 
@@ -41,6 +43,10 @@ const components = {
   ColumnLayouts,
   GridExample,
   ToneTraits,
+  RadiusScale,
+  SemanticTokens,
+  TokenCategories,
+  PatternIndex,
   ValidationDemo,
 }
 

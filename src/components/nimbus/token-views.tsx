@@ -8,7 +8,7 @@ function Mono({ children }: { children: React.ReactNode }) {
 function ColorCard({ token }: { token: Token }) {
   const translucent = token.value.startsWith("rgba")
   return (
-    <div className="overflow-hidden rounded-lg border bg-card">
+    <div className="overflow-hidden rounded-md border bg-card">
       <div
         className="h-16 border-b"
         style={
@@ -97,7 +97,7 @@ export function TypographyTokens() {
         <h2 className="mb-3 text-lg font-semibold tracking-tight">Families &amp; weights</h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {f.families.map((t) => (
-            <div key={t.name} className="rounded-lg border p-4">
+            <div key={t.name} className="rounded-md border p-4">
               <div className="text-3xl" style={{ fontFamily: `var(${t.name})` }}>
                 Aa Bb Cc 123
               </div>
@@ -107,7 +107,7 @@ export function TypographyTokens() {
             </div>
           ))}
           {f.weights.map((t) => (
-            <div key={t.name} className="rounded-lg border p-4">
+            <div key={t.name} className="rounded-md border p-4">
               <div className="text-3xl" style={{ fontWeight: Number(t.value) }}>
                 Weight {t.value}
               </div>
@@ -120,7 +120,7 @@ export function TypographyTokens() {
       {sections.map(([id, title, tokens]) => (
         <section key={id} id={id} className="scroll-mt-24">
           <h2 className="mb-1 text-lg font-semibold tracking-tight">{title}</h2>
-          <div className="rounded-lg border px-4">
+          <div className="rounded-md border px-4">
             {tokens.map((t) => (
               <FontRow key={t.name} token={t} />
             ))}
@@ -133,7 +133,7 @@ export function TypographyTokens() {
 
 export function SpacingTokens() {
   return (
-    <div className="not-prose rounded-lg border px-4">
+    <div className="not-prose rounded-md border px-4">
       {spacingTokens().map((t) => (
         <div
           key={t.name}
@@ -155,7 +155,7 @@ export function ShadowTokens() {
   return (
     <div className="not-prose grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
       {shadowTokens().map((s) => (
-        <div key={s.name} className="rounded-lg border bg-muted/30 p-4">
+        <div key={s.name} className="rounded-md border bg-muted/30 p-4">
           <div className="mb-4 h-24 rounded-md bg-white" style={{ boxShadow: s.css }} />
           <div className="font-mono text-[12px] font-medium">shadow-{s.name}</div>
           <div className="font-mono text-xs text-muted-foreground">{s.css}</div>

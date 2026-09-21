@@ -12,7 +12,7 @@ type SpinnerTypes = {
   };
 } & HTMLAttributes<SVGElement>;
 
-export const Spinner = ({ size, onDark, classes, className, ...props }: SpinnerTypes) => {
+export const Spinner = ({ size = 'sm', onDark, classes, className, ...props }: SpinnerTypes) => {
   return (
     <svg
       data-size={size}

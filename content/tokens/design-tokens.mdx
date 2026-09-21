@@ -1,0 +1,59 @@
+---
+title: Design tokens
+description: How tokens are layered, and how to use them from CSS, Sass and JavaScript.
+---
+
+## Layers
+
+Tokens are layered so that a change happens in the right place.
+
+1. **Palette tokens** hold raw values: `$color-palette-stone-100` is a specific grey. Avoid using them directly in product code.
+2. **Semantic tokens** give a palette value a job: `$color-bg-200` is the second background surface. Product code uses these.
+3. **Component tokens** live next to a component and point at semantic tokens, so a component can be restyled in one place.
+
+```scss
+// Button.module.scss: component tokens referencing semantic tokens
+$button-color-bg-primary: $color-primary-300;
+$button-color-bg-primary-hover: $color-primary-400;
+$button-color-bg-primary-pressed: $color-primary-500;
+$button-color-bg-secondary-hover: $color-bg-200;
+```
+
+## Semantic tokens
+
+The mapping from semantic tokens to the palette, generated from `cc-design-tokens`.
+
+<SemanticTokens />
+
+## Using tokens
+
+### CSS
+
+```css
+.panel {
+  background: var(--color-bg-100);
+  border: 1px solid var(--color-system-100);
+  padding: var(--size-spacer-md);
+}
+```
+
+### Sass
+
+```scss
+@import '@console/cc-design-tokens/build/scss/variables';
+
+.panel {
+  background: $color-bg-100;
+  padding: $size-spacer-md;
+}
+```
+
+### JavaScript
+
+```ts
+import { colorPrimary300, sizeSpacerMd } from '@console/cc-design-tokens';
+```
+
+<Note title="Prefer semantic tokens">
+If a semantic token exists for what you need, use it instead of a palette token. When the palette shifts, semantic tokens move with it.
+</Note>

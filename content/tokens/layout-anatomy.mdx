@@ -1,0 +1,63 @@
+---
+title: Layout anatomy
+description: How pages are constructed from containers, rows and columns.
+---
+
+## How it works
+
+The Nimbus responsive grid uses containers, rows and columns to lay out and align content. [Breakpoints](/docs/tokens/breakpoints-and-screen-sizes) adjust the width of the content so that it is viewable on all devices.
+
+The diagram below shows the general structure from which all pages are constructed.
+
+<GridAnatomy />
+
+## Parts of the whole
+
+**Main navigation.** The site-level navigation bars and menus sit outside of the container and grid.
+
+**Container.** The container occupies all the remaining space inside the navigation bars that border the top and left sides.
+
+**Responsive grid.** The grid is centred inside of the container. Its width is determined by the screen width. There are 4 widths, detailed in [Breakpoints and screen sizes](/docs/tokens/breakpoints-and-screen-sizes).
+
+**Rows.** Rows are containers for columns. The columns within a row will wrap within that row and remain separate from other rows.
+
+**Columns.** Columns are where all the main responsive action takes place. All content is placed inside of columns, and those columns sit inside of rows.
+
+**Gutters.** Gutters are the empty space between columns. These are always 10px (`--size-spacer-sm`).
+
+## Columns
+
+There are 12 columns.
+
+<ColumnRuler />
+
+This allows a nice variety of evenly split layouts:
+
+<ColumnLayouts />
+
+But of course, you can have any combination of columns within a row, so long as the total base column width is 12.
+
+When a column cannot fit horizontally adjacent to the column to the left, the entire column will be wrapped below, increasing the height of the row.
+
+## Responsiveness
+
+To make the grid responsive, there are four breakpoints. When the screen width hits a breakpoint, the grid width is adjusted, and the layout and content follow suit by either also changing width, or wrapping below if it can no longer fit within the row.
+
+## Applying the grid
+
+Structural elements and groups of elements are given a column width that is enforced by the grid. You may choose to have different column widths for the same structure and groups at each grid size.
+
+## Example
+
+In this example there is:
+
+- A header with content aligned left and right. The background is full width, while the content is all contained within the grid.
+- 3 tiles.
+
+<GridExample />
+
+**Large desktop.** The header is divided into 2 columns, each 6 base columns wide. The 3 tiles are all 4 base columns wide.
+
+**Small desktop.** The header is still divided into 2 columns and each is still 6 base columns wide. The tiles are now 6 base columns wide, causing them to wrap.
+
+**Small device.** The header is still divided into 2 columns, but each is now 12 columns / 100% wide, causing them to stack. The tiles are also now 12 columns / 100% wide, and the tile background is also full width, while the content is all contained within the grid.
