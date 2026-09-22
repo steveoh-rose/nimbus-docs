@@ -35,3 +35,25 @@ export function componentGroups() {
 
 export const storyAnchor = (exportName: string) =>
   exportName.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase()
+
+/** Single-purpose primitives vs. composite/overlay-driven components, for the components overview page. */
+const CORE_COMPONENTS = [
+  "Button",
+  "Badge",
+  "Callout",
+  "Checkbox",
+  "Disclosure",
+  "Label",
+  "Radio",
+  "Spinner",
+  "Switch",
+  "TextArea",
+  "TextInput",
+]
+
+export function componentTiers() {
+  const all = documentedComponents().map((c) => c.name)
+  const core = CORE_COMPONENTS.filter((n) => all.includes(n))
+  const complex = all.filter((n) => !core.includes(n))
+  return { core, complex }
+}

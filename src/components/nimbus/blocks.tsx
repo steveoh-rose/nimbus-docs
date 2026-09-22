@@ -4,7 +4,6 @@ import { ArgTypesTable } from "@/components/nimbus/argtypes-table"
 import { storyAnchor } from "@/lib/nimbus-nav"
 import { formatDescription, readStories } from "@/lib/story-source"
 import type { ShareLinks } from "@/lib/nimbus"
-import { OpenInNew } from "@nimbus/assets/icons/app"
 import { GitHubMarkIcon } from "@/components/icons"
 import propsData from "@/generated/props.json"
 
@@ -107,10 +106,10 @@ export function ApiTable({ component, storyKey }: { component: string; storyKey:
 }
 
 export function ShareLinksBar({ links }: { links: ShareLinks }) {
-  const items: Array<{ label: string; href: string | undefined; github?: boolean }> = [
-    { label: "React Aria", href: links.adobe },
-    { label: "Source", href: links.github, github: true },
-    { label: "Figma", href: links.figma },
+  const items: Array<{ label: string; href: string | undefined; icon: React.ReactNode }> = [
+    { label: "React Aria", href: links.adobe, icon: <img src="/logos/adobe-logo.png" alt="" className="size-3.5" /> },
+    { label: "Source", href: links.github, icon: <GitHubMarkIcon className="size-3.5" /> },
+    { label: "Figma", href: links.figma, icon: <img src="/logos/figma-logo.png" alt="" className="size-3.5" /> },
   ]
   const present = items.filter((i) => i.href)
   if (!present.length) return null
@@ -124,7 +123,7 @@ export function ShareLinksBar({ links }: { links: ShareLinks }) {
           rel="noreferrer"
           className="inline-flex h-8 items-center gap-2 rounded-full border bg-white px-3 text-sm transition-colors hover:bg-[var(--color-bg-200)]"
         >
-          {item.github ? <GitHubMarkIcon className="size-3.5" /> : <OpenInNew className="size-3.5" />}
+          {item.icon}
           {item.label}
         </a>
       ))}
