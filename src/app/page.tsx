@@ -7,18 +7,29 @@ import {
   ArrowRight,
   Bookmark,
   Calendar,
+  Chat,
+  Check,
   CheckCircle,
   Cloud,
+  Copy,
+  Delete,
+  Edit,
   Grid,
   Home as HomeIcon,
   Info,
+  Key,
+  Link as LinkIcon,
   Notifications,
   Person,
   Search,
+  Share,
   Sparkles,
+  Star,
+  Warning,
 } from "@nimbus/assets/icons/app"
 
 import { Showcase } from "@/components/nimbus/hero-demo"
+import { ComponentGallery } from "@/components/nimbus/component-gallery"
 import { GitHubMarkIcon } from "@/components/icons"
 import { documentedComponents } from "@/lib/nimbus-nav"
 import { siteConfig } from "@/lib/nav-config"
@@ -50,7 +61,28 @@ const BRAND_SWATCHES = [
   "--color-brand-aqua",
 ]
 
-const GALLERY_ICONS = [Cloud, Grid, Search, Notifications, Person, Calendar, Bookmark, HomeIcon, Info, Sparkles]
+const GALLERY_ICONS = [
+  Cloud,
+  Grid,
+  Search,
+  Notifications,
+  Person,
+  Calendar,
+  Bookmark,
+  HomeIcon,
+  Info,
+  Sparkles,
+  Check,
+  Star,
+  Warning,
+  Share,
+  Copy,
+  Edit,
+  Delete,
+  Key,
+  LinkIcon,
+  Chat,
+]
 
 function Card({
   href,
@@ -90,7 +122,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <section className="mx-auto flex w-full max-w-[1400px] flex-col items-center px-4 pt-14 pb-12 text-center lg:px-8 lg:pt-20">
+      <section className="bg-dot-grid mx-auto flex w-full max-w-[1400px] flex-col items-center px-4 pt-14 pb-12 text-center lg:px-8 lg:pt-20">
         {sources ? (
           <Link
             href="/docs/introduction"
@@ -154,13 +186,13 @@ export default function Home() {
         <span className="text-primary">lockstep</span> with the code that ships them.
       </p>
 
-      <section className="w-full bg-[var(--color-accent-dark)]">
+      <section className="bg-dot-grid-dark relative w-full overflow-hidden bg-[var(--color-accent-dark)]">
+        <span className="absolute top-6 right-6 -rotate-6 rounded-md bg-primary px-4 py-1.5 text-sm font-semibold text-white shadow-lg sm:right-12">
+          What&apos;s inside
+        </span>
         <div className="mx-auto w-full max-w-[1100px] px-4 py-16 lg:px-8">
           <div className="mb-10 text-center">
-            <span className="inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white/70">
-              What&apos;s inside
-            </span>
-            <h2 className="mt-4 font-heading text-2xl font-semibold text-white sm:text-3xl">
+            <h2 className="font-heading text-2xl font-semibold text-white sm:text-3xl">
               Foundations, tokens and components — all documented from source.
             </h2>
           </div>
@@ -185,7 +217,7 @@ export default function Home() {
 
             <Card href="/docs/tokens/overview#icons" title="Icons" description={`${iconCount()}+ icons across app and brand sets, one import each.`}>
               <div className="grid grid-cols-5 gap-2.5">
-                {GALLERY_ICONS.map((Icon, i) => (
+                {GALLERY_ICONS.slice(0, 10).map((Icon, i) => (
                   <Icon key={i} className="size-4 text-[var(--color-primary-400)]" />
                 ))}
               </div>
@@ -207,20 +239,61 @@ export default function Home() {
               <div className="size-14 rounded-md bg-white" style={modalShadow ? { boxShadow: modalShadow } : undefined} />
             </Card>
 
-            <Card href="/docs/components/button" title="Components" description={`${componentCount} core React components, each documented from live Storybook stories.`}>
-              <div className="flex flex-col items-center gap-2">
-                <span className="h-6 w-16 rounded-full bg-primary" />
-                <div className="flex gap-2">
-                  <span className="h-4 w-4 rounded-[4px] border-2 border-[var(--color-primary-300)]" />
-                  <span className="h-4 w-8 rounded-full bg-[var(--color-success-100)]" />
-                </div>
+            <Card href="/docs/patterns/overview" title="Patterns" description={`${patternCount} recurring problems solved once, like form validation.`}>
+              <div className="flex items-center gap-2">
+                <span className="rounded-full border bg-[var(--color-bg-100)] px-2.5 py-1 text-[11px] font-medium">Field</span>
+                <ArrowRight className="size-3.5 text-muted-foreground" />
+                <span className="rounded-full border bg-[var(--color-bg-100)] px-2.5 py-1 text-[11px] font-medium">Hint</span>
+                <ArrowRight className="size-3.5 text-muted-foreground" />
+                <span className="rounded-full border bg-[var(--color-error-100)] px-2.5 py-1 text-[11px] font-medium text-[var(--color-error-400)]">Error</span>
               </div>
             </Card>
           </div>
 
           <p className="mt-8 text-center text-sm text-white/50 italic">
-            …and {patternCount} patterns, breakpoints, and a full responsive grid system.
+            …and breakpoints, and a full responsive grid system — all synced from source.
           </p>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1100px] px-4 py-16 lg:px-8">
+        <div className="mb-10 text-center">
+          <h2 className="font-heading text-2xl font-semibold sm:text-3xl">{iconCount()}+ icons, one import each.</h2>
+          <p className="mx-auto mt-3 max-w-[52ch] text-muted-foreground">
+            From <code className="font-mono text-[0.85em]">@console/nimbus-assets</code> — app icons and brand
+            icons, colored by <code className="font-mono text-[0.85em]">currentColor</code>.
+          </p>
+        </div>
+        <div className="grid grid-cols-5 gap-3 sm:grid-cols-10">
+          {GALLERY_ICONS.map((Icon, i) => (
+            <div key={i} className="flex aspect-square items-center justify-center rounded-md border bg-white">
+              <Icon className="size-5 text-[var(--color-primary-400)]" />
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 text-center">
+          <Link href="/docs/tokens/overview#icons" className="text-sm font-medium text-primary hover:underline">
+            Browse the full icon set →
+          </Link>
+        </div>
+      </section>
+
+      <section className="w-full bg-[var(--color-accent-dark)]">
+        <div className="mx-auto w-full max-w-[1100px] px-4 py-16 lg:px-8">
+          <div className="mb-10 text-center">
+            <h2 className="font-heading text-2xl font-semibold text-white sm:text-3xl">
+              {componentCount} components, styled and accessible by default.
+            </h2>
+            <p className="mx-auto mt-3 max-w-[52ch] text-white/60">
+              Built on React Aria, themed with Nimbus tokens, documented from live Storybook stories.
+            </p>
+          </div>
+          <ComponentGallery />
+          <div className="mt-8 text-center">
+            <Link href="/docs/components/button" className="text-sm font-medium text-white hover:underline">
+              Browse all components →
+            </Link>
+          </div>
         </div>
       </section>
 

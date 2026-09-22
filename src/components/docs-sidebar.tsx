@@ -30,14 +30,14 @@ export function DocsNavList({
         return (
           <div key={`${group.section}-${group.title ?? ""}`} className={cn(newSection && i > 0 && "mt-6")}>
             {newSection ? (
-              <h4 className="mb-1.5 px-3 font-heading text-[13px] font-semibold text-foreground">{group.section}</h4>
+              <h4 className="mb-1.5 px-3 text-sm font-medium text-foreground">{group.section}</h4>
             ) : null}
             {group.title ? (
               <h5 className={cn("mb-1 px-3 text-xs font-medium text-muted-foreground", !newSection && "mt-4")}>
                 {group.title}
               </h5>
             ) : null}
-            <ul className="flex flex-col gap-0.5">
+            <ul className="flex flex-col gap-0.5 border-l">
               {group.items.map((item) => {
                 const active = pathname === item.href
                 return (
@@ -47,10 +47,10 @@ export function DocsNavList({
                       onClick={onNavigate}
                       aria-current={active ? "page" : undefined}
                       className={cn(
-                        "block rounded-[10px] px-3 py-1.5 text-sm transition-colors",
+                        "-ml-px block border-l-2 px-3 py-1.5 text-sm transition-colors",
                         active
-                          ? "bg-white font-medium text-foreground shadow-[0_1px_2px_rgb(15_26_43_/_0.08)]"
-                          : "text-muted-foreground hover:bg-white/60 hover:text-foreground"
+                          ? "border-foreground font-medium text-foreground"
+                          : "border-transparent text-muted-foreground hover:border-muted-foreground/40 hover:text-foreground"
                       )}
                     >
                       {item.title}

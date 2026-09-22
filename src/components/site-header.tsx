@@ -18,37 +18,36 @@ function nimbusVersion() {
   }
 }
 
-const pill =
-  "hidden h-9 items-center gap-2 rounded-full border bg-white px-3.5 text-sm text-foreground transition-colors hover:bg-[var(--color-bg-200)] sm:inline-flex"
+const ghost =
+  "hidden h-8 items-center gap-1.5 rounded-md px-2 text-sm text-muted-foreground transition-colors hover:bg-[var(--color-bg-200)] hover:text-foreground sm:inline-flex"
 
 export function SiteHeader() {
   const version = nimbusVersion()
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-[var(--color-bg-100)]">
-      <div className="mx-auto flex h-14 max-w-[1400px] items-center gap-3 px-4 lg:px-8">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+      <div className="mx-auto flex h-14 max-w-[1400px] items-center gap-4 px-4 lg:px-8">
         <MobileNav />
 
         <Link href="/" className="mr-2 flex items-center gap-2">
-          <Cloud className="size-6 text-primary" />
-          <span className="font-heading text-[17px] font-semibold tracking-tight">{siteConfig.name}</span>
+          <Cloud className="size-5 text-primary" />
+          <span className="font-heading text-[15px] font-semibold tracking-tight">{siteConfig.name}</span>
         </Link>
 
-        <CommandMenu />
+        <div className="hidden lg:block">
+          <SectionTabs />
+        </div>
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex flex-1 items-center justify-end gap-2 lg:flex-none">
+          <CommandMenu />
           {version ? (
-            <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer" className={pill}>
-              nimbus-ui v{version}
+            <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer" className={ghost}>
+              v{version}
             </a>
           ) : null}
-          <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer" className={pill} aria-label="GitHub">
+          <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer" className={ghost} aria-label="GitHub">
             <GitHubMarkIcon className="size-4" />
-            GitHub
           </a>
         </div>
-      </div>
-      <div className="mx-auto max-w-[1400px] px-2 lg:px-6">
-        <SectionTabs />
       </div>
     </header>
   )

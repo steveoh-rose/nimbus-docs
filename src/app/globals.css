@@ -184,6 +184,18 @@ figure[data-rehype-pretty-code-figure] {
   font-variant-numeric: tabular-nums;
 }
 
+/* Dot-grid texture for marketing sections, dots keyed to the Nimbus system-100 token */
+.bg-dot-grid {
+  background-image: radial-gradient(var(--color-system-200) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: -11px -11px;
+}
+.bg-dot-grid-dark {
+  background-image: radial-gradient(rgb(255 255 255 / 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: -11px -11px;
+}
+
 /* ---- Browser surfaces that ship with defaults ---- */
 ::selection {
   background: var(--color-primary-200);
