@@ -117,23 +117,95 @@ for (const f of fs.readdirSync(path.join(uiSrc, "docs", "assets"))) {
   fs.copyFileSync(path.join(uiSrc, "docs", "assets", f), path.join(dest, "docs", "assets", f))
 }
 
-// React 19 (required by Next 16) ignores `Component.defaultProps` on function components, which
-// nimbus-ui still relies on. Apply those defaults as destructuring defaults instead. Each patch is
-// checked, so an upstream change fails loudly rather than silently losing a default.
-const defaultPropsPatches = [
+// Small, targeted source patches to keep vendored Nimbus components working under this site's
+// toolchain (React 19 / Next 16) without touching nimbus-ui itself. Each is checked against the
+// text it expects, so an upstream change fails loudly (a console warning) instead of silently
+// no-op'ing.
+function applyPatches(patches) {
+  for (const [rel, from, to] of patches) {
+    const file = path.join(dest, rel)
+    // nimbus-ui ships CRLF; normalize to \n so multi-line patch strings (written as \n) match.
+    const text = fs.readFileSync(file, "utf8").replace(/\r\n/g, "\n")
+    const found = typeof from === "string" ? text.includes(from) : from.test(text)
+    if (!found) {
+      console.warn(`WARNING: patch did not apply to ${rel}. Check whether upstream changed.`)
+      continue
+    }
+    fs.writeFileSync(file, text.replace(from, to))
+  }
+}
+
+// React 19 ignores `Component.defaultProps` on function components, which nimbus-ui still
+// relies on. Apply those defaults as destructuring defaults instead.
+applyPatches([
   ["core/Spinner/Spinner.tsx", /\(\{ size, onDark,/, "({ size = 'sm', onDark,"],
   ["core/Switch/Switch.tsx", /(\s)size,(\r?\n\s+selected,)/, "$1size = 'sm',$2"],
   ["core/TextArea/TextArea.tsx", /required, fullWidth, resize \}/, "required, fullWidth, resize = 'vertical' }"],
-]
-for (const [rel, from, to] of defaultPropsPatches) {
-  const file = path.join(dest, rel)
-  const text = fs.readFileSync(file, "utf8")
-  if (!from.test(text)) {
-    console.warn(`WARNING: defaultProps patch did not apply to ${rel}. Check whether upstream changed.`)
-    continue
-  }
-  fs.writeFileSync(file, text.replace(from, to))
+])
+
+// Overlay triggers (Popover, Modal, Menu) don't open under React 19. Two compounding causes:
+//
+// 1. Button.tsx spreads `{...rest}` (which may carry a handler injected by a wrapping trigger)
+//    BEFORE `{...mergeProps(linkOrButtonProps, hoverProps, focusProps)}`. Plain JSX spread
+//    overwrites same-named keys rather than combining them, so Button's own (no-op) handler
+//    silently clobbers the trigger's. Routing `rest` through `mergeProps` combines both.
+// 2. react-aria-components' PressResponder (used by DialogTrigger/MenuTrigger) doesn't recognise
+//    Nimbus's custom Button as "pressable" unless the trigger element is wrapped in <Pressable>
+//    (logged as "A PressResponder was rendered without a pressable child" in dev).
+//
+// Confirmed with a production build, not just dev mode. If a newer nimbus-ui fixes this
+// upstream, `applyPatches` will warn here instead of silently no-op'ing — re-check before
+// dropping these.
+applyPatches([
+  ["core/Button/Button.tsx", "    <Element\n      {...rest}\n      className=", "    <Element\n      className="],
+  [
+    "core/Button/Button.tsx",
+    "{...mergeProps(linkOrButtonProps, hoverProps, focusProps)}",
+    "{...mergeProps(rest, linkOrButtonProps, hoverProps, focusProps)}",
+  ],
+  [
+    "core/Popover/Popover.tsx",
+    "import {\n  DialogTrigger as ReactAriaDialogTrigger,\n  OverlayArrow,\n  Popover as ReactAriaPopover,\n} from 'react-aria-components';",
+    "import {\n  DialogTrigger as ReactAriaDialogTrigger,\n  OverlayArrow,\n  Popover as ReactAriaPopover,\n  Pressable,\n} from 'react-aria-components';",
+  ],
+  [
+    "core/Popover/Popover.tsx",
+    "export const PopoverTrigger = (props: DialogTriggerProps) => {\n  return <ReactAriaDialogTrigger {...props} />;\n};",
+    "export const PopoverTrigger = (props: DialogTriggerProps) => {\n  const [trigger, ...rest] = React.Children.toArray(props.children);\n  return (\n    <ReactAriaDialogTrigger {...props}>\n      <Pressable>{trigger}</Pressable>\n      {rest}\n    </ReactAriaDialogTrigger>\n  );\n};",
+  ],
+  [
+    "core/index.ts",
+    "/* ********************************************************\n * React Aria Exports                                     *\n * ****************************************************** */\nexport { Pressable } from 'react-aria-components';\nexport { DialogTrigger } from 'react-aria-components';\nexport { ListBox as AriaListBox } from 'react-aria-components';\nexport { ListBoxItem as AriaListBoxItem } from 'react-aria-components';\nexport { MenuTrigger } from 'react-aria-components';",
+    `/* ********************************************************
+ * React Aria Exports                                     *
+ * ****************************************************** */
+import React from 'react';
+import {
+  DialogTrigger as _DialogTrigger,
+  MenuTrigger as _MenuTrigger,
+  Pressable as _Pressable,
+} from 'react-aria-components';
+
+export { Pressable } from 'react-aria-components';
+
+/**
+ * React 19 compat shim: Nimbus's core Button doesn't register as a "pressable" child of
+ * these trigger components without an explicit <Pressable> wrapper around the trigger
+ * element (the first child) — see docs/keeping-docs-in-sync.md in the docs repo.
+ */
+function withPressableTrigger(Trigger) {
+  return function PatchedTrigger({ children, ...props }) {
+    const [trigger, ...rest] = React.Children.toArray(children);
+    return React.createElement(Trigger, props, React.createElement(_Pressable, null, trigger), ...rest);
+  };
 }
+
+export const DialogTrigger = withPressableTrigger(_DialogTrigger);
+export const MenuTrigger = withPressableTrigger(_MenuTrigger);
+export { ListBox as AriaListBox } from 'react-aria-components';
+export { ListBoxItem as AriaListBoxItem } from 'react-aria-components';`,
+  ],
+])
 
 // icons: built React components (app + brand) and the raw SVGs
 copyTree(path.join(assetsRepo, "icons"), path.join(dest, "assets", "icons"))

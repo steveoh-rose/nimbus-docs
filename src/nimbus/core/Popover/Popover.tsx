@@ -8,6 +8,7 @@ import {
   DialogTrigger as ReactAriaDialogTrigger,
   OverlayArrow,
   Popover as ReactAriaPopover,
+  Pressable,
 } from 'react-aria-components';
 import cx from 'classnames';
 import {
@@ -46,7 +47,13 @@ export type PopoverProps = ReactAriaPopoverProps & {
  * ************************************************* */
 
 export const PopoverTrigger = (props: DialogTriggerProps) => {
-  return <ReactAriaDialogTrigger {...props} />;
+  const [trigger, ...rest] = React.Children.toArray(props.children);
+  return (
+    <ReactAriaDialogTrigger {...props}>
+      <Pressable>{trigger}</Pressable>
+      {rest}
+    </ReactAriaDialogTrigger>
+  );
 };
 
 /* ************************************************* *

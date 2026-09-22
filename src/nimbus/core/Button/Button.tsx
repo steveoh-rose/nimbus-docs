@@ -223,7 +223,6 @@ export function PolymorphicButton<E extends ElementType = 'button'>(
 
   return (
     <Element
-      {...rest}
       className={cx(styles.button, classes?.root, className)}
       ref={mergeRefs(forwardedRef, ref) as React.RefObject<HTMLButtonElement>}
       data-pressed={(!loading && isPressed) || undefined}
@@ -238,7 +237,7 @@ export function PolymorphicButton<E extends ElementType = 'button'>(
       data-rounded={rounded}
       data-full-width={fullWidth}
       data-text-node={loading && !loadingText ? false : hasTextNode}
-      {...mergeProps(linkOrButtonProps, hoverProps, focusProps)}
+      {...mergeProps(rest, linkOrButtonProps, hoverProps, focusProps)}
       {...dataAttributeProps}
     >
       {loading ? (
