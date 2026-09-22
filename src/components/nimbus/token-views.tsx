@@ -42,7 +42,7 @@ export function ColorTokens() {
     <div className="not-prose space-y-10">
       {colorGroups().map((group) => (
         <section key={group.key} id={group.key} className="scroll-mt-24">
-          <h2 className="mb-3 text-lg font-semibold tracking-tight">{group.title}</h2>
+          <h3 className="mb-3 text-lg font-semibold tracking-tight">{group.title}</h3>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
             {group.tokens.map((t) => (
               <ColorCard key={t.name} token={t} />
@@ -69,20 +69,6 @@ function FontRow({ token }: { token: Token }) {
   )
 }
 
-export function typographyHeadings() {
-  return [
-    { depth: 2 as const, text: "Families & weights", slug: "families" },
-    { depth: 2 as const, text: "Headings", slug: "headings" },
-    { depth: 2 as const, text: "Body", slug: "body" },
-    { depth: 2 as const, text: "Article", slug: "article" },
-    { depth: 2 as const, text: "Community", slug: "community" },
-  ]
-}
-
-export function colorHeadings() {
-  return colorGroups().map((g) => ({ depth: 2 as const, text: g.title, slug: g.key }))
-}
-
 export function TypographyTokens() {
   const f = fontTokens()
   const sections: Array<[string, string, Token[]]> = [
@@ -94,7 +80,7 @@ export function TypographyTokens() {
   return (
     <div className="not-prose space-y-10">
       <section id="families" className="scroll-mt-24">
-        <h2 className="mb-3 text-lg font-semibold tracking-tight">Families &amp; weights</h2>
+        <h3 className="mb-3 text-lg font-semibold tracking-tight">Families &amp; weights</h3>
         <div className="grid gap-3 sm:grid-cols-2">
           {f.families.map((t) => (
             <div key={t.name} className="rounded-md border p-4">
@@ -119,7 +105,7 @@ export function TypographyTokens() {
       </section>
       {sections.map(([id, title, tokens]) => (
         <section key={id} id={id} className="scroll-mt-24">
-          <h2 className="mb-1 text-lg font-semibold tracking-tight">{title}</h2>
+          <h3 className="mb-1 text-lg font-semibold tracking-tight">{title}</h3>
           <div className="rounded-md border px-4">
             {tokens.map((t) => (
               <FontRow key={t.name} token={t} />

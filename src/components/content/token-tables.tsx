@@ -82,32 +82,3 @@ export function RadiusScale() {
     </div>
   )
 }
-
-const CATEGORIES = [
-  { name: "Color", href: "/docs/tokens/colors", detail: "Brand, semantic and palette colors" },
-  { name: "Typography", href: "/docs/tokens/typography", detail: "Families, weights and type scales" },
-  { name: "Icons", href: "/docs/tokens/icons", detail: "App and brand icon sets" },
-  { name: "Shadows", href: "/docs/tokens/shadows", detail: "Elevation for navigation and overlays" },
-  { name: "Border radius", href: "/docs/tokens/border-radius", detail: "Corner rounding used by components" },
-  { name: "Spacing", href: "/docs/tokens/spacing", detail: "The spacer scale" },
-  { name: "Breakpoints and screen sizes", href: "/docs/tokens/breakpoints-and-screen-sizes", detail: "Four grid sizes from three breakpoints" },
-  { name: "Layout anatomy", href: "/docs/tokens/layout-anatomy", detail: "Containers, rows, columns and gutters" },
-]
-
-export function TokenCategories() {
-  return (
-    <ul className="not-prose my-6 divide-y border-y">
-      {CATEGORIES.map((c) => (
-        <li key={c.name}>
-          <a
-            href={c.href}
-            className="group flex items-baseline justify-between gap-4 py-3 transition-colors hover:text-primary"
-          >
-            <span className="font-medium">{c.name}</span>
-            <span className="text-sm text-muted-foreground group-hover:text-primary/80">{c.detail}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  )
-}

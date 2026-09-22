@@ -42,18 +42,7 @@ export const sidebarNav: NavGroup[] = [
   },
   {
     section: "Tokens",
-    items: [
-      { title: "Overview", href: "/docs/tokens/overview" },
-      { title: "Design tokens", href: "/docs/tokens/design-tokens" },
-      { title: "Color", href: "/docs/tokens/colors" },
-      { title: "Typography", href: "/docs/tokens/typography" },
-      { title: "Icons", href: "/docs/tokens/icons" },
-      { title: "Shadows", href: "/docs/tokens/shadows" },
-      { title: "Border radius", href: "/docs/tokens/border-radius" },
-      { title: "Spacing", href: "/docs/tokens/spacing" },
-      { title: "Breakpoints and screen sizes", href: "/docs/tokens/breakpoints-and-screen-sizes" },
-      { title: "Layout anatomy", href: "/docs/tokens/layout-anatomy" },
-    ],
+    items: [{ title: "Overview", href: "/docs/tokens/overview" }],
   },
   ...componentGroups().map((g) => ({
     section: "Components",
