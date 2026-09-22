@@ -9,7 +9,6 @@ import {
   Calendar,
   Chat,
   Check,
-  CheckCircle,
   Cloud,
   Copy,
   Delete,
@@ -28,11 +27,9 @@ import {
   Warning,
 } from "@nimbus/assets/icons/app"
 
-import { Showcase } from "@/components/nimbus/hero-demo"
+import { HeroPanels } from "@/components/nimbus/hero-panels"
 import { ComponentGallery } from "@/components/nimbus/component-gallery"
-import { GitHubMarkIcon } from "@/components/icons"
 import { documentedComponents } from "@/lib/nimbus-nav"
-import { siteConfig } from "@/lib/nav-config"
 import { listContent } from "@/lib/content"
 import { shadowTokens, spacingTokens } from "@/lib/tokens"
 
@@ -49,8 +46,6 @@ const iconCount = () => {
   const count = (m: object) => Object.keys(m).filter((k) => k !== "default").length
   return count(appIcons) + count(brandIcons)
 }
-
-const CHECKLIST = ["Design tokens", "React Aria under the hood", "Source-synced docs", "Accessible by default"]
 
 const BRAND_SWATCHES = [
   "--color-brand-navy",
@@ -122,15 +117,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <section className="bg-dot-grid mx-auto flex w-full max-w-[1400px] flex-col items-center px-4 pt-14 pb-12 text-center lg:px-8 lg:pt-20">
-        {sources ? (
-          <Link
-            href="/docs/introduction"
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-primary-200)] bg-[var(--color-primary-100)] px-3 py-1 text-xs text-[var(--color-primary-500)] transition-colors hover:bg-[var(--color-primary-200)]"
-          >
-            nimbus-ui v{sources["nimbus-ui"].version} · tokens v{sources["cc-design-tokens"].version}
-          </Link>
-        ) : null}
+      <section className="mx-auto flex w-full max-w-[1400px] flex-col items-center px-4 pt-16 pb-14 text-center lg:px-8 lg:pt-24">
         <h1 className="font-heading text-[2.75rem] leading-[1.08] font-bold tracking-tight sm:text-[4.25rem]">
           Consistent by default.
           <br />
@@ -140,17 +127,6 @@ export default function Home() {
           Nimbus is the design system behind Console Connect: the tokens, React components and patterns
           that keep our products consistent, documented from the same source the code is built from.
         </p>
-        <ul className="mt-6 flex flex-wrap items-center justify-center gap-2">
-          {CHECKLIST.map((item) => (
-            <li
-              key={item}
-              className="inline-flex items-center gap-1.5 rounded-full border bg-white px-3 py-1 text-xs text-muted-foreground"
-            >
-              <CheckCircle className="size-3.5 text-[var(--color-success-400)]" />
-              {item}
-            </li>
-          ))}
-        </ul>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/docs/introduction"
@@ -159,25 +135,16 @@ export default function Home() {
             Get started
           </Link>
           <Link
-            href="/docs/components/button"
+            href="/docs/components"
             className="inline-flex h-11 items-center gap-2 rounded-full border bg-white px-6 text-sm font-medium transition-colors hover:bg-[var(--color-bg-200)]"
           >
             View components
           </Link>
         </div>
-        <a
-          href={siteConfig.githubUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-5 inline-flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <GitHubMarkIcon className="size-3.5" />
-          Source on GitHub
-        </a>
       </section>
 
       <section className="mx-auto w-full max-w-[1100px] px-4 pb-16 lg:px-8">
-        <Showcase />
+        <HeroPanels />
       </section>
 
       <p className="mx-auto max-w-[62ch] px-4 pb-16 text-center text-[1.3rem] leading-snug font-medium tracking-tight sm:text-[1.6rem]">
@@ -186,7 +153,7 @@ export default function Home() {
         <span className="text-primary">lockstep</span> with the code that ships them.
       </p>
 
-      <section className="bg-dot-grid-dark relative w-full overflow-hidden bg-[var(--color-accent-dark)]">
+      <section className="relative w-full overflow-hidden bg-[var(--color-accent-dark)]">
         <span className="absolute top-6 right-6 -rotate-6 rounded-md bg-primary px-4 py-1.5 text-sm font-semibold text-white shadow-lg sm:right-12">
           What&apos;s inside
         </span>
@@ -198,7 +165,7 @@ export default function Home() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <Card href="/docs/tokens/overview#color" title="Color system" description="Semantic and palette tokens, generated straight from cc-design-tokens.">
+            <Card href="/docs/tokens#color" title="Color system" description="Semantic and palette tokens, generated straight from cc-design-tokens.">
               <div className="flex gap-1.5">
                 {BRAND_SWATCHES.map((v) => (
                   <span key={v} className="size-8 rounded-full border" style={{ background: `var(${v})` }} />
@@ -206,7 +173,7 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card href="/docs/tokens/overview#typography" title="Typography" description="Two families, weighted scales for headings, body and article text.">
+            <Card href="/docs/tokens#typography" title="Typography" description="Two families, weighted scales for headings, body and article text.">
               <div className="text-center">
                 <div className="text-4xl font-bold" style={{ fontFamily: "var(--font-family-accent)" }}>
                   Aa
@@ -215,7 +182,7 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card href="/docs/tokens/overview#icons" title="Icons" description={`${iconCount()}+ icons across app and brand sets, one import each.`}>
+            <Card href="/docs/tokens#icons" title="Icons" description={`${iconCount()}+ icons across app and brand sets, one import each.`}>
               <div className="grid grid-cols-5 gap-2.5">
                 {GALLERY_ICONS.slice(0, 10).map((Icon, i) => (
                   <Icon key={i} className="size-4 text-[var(--color-primary-400)]" />
@@ -223,7 +190,7 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card href="/docs/tokens/overview#spacing" title="Spacing & radius" description="One spacer scale drives padding, gaps and the corner radius everywhere.">
+            <Card href="/docs/tokens#spacing" title="Spacing & radius" description="One spacer scale drives padding, gaps and the corner radius everywhere.">
               <div className="flex h-full items-end gap-1.5">
                 {spacers.map((t) => (
                   <span
@@ -235,7 +202,7 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card href="/docs/tokens/overview#shadows" title="Shadows & blurs" description="Elevation for navigation, containers and overlays.">
+            <Card href="/docs/tokens#shadows" title="Shadows & blurs" description="Elevation for navigation, containers and overlays.">
               <div className="size-14 rounded-md bg-white" style={modalShadow ? { boxShadow: modalShadow } : undefined} />
             </Card>
 
@@ -272,7 +239,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-6 text-center">
-          <Link href="/docs/tokens/overview#icons" className="text-sm font-medium text-primary hover:underline">
+          <Link href="/docs/tokens#icons" className="text-sm font-medium text-primary hover:underline">
             Browse the full icon set →
           </Link>
         </div>
@@ -290,7 +257,7 @@ export default function Home() {
           </div>
           <ComponentGallery />
           <div className="mt-8 text-center">
-            <Link href="/docs/components/button" className="text-sm font-medium text-white hover:underline">
+            <Link href="/docs/components" className="text-sm font-medium text-white hover:underline">
               Browse all components →
             </Link>
           </div>
