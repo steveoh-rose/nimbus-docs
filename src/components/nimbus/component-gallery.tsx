@@ -23,11 +23,13 @@ function Frame({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col overflow-hidden rounded-[14px] border border-white/10 bg-white/5">
-      <div data-nimbus-canvas className="flex h-32 items-center justify-center bg-white p-5">{children}</div>
-      <div className="px-5 py-4">
-        <div className="font-heading text-[1.05rem] font-semibold text-white">{title}</div>
-        <p className="mt-1 text-sm text-white/60">{description}</p>
+    <div className="flex flex-col overflow-hidden rounded-lg border bg-card transition-colors hover:border-foreground/20 hover:shadow-sm">
+      <div data-nimbus-canvas className="flex h-32 items-center justify-center bg-[var(--color-bg-100)] p-5">
+        {children}
+      </div>
+      <div className="border-t px-5 py-4">
+        <div className="font-heading text-[1.05rem] font-semibold">{title}</div>
+        <p className="mt-1 text-sm text-muted-foreground">{description}</p>
       </div>
     </div>
   )

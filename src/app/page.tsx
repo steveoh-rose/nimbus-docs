@@ -93,7 +93,7 @@ function Card({
   return (
     <Link
       href={href}
-      className="group flex flex-col overflow-hidden rounded-[14px] border border-white/10 bg-white transition-transform hover:-translate-y-0.5 hover:shadow-lg"
+      className="group flex flex-col overflow-hidden rounded-lg border bg-card transition-colors hover:border-foreground/20 hover:shadow-sm"
     >
       <div className="flex h-32 items-center justify-center bg-[var(--color-bg-100)] px-6">{children}</div>
       <div className="border-t px-5 py-4">
@@ -153,13 +153,11 @@ export default function Home() {
         <span className="text-primary">lockstep</span> with the code that ships them.
       </p>
 
-      <section className="relative w-full overflow-hidden bg-[var(--color-accent-dark)]">
-        <span className="absolute top-6 right-6 -rotate-6 rounded-md bg-primary px-4 py-1.5 text-sm font-semibold text-white shadow-lg sm:right-12">
-          What&apos;s inside
-        </span>
+      <section className="w-full border-y bg-muted/30">
         <div className="mx-auto w-full max-w-[1100px] px-4 py-16 lg:px-8">
           <div className="mb-10 text-center">
-            <h2 className="font-heading text-2xl font-semibold text-white sm:text-3xl">
+            <p className="mb-2 text-sm font-medium text-muted-foreground">What&apos;s inside</p>
+            <h2 className="font-heading text-2xl font-semibold sm:text-3xl">
               Foundations, tokens and components — all documented from source.
             </h2>
           </div>
@@ -182,7 +180,7 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card href="/docs/tokens#icons" title="Icons" description={`${iconCount()}+ icons across app and brand sets, one import each.`}>
+            <Card href="/docs/icons" title="Icons" description={`${iconCount()}+ icons across app and brand sets, one import each.`}>
               <div className="grid grid-cols-5 gap-2.5">
                 {GALLERY_ICONS.slice(0, 10).map((Icon, i) => (
                   <Icon key={i} className="size-4 text-[var(--color-primary-400)]" />
@@ -217,7 +215,7 @@ export default function Home() {
             </Card>
           </div>
 
-          <p className="mt-8 text-center text-sm text-white/50 italic">
+          <p className="mt-8 text-center text-sm text-muted-foreground italic">
             …and breakpoints, and a full responsive grid system — all synced from source.
           </p>
         </div>
@@ -239,28 +237,26 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-6 text-center">
-          <Link href="/docs/tokens#icons" className="text-sm font-medium text-primary hover:underline">
+          <Link href="/docs/icons" className="text-sm font-medium text-primary hover:underline">
             Browse the full icon set →
           </Link>
         </div>
       </section>
 
-      <section className="w-full bg-[var(--color-accent-dark)]">
-        <div className="mx-auto w-full max-w-[1100px] px-4 py-16 lg:px-8">
-          <div className="mb-10 text-center">
-            <h2 className="font-heading text-2xl font-semibold text-white sm:text-3xl">
-              {componentCount} components, styled and accessible by default.
-            </h2>
-            <p className="mx-auto mt-3 max-w-[52ch] text-white/60">
-              Built on React Aria, themed with Nimbus tokens, documented from live Storybook stories.
-            </p>
-          </div>
-          <ComponentGallery />
-          <div className="mt-8 text-center">
-            <Link href="/docs/components" className="text-sm font-medium text-white hover:underline">
-              Browse all components →
-            </Link>
-          </div>
+      <section className="mx-auto w-full max-w-[1100px] px-4 py-16 lg:px-8">
+        <div className="mb-10 text-center">
+          <h2 className="font-heading text-2xl font-semibold sm:text-3xl">
+            {componentCount} components, styled and accessible by default.
+          </h2>
+          <p className="mx-auto mt-3 max-w-[52ch] text-muted-foreground">
+            Built on React Aria, themed with Nimbus tokens, documented from live Storybook stories.
+          </p>
+        </div>
+        <ComponentGallery />
+        <div className="mt-8 text-center">
+          <Link href="/docs/components" className="text-sm font-medium text-primary hover:underline">
+            Browse all components →
+          </Link>
         </div>
       </section>
 

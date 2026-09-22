@@ -2,7 +2,6 @@ import { DocShell } from "@/components/doc-shell"
 import { CodeBlock } from "@/components/code-block"
 import { Note } from "@/components/content/guidance"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { IconGallery } from "@/components/nimbus/icon-gallery"
 import { ColumnLayouts, ColumnRuler, GridAnatomy, GridExample } from "@/components/content/grid-visuals"
 import { RadiusScale, SemanticTokens } from "@/components/content/token-tables"
 import { ColorTokens, ShadowTokens, SpacingTokens, TypographyTokens } from "@/components/nimbus/token-views"
@@ -16,7 +15,6 @@ const HEADINGS = [
   { depth: 2 as const, text: "Spacing", slug: "spacing" },
   { depth: 2 as const, text: "Border radius", slug: "border-radius" },
   { depth: 2 as const, text: "Shadows & blurs", slug: "shadows" },
-  { depth: 2 as const, text: "Icons", slug: "icons" },
   { depth: 2 as const, text: "Breakpoints & screen sizes", slug: "breakpoints" },
   { depth: 2 as const, text: "Layout anatomy", slug: "layout-anatomy" },
 ]
@@ -127,28 +125,6 @@ export default function TokensOverviewPage() {
         <Section id="shadows" title="Shadows & blurs">
           <Rule>Elevation shadows for navigation, containers and overlays.</Rule>
           <ShadowTokens />
-        </Section>
-
-        <Section id="icons" title="Icons">
-          <Rule>
-            From <code>@console/nimbus-assets</code>. Icons take their color from{" "}
-            <code>currentColor</code> and their size from <code>font-size</code>.
-          </Rule>
-          <CodeBlock
-            code={"import { Add } from '@console/nimbus-assets/icons/app';\n\n<Add />"}
-            lang="tsx"
-            className="mt-0 mb-8"
-          />
-          <div className="space-y-8">
-            <div>
-              <h3 className="mb-3 text-sm font-semibold">App icons</h3>
-              <IconGallery set="app" />
-            </div>
-            <div>
-              <h3 className="mb-3 text-sm font-semibold">Brand icons</h3>
-              <IconGallery set="brand" />
-            </div>
-          </div>
         </Section>
 
         <Section id="breakpoints" title="Breakpoints & screen sizes">

@@ -23,6 +23,7 @@ export const siteConfig = {
 export const mainNav: NavItem[] = [
   { title: "Docs", href: "/docs/introduction" },
   { title: "Tokens", href: "/docs/tokens" },
+  { title: "Icons", href: "/docs/icons" },
   { title: "Components", href: "/docs/components" },
 ]
 
@@ -33,9 +34,13 @@ const TOKEN_CATEGORIES: NavItem[] = [
   { title: "Spacing", href: "/docs/tokens#spacing" },
   { title: "Border radius", href: "/docs/tokens#border-radius" },
   { title: "Shadows & blurs", href: "/docs/tokens#shadows" },
-  { title: "Icons", href: "/docs/tokens#icons" },
   { title: "Breakpoints & screen sizes", href: "/docs/tokens#breakpoints" },
   { title: "Layout anatomy", href: "/docs/tokens#layout-anatomy" },
+]
+
+const ICON_CATEGORIES: NavItem[] = [
+  { title: "App icons", href: "/docs/icons#app" },
+  { title: "Brand icons", href: "/docs/icons#brand" },
 ]
 
 export const sidebarNav: NavGroup[] = [
@@ -65,6 +70,10 @@ export const sidebarNav: NavGroup[] = [
     items: TOKEN_CATEGORIES,
   },
   {
+    section: "Icons",
+    items: ICON_CATEGORIES,
+  },
+  {
     section: "Components",
     items: [{ title: "Overview", href: "/docs/components" }],
   },
@@ -84,6 +93,7 @@ export function sectionOf(pathname: string): string | null {
   if (exact) return exact.section
   const prefixes: Array<[string, string]> = [
     ["/docs/components", "Components"],
+    ["/docs/icons", "Icons"],
     ["/docs/tokens", "Tokens"],
     ["/docs", "Docs"],
   ]

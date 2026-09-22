@@ -36,14 +36,14 @@ function ComponentCard({ name }: { name: string }) {
   return (
     <Link
       href={`/docs/components/${componentSlug(name)}`}
-      className="group flex flex-col overflow-hidden rounded-[14px] border border-white/10 bg-[var(--color-accent-dark)] transition-transform hover:-translate-y-0.5"
+      className="group flex flex-col overflow-hidden rounded-lg border bg-card transition-colors hover:border-foreground/20 hover:shadow-sm"
     >
-      <div data-nimbus-canvas className="flex h-28 items-center justify-center bg-white/[0.04] p-4">
+      <div data-nimbus-canvas className="flex h-28 items-center justify-center bg-[var(--color-bg-100)] p-4">
         <ComponentThumbnail name={name} />
       </div>
-      <div className="px-4 py-3.5">
-        <div className="font-heading text-[0.95rem] font-semibold text-white">{name}</div>
-        <p className="mt-1 text-[13px] leading-snug text-white/55">{DESCRIPTIONS[name] ?? "Documented from live Storybook stories."}</p>
+      <div className="border-t px-4 py-3.5">
+        <div className="font-heading text-[0.95rem] font-semibold">{name}</div>
+        <p className="mt-1 text-[13px] leading-snug text-muted-foreground">{DESCRIPTIONS[name] ?? "Documented from live Storybook stories."}</p>
       </div>
     </Link>
   )
