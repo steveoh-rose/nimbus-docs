@@ -8,8 +8,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-family-regular);
-  --font-heading: var(--font-family-accent);
+  /*
+   * The docs site chrome (nav, sidebar, page copy) uses the OS font stack, the way
+   * primer.style and most reference doc sites do — Nimbus's own Open Sans / Montserrat
+   * tokens are reserved for [data-nimbus-canvas] and the Typography token specimens,
+   * where we're actually demonstrating the product's real type.
+   */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-sans);
   --font-mono: var(--font-roboto-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -77,7 +83,7 @@
   --chart-3: var(--color-success-300);
   --chart-4: var(--color-accent-highlight-1);
   --chart-5: var(--color-accent-bright-2);
-  --radius: 0.625rem; /* 10px: --size-spacer-sm, used for cards and panels */
+  --radius: 0.5rem; /* 8px: a tighter, Primer-like scale for our own chrome (not Nimbus's own component radii) */
   --sidebar: var(--color-bg-100);
   --sidebar-foreground: var(--color-text-500);
   --sidebar-primary: var(--color-primary-300);
@@ -102,8 +108,7 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-family-accent);
-    font-weight: var(--font-weight-heading);
+    font-weight: 600;
     text-wrap: balance;
   }
 }

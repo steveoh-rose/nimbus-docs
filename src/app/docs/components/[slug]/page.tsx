@@ -4,7 +4,7 @@ import { DocShell } from "@/components/doc-shell"
 import { MdxBody } from "@/components/nimbus/mdx-body"
 import { ShareLinksBar } from "@/components/nimbus/blocks"
 import { componentHeadings, getComponentSections } from "@/lib/nimbus"
-import { componentBySlug, documentedComponents, componentSlug } from "@/lib/nimbus-nav"
+import { componentBySlug, componentSlug, componentTiers, documentedComponents } from "@/lib/nimbus-nav"
 
 export const dynamicParams = false
 
@@ -25,7 +25,8 @@ export default async function ComponentPage({ params }: PageProps) {
   const component = componentBySlug(slug)
   if (!component) notFound()
 
-  const sections = getComponentSections(component.name)
+  const isComplex = componentTiers().complex.includes(component.name)
+  const sections = getComponentSections(component.name, isComplex)
   const links = {
     github: `https://github.com/ConsoleConnect/nimbus-ui/tree/main/src/core/${component.name}`,
     ...(sections.find((s) => Object.keys(s.links).length)?.links ?? {}),
@@ -34,6 +35,7 @@ export default async function ComponentPage({ params }: PageProps) {
   return (
     <DocShell
       title={component.name}
+      eyebrow={isComplex ? "Complex component" : "Core component"}
       headings={componentHeadings(sections)}
       actions={<ShareLinksBar links={links} />}
     >

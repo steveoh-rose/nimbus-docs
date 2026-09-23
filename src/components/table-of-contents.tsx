@@ -40,7 +40,7 @@ export function TableOfContents({
 
   return (
     <aside className={cn("sticky top-[7rem] hidden h-fit max-h-[calc(100vh-8rem)] w-56 shrink-0 overflow-y-auto xl:block", className)}>
-      <h4 className="mb-2 text-[13px] font-semibold">On this page</h4>
+      <h4 className="mb-2 text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">On this page</h4>
       <ul className="flex flex-col text-sm">
         {headings.map((heading) => (
           <li key={heading.slug}>

@@ -23,11 +23,14 @@ export function StoryBlock({
   name,
   controls,
   heading,
+  dense,
 }: {
   storyKey: string
   name?: string
   controls?: boolean
   heading?: boolean
+  /** Sharp, radius-free corners — the Carbon-influenced treatment for "complex" components. */
+  dense?: boolean
 }) {
   const infos = readStories(storyKey)
   const info = name ? infos.find((i) => i.exportName === name) : infos[0]
@@ -43,6 +46,7 @@ export function StoryBlock({
         exportName={info.exportName}
         controls={controls}
         collapsible={info.code.split("\n").length > 8}
+        dense={dense}
         codeSlot={
           info.code ? <CodeBlock code={info.code} lang="tsx" className="my-0 rounded-none border-0" /> : undefined
         }
@@ -51,12 +55,20 @@ export function StoryBlock({
   )
 }
 
-export function StoriesList({ storyKey, includePrimary }: { storyKey: string; includePrimary?: boolean }) {
+export function StoriesList({
+  storyKey,
+  includePrimary,
+  dense,
+}: {
+  storyKey: string
+  includePrimary?: boolean
+  dense?: boolean
+}) {
   const infos = readStories(storyKey)
   return (
     <>
       {infos.slice(includePrimary ? 0 : 1).map((i) => (
-        <StoryBlock key={i.exportName} storyKey={storyKey} name={i.exportName} heading />
+        <StoryBlock key={i.exportName} storyKey={storyKey} name={i.exportName} heading dense={dense} />
       ))}
     </>
   )

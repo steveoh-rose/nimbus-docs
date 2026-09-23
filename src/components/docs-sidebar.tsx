@@ -47,10 +47,10 @@ export function DocsNavList({
                       onClick={onNavigate}
                       aria-current={active ? "page" : undefined}
                       className={cn(
-                        "-ml-px block border-l-2 px-3 py-1.5 text-sm transition-colors",
+                        "-ml-px block rounded-r-md border-l-2 px-3 py-1.5 text-sm transition-colors",
                         active
-                          ? "border-foreground font-medium text-foreground"
-                          : "border-transparent text-muted-foreground hover:border-muted-foreground/40 hover:text-foreground"
+                          ? "border-primary bg-accent/60 font-medium text-foreground"
+                          : "border-transparent text-muted-foreground hover:border-muted-foreground/40 hover:bg-accent/30 hover:text-foreground"
                       )}
                     >
                       {item.title}

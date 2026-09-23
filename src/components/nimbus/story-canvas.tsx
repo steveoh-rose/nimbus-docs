@@ -2,6 +2,7 @@
 
 import * as React from "react"
 
+import { cn } from "@/lib/utils"
 import { storyLoaders } from "@/generated/nimbus-stories"
 import { controlsFor, resolveStory, type StoryModule } from "@/lib/story-runtime"
 import { StoryArgsContext } from "@/shims/storybook-addons"
@@ -98,12 +99,14 @@ function StoryInner({
   controls,
   codeSlot,
   collapsible,
+  dense,
 }: {
   storyKey: string
   exportName: string
   controls: boolean
   codeSlot?: React.ReactNode
   collapsible: boolean
+  dense: boolean
 }) {
   const mod = React.use(loadModule(storyKey))
   const resolved = React.useMemo(() => resolveStory(mod, exportName), [mod, exportName])
@@ -192,7 +195,7 @@ function StoryInner({
   ) : null
 
   return (
-    <div className="overflow-hidden rounded-[10px] border bg-white">
+    <div className={cn("overflow-hidden border bg-white", dense ? "rounded-none" : "rounded-[10px]")}>
       {preview}
       {controlsPanel}
       {codeSlot ? <CodePanel collapsible={collapsible}>{codeSlot}</CodePanel> : null}
@@ -213,12 +216,20 @@ export function StoryCanvas(props: {
   codeSlot?: React.ReactNode
   /** Collapse the code panel behind an "Expand code" button. */
   collapsible?: boolean
+  /** Sharp, radius-free corners — the Carbon-influenced treatment for "complex" components. */
+  dense?: boolean
 }) {
   const isClient = useIsClient()
-  if (!isClient) return <Skeleton className="h-40 w-full rounded-[10px]" />
+  const skeletonRadius = props.dense ? "rounded-none" : "rounded-[10px]"
+  if (!isClient) return <Skeleton className={cn("h-40 w-full", skeletonRadius)} />
   return (
-    <React.Suspense fallback={<Skeleton className="h-40 w-full rounded-[10px]" />}>
-      <StoryInner {...props} controls={props.controls ?? false} collapsible={props.collapsible ?? false} />
+    <React.Suspense fallback={<Skeleton className={cn("h-40 w-full", skeletonRadius)} />}>
+      <StoryInner
+        {...props}
+        controls={props.controls ?? false}
+        collapsible={props.collapsible ?? false}
+        dense={props.dense ?? false}
+      />
     </React.Suspense>
   )
 }

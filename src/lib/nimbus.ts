@@ -25,7 +25,12 @@ const q = (s: string) => JSON.stringify(s)
  * Converts a Storybook MDX docs page (doc blocks + Meta/Title/Canvas/Controls) into MDX our
  * site can render, mapping the blocks onto our own components.
  */
-export function transformStorybookMdx(raw: string, mdxRel: string): { body: string; links: ShareLinks } {
+export function transformStorybookMdx(
+  raw: string,
+  mdxRel: string,
+  dense = false
+): { body: string; links: ShareLinks } {
+  const d = dense ? " dense" : ""
   const dir = path.posix.dirname(mdxRel)
   const component = mdxRel.split("/")[0]
   const aliases: Record<string, string> = {}
@@ -75,33 +80,34 @@ export function transformStorybookMdx(raw: string, mdxRel: string): { body: stri
 
   text = text
     .replace(/<Canvas\s+of=\{(\w+)\.(\w+)\}[^>]*\/>/g, (_m, a, name) =>
-      `<StoryBlock storyKey=${q(aliases[a] ?? defaultKey)} name=${q(name)} />`)
+      `<StoryBlock storyKey=${q(aliases[a] ?? defaultKey)} name=${q(name)}${d} />`)
     .replace(/<Story\s+of=\{(\w+)\.(\w+)\}[^>]*\/>/g, (_m, a, name) =>
-      `<StoryBlock storyKey=${q(aliases[a] ?? defaultKey)} name=${q(name)} />`)
-    .replace(/<Canvas[^>]*\/>/g, () => `<StoryBlock storyKey=${q(defaultKey)} controls />`)
-    .replace(/<Stories\s+of=\{(\w+)\}[^>]*\/>/g, (_m, a) => `<StoriesList storyKey=${q(aliases[a] ?? defaultKey)} />`)
-    .replace(/<Stories[^>]*\/>/g, () => `<StoriesList storyKey=${q(defaultKey)} />`)
+      `<StoryBlock storyKey=${q(aliases[a] ?? defaultKey)} name=${q(name)}${d} />`)
+    .replace(/<Canvas[^>]*\/>/g, () => `<StoryBlock storyKey=${q(defaultKey)} controls${d} />`)
+    .replace(/<Stories\s+of=\{(\w+)\}[^>]*\/>/g, (_m, a) => `<StoriesList storyKey=${q(aliases[a] ?? defaultKey)}${d} />`)
+    .replace(/<Stories[^>]*\/>/g, () => `<StoriesList storyKey=${q(defaultKey)}${d} />`)
     .replace(/<ArgTypes[\s\S]*?\/>/g, () => `<ApiTable component=${q(component)} storyKey=${q(defaultKey)} />`)
 
   return { body: text.trim() + "\n", links }
 }
 
-export function getComponentSections(name: string): ComponentDocSection[] {
+export function getComponentSections(name: string, dense = false): ComponentDocSection[] {
   const entry = nimbusComponents[name]
   if (!entry) return []
   const sections: ComponentDocSection[] = []
   for (const rel of entry.docs) {
     const raw = fs.readFileSync(path.join(CORE_DIR, rel), "utf8")
-    const { body, links } = transformStorybookMdx(raw, rel)
+    const { body, links } = transformStorybookMdx(raw, rel, dense)
     const base = path.posix.basename(rel, ".mdx")
     sections.push({ title: entry.docs.length > 1 ? base : undefined, body, links })
   }
   if (!sections.length) {
     // no hand-written page: synthesise Examples + API from stories
     const key = entry.stories[0]
+    const d = dense ? " dense" : ""
     sections.push({
       body: `## Usage\n\n\`\`\`\nimport { ${name} } from '@console/nimbus-ui/core';\n\`\`\`\n\n## Examples\n\n${entry.stories
-        .map((s) => `<StoriesList storyKey=${q(s)} includePrimary />`)
+        .map((s) => `<StoriesList storyKey=${q(s)} includePrimary${d} />`)
         .join("\n\n")}\n\n## API\n\n<ApiTable component=${q(name)} storyKey=${q(key)} />\n`,
       links: {},
     })
