@@ -3,6 +3,7 @@ import Link from "next/link"
 import { DocShell } from "@/components/doc-shell"
 import { ComponentThumbnail } from "@/components/nimbus/component-thumbnails"
 import { componentSlug, componentTiers } from "@/lib/nimbus-nav"
+import { cn } from "@/lib/utils"
 
 export const metadata = { title: "Components" }
 
@@ -32,11 +33,14 @@ const DESCRIPTIONS: Record<string, string> = {
   Tooltip: "Short hint revealed on hover or focus.",
 }
 
-function ComponentCard({ name }: { name: string }) {
+function ComponentCard({ name, dense }: { name: string; dense?: boolean }) {
   return (
     <Link
       href={`/docs/components/${componentSlug(name)}`}
-      className="group flex flex-col overflow-hidden rounded-lg border bg-card transition-colors hover:border-foreground/20 hover:shadow-sm"
+      className={cn(
+        "group flex flex-col overflow-hidden border bg-card transition-colors hover:border-foreground/20 hover:shadow-sm",
+        dense ? "rounded-none" : "rounded-lg"
+      )}
     >
       <div data-nimbus-canvas className="flex h-28 items-center justify-center bg-[var(--color-bg-100)] p-4">
         <ComponentThumbnail name={name} />
@@ -73,7 +77,7 @@ export default function ComponentsOverviewPage() {
           <p className="mb-5 text-muted-foreground">Composite, overlay-driven or data-heavy components, built from the core set.</p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {complex.map((name) => (
-              <ComponentCard key={name} name={name} />
+              <ComponentCard key={name} name={name} dense />
             ))}
           </div>
         </section>
