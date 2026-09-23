@@ -60,7 +60,8 @@
  * Nimbus is a light-only design system, so there is no dark theme.
  */
 :root {
-  --background: var(--color-bg-100);
+  /* Plain white page canvas (HeroUI/Primer convention) instead of Nimbus's cool-tinted bg-100 */
+  --background: var(--color-bg-default);
   --foreground: var(--color-text-500);
   --card: var(--color-bg-default);
   --card-foreground: var(--color-text-500);
