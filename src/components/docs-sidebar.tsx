@@ -37,7 +37,7 @@ export function DocsNavList({
                 {group.title}
               </h5>
             ) : null}
-            <ul className="flex flex-col gap-0.5 border-l">
+            <ul className="flex flex-col gap-0.5">
               {group.items.map((item) => {
                 const active = pathname === item.href
                 return (
@@ -47,10 +47,10 @@ export function DocsNavList({
                       onClick={onNavigate}
                       aria-current={active ? "page" : undefined}
                       className={cn(
-                        "-ml-px block rounded-r-md border-l-2 px-3 py-1.5 text-sm transition-colors",
+                        "block rounded-md px-3 py-1.5 text-sm transition-colors",
                         active
-                          ? "border-primary bg-accent/60 font-medium text-foreground"
-                          : "border-transparent text-muted-foreground hover:border-muted-foreground/40 hover:bg-accent/30 hover:text-foreground"
+                          ? "bg-accent font-medium text-foreground"
+                          : "text-muted-foreground hover:bg-accent/40 hover:text-foreground"
                       )}
                     >
                       {item.title}
