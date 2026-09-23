@@ -9,12 +9,12 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   /*
-   * The docs site chrome (nav, sidebar, page copy) uses the OS font stack, the way
-   * primer.style and most reference doc sites do — Nimbus's own Open Sans / Montserrat
-   * tokens are reserved for [data-nimbus-canvas] and the Typography token specimens,
-   * where we're actually demonstrating the product's real type.
+   * The docs site chrome (nav, sidebar, page copy) uses Inter, the way HeroUI's own docs
+   * (Fumadocs) do — Nimbus's own Open Sans / Montserrat tokens are reserved for
+   * [data-nimbus-canvas] and the Typography token specimens, where we're actually
+   * demonstrating the product's real type.
    */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-heading: var(--font-sans);
   --font-mono: var(--font-roboto-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
   --color-sidebar-ring: var(--sidebar-ring);

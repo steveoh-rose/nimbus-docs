@@ -41,16 +41,16 @@ export function TableOfContents({
   return (
     <aside className={cn("sticky top-[7rem] hidden h-fit max-h-[calc(100vh-8rem)] w-56 shrink-0 overflow-y-auto xl:block", className)}>
       <h4 className="mb-2 text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">On this page</h4>
-      <ul className="flex flex-col text-sm">
+      <ul className="flex flex-col border-l text-sm">
         {headings.map((heading) => (
           <li key={heading.slug}>
             <a
               href={`#${heading.slug}`}
               aria-current={active === heading.slug ? "location" : undefined}
               className={cn(
-                "block py-1 transition-colors hover:text-foreground",
-                heading.depth === 3 && "pl-3",
-                active === heading.slug ? "font-medium text-foreground" : "text-muted-foreground"
+                "block py-1 pl-3 transition-colors hover:text-foreground",
+                heading.depth === 3 && "pl-6",
+                active === heading.slug ? "font-medium text-primary" : "text-muted-foreground"
               )}
             >
               {heading.text}

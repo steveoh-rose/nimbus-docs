@@ -133,7 +133,7 @@ export function ShareLinksBar({ links }: { links: ShareLinks }) {
           href={item.href}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex h-8 items-center gap-2 rounded-full border bg-white px-3 text-sm transition-colors hover:bg-[var(--color-bg-200)]"
+          className="inline-flex h-8 items-center gap-2 rounded-full bg-muted px-3 text-sm transition-colors hover:bg-accent"
         >
           {item.icon}
           {item.label}

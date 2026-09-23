@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +8,14 @@ import { siteConfig } from "@/lib/nav-config";
 
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+// Docs chrome font (nav, sidebar, page copy) — HeroUI's own docs use Inter.
+// Nimbus's Open Sans / Montserrat tokens stay reserved for the product itself, below.
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -26,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${robotoMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${robotoMono.variable} ${inter.variable} h-full antialiased`}>
       <head>
         {/* Nimbus typography tokens: Open Sans (body) and Montserrat (accent) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -26,7 +26,7 @@ export function DocShell({
         <Breadcrumb title={title} />
         {eyebrow ? <p className="mb-1.5 text-sm font-medium text-muted-foreground">{eyebrow}</p> : null}
         <div className="mb-5 flex items-start justify-between gap-4">
-          <h1 className="scroll-mt-32 text-[2rem] leading-[1.2] font-semibold tracking-tight">{title}</h1>
+          <h1 className="scroll-mt-32 text-[1.75rem] leading-[1.2] font-semibold tracking-tight">{title}</h1>
           <CopyPageButton />
         </div>
         {description ? (
