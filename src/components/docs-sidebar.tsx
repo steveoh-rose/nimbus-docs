@@ -67,6 +67,11 @@ export function DocsNavList({
 }
 
 export function DocsSidebar({ className }: { className?: string }) {
+  const pathname = usePathname()
+  // The Tokens section is a single page whose categories are already listed in its own
+  // "On this page" ToC — a left sidebar repeating the same list is pure redundancy.
+  if (sectionOf(pathname) === "Tokens") return null
+
   return (
     <aside
       className={cn(
