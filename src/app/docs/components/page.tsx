@@ -42,7 +42,17 @@ function ComponentCard({ name, dense }: { name: string; dense?: boolean }) {
         dense ? "rounded-none" : "rounded-lg"
       )}
     >
-      <div data-nimbus-canvas className="flex h-28 items-center justify-center bg-[var(--color-bg-100)] p-4">
+      {/*
+        Several thumbnails (Button, Checkbox, Switch, Menu, Popover, ...) render real,
+        interactive Nimbus components nested inside this <Link>. `inert` makes that subtree
+        unfocusable, unclickable and hidden from assistive tech in one attribute, so the card
+        behaves as a single link instead of a button-inside-a-button / input-inside-a-link mess.
+      */}
+      <div
+        data-nimbus-canvas
+        inert
+        className="flex h-28 items-center justify-center bg-[var(--color-bg-100)] p-4"
+      >
         <ComponentThumbnail name={name} />
       </div>
       <div className="border-t px-4 py-3.5">
