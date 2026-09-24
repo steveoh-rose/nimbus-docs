@@ -79,6 +79,53 @@ export function shadowTokens(): ShadowToken[] {
   }))
 }
 
+/** WCAG 2 relative luminance + contrast ratio, straight from the spec formula. */
+function relativeLuminance(hex: string): number {
+  const n = hex.replace("#", "")
+  const [r, g, b] = [0, 2, 4].map((i) => parseInt(n.slice(i, i + 2), 16) / 255)
+  const f = (c: number) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4)
+  const [R, G, B] = [r, g, b].map(f)
+  return 0.2126 * R + 0.7152 * G + 0.0722 * B
+}
+
+export function contrastRatio(hexA: string, hexB: string): number {
+  const [l1, l2] = [relativeLuminance(hexA), relativeLuminance(hexB)].sort((a, b) => b - a)
+  return (l1 + 0.05) / (l2 + 0.05)
+}
+
+export const PALETTE_FAMILIES = [
+  "sky",
+  "lavender",
+  "ocean",
+  "emerald",
+  "gold",
+  "amber",
+  "ruby",
+  "graphite",
+  "stone",
+  "slate",
+] as const
+
+export const PALETTE_STEPS = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950"] as const
+
+/**
+ * Contrast ratio against white for every palette family, at every step. Used to demonstrate
+ * that the palette's perceptual-lightness steps hold a consistent contrast regardless of hue —
+ * step 500 passes AA text contrast (4.5:1) in every family, not just some.
+ */
+export function paletteContrastTable() {
+  const byName = new Map(allTokens().map((t) => [t.name, t]))
+  return PALETTE_STEPS.map((step) => ({
+    step,
+    values: Object.fromEntries(
+      PALETTE_FAMILIES.map((family) => {
+        const token = byName.get(`--color-palette-${family}-${step}`)
+        return [family, token ? Math.round(contrastRatio(token.value, "#ffffff") * 100) / 100 : null]
+      })
+    ) as Record<(typeof PALETTE_FAMILIES)[number], number | null>,
+  }))
+}
+
 export type SemanticToken = { name: string; alias: string; value: string; note?: string }
 
 /**

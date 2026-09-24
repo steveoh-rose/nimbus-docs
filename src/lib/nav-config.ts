@@ -55,7 +55,10 @@ export const sidebarNav: NavGroup[] = [
   {
     section: "Docs",
     title: "Foundations",
-    items: [{ title: "Tone of voice", href: "/docs/foundations/tone-of-voice" }],
+    items: [
+      { title: "Tone of voice", href: "/docs/foundations/tone-of-voice" },
+      { title: "Color system", href: "/docs/foundations/color-system" },
+    ],
   },
   {
     section: "Docs",

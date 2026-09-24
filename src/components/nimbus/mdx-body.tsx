@@ -12,6 +12,7 @@ import { Do, DoDont, Dont, Note } from "@/components/content/guidance"
 import { ToneTraits } from "@/components/content/tone-traits"
 import { PatternIndex } from "@/components/content/pattern-index"
 import { ValidationDemo } from "@/components/content/validation-demo"
+import { ContrastConsistencyTable, PaletteFamilySwatches } from "@/components/content/color-system-visuals"
 import { List, Info } from "@nimbus/assets/icons/app"
 
 /** Stand-ins for legacy nimbus-ui pieces some Storybook pages embed inline. */
@@ -39,6 +40,8 @@ const components = {
   ToneTraits,
   PatternIndex,
   ValidationDemo,
+  ContrastConsistencyTable,
+  PaletteFamilySwatches,
 }
 
 export function MdxBody({ source, format = "mdx" }: { source: string; format?: "mdx" | "md" }) {

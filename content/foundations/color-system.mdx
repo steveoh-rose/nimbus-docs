@@ -1,0 +1,45 @@
+---
+title: Color system
+description: How Nimbus's palette is built so contrast stays predictable no matter which hue you reach for.
+---
+
+Nimbus's palette is built to be:
+
+- **Accessible by construction.** Every hue family holds roughly the same contrast ratio at the same step, so step 500 or darker is a safe bet for text on a light background — in any of the ten families.
+- **Consistent across hues.** Reaching for `ruby-700` and `ocean-700` should feel the same, not just look thematically related.
+- **Scalable.** A new hue family can be added later without inventing new rules — it just inherits the same eleven-step ramp every other family uses.
+
+## Why hue-independent contrast is hard
+
+Brightness, as HSB or raw RGB defines it, doesn't match how bright a color actually looks to a human eye. A saturated yellow and a saturated blue at the "same" HSB brightness value can differ enormously in perceived lightness and, as a result, in contrast against white. Build a palette by picking a hue and sliding its HSB brightness down in even steps, and the ramps end up inconsistent: some hues cross the WCAG AA text threshold (4.5:1) two or three steps earlier than others.
+
+This is the same problem other design teams have written about publicly — Goldman Sachs' color system write-up is a good account of solving it by hand, testing each ramp's contrast ratio and adjusting saturation and brightness swatch by swatch until every ramp lined up.
+
+## Our approach: a perceptual palette
+
+Nimbus's ten hue families — sky, lavender, ocean, emerald, gold, amber, ruby, graphite, stone and slate — are built the other way around: each of the eleven steps (50 through 950) targets a consistent **perceptual** lightness across every family, rather than a consistent HSB brightness value. Pick any family, land on step 500, and you land on roughly the same perceived lightness — and the same contrast against white — every time.
+
+<Note title="Verified, not asserted">
+The table below isn't a claim — it's computed straight from the hex values shipped in `cc-design-tokens`, using the WCAG relative-luminance formula.
+</Note>
+
+<ContrastConsistencyTable />
+
+Step 500 clears the WCAG AA threshold for normal text (4.5:1) in every one of the ten families, within a few hundredths of each other. Steps 50 through 300 sit well under that threshold across the board — they're built for fills and large surfaces, not body text, regardless of hue.
+
+## Choosing accessible pairs
+
+Because contrast holds steady by step rather than by hue, the rule of thumb is the same everywhere in the palette:
+
+<DoDont>
+  <Do>Use step 500 or darker for text on a white or light background — true for every hue family.</Do>
+  <Dont>Use step 300 or lighter for body text. It reads as a fill color at that step, not text, in every family.</Dont>
+</DoDont>
+
+This is also why Nimbus's semantic tokens (`color-primary-100` through `color-primary-500`, and the equivalent for success, error and the rest) only ever span five steps: the lightest four are surfaces and borders, and 500 is where text becomes safe.
+
+## The result
+
+<PaletteFamilySwatches />
+
+These are the same ten families documented on the [Tokens page](/docs/tokens#color), where each step also resolves to its palette alias and hex value.
