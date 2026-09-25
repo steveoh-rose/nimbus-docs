@@ -18,23 +18,14 @@ function textColorFor(hex: string): string {
 }
 
 /**
- * One color family as a swatch card: a colored header (family name + its representative step)
- * over a stacked list of every step, each row filled with that step's own resolved color.
+ * One color family: its name floats above as a plain label (no background), followed by a
+ * card stacking every step, each row filled with that step's own resolved color.
  */
 function ColorGroupCard({ group }: { group: ReturnType<typeof colorGroups>[number] }) {
-  const header = group.tokens.find((t) => stepOf(t.name, group.key) === "500") ?? group.tokens[0]
   return (
-    <div id={group.key} className="scroll-mt-24 overflow-hidden rounded-md border">
-      <div
-        className="flex items-center justify-between px-4 py-3"
-        style={{ background: `var(${header.name})`, color: textColorFor(header.value) }}
-      >
-        <span className="text-xs font-bold tracking-wide uppercase">{group.title}</span>
-        <span className="font-mono text-xs">
-          {stepOf(header.name, group.key)} {header.value}
-        </span>
-      </div>
-      <div>
+    <div id={group.key} className="scroll-mt-24">
+      <h4 className="mb-2 text-sm font-semibold text-foreground">{group.title}</h4>
+      <div className="overflow-hidden rounded-md border">
         {group.tokens.map((t) => (
           <div
             key={t.name}
@@ -51,12 +42,36 @@ function ColorGroupCard({ group }: { group: ReturnType<typeof colorGroups>[numbe
   )
 }
 
-export function ColorTokens() {
+function ColorGroupGrid({ groups }: { groups: ReturnType<typeof colorGroups> }) {
   return (
-    <div className="not-prose grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-      {colorGroups().map((group) => (
+    <div className="not-prose grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      {groups.map((group) => (
         <ColorGroupCard key={group.key} group={group} />
       ))}
+    </div>
+  )
+}
+
+export function ColorTokens() {
+  const groups = colorGroups()
+  const brand = groups.filter((g) => g.key === "brand")
+  const palette = groups.filter((g) => g.key.startsWith("palette"))
+  const semantic = groups.filter((g) => g.key !== "brand" && !g.key.startsWith("palette"))
+
+  return (
+    <div className="space-y-10">
+      <section id="color-brand" className="scroll-mt-24">
+        <h3 className="mb-4 text-base font-semibold tracking-tight">Brand colors</h3>
+        <ColorGroupGrid groups={brand} />
+      </section>
+      <section id="color-semantic" className="scroll-mt-24">
+        <h3 className="mb-4 text-base font-semibold tracking-tight">Semantic colors</h3>
+        <ColorGroupGrid groups={semantic} />
+      </section>
+      <section id="color-palette" className="scroll-mt-24">
+        <h3 className="mb-4 text-base font-semibold tracking-tight">Palette colors</h3>
+        <ColorGroupGrid groups={palette} />
+      </section>
     </div>
   )
 }

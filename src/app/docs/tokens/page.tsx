@@ -11,6 +11,9 @@ export const metadata = { title: "Tokens" }
 const HEADINGS = [
   { depth: 2 as const, text: "Design tokens", slug: "design-tokens" },
   { depth: 2 as const, text: "Color", slug: "color" },
+  { depth: 3 as const, text: "Brand colors", slug: "color-brand" },
+  { depth: 3 as const, text: "Semantic colors", slug: "color-semantic" },
+  { depth: 3 as const, text: "Palette colors", slug: "color-palette" },
   { depth: 2 as const, text: "Typography", slug: "typography" },
   { depth: 2 as const, text: "Spacing", slug: "spacing" },
   { depth: 2 as const, text: "Border radius", slug: "border-radius" },
