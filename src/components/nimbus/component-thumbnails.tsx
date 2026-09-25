@@ -1,26 +1,14 @@
-"use client"
+import { Calendar, ChevronDown, Check, Cloud, CloudUpload, Info, MoreVertical } from "@nimbus/assets/icons/app"
 
-import * as React from "react"
-import {
-  Badge,
-  Button,
-  Callout,
-  Checkbox,
-  Disclosure,
-  Menu,
-  MenuTrigger,
-  Popover,
-  PopoverTrigger,
-  Radio,
-  Spinner,
-  Switch,
-  TextInput,
-} from "@nimbus/core"
-import { Calendar, ChevronDown, Cloud, CloudUpload, Info, MoreVertical } from "@nimbus/assets/icons/app"
-
-function Mock({ children }: { children: React.ReactNode }) {
-  return <div className="flex flex-col items-center gap-1.5 text-center">{children}</div>
-}
+/**
+ * One small illustrative preview per documented component, for the components overview grid.
+ *
+ * These are static markup, not live Nimbus/React Aria components. The cards that host them are
+ * `inert` (see docs/components/page.tsx) so none of this is ever actually operable — rendering
+ * real Button/Checkbox/Menu/Popover instances here paid for react-aria's hooks, effects and (for
+ * Menu/Popover) portal + positioning setup on 22 cards for a purely decorative preview. This file
+ * has no "use client" and no @nimbus/core import, so it ships zero extra client JS.
+ */
 function Chip({ children, tone = "default" }: { children: React.ReactNode; tone?: "default" | "primary" }) {
   return (
     <span
@@ -34,53 +22,66 @@ function Chip({ children, tone = "default" }: { children: React.ReactNode; tone?
   )
 }
 
-/** One small illustrative preview per documented component, for the components overview grid. */
 export const COMPONENT_THUMBNAILS: Record<string, React.ReactNode> = {
   Button: (
-    <div className="flex items-center gap-2">
-      <Button variant="primary">Button</Button>
-    </div>
+    <span className="inline-flex h-9 items-center rounded-[5px] bg-primary px-4 text-sm font-medium text-primary-foreground">
+      Button
+    </span>
   ),
   Badge: (
-    <Badge intent="info">
-      <Badge.Icon />
-      <Badge.Label>Badge</Badge.Label>
-    </Badge>
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-primary-100)] px-2.5 py-1 text-xs font-medium text-[var(--color-primary-500)]">
+      <Info className="size-3.5" />
+      Badge
+    </span>
   ),
   Callout: (
-    <Callout intent="info" className="w-full max-w-52">
-      <Callout.Icon />
-      <Callout.Content>
-        <Callout.Title>Heads up</Callout.Title>
-      </Callout.Content>
-    </Callout>
-  ),
-  Checkbox: (
-    <div className="flex flex-col items-start gap-2">
-      <Checkbox defaultSelected>Remember me</Checkbox>
+    <div className="flex w-full max-w-52 items-start gap-2 rounded-md bg-[var(--color-primary-100)] p-3 text-left">
+      <Info className="mt-0.5 size-4 shrink-0 text-[var(--color-primary-500)]" />
+      <div className="text-xs font-medium text-[var(--color-primary-500)]">Heads up</div>
     </div>
   ),
-  Radio: (
-    <Radio.Group aria-label="Plan" defaultValue="pro">
-      <Radio value="pro">Pro</Radio>
-    </Radio.Group>
+  Checkbox: (
+    <label className="inline-flex items-center gap-2 text-sm">
+      <span className="flex size-4 items-center justify-center rounded-[4px] bg-primary text-primary-foreground">
+        <Check className="size-3" />
+      </span>
+      Remember me
+    </label>
   ),
-  Switch: <Switch defaultSelected>Auto-renew</Switch>,
-  TextInput: <TextInput label="Label" placeholder="Placeholder" />,
+  Radio: (
+    <span className="inline-flex items-center gap-1.5 text-sm">
+      <span className="flex size-4 items-center justify-center rounded-full border-2 border-primary">
+        <span className="size-1.5 rounded-full bg-primary" />
+      </span>
+      Pro
+    </span>
+  ),
+  Switch: (
+    <span className="inline-flex items-center gap-2 text-sm">
+      <span className="relative h-5 w-9 rounded-full bg-primary">
+        <span className="absolute top-0.5 right-0.5 size-4 rounded-full bg-white" />
+      </span>
+      Auto-renew
+    </span>
+  ),
+  TextInput: (
+    <div className="w-full max-w-52 text-left">
+      <div className="mb-1 text-xs font-medium">Label</div>
+      <div className="rounded-md border bg-white px-2.5 py-1.5 text-xs text-muted-foreground">Placeholder</div>
+    </div>
+  ),
   TextArea: (
     <div className="w-full max-w-52 rounded-md border bg-white p-2.5 text-left text-xs text-muted-foreground">
       Write a message…
     </div>
   ),
   Disclosure: (
-    <Disclosure className="w-full max-w-52">
-      <Disclosure.Header>
-        What is Nimbus?
-        <Disclosure.Indicator />
-      </Disclosure.Header>
-    </Disclosure>
+    <div className="flex w-full max-w-52 items-center justify-between rounded-md border bg-white px-3 py-2 text-left text-sm font-medium">
+      What is Nimbus?
+      <ChevronDown className="size-4 text-muted-foreground" />
+    </div>
   ),
-  Spinner: <Spinner size="lg" />,
+  Spinner: <div className="size-8 animate-spin rounded-full border-2 border-primary border-t-transparent" />,
   Label: (
     <div className="text-left">
       <span className="text-sm font-medium">Field label</span>
@@ -88,35 +89,36 @@ export const COMPONENT_THUMBNAILS: Record<string, React.ReactNode> = {
     </div>
   ),
   Menu: (
-    <MenuTrigger>
-      <Button variant="outline" size="sm">
-        <MoreVertical />
-      </Button>
-      <Menu>
-        <Menu.Item>Rename</Menu.Item>
-        <Menu.Item>Delete</Menu.Item>
-      </Menu>
-    </MenuTrigger>
+    <div className="flex flex-col items-center gap-2">
+      <span className="flex size-8 items-center justify-center rounded-md border bg-white">
+        <MoreVertical className="size-4 text-muted-foreground" />
+      </span>
+      <div className="w-24 rounded-md border bg-white p-1 text-left text-[11px] shadow-sm">
+        <div className="rounded px-2 py-1">Rename</div>
+        <div className="rounded px-2 py-1">Delete</div>
+      </div>
+    </div>
   ),
   Popover: (
-    <PopoverTrigger>
-      <Button variant="outline">
-        Filter <ChevronDown />
-      </Button>
-      <Popover>
-        <Popover.Content>
-          <Popover.Body>
-            <Checkbox defaultSelected>Active</Checkbox>
-          </Popover.Body>
-        </Popover.Content>
-      </Popover>
-    </PopoverTrigger>
+    <div className="flex flex-col items-center gap-2">
+      <span className="inline-flex items-center gap-1 rounded-md border bg-white px-3 py-1.5 text-xs">
+        Filter <ChevronDown className="size-3.5 text-muted-foreground" />
+      </span>
+      <div className="w-32 rounded-md border bg-white p-2 text-left text-[11px] shadow-sm">
+        <div className="flex items-center gap-1.5">
+          <span className="flex size-3 items-center justify-center rounded-[3px] bg-primary text-white">
+            <Check className="size-2" />
+          </span>
+          Active
+        </div>
+      </div>
+    </div>
   ),
   Tooltip: (
-    <Mock>
+    <div className="flex flex-col items-center gap-1.5 text-center">
       <span className="rounded-md bg-[var(--color-accent-dark)] px-2.5 py-1 text-xs text-white">Tooltip text</span>
       <span className="size-2 -translate-y-px rotate-45 bg-[var(--color-accent-dark)]" />
-    </Mock>
+    </div>
   ),
   Dialog: (
     <div className="w-full max-w-52 rounded-md border bg-white p-3 text-left shadow-md">

@@ -12,15 +12,21 @@ const sets = {
   brand: brandIcons as unknown as Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>>,
 }
 
+const PAGE_SIZE = 60
+
 export function IconGallery({ set }: { set: "app" | "brand" }) {
   const [query, setQuery] = React.useState("")
   const [copied, setCopied] = React.useState<string | null>(null)
+  const [limit, setLimit] = React.useState(PAGE_SIZE)
 
   const names = React.useMemo(
     () => Object.keys(sets[set]).filter((n) => n !== "default").sort(),
     [set]
   )
-  const shown = names.filter((n) => n.toLowerCase().includes(query.trim().toLowerCase()))
+  const matches = names.filter((n) => n.toLowerCase().includes(query.trim().toLowerCase()))
+  // Rendering all 100+ icons at once (each a mounted SVG component) is wasted work when most
+  // visits only look at a handful — show a page's worth up front and let people ask for more.
+  const shown = matches.slice(0, limit)
 
   async function copy(name: string) {
     await navigator.clipboard.writeText(`import { ${name} } from '@console/nimbus-assets/icons/${set}';`)
@@ -34,14 +40,20 @@ export function IconGallery({ set }: { set: "app" | "brand" }) {
         <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
         <Input
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            setQuery(e.target.value)
+            setLimit(PAGE_SIZE)
+          }}
           placeholder={`Search ${names.length} ${set} icons…`}
           className="pl-9"
           aria-label="Search icons"
         />
       </div>
       <p className="mb-4 text-sm text-muted-foreground">
-        {shown.length} of {names.length} icons. Click an icon to copy its import.
+        {matches.length === names.length
+          ? `${names.length} icons`
+          : `${matches.length} of ${names.length} icons`}
+        , showing {shown.length}. Click an icon to copy its import.
       </p>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {shown.map((name) => {
@@ -65,6 +77,15 @@ export function IconGallery({ set }: { set: "app" | "brand" }) {
           )
         })}
       </div>
+      {matches.length > shown.length ? (
+        <button
+          type="button"
+          onClick={() => setLimit((l) => l + PAGE_SIZE)}
+          className="mt-4 text-sm font-medium text-primary hover:underline"
+        >
+          Show {Math.min(PAGE_SIZE, matches.length - shown.length)} more
+        </button>
+      ) : null}
     </div>
   )
 }

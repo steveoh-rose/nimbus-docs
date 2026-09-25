@@ -39,9 +39,15 @@ export default function RootLayout({
         {/* Nimbus typography tokens: Open Sans (body) and Montserrat (accent) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/*
+          Only the weights the token system actually ships (400/600 for both families — see
+          src/nimbus/tokens/build/css/_variables.css) instead of the full default weight range.
+          That's 4 font files instead of 10, with no visual difference: nothing in the tokens
+          or this site ever renders Open Sans at 300/700, Open Sans italic, or Montserrat at 500/700.
+        */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@400;600&display=swap"
           rel="stylesheet"
         />
       </head>

@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import {
   Button,
   Checkbox,
@@ -15,7 +16,7 @@ import {
 import { ChevronDown, MoreVertical } from "@nimbus/assets/icons/app"
 
 import { Showcase } from "@/components/nimbus/hero-demo"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 function FormsPanel() {
   return (
@@ -96,9 +97,17 @@ function OverlaysPanel() {
   )
 }
 
+type PanelKey = "components" | "forms" | "overlays"
+
+// Deliberately not using Tabs' own Content sub-component: it mounts every panel up front, which
+// means all three live Nimbus demos (including Popover/Menu's portal + positioning setup) would
+// instantiate on page load instead of just the one the visitor is looking at. Rendering only the
+// active panel here keeps that cost to a single panel at a time.
 export function HeroPanels() {
+  const [panel, setPanel] = React.useState<PanelKey>("components")
+
   return (
-    <Tabs defaultValue="components" className="w-full items-center gap-6">
+    <Tabs value={panel} onValueChange={(v) => setPanel(v as PanelKey)} className="w-full items-center gap-6">
       <TabsList className="h-10 rounded-full bg-[var(--color-bg-200)] p-1">
         <TabsTrigger value="components" className="rounded-full px-4 data-active:shadow-sm">
           Components
@@ -110,15 +119,9 @@ export function HeroPanels() {
           Overlays
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="components" className="w-full">
-        <Showcase />
-      </TabsContent>
-      <TabsContent value="forms" className="w-full">
-        <FormsPanel />
-      </TabsContent>
-      <TabsContent value="overlays" className="w-full">
-        <OverlaysPanel />
-      </TabsContent>
+      <div className="w-full">
+        {panel === "components" ? <Showcase /> : panel === "forms" ? <FormsPanel /> : <OverlaysPanel />}
+      </div>
     </Tabs>
   )
 }
