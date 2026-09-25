@@ -1,127 +1,124 @@
 "use client"
 
-import * as React from "react"
 import {
+  Badge,
   Button,
+  Callout,
   Checkbox,
   ComboBox,
-  DialogTrigger,
   Menu,
   MenuTrigger,
-  Modal,
   Popover,
   PopoverTrigger,
+  Switch,
   TextInput,
 } from "@nimbus/core"
 import { ChevronDown, MoreVertical } from "@nimbus/assets/icons/app"
 
-import { Showcase } from "@/components/nimbus/hero-demo"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-
-function FormsPanel() {
+function Cell({ className, children }: { className?: string; children: React.ReactNode }) {
   return (
     <div
       data-nimbus-canvas
-      className="mx-auto flex w-full max-w-md flex-col gap-4 rounded-[10px] border bg-white p-8 text-left"
+      className={
+        "flex flex-col justify-center overflow-hidden rounded-xl border bg-white p-5 text-left " + (className ?? "")
+      }
     >
-      <TextInput label="Full name" placeholder="Ada Lovelace" fullWidth />
-      <TextInput label="Work email" placeholder="ada@example.com" fullWidth />
-      <div className="grid gap-1.5">
-        <span className="text-sm font-medium">Region</span>
-        <ComboBox aria-label="Region" placeholder="Singapore">
-          <ComboBox.Item>Singapore</ComboBox.Item>
-          <ComboBox.Item>Frankfurt</ComboBox.Item>
-          <ComboBox.Item>Sydney</ComboBox.Item>
-        </ComboBox>
-      </div>
-      <Checkbox defaultSelected>Send me product updates</Checkbox>
-      <Button variant="primary" fullWidth>
-        Create account
-      </Button>
+      {children}
     </div>
   )
 }
 
-function OverlaysPanel() {
-  return (
-    <div
-      data-nimbus-canvas
-      className="mx-auto flex w-full max-w-md flex-col items-center justify-center gap-5 rounded-[10px] border bg-white p-12"
-    >
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <PopoverTrigger>
-          <Button variant="outline">
-            Filter <ChevronDown />
-          </Button>
-          <Popover>
-            <Popover.Content>
-              <Popover.Header>
-                <Popover.Title>Status</Popover.Title>
-              </Popover.Header>
-              <Popover.Body>
-                <Checkbox defaultSelected>Active</Checkbox>
-                <Checkbox>Provisioning</Checkbox>
-              </Popover.Body>
-            </Popover.Content>
-          </Popover>
-        </PopoverTrigger>
-
-        <MenuTrigger>
-          <Button variant="ghost" size="sm">
-            <MoreVertical />
-          </Button>
-          <Menu>
-            <Menu.Item>Rename</Menu.Item>
-            <Menu.Item>Duplicate</Menu.Item>
-            <Menu.Item>Delete</Menu.Item>
-          </Menu>
-        </MenuTrigger>
-
-        <DialogTrigger>
-          <Button variant="secondary">Open modal</Button>
-          <Modal aria-label="Confirm">
-            <Modal.Close />
-            <Modal.Header>
-              <Modal.Title>Delete Cloud Router?</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>This can&apos;t be undone. Connected sites will lose routing.</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary">Cancel</Button>
-              <Button variant="negative">Delete</Button>
-            </Modal.Footer>
-          </Modal>
-        </DialogTrigger>
-      </div>
-      <p className="text-sm text-muted-foreground">Positioned, dismissed and focus-trapped by React Aria.</p>
-    </div>
-  )
-}
-
-type PanelKey = "components" | "forms" | "overlays"
-
-// Deliberately not using Tabs' own Content sub-component: it mounts every panel up front, which
-// means all three live Nimbus demos (including Popover/Menu's portal + positioning setup) would
-// instantiate on page load instead of just the one the visitor is looking at. Rendering only the
-// active panel here keeps that cost to a single panel at a time.
+/**
+ * A bento grid of small, real Nimbus examples — shadcn.com's homepage pattern, one static
+ * grid instead of a tabbed switcher. Everything here is genuinely interactive (unlike the
+ * decorative /docs/components thumbnails), so it stays a client component.
+ */
 export function HeroPanels() {
-  const [panel, setPanel] = React.useState<PanelKey>("components")
-
   return (
-    <Tabs value={panel} onValueChange={(v) => setPanel(v as PanelKey)} className="w-full items-center gap-6">
-      <TabsList className="h-10 rounded-full bg-[var(--color-bg-200)] p-1">
-        <TabsTrigger value="components" className="rounded-full px-4 data-active:shadow-sm">
-          Components
-        </TabsTrigger>
-        <TabsTrigger value="forms" className="rounded-full px-4 data-active:shadow-sm">
-          Forms
-        </TabsTrigger>
-        <TabsTrigger value="overlays" className="rounded-full px-4 data-active:shadow-sm">
-          Overlays
-        </TabsTrigger>
-      </TabsList>
-      <div className="w-full">
-        {panel === "components" ? <Showcase /> : panel === "forms" ? <FormsPanel /> : <OverlaysPanel />}
-      </div>
-    </Tabs>
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:[grid-auto-rows:1fr]">
+      <Cell className="col-span-2 row-span-2 gap-3">
+        <TextInput label="Connection name" placeholder="my-cloud-router" fullWidth />
+        <div className="grid gap-1.5">
+          <span className="text-sm font-medium">Region</span>
+          <ComboBox aria-label="Region" placeholder="Singapore">
+            <ComboBox.Item>Singapore</ComboBox.Item>
+            <ComboBox.Item>Frankfurt</ComboBox.Item>
+            <ComboBox.Item>Sydney</ComboBox.Item>
+          </ComboBox>
+        </div>
+        <Checkbox defaultSelected>Remember this connection</Checkbox>
+        <Button variant="primary" fullWidth>
+          Create
+        </Button>
+      </Cell>
+
+      <Cell className="col-span-2 items-center">
+        <div className="flex flex-wrap items-center gap-2">
+          <Button variant="primary">Button</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="outline">Outline</Button>
+        </div>
+      </Cell>
+
+      <Cell className="items-center">
+        <div className="flex flex-wrap gap-1.5">
+          <Badge intent="info">
+            <Badge.Icon />
+            <Badge.Label>Info</Badge.Label>
+          </Badge>
+          <Badge intent="success">
+            <Badge.Icon />
+            <Badge.Label>Success</Badge.Label>
+          </Badge>
+        </div>
+      </Cell>
+
+      <Cell className="items-center gap-2.5">
+        <Switch defaultSelected>Auto-renew</Switch>
+        <Checkbox>Notify team</Checkbox>
+      </Cell>
+
+      <Cell className="row-span-2 items-center justify-center gap-4 text-center">
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <PopoverTrigger>
+            <Button variant="outline">
+              Filter <ChevronDown />
+            </Button>
+            <Popover>
+              <Popover.Content>
+                <Popover.Header>
+                  <Popover.Title>Status</Popover.Title>
+                </Popover.Header>
+                <Popover.Body>
+                  <Checkbox defaultSelected>Active</Checkbox>
+                  <Checkbox>Provisioning</Checkbox>
+                </Popover.Body>
+              </Popover.Content>
+            </Popover>
+          </PopoverTrigger>
+          <MenuTrigger>
+            <Button variant="ghost" size="sm">
+              <MoreVertical />
+            </Button>
+            <Menu>
+              <Menu.Item>Rename</Menu.Item>
+              <Menu.Item>Duplicate</Menu.Item>
+              <Menu.Item>Delete</Menu.Item>
+            </Menu>
+          </MenuTrigger>
+        </div>
+        <p className="text-sm text-muted-foreground">Positioned and dismissed by React Aria.</p>
+      </Cell>
+
+      <Cell className="col-span-2 lg:col-span-1">
+        <Callout intent="info">
+          <Callout.Icon />
+          <Callout.Content>
+            <Callout.Title>New port available</Callout.Title>
+            <Callout.Description>Your 10G port in London is ready.</Callout.Description>
+          </Callout.Content>
+        </Callout>
+      </Cell>
+    </div>
   )
 }

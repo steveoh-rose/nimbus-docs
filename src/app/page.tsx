@@ -79,9 +79,10 @@ export default function Home() {
         {sources ? (
           <Link
             href="/docs/introduction"
-            className="mb-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent"
+            className="mb-6 inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent"
           >
             nimbus-ui v{sources["nimbus-ui"].version} · tokens v{sources["cc-design-tokens"].version}
+            <ArrowRight className="size-3" />
           </Link>
         ) : null}
         <h1 className="text-[2.75rem] leading-[1.08] font-bold tracking-tight sm:text-[4.25rem]">
@@ -96,13 +97,13 @@ export default function Home() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/docs/introduction"
-            className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-[var(--color-primary-400)]"
+            className="inline-flex h-9 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-[var(--color-primary-400)]"
           >
             Get started
           </Link>
           <Link
             href="/docs/components"
-            className="inline-flex h-11 items-center gap-2 rounded-full border px-6 text-sm font-medium transition-colors hover:bg-accent"
+            className="inline-flex h-9 items-center gap-2 rounded-md bg-muted px-4 text-sm font-medium transition-colors hover:bg-accent"
           >
             View components
           </Link>

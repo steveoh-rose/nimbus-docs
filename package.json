@@ -21,6 +21,7 @@
     "cmdk": "^1.1.1",
     "cn": "^0.3.0",
     "compute-scroll-into-view": "^3.1.1",
+    "geist": "^1.7.2",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "lodash-es": "4.17.21",

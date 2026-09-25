@@ -50,7 +50,7 @@ export function TableOfContents({
               className={cn(
                 "block py-1 pl-3 transition-colors hover:text-foreground",
                 heading.depth === 3 && "pl-6",
-                active === heading.slug ? "font-medium text-primary" : "text-muted-foreground"
+                active === heading.slug ? "font-medium text-foreground" : "text-muted-foreground"
               )}
             >
               {heading.text}
