@@ -1,37 +1,51 @@
-import { colorGroups, fontTokens, shadowTokens, spacingTokens, type Token } from "@/lib/tokens"
-import { Badge } from "@/components/ui/badge"
+import { colorGroups, contrastRatio, fontTokens, shadowTokens, spacingTokens, type Token } from "@/lib/tokens"
 
 function Mono({ children }: { children: React.ReactNode }) {
   return <code className="font-mono text-xs text-muted-foreground">{children}</code>
 }
 
-function ColorCard({ token }: { token: Token }) {
-  const translucent = token.value.startsWith("rgba")
+/** Step label from a token name, relative to its group's own prefix: --color-brand-light-grey
+ *  in group "brand" -> "light-grey", --color-palette-sky-500 in group "palette-sky" -> "500". */
+function stepOf(name: string, groupKey: string) {
+  const prefix = `--color-${groupKey}-`
+  return name.startsWith(prefix) ? name.slice(prefix.length) : (name.split("-").pop() ?? name)
+}
+
+/** White or near-black, whichever reads better on this swatch. Falls back to dark for rgba() tokens. */
+function textColorFor(hex: string): string {
+  if (!hex.startsWith("#")) return "#111111"
+  return contrastRatio(hex, "#ffffff") >= contrastRatio(hex, "#000000") ? "#ffffff" : "#111111"
+}
+
+/**
+ * One color family as a swatch card: a colored header (family name + its representative step)
+ * over a stacked list of every step, each row filled with that step's own resolved color.
+ */
+function ColorGroupCard({ group }: { group: ReturnType<typeof colorGroups>[number] }) {
+  const header = group.tokens.find((t) => stepOf(t.name, group.key) === "500") ?? group.tokens[0]
   return (
-    <div className="overflow-hidden rounded-md border bg-card">
+    <div id={group.key} className="scroll-mt-24 overflow-hidden rounded-md border">
       <div
-        className="h-16 border-b"
-        style={
-          translucent
-            ? {
-                // checkerboard shows translucency for rgba() tokens
-                backgroundImage: `linear-gradient(var(${token.name}), var(${token.name})), conic-gradient(#e5e5e5 25%, #fff 0 50%, #e5e5e5 0 75%, #fff 0)`,
-                backgroundSize: "auto, 12px 12px",
-              }
-            : { background: `var(${token.name})` }
-        }
-      />
-      <div className="space-y-0.5 p-2.5">
-        <div className="flex items-center gap-1.5">
-          <span className="truncate font-mono text-[12px] font-medium">{token.name}</span>
-          {token.deprecatedNote ? (
-            <Badge variant="outline" className="px-1.5 py-0 text-[10px]" title={token.deprecatedNote}>
-              deprecated
-            </Badge>
-          ) : null}
-        </div>
-        <Mono>{token.scss}</Mono>
-        <div className="font-mono text-xs">{token.value}</div>
+        className="flex items-center justify-between px-4 py-3"
+        style={{ background: `var(${header.name})`, color: textColorFor(header.value) }}
+      >
+        <span className="text-xs font-bold tracking-wide uppercase">{group.title}</span>
+        <span className="font-mono text-xs">
+          {stepOf(header.name, group.key)} {header.value}
+        </span>
+      </div>
+      <div>
+        {group.tokens.map((t) => (
+          <div
+            key={t.name}
+            className="flex items-center justify-between px-4 py-2 text-xs"
+            style={{ background: `var(${t.name})`, color: textColorFor(t.value) }}
+            title={t.deprecatedNote ? `Deprecated: ${t.deprecatedNote}` : t.name}
+          >
+            <span className="font-mono opacity-80">{stepOf(t.name, group.key)}</span>
+            <span className="font-mono">{t.value}</span>
+          </div>
+        ))}
       </div>
     </div>
   )
@@ -39,16 +53,9 @@ function ColorCard({ token }: { token: Token }) {
 
 export function ColorTokens() {
   return (
-    <div className="not-prose space-y-10">
+    <div className="not-prose grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
       {colorGroups().map((group) => (
-        <section key={group.key} id={group.key} className="scroll-mt-24">
-          <h3 className="mb-3 text-lg font-semibold tracking-tight">{group.title}</h3>
-          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {group.tokens.map((t) => (
-              <ColorCard key={t.name} token={t} />
-            ))}
-          </div>
-        </section>
+        <ColorGroupCard key={group.key} group={group} />
       ))}
     </div>
   )
