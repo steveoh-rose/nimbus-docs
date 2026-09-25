@@ -45,7 +45,7 @@ export function colorGroups() {
   }
   return [...groups.entries()]
     .sort(([a], [b]) => rank(a) - rank(b) || a.localeCompare(b))
-    .map(([key, tokens]) => ({ key, title: titleCase(key.replace("palette-", "Palette ")), tokens }))
+    .map(([key, tokens]) => ({ key, title: titleCase(key.replace(/^palette-/, "")), tokens }))
 }
 
 export function fontTokens() {
