@@ -1,8 +1,6 @@
 import fs from "node:fs"
 import path from "node:path"
 import Link from "next/link"
-import * as appIcons from "@nimbus/assets/icons/app"
-import * as brandIcons from "@nimbus/assets/icons/brand"
 import { Article, ArrowRight, Grid, Sparkles, Workspaces } from "@nimbus/assets/icons/app"
 
 import { HeroPanels } from "@/components/nimbus/hero-panels"
@@ -17,11 +15,6 @@ function syncInfo() {
   } catch {
     return null
   }
-}
-
-const iconCount = () => {
-  const count = (m: object) => Object.keys(m).filter((k) => k !== "default").length
-  return count(appIcons) + count(brandIcons)
 }
 
 const GETTING_STARTED = [
@@ -70,7 +63,7 @@ function SectionCard({
 export default function Home() {
   const componentCount = documentedComponents().length
   const patternCount = listContent("patterns").length
-  const tokenCount = sidebarNav.find((g) => g.section === "Tokens")?.items.length ?? 0
+  const foundationsCount = sidebarNav.filter((g) => g.section === "Foundations").reduce((n, g) => n + g.items.length, 0)
   const sources = syncInfo()
 
   return (
@@ -128,23 +121,16 @@ export default function Home() {
           <SectionCard
             href="/docs/introduction"
             icon={Article}
-            title="Docs"
+            title="Getting started"
             count="Guides"
-            description="Foundations, patterns and how to contribute to Nimbus."
+            description="Introduction, contributing and how to test against Nimbus."
           />
           <SectionCard
-            href="/docs/tokens"
+            href="/docs/foundations/tokens"
             icon={Sparkles}
-            title="Tokens"
-            count={`${tokenCount} categories`}
-            description="Color, typography, spacing, radius, shadows and the layout grid."
-          />
-          <SectionCard
-            href="/docs/icons"
-            icon={Grid}
-            title="Icons"
-            count={`${iconCount()}+ icons`}
-            description="App and brand icon sets from @console/nimbus-assets."
+            title="Foundations"
+            count={`${foundationsCount} categories`}
+            description="Searchable tokens, plus colors, typography, spacing, size, borders, layout and icons."
           />
           <SectionCard
             href="/docs/components"
@@ -152,6 +138,13 @@ export default function Home() {
             title="Components"
             count={`${componentCount} components`}
             description="Core primitives and complex components, each with live examples."
+          />
+          <SectionCard
+            href="/docs/patterns/overview"
+            icon={Grid}
+            title="Patterns"
+            count={`${patternCount} patterns`}
+            description="Recurring UI patterns, like form validation, built from Nimbus components."
           />
         </div>
 

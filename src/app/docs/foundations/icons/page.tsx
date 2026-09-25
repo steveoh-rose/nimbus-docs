@@ -16,18 +16,14 @@ export default function IconsPage() {
       description="Icons from @console/nimbus-assets. They take their color from currentColor and their size from font-size."
       headings={HEADINGS}
     >
-      <CodeBlock
-        code={"import { Add } from '@console/nimbus-assets/icons/app';\n\n<Add />"}
-        lang="tsx"
-        className="mt-0 mb-10"
-      />
+      <CodeBlock code={"import { Add } from '@console/nimbus-assets/icons/app';\n\n<Add />"} lang="tsx" className="mt-0 mb-10" />
       <div className="space-y-10">
         <section id="app" className="scroll-mt-24">
-          <h2 className="mb-3 font-heading text-xl font-semibold tracking-tight">App icons</h2>
+          <h2 className="mb-4 text-xl font-semibold tracking-tight">App icons</h2>
           <IconGallery set="app" />
         </section>
         <section id="brand" className="scroll-mt-24">
-          <h2 className="mb-3 font-heading text-xl font-semibold tracking-tight">Brand icons</h2>
+          <h2 className="mb-4 text-xl font-semibold tracking-tight">Brand icons</h2>
           <IconGallery set="brand" />
         </section>
       </div>

@@ -2,7 +2,10 @@ import { semanticTokens } from "@/lib/tokens"
 
 /** Semantic -> palette mapping, straight from cc-design-tokens. */
 export function SemanticTokens({ only }: { only?: string[] }) {
-  const groups = semanticTokens().filter((g) => !only || only.includes(g.group))
+  const groups = semanticTokens()
+    .filter((g) => !only || only.includes(g.group))
+    .map((g) => ({ ...g, tokens: g.tokens.filter((t) => t.note !== "deprecated") }))
+    .filter((g) => g.tokens.length > 0)
   return (
     <div className="not-prose my-6 space-y-8">
       {groups.map(({ group, tokens }) => (

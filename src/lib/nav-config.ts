@@ -21,31 +21,26 @@ export const siteConfig = {
 }
 
 export const mainNav: NavItem[] = [
-  { title: "Docs", href: "/docs/introduction" },
-  { title: "Tokens", href: "/docs/tokens" },
-  { title: "Icons", href: "/docs/icons" },
+  { title: "Getting started", href: "/docs/introduction" },
+  { title: "Foundations", href: "/docs/foundations/tokens" },
   { title: "Components", href: "/docs/components" },
+  { title: "Patterns", href: "/docs/patterns/overview" },
 ]
 
-const TOKEN_CATEGORIES: NavItem[] = [
-  { title: "Design tokens", href: "/docs/tokens#design-tokens" },
-  { title: "Color", href: "/docs/tokens#color" },
-  { title: "Typography", href: "/docs/tokens#typography" },
-  { title: "Spacing", href: "/docs/tokens#spacing" },
-  { title: "Border radius", href: "/docs/tokens#border-radius" },
-  { title: "Shadows & blurs", href: "/docs/tokens#shadows" },
-  { title: "Breakpoints & screen sizes", href: "/docs/tokens#breakpoints" },
-  { title: "Layout anatomy", href: "/docs/tokens#layout-anatomy" },
-]
-
-const ICON_CATEGORIES: NavItem[] = [
-  { title: "App icons", href: "/docs/icons#app" },
-  { title: "Brand icons", href: "/docs/icons#brand" },
+const FOUNDATIONS_TOKENS: NavItem[] = [
+  { title: "Tokens", href: "/docs/foundations/tokens" },
+  { title: "Colors", href: "/docs/foundations/colors" },
+  { title: "Typography", href: "/docs/foundations/typography" },
+  { title: "Spacing", href: "/docs/foundations/spacing" },
+  { title: "Size", href: "/docs/foundations/size" },
+  { title: "Borders", href: "/docs/foundations/borders" },
+  { title: "Layout", href: "/docs/foundations/layout" },
+  { title: "Icons", href: "/docs/foundations/icons" },
 ]
 
 export const sidebarNav: NavGroup[] = [
   {
-    section: "Docs",
+    section: "Getting started",
     items: [
       { title: "Introduction", href: "/docs/introduction" },
       { title: "Contributing", href: "/docs/contributing" },
@@ -53,28 +48,16 @@ export const sidebarNav: NavGroup[] = [
     ],
   },
   {
-    section: "Docs",
-    title: "Foundations",
+    section: "Foundations",
     items: [
       { title: "Tone of voice", href: "/docs/foundations/tone-of-voice" },
       { title: "Color system", href: "/docs/foundations/color-system" },
     ],
   },
   {
-    section: "Docs",
-    title: "Patterns",
-    items: [
-      { title: "Overview", href: "/docs/patterns/overview" },
-      { title: "Form validation", href: "/docs/patterns/form-validation" },
-    ],
-  },
-  {
-    section: "Tokens",
-    items: TOKEN_CATEGORIES,
-  },
-  {
-    section: "Icons",
-    items: ICON_CATEGORIES,
+    section: "Foundations",
+    title: "Design tokens",
+    items: FOUNDATIONS_TOKENS,
   },
   {
     section: "Components",
@@ -85,6 +68,13 @@ export const sidebarNav: NavGroup[] = [
     title: g.title,
     items: g.names.map((name) => ({ title: name, href: `/docs/components/${componentSlug(name)}` })),
   })),
+  {
+    section: "Patterns",
+    items: [
+      { title: "Overview", href: "/docs/patterns/overview" },
+      { title: "Form validation", href: "/docs/patterns/form-validation" },
+    ],
+  },
 ]
 
 /** Top-level sections (header tabs) — each links to its section's landing page, not a sidebar anchor. */
@@ -96,9 +86,9 @@ export function sectionOf(pathname: string): string | null {
   if (exact) return exact.section
   const prefixes: Array<[string, string]> = [
     ["/docs/components", "Components"],
-    ["/docs/icons", "Icons"],
-    ["/docs/tokens", "Tokens"],
-    ["/docs", "Docs"],
+    ["/docs/patterns", "Patterns"],
+    ["/docs/foundations", "Foundations"],
+    ["/docs", "Getting started"],
   ]
   return prefixes.find(([p]) => pathname.startsWith(p))?.[1] ?? null
 }

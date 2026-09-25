@@ -23,18 +23,20 @@ function textColorFor(hex: string): string {
  * card stacking every step, each row filled with that step's own resolved color.
  */
 function ColorGroupCard({ group }: { group: ReturnType<typeof colorGroups>[number] }) {
+  const tokens = group.tokens.filter((t) => !t.deprecatedNote)
+  if (!tokens.length) return null
   return (
     <div id={group.key} className="scroll-mt-24">
       <h4 className="mb-2 text-sm font-semibold text-foreground">{group.title}</h4>
       <div className="overflow-hidden rounded-md border">
-        {group.tokens.map((t) => {
+        {tokens.map((t) => {
           const contrast = t.value.startsWith("#") ? contrastRatio(t.value, "#ffffff") : null
           return (
             <div
               key={t.name}
               className="group flex items-center justify-between gap-3 px-4 py-2 text-xs"
               style={{ background: `var(${t.name})`, color: textColorFor(t.value) }}
-              title={t.deprecatedNote ? `Deprecated: ${t.deprecatedNote}` : t.name}
+              title={t.name}
             >
               <span className="font-mono opacity-80">{stepOf(t.name, group.key)}</span>
               <span className="flex items-center gap-3 font-mono">
@@ -76,15 +78,15 @@ export function ColorTokens() {
   return (
     <div className="space-y-10">
       <section id="color-brand" className="scroll-mt-24">
-        <h3 className="mb-4 text-base font-semibold tracking-tight">Brand colors</h3>
+        <h2 className="mb-4 text-xl font-semibold tracking-tight">Brand colors</h2>
         <ColorGroupGrid groups={brand} />
       </section>
       <section id="color-palette" className="scroll-mt-24">
-        <h3 className="mb-4 text-base font-semibold tracking-tight">Palette colors</h3>
+        <h2 className="mb-4 text-xl font-semibold tracking-tight">Palette colors</h2>
         <ColorGroupGrid groups={palette} />
       </section>
       <section id="color-semantic" className="scroll-mt-24">
-        <h3 className="mb-4 text-base font-semibold tracking-tight">Semantic colors</h3>
+        <h2 className="mb-4 text-xl font-semibold tracking-tight">Semantic colors</h2>
         <ColorGroupGrid groups={semantic} />
       </section>
     </div>
