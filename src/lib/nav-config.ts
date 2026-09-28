@@ -88,7 +88,6 @@ export function sectionOf(pathname: string): string | null {
     ["/docs/components", "Components"],
     ["/docs/patterns", "Patterns"],
     ["/docs/foundations", "Foundations"],
-    ["/docs", "Getting started"],
   ]
   return prefixes.find(([p]) => pathname.startsWith(p))?.[1] ?? null
 }

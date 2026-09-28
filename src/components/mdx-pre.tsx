@@ -27,12 +27,10 @@ export function MdxPre({ children, style, ...props }: React.ComponentProps<"pre"
   const lang = (props as Record<string, unknown>)["data-language"] as string | undefined
 
   return (
-    <div
-      className="not-prose relative my-5 overflow-hidden rounded-[10px] border border-white/10"
-      style={{ backgroundColor: style?.backgroundColor ?? "#011627" }}
-    >
+    <div className="not-prose relative my-5 overflow-hidden rounded-2xl bg-[var(--color-brand-navy)] shadow-[var(--shadow-soft)]">
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[2px]" style={{ background: "var(--gradient-the-way-of-water)" }} />
       <div className="flex items-center justify-between border-b border-white/10 py-1.5 pr-1.5 pl-4">
-        <span className="font-mono text-[11px] tracking-wider text-white/50 uppercase">
+        <span className="text-[11px] font-semibold tracking-[0.12em] text-white/55 uppercase">
           {lang ? (LANG_LABEL[lang] ?? lang) : "Code"}
         </span>
         <Button

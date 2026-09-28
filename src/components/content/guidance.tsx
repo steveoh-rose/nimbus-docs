@@ -16,21 +16,23 @@ function Card({
   return (
     <div
       className={cn(
-        "not-prose my-3 rounded-md border p-4 text-sm",
+        "not-prose my-4 rounded-2xl border p-5 text-[0.93rem] leading-relaxed",
         tone === "do" && "border-[var(--color-success-200)] bg-[var(--color-success-100)]",
         tone === "dont" && "border-[var(--color-error-200)] bg-[var(--color-error-100)]",
-        tone === "note" && "border-[var(--color-primary-200)] bg-accent"
+        tone === "note" && "border-[var(--color-primary-200)] bg-[var(--color-primary-100)]"
       )}
     >
       <div
         className={cn(
-          "mb-1 flex items-center gap-1.5 font-semibold",
+          "mb-2 flex items-center gap-2 font-heading font-semibold",
           tone === "do" && "text-[var(--color-success-500)]",
           tone === "dont" && "text-[var(--color-error-500)]",
-          tone === "note" && "text-accent-foreground"
+          tone === "note" && "text-[var(--color-primary-500)]"
         )}
       >
-        <Icon className="size-4" />
+        <span className="flex size-6 items-center justify-center rounded-full bg-background">
+          <Icon className="size-4" />
+        </span>
         {label}
       </div>
       <div className="text-foreground [&_p]:m-0 [&_p+p]:mt-2">{children}</div>

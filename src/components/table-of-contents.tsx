@@ -5,7 +5,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import type { Heading } from "@/lib/mdx"
 
-/** "On this page" list with scroll tracking. */
+/** "On this page" list with scroll tracking; the active entry carries the brand gradient bar. */
 export function TableOfContents({
   headings,
   className,
@@ -39,24 +39,34 @@ export function TableOfContents({
   if (headings.length === 0) return null
 
   return (
-    <aside className={cn("sticky top-[7rem] hidden h-fit max-h-[calc(100vh-8rem)] w-56 shrink-0 overflow-y-auto xl:block", className)}>
-      <h4 className="mb-2 text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">On this page</h4>
-      <ul className="flex flex-col border-l text-sm">
-        {headings.map((heading) => (
-          <li key={heading.slug}>
-            <a
-              href={`#${heading.slug}`}
-              aria-current={active === heading.slug ? "location" : undefined}
-              className={cn(
-                "block py-1 pl-3 transition-colors hover:text-foreground",
-                heading.depth === 3 && "pl-6",
-                active === heading.slug ? "font-medium text-foreground" : "text-muted-foreground"
-              )}
-            >
-              {heading.text}
-            </a>
-          </li>
-        ))}
+    <aside className={cn("sticky top-24 hidden h-fit max-h-[calc(100vh-7rem)] w-56 shrink-0 overflow-y-auto pt-8 xl:block", className)}>
+      <h4 className="brand-kicker mb-3">On this page</h4>
+      <ul className="flex flex-col border-l-2 border-[var(--border)] text-[0.85rem]">
+        {headings.map((heading) => {
+          const isActive = active === heading.slug
+          return (
+            <li key={heading.slug} className="relative">
+              {isActive ? (
+                <span
+                  aria-hidden
+                  className="absolute top-1 bottom-1 -left-[2px] w-[2px] rounded-full"
+                  style={{ background: "linear-gradient(180deg, var(--color-brand-purple), var(--color-brand-aqua))" }}
+                />
+              ) : null}
+              <a
+                href={`#${heading.slug}`}
+                aria-current={isActive ? "location" : undefined}
+                className={cn(
+                  "block py-1.5 pl-4 leading-snug transition-colors hover:text-foreground",
+                  heading.depth === 3 && "pl-7",
+                  isActive ? "font-semibold text-foreground" : "text-muted-foreground"
+                )}
+              >
+                {heading.text}
+              </a>
+            </li>
+          )
+        })}
       </ul>
     </aside>
   )

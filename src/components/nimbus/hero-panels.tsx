@@ -20,7 +20,8 @@ function Cell({ className, children }: { className?: string; children: React.Rea
     <div
       data-nimbus-canvas
       className={
-        "flex flex-col justify-center overflow-hidden rounded-xl border bg-white p-5 text-left " + (className ?? "")
+        "flex flex-col justify-center overflow-hidden rounded-3xl border bg-white p-6 text-left shadow-[var(--shadow-soft)] " +
+        (className ?? "")
       }
     >
       {children}

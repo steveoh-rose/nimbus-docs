@@ -48,7 +48,7 @@ export function StoryBlock({
         collapsible={info.code.split("\n").length > 8}
         dense={dense}
         codeSlot={
-          info.code ? <CodeBlock code={info.code} lang="tsx" className="my-0 rounded-none border-0" /> : undefined
+          info.code ? <CodeBlock code={info.code} lang="tsx" className="my-0 rounded-none border-0 shadow-none" /> : undefined
         }
       />
     </section>
@@ -133,7 +133,7 @@ export function ShareLinksBar({ links }: { links: ShareLinks }) {
           href={item.href}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex h-8 items-center gap-2 rounded-full bg-muted px-3 text-sm transition-colors hover:bg-accent"
+          className="inline-flex h-9 items-center gap-2 rounded-full border bg-background px-3.5 text-sm font-semibold transition-colors hover:border-[var(--color-primary-200)] hover:bg-[var(--color-primary-100)]"
         >
           {item.icon}
           {item.label}

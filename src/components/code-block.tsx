@@ -35,12 +35,13 @@ export async function CodeBlock({
   return (
     <div
       className={cn(
-        "not-prose relative my-5 overflow-hidden rounded-[10px] border border-white/10 bg-[#011627]",
+        "not-prose relative my-5 overflow-hidden rounded-2xl bg-[var(--color-brand-navy)] shadow-[var(--shadow-soft)]",
         className
       )}
     >
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[2px]" style={{ background: "var(--gradient-the-way-of-water)" }} />
       <div className="flex items-center justify-between border-b border-white/10 py-1.5 pr-1.5 pl-4">
-        <span className="font-mono text-[11px] tracking-wider text-white/50 uppercase">
+        <span className="text-[11px] font-semibold tracking-[0.12em] text-white/55 uppercase">
           {LANG_LABEL[lang] ?? lang}
         </span>
         <CopyButton text={trimmed} className="text-white/60 hover:bg-white/10 hover:text-white" />

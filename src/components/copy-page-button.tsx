@@ -16,7 +16,7 @@ export function CopyPageButton() {
         setCopied(true)
         setTimeout(() => setCopied(false), 1600)
       }}
-      className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border bg-white px-3.5 text-sm transition-colors hover:bg-[var(--color-bg-200)]"
+      className="inline-flex h-9 shrink-0 items-center gap-2 rounded-full border bg-background px-3.5 text-sm font-semibold transition-colors hover:border-[var(--color-primary-200)] hover:bg-[var(--color-primary-100)]"
     >
       {copied ? <Check className="size-4 text-primary" /> : <Copy className="size-4" />}
       {copied ? "Copied" : "Copy page"}

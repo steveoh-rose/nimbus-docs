@@ -40,15 +40,21 @@ export async function generateMetadata({ params }: PageProps) {
 
 function clean(raw: string) {
   let fence = false
+  let titleDropped = false
   return raw
     .split("\n")
     .filter((line) => {
       if (line.trim().startsWith("```")) fence = !fence
-      return fence || !/^import\s/.test(line)
+      if (fence) return true
+      // The page title comes from the shell, so drop the document's own first top-level heading.
+      if (!titleDropped && /^# /.test(line)) {
+        titleDropped = true
+        return false
+      }
+      return !/^import\s/.test(line)
     })
     .join("\n")
     .replace(/<Meta[\s\S]*?\/>/g, "")
-    .replace(/^# .*\n/, "") // page title comes from the shell
 }
 
 export default async function GuidePage({ params }: PageProps) {

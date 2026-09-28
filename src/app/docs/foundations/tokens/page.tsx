@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { DocShell } from "@/components/doc-shell"
 import { CodeBlock } from "@/components/code-block"
 import { Note } from "@/components/content/guidance"
@@ -93,17 +95,17 @@ export default function TokensIndexPage() {
           <h2 className="mb-3 text-xl font-semibold tracking-tight">All tokens</h2>
           <p className="mb-4 max-w-[70ch] text-[15px] leading-relaxed text-muted-foreground">
             Every color, typography, spacing and shadow token, searchable by name or value. See{" "}
-            <a href="/docs/foundations/colors" className="underline underline-offset-4">
+            <Link href="/docs/foundations/colors" className="font-semibold text-[var(--color-primary-300)] underline underline-offset-4">
               Colors
-            </a>
+            </Link>
             ,{" "}
-            <a href="/docs/foundations/typography" className="underline underline-offset-4">
+            <Link href="/docs/foundations/typography" className="font-semibold text-[var(--color-primary-300)] underline underline-offset-4">
               Typography
-            </a>{" "}
+            </Link>{" "}
             and{" "}
-            <a href="/docs/foundations/spacing" className="underline underline-offset-4">
+            <Link href="/docs/foundations/spacing" className="font-semibold text-[var(--color-primary-300)] underline underline-offset-4">
               Spacing
-            </a>{" "}
+            </Link>{" "}
             for the full presentation of each category.
           </p>
           <TokenSearch tokens={tokens} />

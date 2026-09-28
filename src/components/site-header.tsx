@@ -6,8 +6,8 @@ import { CommandMenu } from "@/components/command-menu"
 import { MobileNav } from "@/components/mobile-nav"
 import { SectionTabs } from "@/components/section-tabs"
 import { GitHubMarkIcon } from "@/components/icons"
+import { NimbusLogo } from "@/components/brand/brand-art"
 import { siteConfig } from "@/lib/nav-config"
-import { Cloud } from "@nimbus/assets/icons/app"
 
 function nimbusVersion() {
   try {
@@ -18,19 +18,15 @@ function nimbusVersion() {
   }
 }
 
-const ghost =
-  "hidden h-8 items-center gap-1.5 rounded-md px-2 text-sm text-muted-foreground transition-colors hover:bg-[var(--color-bg-200)] hover:text-foreground sm:inline-flex"
-
 export function SiteHeader() {
   const version = nimbusVersion()
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="mx-auto flex h-14 max-w-[1400px] items-center gap-4 px-4 lg:px-8">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/85 backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
+      <div className="mx-auto flex h-16 max-w-[1440px] items-center gap-5 px-4 lg:px-8">
         <MobileNav />
 
-        <Link href="/" className="mr-2 flex items-center gap-2">
-          <Cloud className="size-5 text-primary" />
-          <span className="font-heading text-[15px] font-semibold tracking-tight">{siteConfig.name}</span>
+        <Link href="/" aria-label={`${siteConfig.name} home`} className="flex shrink-0 items-center rounded-md py-1">
+          <NimbusLogo width={92} />
         </Link>
 
         <div className="hidden lg:block">
@@ -40,12 +36,23 @@ export function SiteHeader() {
         <div className="ml-auto flex flex-1 items-center justify-end gap-2 lg:flex-none">
           <CommandMenu />
           {version ? (
-            <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer" className={ghost}>
+            <a
+              href={siteConfig.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden h-8 items-center rounded-full bg-[var(--color-primary-100)] px-3 text-xs font-semibold text-[var(--color-primary-500)] transition-colors hover:bg-[var(--color-primary-200)] sm:inline-flex"
+            >
               v{version}
             </a>
           ) : null}
-          <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer" className={ghost} aria-label="GitHub">
-            <GitHubMarkIcon className="size-4" />
+          <a
+            href={siteConfig.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+            className="hidden size-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:inline-flex"
+          >
+            <GitHubMarkIcon className="size-[18px]" />
           </a>
         </div>
       </div>

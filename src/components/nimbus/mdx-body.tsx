@@ -46,7 +46,7 @@ const components = {
 
 export function MdxBody({ source, format = "mdx" }: { source: string; format?: "mdx" | "md" }) {
   return (
-    <div className="prose prose-neutral max-w-none prose-headings:scroll-mt-32 prose-headings:tracking-tight prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
+    <div className="prose max-w-none prose-headings:scroll-mt-32 prose-headings:tracking-tight prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
       <MDXRemote
         source={source}
         components={components}

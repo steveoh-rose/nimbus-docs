@@ -8,15 +8,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  /*
-   * The docs site chrome (nav, sidebar, page copy, code) runs on Geist Sans / Geist Mono, the
-   * way shadcn/ui's own site does — Nimbus's own Open Sans / Montserrat tokens are reserved for
-   * [data-nimbus-canvas] and the Typography token specimens, where we're actually
-   * demonstrating the product's real type.
-   */
-  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-heading: var(--font-sans);
+  /* The docs speak the brand: Open Sans for reading, Montserrat for headings, Geist Mono for code. */
+  --font-sans: var(--font-family-regular);
+  --font-heading: var(--font-family-accent);
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --color-ink: var(--color-brand-navy);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -60,39 +56,47 @@
  * Nimbus is a light-only design system, so there is no dark theme.
  */
 :root {
-  /* Plain white page canvas (HeroUI/Primer convention) instead of Nimbus's cool-tinted bg-100 */
+  /* Reading surfaces stay plain white; brand tints are for hero bands and cards only. */
   --background: var(--color-bg-default);
-  --foreground: var(--color-text-500);
+  --foreground: var(--color-brand-navy);
   --card: var(--color-bg-default);
-  --card-foreground: var(--color-text-500);
+  --card-foreground: var(--color-brand-navy);
   --popover: var(--color-bg-default);
-  --popover-foreground: var(--color-text-500);
+  --popover-foreground: var(--color-brand-navy);
   --primary: var(--color-primary-300);
   --primary-foreground: var(--color-text-100);
   --secondary: var(--color-bg-200);
-  --secondary-foreground: var(--color-system-500);
-  --muted: var(--color-bg-200);
-  --muted-foreground: var(--color-system-400);
+  --secondary-foreground: var(--color-brand-navy);
+  --muted: var(--color-bg-100);
+  --muted-foreground: color-mix(in srgb, var(--color-brand-navy) 70%, white);
   --accent: var(--color-primary-100);
   --accent-foreground: var(--color-primary-500);
   --destructive: var(--color-error-300);
-  --border: var(--color-system-100);
-  --input: var(--color-system-100);
+  --border: color-mix(in srgb, var(--color-brand-navy) 11%, white);
+  --input: color-mix(in srgb, var(--color-brand-navy) 18%, white);
   --ring: var(--color-primary-300);
   --chart-1: var(--color-primary-300);
   --chart-2: var(--color-accent-bright-1-300);
   --chart-3: var(--color-success-300);
   --chart-4: var(--color-accent-highlight-1);
   --chart-5: var(--color-accent-bright-2);
-  --radius: 0.5rem; /* 8px: a tighter, Primer-like scale for our own chrome (not Nimbus's own component radii) */
-  --sidebar: var(--color-bg-100);
-  --sidebar-foreground: var(--color-text-500);
+  --radius: 0.625rem;
+  --sidebar: var(--color-bg-default);
+  --sidebar-foreground: var(--color-brand-navy);
   --sidebar-primary: var(--color-primary-300);
   --sidebar-primary-foreground: var(--color-text-100);
   --sidebar-accent: var(--color-primary-100);
   --sidebar-accent-foreground: var(--color-primary-500);
-  --sidebar-border: var(--color-system-100);
+  --sidebar-border: var(--border);
   --sidebar-ring: var(--color-primary-300);
+
+  /* Brand gradients (nimbus-assets brand.colors.js), built from brand color tokens */
+  --gradient-purple-rain: linear-gradient(90deg, var(--color-brand-purple), var(--color-brand-pink));
+  --gradient-luscious-green: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-green));
+  --gradient-blue-hour: linear-gradient(90deg, var(--color-brand-purple), var(--color-brand-green));
+  --gradient-the-way-of-water: linear-gradient(90deg, var(--color-brand-purple), var(--color-brand-aqua));
+  --shadow-soft: 0 18px 44px rgb(22 38 63 / 0.1), 0 2px 6px rgb(22 38 63 / 0.05);
+  --shadow-lift: 0 24px 60px rgb(22 38 63 / 0.16), 0 3px 8px rgb(22 38 63 / 0.06);
 }
 
 @layer base {
@@ -109,7 +113,9 @@
   h2,
   h3,
   h4 {
+    font-family: var(--font-heading);
     font-weight: 600;
+    letter-spacing: -0.015em;
     text-wrap: balance;
   }
 }
@@ -120,7 +126,195 @@
   color: var(--color-text-500);
 }
 
-/* Inline code: Roboto Mono on a soft Nimbus-blue chip, no typography-plugin backticks */
+/* ------------------------------------------------------------------ */
+/* Brand language                                                      */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  /* Small uppercase label with the purple → blue brand gradient */
+  .brand-kicker {
+    display: inline-block;
+    font-family: var(--font-family-regular);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--color-brand-purple), var(--color-brand-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* The blinking gradient underscore that follows every title */
+  .title-cursor {
+    display: inline-block;
+    width: 0.62em;
+    height: 0.12em;
+    margin-left: 0.14em;
+    border-radius: 999px;
+    vertical-align: baseline;
+    background: linear-gradient(90deg, var(--color-brand-aqua), var(--color-brand-purple));
+    animation: nb-blink 1.3s ease-in-out infinite;
+  }
+
+  /* Outlined dot rings, as in the brand illustrations */
+  .dot-rings {
+    background-image: radial-gradient(
+      circle,
+      transparent 5.5px,
+      color-mix(in srgb, var(--color-brand-navy) 10%, transparent) 6px 7.2px,
+      transparent 7.7px
+    );
+    background-size: 34px 34px;
+  }
+
+  /* Diagonal hatching clipped to a circle */
+  .hatch-circle {
+    border-radius: 999px;
+    background: repeating-linear-gradient(
+      45deg,
+      color-mix(in srgb, var(--color-brand-navy) 7%, transparent) 0 1.5px,
+      transparent 1.5px 9px
+    );
+  }
+
+  .nb-float {
+    animation: nb-float var(--nb-duration, 9s) ease-in-out infinite;
+    animation-delay: var(--nb-delay, 0s);
+  }
+
+  .nb-rise {
+    animation: nb-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--nb-delay, 0s);
+  }
+
+  .nb-fade-up {
+    animation: nb-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--nb-delay, 0s);
+  }
+
+  /* A soft gradient ring that appears on hover (cards, tiles) */
+  .gradient-ring {
+    position: relative;
+    isolation: isolate;
+  }
+  .gradient-ring::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    padding: 1.5px;
+    border-radius: inherit;
+    background: var(--gradient-the-way-of-water);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .gradient-ring:hover::before,
+  .gradient-ring:focus-visible::before {
+    opacity: 1;
+  }
+}
+
+@keyframes nb-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  60%,
+  90% {
+    opacity: 0.18;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes nb-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(var(--nb-rot, 0deg));
+  }
+  50% {
+    transform: translate3d(0, var(--nb-bob, -14px), 0) rotate(calc(var(--nb-rot, 0deg) + var(--nb-sway, 5deg)));
+  }
+}
+
+@keyframes nb-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes nb-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes nb-toggle {
+  0%,
+  38% {
+    transform: translateX(0);
+  }
+  50%,
+  88% {
+    transform: translateX(var(--nb-travel, 0px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.nb-toggle-knob {
+  animation: nb-toggle 7s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title-cursor,
+  .nb-float,
+  .nb-rise,
+  .nb-fade-up,
+  .nb-toggle-knob {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Reading typography                                                  */
+/* ------------------------------------------------------------------ */
+
+.prose {
+  --tw-prose-body: color-mix(in srgb, var(--color-brand-navy) 86%, white);
+  --tw-prose-headings: var(--color-brand-navy);
+  --tw-prose-links: var(--color-primary-300);
+  --tw-prose-bold: var(--color-brand-navy);
+  --tw-prose-bullets: var(--color-brand-blue);
+  --tw-prose-counters: var(--color-brand-purple);
+  --tw-prose-quote-borders: var(--color-brand-purple);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+}
+
+.prose a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+/* Inline code: a soft Nimbus-blue chip, no typography-plugin backticks */
 .prose :where(code):not(:where([class~="not-prose"] *, pre *)) {
   font-family: var(--font-mono);
   font-size: 0.85em;
@@ -160,16 +354,20 @@ figure[data-rehype-pretty-code-figure] {
 /* Heading anchors (rehype-autolink-headings) should read as headings, not links */
 .prose :is(h1, h2, h3, h4) a {
   color: inherit;
+  font-weight: inherit;
   text-decoration: none;
 }
 
-/* ---- Reading typography, from the Nimbus type-scale tokens ---- */
+/* Only Montserrat 400/600 are loaded; pin headings to 600 instead of the plugin's 700/800. */
+.prose :is(h1, h2, h3, h4) {
+  font-weight: 600;
+}
+
 .prose h2 {
   font-size: var(--font-heading-h3-size);
   line-height: var(--font-heading-h3-line-height);
   margin-top: 2.5em;
   margin-bottom: 0.6em;
-  letter-spacing: -0.01em;
 }
 .prose h3 {
   font-size: var(--font-heading-h4-size);
@@ -189,21 +387,26 @@ figure[data-rehype-pretty-code-figure] {
 .prose :where(table) {
   font-variant-numeric: tabular-nums;
 }
+.prose blockquote {
+  font-style: normal;
+}
 
-/* ---- Browser surfaces that ship with defaults ---- */
-::selection {
-  background: var(--color-primary-200);
-  color: var(--color-primary-500);
-}
-input,
-textarea {
-  caret-color: var(--color-primary-300);
-}
-:focus-visible {
-  outline: 2px solid var(--color-primary-300);
-  outline-offset: 2px;
-}
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-system-100) transparent;
+/* ---- Browser surfaces that ship with defaults (in the base layer so component utilities can override) ---- */
+@layer base {
+  ::selection {
+    background: color-mix(in srgb, var(--color-brand-aqua) 35%, white);
+    color: var(--color-brand-navy);
+  }
+  input,
+  textarea {
+    caret-color: var(--color-primary-300);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-primary-300);
+    outline-offset: 2px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
 }

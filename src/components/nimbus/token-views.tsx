@@ -69,7 +69,7 @@ function ColorGroupGrid({ groups }: { groups: ReturnType<typeof colorGroups> }) 
   )
 }
 
-export function ColorTokens() {
+export function ColorTokens({ afterBrand }: { afterBrand?: React.ReactNode }) {
   const groups = colorGroups()
   const brand = groups.filter((g) => g.key === "brand")
   const palette = groups.filter((g) => g.key.startsWith("palette"))
@@ -81,6 +81,7 @@ export function ColorTokens() {
         <h2 className="mb-4 text-xl font-semibold tracking-tight">Brand colors</h2>
         <ColorGroupGrid groups={brand} />
       </section>
+      {afterBrand}
       <section id="color-palette" className="scroll-mt-24">
         <h2 className="mb-4 text-xl font-semibold tracking-tight">Palette colors</h2>
         <ColorGroupGrid groups={palette} />

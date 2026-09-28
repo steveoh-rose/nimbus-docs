@@ -69,7 +69,7 @@ function CodePanel({ children, collapsible }: { children: React.ReactNode; colla
     <div className="relative border-t">
       <div className={collapsed ? "max-h-40 overflow-hidden" : undefined}>{children}</div>
       {collapsed ? (
-        <div className="absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-[#011627] via-[#011627]/90 to-transparent pt-12 pb-3">
+        <div className="absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/90 to-transparent pt-12 pb-3">
           <button
             type="button"
             onClick={() => setExpanded(true)}
@@ -79,7 +79,7 @@ function CodePanel({ children, collapsible }: { children: React.ReactNode; colla
           </button>
         </div>
       ) : collapsible ? (
-        <div className="flex justify-center bg-[#011627] pb-3">
+        <div className="flex justify-center bg-[var(--color-brand-navy)] pb-3">
           <button
             type="button"
             onClick={() => setExpanded(false)}
@@ -195,7 +195,7 @@ function StoryInner({
   ) : null
 
   return (
-    <div className={cn("overflow-hidden border bg-white", dense ? "rounded-none" : "rounded-[10px]")}>
+    <div className={cn("overflow-hidden border bg-white shadow-[var(--shadow-soft)]", dense ? "rounded-none" : "rounded-2xl")}>
       {preview}
       {controlsPanel}
       {codeSlot ? <CodePanel collapsible={collapsible}>{codeSlot}</CodePanel> : null}
@@ -220,7 +220,7 @@ export function StoryCanvas(props: {
   dense?: boolean
 }) {
   const isClient = useIsClient()
-  const skeletonRadius = props.dense ? "rounded-none" : "rounded-[10px]"
+  const skeletonRadius = props.dense ? "rounded-none" : "rounded-2xl"
   if (!isClient) return <Skeleton className={cn("h-40 w-full", skeletonRadius)} />
   return (
     <React.Suspense fallback={<Skeleton className={cn("h-40 w-full", skeletonRadius)} />}>

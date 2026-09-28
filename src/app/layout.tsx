@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/lib/nav-config";
-
-// Docs chrome font (nav, sidebar, page copy, code) — shadcn/ui's own site runs on Geist Sans
-// and Geist Mono. Nimbus's Open Sans / Montserrat tokens stay reserved for the product itself,
-// applied only inside [data-nimbus-canvas] and the Typography token specimens below.
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${GeistMono.variable} h-full antialiased`}>
       <head>
         {/* Nimbus typography tokens: Open Sans (body) and Montserrat (accent) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,6 +42,7 @@ export default function RootLayout({
         <TooltipProvider delayDuration={200}>
           <SiteHeader />
           <div className="flex flex-1 flex-col">{children}</div>
+          <SiteFooter />
         </TooltipProvider>
       </body>
     </html>
